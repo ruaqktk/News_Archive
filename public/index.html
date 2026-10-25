@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f3ed" />
+    <meta name="description" content="9개 언론사의 단독·기획 기사를 날짜와 언론사별로 모아 읽는 개인 뉴스 아카이브. 매일 오전 9시, 아침의 기록." />
+    <title>아침의 기록 — 뉴스 아카이브</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script type="module" src="./assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">기사 목록으로 건너뛰기</a>
+    <div class="page-shell">
+      <header class="masthead">
+        <div class="masthead-top">
+          <span class="schedule"><span class="sun" aria-hidden="true">✳</span> 매일 오전 9:00 <span class="muted">· 한국시간</span></span>
+          <span class="masthead-note">하루의 맥락을, 차곡차곡.</span>
+        </div>
+        <div class="brand-row">
+          <a class="brand" href="./" aria-label="아침의 기록 홈">
+            <span class="brand-eyebrow">NEWS ARCHIVE</span>
+            <h1>아침의 기록<span class="brand-period">.</span></h1>
+          </a>
+          <p class="brand-description">9개 언론사<br /><strong>단독과 기획을 한곳에</strong></p>
+        </div>
+        <div class="masthead-bottom">
+          <span>깊이 읽고, 오래 기억하기</span>
+          <span id="archive-range">나의 뉴스 아카이브</span>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <aside class="sidebar" aria-label="언론사 필터">
+          <div class="section-label-row">
+            <h2 class="section-label">언론사</h2>
+            <span class="small-label" id="publisher-count">09</span>
+          </div>
+          <div class="publisher-list" id="publisher-list"></div>
+          <div class="sidebar-note">
+            <span class="note-rule" aria-hidden="true"></span>
+            <p>보도의 발견은 짧게,<br />더 깊은 읽기는 원문에서.</p>
+            <span>제목과 요약을 살펴보고<br />관심 있는 기사의 원문을 열어보세요.</span>
+          </div>
+        </aside>
+
+        <main id="main-content" class="main-content">
+          <section class="edition-heading" aria-labelledby="edition-title">
+            <div>
+              <p class="eyebrow">THE MORNING EDITION</p>
+              <h2 id="edition-title">오늘의 브리핑</h2>
+              <p class="edition-description" id="edition-description">새로운 보도를 한눈에 살펴보세요.</p>
+            </div>
+            <div class="edition-stamp" aria-label="브리핑 시각">
+              <span>MORNING</span>
+              <strong>09:00</strong>
+              <span>SEOUL · KST</span>
+            </div>
+          </section>
+
+          <p id="run-note" class="run-note" role="status" hidden></p>
+
+          <div class="stats" aria-label="선택한 날짜의 수집 현황">
+            <div class="stat"><strong id="stat-total">0</strong><span>수집한 기사</span></div>
+            <div class="stat"><strong id="stat-exclusive">0</strong><span>단독 보도</span></div>
+            <div class="stat"><strong id="stat-feature">0</strong><span>기획 기사</span></div>
+            <div class="stat stat-update"><span class="update-label">마지막 수집</span><strong id="last-updated">아직 없음</strong></div>
+          </div>
+
+          <section class="reading-desk" aria-label="기사 검색 및 보기 설정">
+            <div class="desk-top">
+              <div class="type-filter" role="group" aria-label="기사 유형">
+                <button type="button" data-type="all" class="type-button is-active" aria-pressed="true">전체</button>
+                <button type="button" data-type="exclusive" class="type-button" aria-pressed="false">단독</button>
+                <button type="button" data-type="feature" class="type-button" aria-pressed="false">기획</button>
+              </div>
+              <p class="result-count" id="result-count" aria-live="polite">기사를 불러오고 있어요</p>
+            </div>
+            <div class="toolbar">
+              <label class="search-field">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg>
+                <span class="sr-only">기사 제목과 요약 검색</span>
+                <input id="search-input" type="search" placeholder="제목이나 요약에서 검색" autocomplete="off" />
+              </label>
+              <label class="select-field date-field">
+                <span class="sr-only">아카이브 날짜</span>
+                <select id="date-select" aria-label="아카이브 날짜"><option value="all">전체 날짜</option></select>
+              </label>
+              <label class="select-field sort-field">
+                <span class="sr-only">기사 정렬</span>
+                <select id="sort-select" aria-label="기사 정렬"><option value="latest">최신순</option><option value="publisher">언론사순</option></select>
+              </label>
+            </div>
+          </section>
+
+          <div id="load-error" class="load-error" role="alert" hidden>
+            <div><strong>아카이브를 불러오지 못했어요.</strong><p>잠시 후 다시 시도해 주세요.</p></div>
+            <button id="retry-button" type="button" class="secondary-button">다시 불러오기</button>
+          </div>
+
+          <section id="article-grid" class="article-grid" aria-label="기사 목록" aria-busy="true"></section>
+
+          <section id="empty-state" class="empty-state" hidden aria-labelledby="empty-title">
+            <div class="empty-paper" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <p class="eyebrow" id="empty-eyebrow">A NEW DAY, A NEW STORY</p>
+            <h3 id="empty-title">첫 브리핑을 기다리고 있어요</h3>
+            <p id="empty-description">새롭게 모은 단독·기획 기사가 이곳에 차곡차곡 쌓입니다.</p>
+            <button id="reset-filters" type="button" class="secondary-button" hidden>필터 초기화</button>
+          </section>
+
+          <section class="coverage-section" id="coverage-section" aria-labelledby="coverage-title">
+            <div class="coverage-heading">
+              <div><p class="eyebrow">SOURCE CHECK</p><h3 id="coverage-title">언론사 확인 현황</h3></div>
+              <span id="coverage-date" class="small-label">첫 수집 대기</span>
+            </div>
+            <p class="coverage-intro" id="coverage-intro">기사 확인 상태를 함께 기록합니다.</p>
+            <div id="coverage-list" class="coverage-list"></div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="site-footer">
+        <div><strong>아침의 기록.</strong><span>매일의 보도를 모으는 작은 서재</span></div>
+        <p>요약은 빠른 이해를 돕습니다. 정확한 맥락과 최신 내용은 언론사 원문에서 확인하세요.</p>
+      </footer>
+    </div>
+    <noscript><p class="noscript-notice">기사 검색과 아카이브를 보려면 브라우저에서 JavaScript를 켜 주세요.</p></noscript>
+  </body>
+</html>

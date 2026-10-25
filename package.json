@@ -1,0 +1,14 @@
+{
+  "name": "morning-news-archive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "9개 언론사 단독·기획 기사를 날짜별로 읽는 개인 뉴스 아카이브",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/validate-data.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "merge": "node scripts/merge-run.mjs"
+  }
+}
