@@ -11,6 +11,19 @@ const DEFAULT_PUBLISHERS = [
   { id: "kmib", name: "국민일보", domain: "kmib.co.kr" },
 ];
 
+// Publisher newspaper pages use no date query. Original article URLs remain in the archive data.
+const NEWSPAPER_URLS = Object.freeze({
+  mk: "https://media.naver.com/press/009/newspaper",
+  chosun: "https://media.naver.com/press/023/newspaper",
+  segye: "https://media.naver.com/press/022/newspaper",
+  hankyung: "https://media.naver.com/press/015/newspaper",
+  joongang: "https://media.naver.com/press/025/newspaper",
+  sedaily: "https://media.naver.com/press/011/newspaper",
+  hani: "https://media.naver.com/press/028/newspaper",
+  donga: "https://media.naver.com/press/020/newspaper",
+  kmib: "https://media.naver.com/press/005/newspaper",
+});
+
 const STATUS_LABELS = {
   checked: "확인 완료",
   partial: "일부 확인",
@@ -29,6 +42,9 @@ const state = {
   hasLoadedSuccessfully: false,
   loading: false,
   failed: false,
+  calendarOpen: false,
+  calendarYear: null,
+  calendarMonth: null,
 };
 
 function validDate(value) {
@@ -68,6 +84,10 @@ function safeUrl(value) {
   } catch {
     return null;
   }
+}
+
+export function getNewspaperUrl(publisherId) {
+  return safeUrl(NEWSPAPER_URLS[publisherId]);
 }
 
 function articleKey(article) {
@@ -172,18 +192,98 @@ function renderPublishers() {
   $("publisher-count").textContent = String(state.archive.publishers.length).padStart(2, "0");
 }
 
-function renderDateOptions() {
-  const select = $("date-select");
-  select.replaceChildren();
-  const all = element("option", "", "전체 날짜");
-  all.value = "all";
-  select.append(all);
-  for (const date of new Set(state.archive.runs.map((run) => run.date))) {
-    const option = element("option", "", formatDate(date));
-    option.value = date;
-    select.append(option);
+function todayInSeoul() {
+  const parts = dateParts(new Date());
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
+
+function setCalendarMonth(date) {
+  const monthDate = /^\d{4}-\d{2}-\d{2}$/.test(date || "") ? date : todayInSeoul();
+  state.calendarYear = Number(monthDate.slice(0, 4));
+  state.calendarMonth = Number(monthDate.slice(5, 7)) - 1;
+}
+
+function renderCalendar() {
+  if (state.calendarYear === null || state.calendarMonth === null) {
+    setCalendarMonth(state.date === "all" ? state.archive.runs[0]?.date : state.date);
   }
-  select.value = state.date;
+  const label = state.date === "all" ? "전체 날짜" : formatDate(state.date);
+  $("calendar-date-label").textContent = label;
+  $("calendar-toggle").setAttribute("aria-label", `아카이브 날짜 선택, ${label}`);
+  $("calendar-toggle").setAttribute("aria-expanded", String(state.calendarOpen));
+  $("calendar-popover").hidden = !state.calendarOpen;
+  $("calendar-month").textContent = `${state.calendarYear}년 ${state.calendarMonth + 1}월`;
+  $("calendar-all").setAttribute("aria-pressed", String(state.date === "all"));
+  $("calendar-latest").disabled = !state.archive.runs.length;
+
+  const year = state.calendarYear;
+  const month = state.calendarMonth;
+  const available = new Map(state.archive.runs.map((run) => [run.date, run]));
+  const firstWeekday = new Date(Date.UTC(year, month, 1)).getUTCDay();
+  const numberOfDays = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+  const today = todayInSeoul();
+  const fragment = document.createDocumentFragment();
+  let recordedDays = 0;
+  for (let index = 0; index < firstWeekday; index += 1) {
+    const blank = element("span", "calendar-blank");
+    blank.setAttribute("aria-hidden", "true");
+    fragment.append(blank);
+  }
+  for (let day = 1; day <= numberOfDays; day += 1) {
+    const date = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    const run = available.get(date);
+    const selected = date === state.date;
+    const button = element("button", `calendar-day${run ? " has-archive" : ""}${selected ? " is-selected" : ""}${date === today ? " is-today" : ""}`, String(day));
+    button.type = "button";
+    button.dataset.date = date;
+    button.disabled = !run;
+    button.setAttribute("aria-pressed", String(selected));
+    if (date === today) button.setAttribute("aria-current", "date");
+    const dateLabel = new Intl.DateTimeFormat("ko-KR", {
+      year: "numeric", month: "long", day: "numeric", weekday: "long", timeZone: TIMEZONE,
+    }).format(new Date(`${date}T12:00:00+09:00`));
+    button.setAttribute("aria-label", `${dateLabel}, ${run ? `기록 있음, 기사 ${run.articles.length}개` : "아카이브 없음"}`);
+    button.title = run ? `${formatDate(date)}의 기록 보기` : "아카이브가 없는 날짜입니다.";
+    if (run) {
+      recordedDays += 1;
+      button.addEventListener("click", () => selectArchiveDate(date));
+    }
+    fragment.append(button);
+  }
+  $("calendar-days").replaceChildren(fragment);
+  $("calendar-empty").hidden = recordedDays > 0;
+}
+
+function closeCalendar(restoreFocus = true) {
+  if (!state.calendarOpen) return;
+  state.calendarOpen = false;
+  $("calendar-popover").hidden = true;
+  $("calendar-toggle").setAttribute("aria-expanded", "false");
+  if (restoreFocus) $("calendar-toggle").focus({ preventScroll: true });
+}
+
+function openCalendar() {
+  state.calendarOpen = true;
+  setCalendarMonth(state.date === "all" ? state.archive.runs[0]?.date : state.date);
+  renderCalendar();
+  const focusTarget = $("calendar-days").querySelector(".is-selected:not(:disabled)") ||
+    $("calendar-days").querySelector(".has-archive:not(:disabled)") || $("calendar-all");
+  focusTarget.focus({ preventScroll: true });
+}
+
+function selectArchiveDate(date) {
+  if (date !== "all" && !state.archive.runs.some((run) => run.date === date)) return;
+  state.date = date;
+  closeCalendar(false);
+  render();
+  $("calendar-toggle").focus({ preventScroll: true });
+}
+
+function moveCalendarMonth(direction) {
+  const nextMonth = new Date(Date.UTC(state.calendarYear, state.calendarMonth + direction, 1));
+  state.calendarYear = nextMonth.getUTCFullYear();
+  state.calendarMonth = nextMonth.getUTCMonth();
+  renderCalendar();
 }
 
 function renderHeading() {
@@ -204,7 +304,7 @@ function renderHeading() {
     $("edition-title").textContent = `${formatDate(state.date, { long: true })}의 브리핑`;
     const weekday = new Intl.DateTimeFormat("ko-KR", { weekday: "long", timeZone: TIMEZONE })
       .format(new Date(`${selectedRun.date}T12:00:00+09:00`));
-    $("edition-description").textContent = `${formatDate(selectedRun.date)} ${weekday} · 원문과 함께 읽는 오늘의 기록`;
+    $("edition-description").textContent = `${formatDate(selectedRun.date)} ${weekday} · 단독·기획으로 살펴보는 오늘의 기록`;
   } else {
     $("edition-title").textContent = "오늘의 브리핑";
     $("edition-description").textContent = "하루의 시작에 읽어둘 단독과 기획을 모읍니다.";
@@ -226,18 +326,19 @@ function renderArticle(article, index) {
   number.setAttribute("aria-hidden", "true");
   meta.append(number);
   const title = element("h3", "article-title");
-  const url = safeUrl(article.url);
+  const url = getNewspaperUrl(article.publisherId);
+  const destinationLabel = `${publisher?.name || "언론사"} 네이버 신문보기`;
   if (url) {
     const link = element("a", "", article.title);
     link.href = url;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.setAttribute("aria-label", `${article.title} — 원문, 새 탭`);
+    link.setAttribute("aria-label", `${article.title} — ${destinationLabel}, 새 탭`);
     title.append(link);
   } else {
     title.textContent = article.title;
   }
-  card.append(meta, title, element("p", "article-summary", article.summary || "확인 가능한 요약이 없습니다. 원문에서 내용을 확인해 주세요."));
+  card.append(meta, title, element("p", "article-summary", article.summary || "확인 가능한 요약이 없습니다."));
   if (article.summaryBasis && article.summaryBasis !== "full_text") {
     card.append(element("p", "basis-note", article.summaryBasis === "metadata_only"
       ? "제목·공개정보 확인 · 본문 전체를 확인하지 못했습니다."
@@ -253,11 +354,11 @@ function renderArticle(article, index) {
   }
   bottom.append(time);
   if (url) {
-    const source = element("a", "article-source", "원문 읽기");
+    const source = element("a", "article-source", "네이버 신문보기");
     source.href = url;
     source.target = "_blank";
     source.rel = "noopener noreferrer";
-    source.setAttribute("aria-label", `${publisher?.name || "언론사"} 원문 읽기, 새 탭`);
+    source.setAttribute("aria-label", `${destinationLabel}, 새 탭`);
     const arrow = element("span", "", "↗");
     arrow.setAttribute("aria-hidden", "true");
     source.append(arrow);
@@ -303,7 +404,7 @@ function renderEmpty(articles) {
   if (!state.archive.runs.length) {
     $("empty-eyebrow").textContent = "A NEW DAY, A NEW STORY";
     $("empty-title").textContent = "첫 브리핑을 기다리고 있어요";
-    $("empty-description").textContent = "새롭게 모은 단독·기획 기사가 이곳에 차곡차곡 쌓입니다.\n매일 오전 9시, 새로운 하루의 기록을 만나보세요.";
+    $("empty-description").textContent = "새롭게 모은 단독·기획 기사가 이곳에 차곡차곡 쌓입니다.\n기록이 쌓이면 달력에서 날짜를 골라 읽을 수 있어요.";
   } else if (isFiltered) {
     $("empty-eyebrow").textContent = "A DIFFERENT POINT OF VIEW";
     $("empty-title").textContent = "조건에 맞는 기사가 없어요";
@@ -325,6 +426,7 @@ function renderEmpty(articles) {
 
 function render() {
   renderPublishers();
+  renderCalendar();
   renderHeading();
   renderCoverage();
   document.querySelectorAll("[data-type]").forEach((button) => {
@@ -356,7 +458,7 @@ async function loadArchive() {
     if (state.publisher !== "all" && !state.archive.publishers.some((publisher) => publisher.id === state.publisher)) state.publisher = "all";
     state.loaded = true;
     state.hasLoadedSuccessfully = true;
-    renderDateOptions();
+    setCalendarMonth(state.date === "all" ? state.archive.runs[0]?.date : state.date);
   } catch (error) {
     state.failed = true;
     state.loaded = true;
@@ -372,9 +474,24 @@ function initialize() {
     state.query = event.target.value;
     render();
   });
-  $("date-select").addEventListener("change", (event) => {
-    state.date = event.target.value;
-    render();
+  $("calendar-toggle").addEventListener("click", () => state.calendarOpen ? closeCalendar() : openCalendar());
+  $("calendar-previous").addEventListener("click", () => moveCalendarMonth(-1));
+  $("calendar-next").addEventListener("click", () => moveCalendarMonth(1));
+  $("calendar-all").addEventListener("click", () => selectArchiveDate("all"));
+  $("calendar-latest").addEventListener("click", () => {
+    if (state.archive.runs.length) selectArchiveDate(state.archive.runs[0].date);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && state.calendarOpen) {
+      event.preventDefault();
+      closeCalendar();
+    }
+  });
+  document.addEventListener("pointerdown", (event) => {
+    if (state.calendarOpen && !$("date-picker").contains(event.target)) closeCalendar(false);
+  });
+  document.addEventListener("focusin", (event) => {
+    if (state.calendarOpen && !$("date-picker").contains(event.target)) closeCalendar(false);
   });
   $("sort-select").addEventListener("change", (event) => {
     state.sort = event.target.value;
@@ -395,7 +512,7 @@ function initialize() {
     $("search-input").focus();
   });
   $("retry-button").addEventListener("click", loadArchive);
-  renderDateOptions();
+  renderCalendar();
   loadArchive();
 }
 
