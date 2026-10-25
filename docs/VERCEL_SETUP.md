@@ -2,6 +2,8 @@
 
 GitHub 연결 계정 `ruaqktk`로 `ruaqktk/News_Archive`에 실제 파일 쓰기가 성공했고, **2026-10-26에 `newsarchive` 프로젝트의 Vercel 최초 배포 성공을 확인했습니다.** 아래는 연결을 유지하거나 다시 설정할 때 참고할 안내입니다.
 
+운영 주소(사용자 제공): [혜원이의 뉴스 아카이브](https://newsarchive-rho.vercel.app/)
+
 ## 1. GitHub 저장소 확인
 
 ChatGPT의 GitHub 연결은 `News_Archive` 저장소에 접근하고 파일을 쓸 수 있는 상태입니다. [ruaqktk/News_Archive](https://github.com/ruaqktk/News_Archive)의 `main` 브랜치에 전체 소스인 `package.json`, `vercel.json`, `public/`, `scripts/`가 있는지 확인한 뒤 Import를 진행합니다. Vercel에도 이 저장소에 접근할 수 있는 GitHub 계정을 연결합니다.
@@ -26,7 +28,7 @@ ChatGPT의 GitHub 연결은 `News_Archive` 저장소에 접근하고 파일을 �
 | Install Command | 비움 |
 | Environment Variables | 추가하지 않음 |
 
-`vercel.json`에 설정이 포함돼 있어 자동 적용될 수 있습니다. 배포가 성공하면 Vercel 화면이 실제 `vercel.app` 주소를 제공합니다. 프로젝트 이름만 보고 주소를 추정하지 마세요.
+`vercel.json`에 설정이 포함돼 있어 자동 적용될 수 있습니다. 새 프로젝트를 만들거나 도메인을 변경할 때는 Vercel 화면의 실제 주소를 확인하세요. 프로젝트 이름만 보고 주소를 추정하지 마세요.
 
 ## 3. 자동 반영 확인
 

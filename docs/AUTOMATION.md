@@ -7,6 +7,7 @@
 - 기간: 전날 오전 9시 이상, 당일 오전 9시 미만의 최초 발행 기사
 - 실행 범위: ChatGPT 한국어 브리핑, 날짜별 JSON 파일 보존, GitHub 기사 데이터 누적
 - GitHub: 연결 계정 `ruaqktk`, 저장소 `ruaqktk/News_Archive`, 브랜치 `main`
+- 운영 주소(사용자 제공): [혜원이의 뉴스 아카이브](https://newsarchive-rho.vercel.app/)
 - 웹사이트 반영: 2026-10-26 Vercel `newsarchive` 프로젝트의 최초 배포 성공 확인. 이후에도 해당 커밋의 배포 성공을 확인
 
 오전 9시는 작업 시작 시각입니다. 결과 전달은 원문 확인과 요약이 완료된 뒤 이뤄집니다.
