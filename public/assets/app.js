@@ -15,8 +15,9 @@ const DEFAULT_PUBLISHERS = [
 // Never route article clicks to the publisher's Naver newspaper landing page.
 function articleDestination(article) {
   const naver = safeUrl(article.naverUrl);
-  if (naver && /^n\.news\.naver\.com$/.test(new URL(naver).hostname) &&
-      /^\/mnews\/article\/\d{3}\/\d+\/?$/.test(new URL(naver).pathname)) {
+  if (naver && new URL(naver).hostname === "n.news.naver.com" &&
+      (/^\/mnews\/article\/\d{3}\/\d+\/?$/.test(new URL(naver).pathname) ||
+       /^\/article\/newspaper\/\d{3}\/\d+\/?$/.test(new URL(naver).pathname))) {
     return { url: naver, label: "네이버 기사 보기" };
   }
   const original = safeUrl(article.url);
