@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "timezone": "Asia/Seoul",
-  "updatedAt": null,
+  "updatedAt": "2026-10-26T10:17:54+09:00",
   "publishers": [
     {
       "id": "mk",
@@ -58,5 +58,87 @@
       "url": "https://www.kmib.co.kr/"
     }
   ],
-  "runs": []
+  "runs": [
+    {
+      "date": "2026-10-26",
+      "collectionMode": "naver_newspaper",
+      "generatedAt": "2026-10-26T10:17:54+09:00",
+      "windowStart": "2026-10-25T09:00:00+09:00",
+      "windowEnd": "2026-10-26T09:00:00+09:00",
+      "status": "partial",
+      "note": "지면 전용 재수집 시범 실행. 연합뉴스 2026-10-26 08:00 '전국 주요 신문 톱뉴스'의 매일경제 1면 제목과 매일경제 공식 단독 기사 제목을 교차 대조하여 1건만 확인. 다른 언론사 지면 전수 검증은 미완료. 네이버 개별 기사 URL은 확인되지 않아 공식 원문으로 연결.",
+      "coverage": [
+        {
+          "publisherId": "mk",
+          "status": "partial",
+          "note": "연합뉴스 26일 조간 매일경제 1면 제목과 공식 [단독] 제목 일치; 나머지 지면은 미확인.",
+          "articleCount": 1
+        },
+        {
+          "publisherId": "chosun",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "segye",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "hankyung",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "joongang",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "sedaily",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "hani",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "donga",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "kmib",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        }
+      ],
+      "articles": [
+        {
+          "id": "mk-6cd72b319c91",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "title": "[단독] 그린벨트 등급 재평가…주택공급 길 넓힌다",
+          "url": "https://www.mk.co.kr/news/realestate/12185262",
+          "publishedAt": "2026-10-25T17:39:00+09:00",
+          "newspaperDate": "2026-10-26",
+          "newspaperEvidence": "연합뉴스 2026-10-26 08:00 전국 주요 신문 톱뉴스(26일 조간)에 매일경제 1면 제목 '그린벨트 등급 재평가…주택공급 길 넓힌다' 기재: https://www.yna.co.kr/view/AKR20261026011900011 ; 매일경제 공식 기사 제목에 [단독] 표기.",
+          "collectedAt": "2026-10-26T10:17:54+09:00",
+          "summary": "매일경제는 정부가 개발제한구역의 환경평가등급을 다시 산정하고 해제 절차 개선을 추진한다고 보도했습니다. 수도권 그린벨트 상당 부분이 보전 가치가 높은 등급에 묶여 있어 신규 주택 공급용 택지 확보가 쉽지 않다는 점을 짚었습니다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "매일경제 공식 기사 제목의 [단독] 표기 및 연합뉴스 26일 조간 매일경제 1면 제목 대조"
+        }
+      ]
+    }
+  ]
 }
