@@ -132,3 +132,18 @@ test('본문 확인 범위와 언론사별 기사 수가 일치해야 한다', (
   candidate.articles[0].publishedAt = '2026-10-26T08:00:00';
   assert.throws(() => validateRun(candidate, publishers), /시간대/);
 });
+
+
+test('지면 기사는 온라인 발행일과 지면 날짜가 달라도 허용한다', () => {
+  const candidate = run('2026-10-26', [article('print')]);
+  candidate.collectionMode = 'naver_newspaper';
+  candidate.articles[0].publishedAt = '2026-10-25T08:00:00+09:00';
+  candidate.articles[0].newspaperDate = '2026-10-26';
+  candidate.articles[0].newspaperEvidence = '네이버 신문보기 2026-10-26 지면에서 확인';
+  candidate.articles[0].naverUrl = 'https://n.news.naver.com/mnews/article/009/1234567890';
+  assert.doesNotThrow(() => validateRun(candidate, publishers));
+  candidate.articles[0].naverUrl = 'https://media.naver.com/press/009/newspaper';
+  assert.throws(() => validateRun(candidate, publishers), /네이버 개별 기사/);
+  candidate.articles[0].naverUrl = 'https://n.news.naver.com/mnews/article/023/1234567890';
+  assert.throws(() => validateRun(candidate, publishers), /네이버 개별 기사/);
+});
