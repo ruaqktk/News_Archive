@@ -11,18 +11,17 @@ const DEFAULT_PUBLISHERS = [
   { id: "kmib", name: "국민일보", domain: "kmib.co.kr" },
 ];
 
-// Publisher newspaper pages use no date query. Original article URLs remain in the archive data.
-const NEWSPAPER_URLS = Object.freeze({
-  mk: "https://media.naver.com/press/009/newspaper",
-  chosun: "https://media.naver.com/press/023/newspaper",
-  segye: "https://media.naver.com/press/022/newspaper",
-  hankyung: "https://media.naver.com/press/015/newspaper",
-  joongang: "https://media.naver.com/press/025/newspaper",
-  sedaily: "https://media.naver.com/press/011/newspaper",
-  hani: "https://media.naver.com/press/028/newspaper",
-  donga: "https://media.naver.com/press/020/newspaper",
-  kmib: "https://media.naver.com/press/005/newspaper",
-});
+// Use a verified Naver article permalink when available; otherwise use the exact original article.
+// Never route article clicks to the publisher's Naver newspaper landing page.
+function articleDestination(article) {
+  const naver = safeUrl(article.naverUrl);
+  if (naver && /^n\.news\.naver\.com$/.test(new URL(naver).hostname) &&
+      /^\/mnews\/article\/\d{3}\/\d+\/?$/.test(new URL(naver).pathname)) {
+    return { url: naver, label: "네이버 기사 보기" };
+  }
+  const original = safeUrl(article.url);
+  return original ? { url: original, label: "언론사 원문 보기" } : null;
+}
 
 const STATUS_LABELS = {
   checked: "확인 완료",
@@ -84,10 +83,6 @@ function safeUrl(value) {
   } catch {
     return null;
   }
-}
-
-export function getNewspaperUrl(publisherId) {
-  return safeUrl(NEWSPAPER_URLS[publisherId]);
 }
 
 function articleKey(article) {
@@ -326,8 +321,9 @@ function renderArticle(article, index) {
   number.setAttribute("aria-hidden", "true");
   meta.append(number);
   const title = element("h3", "article-title");
-  const url = getNewspaperUrl(article.publisherId);
-  const destinationLabel = `${publisher?.name || "언론사"} 네이버 신문보기`;
+  const destination = articleDestination(article);
+  const url = destination?.url;
+  const destinationLabel = destination?.label || "기사 보기";
   if (url) {
     const link = element("a", "", article.title);
     link.href = url;
@@ -354,7 +350,7 @@ function renderArticle(article, index) {
   }
   bottom.append(time);
   if (url) {
-    const source = element("a", "article-source", "네이버 신문보기");
+    const source = element("a", "article-source", destinationLabel);
     source.href = url;
     source.target = "_blank";
     source.rel = "noopener noreferrer";
