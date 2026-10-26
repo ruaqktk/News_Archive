@@ -9,7 +9,7 @@ const RUN_STATUSES = new Set(['complete', 'partial', 'failed']);
 const COVERAGE_STATUSES = new Set(['checked', 'partial', 'blocked', 'not_checked']);
 const ARTICLE_TYPES = new Set(['exclusive', 'feature']);
 const SUMMARY_BASES = new Set(['full_text', 'partial_text', 'metadata_only']);
-const PRESS_CODES = Object.freeze({mk:'009',chosun:'023',segye:'022',hankyung:'015',joongang:'025',sedaily:'011',hani:'028',donga:'020',kmib:'005'});
+const PRESS_CODES = Object.freeze({ mk:'009', chosun:'023', segye:'022', hankyung:'015', joongang:'025', sedaily:'011', hani:'028', donga:'020', kmib:'005' });
 
 function requireCondition(condition, message) {
   if (!condition) throw new Error(message);
@@ -88,7 +88,7 @@ export function validateRun(run, publishers) {
   requireCondition(Array.isArray(run.articles), 'run.articles: 배열이어야 합니다.');
 
   const isPrint = run.collectionMode === 'naver_newspaper';
-  if (run.collectionMode !== undefined) requireCondition(isPrint, 'run.collectionMode: 지원되지 않는 수집 방식입니다.');
+  if (run.collectionMode !== undefined) requireCondition(isPrint, '지원되지 않는 수집 방식입니다.');
   const urls = new Set();
   const ids = new Set();
   const counts = new Map(PUBLISHER_IDS.map((id) => [id, 0]));
@@ -104,117 +104,17 @@ export function validateRun(run, publishers) {
     string(article.title, `${label}.title`);
     officialUrl(article.url, publisher.domain, `${label}.url`);
     if (isPrint) {
-      requireCondition(article.newspaperDate === run.date, `${label}.newspaperDate: 지면 날짜가 run.date와 다릅니다.`);
+      requireCondition(article.newspaperDate === run.date, `${label}.newspaperDate: 지면 날짜가 일치하지 않습니다.`);
       string(article.newspaperEvidence, `${label}.newspaperEvidence`);
-      if (article.naverUrl !== undefined && article.naverUrl !== null) {
+      if (article.naverUrl != null) {
         string(article.naverUrl, `${label}.naverUrl`);
-        const naver = new URL(article.naverUrl);
-        requireCondition(naver.protocol === 'https:' && naver.hostname === 'n.news.naver.com' && !naver.username && !naver.password && !naver.port && new RegExp(`^/mnews/article/${PRESS_CODES[article.publisherId]}/[0-9]+/?import { readFile, rename, unlink, writeFile } from 'node:fs/promises';
-import { randomUUID } from 'node:crypto';
-
-export const PUBLISHER_IDS = Object.freeze([
-  'mk', 'chosun', 'segye', 'hankyung', 'joongang', 'sedaily', 'hani', 'donga', 'kmib',
-]);
-
-const RUN_STATUSES = new Set(['complete', 'partial', 'failed']);
-const COVERAGE_STATUSES = new Set(['checked', 'partial', 'blocked', 'not_checked']);
-const ARTICLE_TYPES = new Set(['exclusive', 'feature']);
-const SUMMARY_BASES = new Set(['full_text', 'partial_text', 'metadata_only']);
-const PRESS_CODES = Object.freeze({mk:'009',chosun:'023',segye:'022',hankyung:'015',joongang:'025',sedaily:'011',hani:'028',donga:'020',kmib:'005'});
-
-function requireCondition(condition, message) {
-  if (!condition) throw new Error(message);
-}
-
-function record(value, label) {
-  requireCondition(value !== null && typeof value === 'object' && !Array.isArray(value), `${label}: 객체여야 합니다.`);
-}
-
-function string(value, label, allowEmpty = false) {
-  requireCondition(typeof value === 'string' && (allowEmpty || value.trim().length > 0), `${label}: ${allowEmpty ? '문자열' : '비어 있지 않은 문자열'}이어야 합니다.`);
-}
-
-export function isCalendarDate(value) {
-  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
-  const parsed = new Date(`${value}T00:00:00Z`);
-  return Number.isFinite(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value;
-}
-
-function timestamp(value, label) {
-  string(value, label);
-  const parts = value.match(/^(\d{4}-\d{2}-\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d{1,9})?(Z|[+-]\d{2}:\d{2})$/);
-  requireCondition(parts && isCalendarDate(parts[1]), `${label}: 시간대가 포함된 유효한 ISO 날짜여야 합니다.`);
-  requireCondition(Number(parts[2]) < 24 && Number(parts[3]) < 60 && Number(parts[4]) < 60, `${label}: 시각이 올바르지 않습니다.`);
-  if (parts[5] !== 'Z') {
-    const [hour, minute] = parts[5].slice(1).split(':').map(Number);
-    requireCondition(hour <= 14 && minute < 60 && (hour !== 14 || minute === 0), `${label}: 시간대가 올바르지 않습니다.`);
-  }
-  requireCondition(Number.isFinite(Date.parse(value)), `${label}: 날짜를 해석할 수 없습니다.`);
-  return Date.parse(value);
-}
-
-export function canonicalUrl(value) {
-  const url = new URL(value);
-  url.hash = '';
-  for (const key of [...url.searchParams.keys()]) {
-    if (/^utm_/i.test(key) || /^(fbclid|gclid)$/i.test(key)) url.searchParams.delete(key);
-  }
-  return url.href;
-}
-
-function officialUrl(value, domain, label) {
-  string(value, label);
-  let url;
-  try { url = new URL(value); } catch { throw new Error(`${label}: URL이 올바르지 않습니다.`); }
-  requireCondition(url.protocol === 'https:' && !url.username && !url.password && !url.port, `${label}: 인증정보나 별도 포트 없는 HTTPS URL이어야 합니다.`);
-  requireCondition(url.hostname === domain || url.hostname.endsWith(`.${domain}`), `${label}: ${domain} 공식 도메인 밖의 URL입니다.`);
-}
-
-export function validatePublishers(publishers) {
-  requireCondition(Array.isArray(publishers) && publishers.length === PUBLISHER_IDS.length, 'publishers: 지정한 9개 언론사가 필요합니다.');
-  const ids = new Set();
-  for (const publisher of publishers) {
-    record(publisher, 'publisher');
-    requireCondition(PUBLISHER_IDS.includes(publisher.id) && !ids.has(publisher.id), `publisher.id: 알 수 없거나 중복된 언론사(${publisher.id})입니다.`);
-    ids.add(publisher.id);
-    string(publisher.name, `${publisher.id}.name`);
-    string(publisher.domain, `${publisher.id}.domain`);
-    requireCondition(/^(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/.test(publisher.domain), `${publisher.id}.domain: 소문자 도메인만 사용하세요.`);
-    officialUrl(publisher.url, publisher.domain, `${publisher.id}.url`);
-  }
-  return new Map(publishers.map((publisher) => [publisher.id, publisher]));
-}
-
-export function validateRun(run, publishers) {
-  const publisherMap = validatePublishers(publishers);
-  record(run, 'run');
-  requireCondition(isCalendarDate(run.date), 'run.date: 실제 존재하는 YYYY-MM-DD 날짜여야 합니다.');
-  const generated = timestamp(run.generatedAt, 'run.generatedAt');
-  const start = timestamp(run.windowStart, 'run.windowStart');
-  const end = timestamp(run.windowEnd, 'run.windowEnd');
-  requireCondition(start <= end, 'run: 수집 시작이 종료보다 늦습니다.');
-  requireCondition(generated >= end, 'run.generatedAt: 수집 종료 시각보다 빠를 수 없습니다.');
-  requireCondition(RUN_STATUSES.has(run.status), 'run.status: complete, partial, failed 중 하나여야 합니다.');
-  if (run.note !== undefined) string(run.note, 'run.note', true);
-  requireCondition(Array.isArray(run.articles), 'run.articles: 배열이어야 합니다.');
-
-  const isPrint = run.collectionMode === 'naver_newspaper';
-  if (run.collectionMode !== undefined) requireCondition(isPrint, 'run.collectionMode: 지원되지 않는 수집 방식입니다.');
-  const urls = new Set();
-  const ids = new Set();
-  const counts = new Map(PUBLISHER_IDS.map((id) => [id, 0]));
-  for (const [index, article] of run.articles.entries()) {
-    const label = `articles[${index}]`;
-    record(article, label);
-    string(article.id, `${label}.id`);
-    requireCondition(!ids.has(article.id), `${label}: 중복 기사 ID입니다.`);
-    ids.add(article.id);
-    const publisher = publisherMap.get(article.publisherId);
-    requireCondition(publisher, `${label}: 지정하지 않은 언론사입니다.`);
-    requireCondition(ARTICLE_TYPES.has(article.type), `${label}.type: exclusive 또는 feature여야 합니다.`);
-    string(article.title, `${label}.title`);
-    officialUrl(article.url, publisher.domain, `${label}.url`);
-).test(naver.pathname), `${label}.naverUrl: 언론사에 대응하는 네이버 개별 기사 주소여야 합니다.`);
+        let naver;
+        try { naver = new URL(article.naverUrl); } catch { throw new Error(`${label}.naverUrl: 잘못된 주소입니다.`); }
+        const code = PRESS_CODES[article.publisherId];
+        const path = naver.pathname;
+        const isNews = path.startsWith(`/mnews/article/${code}/`) && /^\\/mnews\\/article\\/\\d{3}\\/\\d+\\/?$/.test(path);
+        const isNewspaper = path.startsWith(`/article/newspaper/${code}/`) && /^\\/article\\/newspaper\\/\\d{3}\\/\\d+\\/?$/.test(path) && naver.searchParams.get('date') === run.date.replaceAll('-', '');
+        requireCondition(naver.protocol === 'https:' && naver.hostname === 'n.news.naver.com' && !naver.username && !naver.password && !naver.port && (isNews || isNewspaper), `${label}.naverUrl: 유효한 네이버 개별 기사 주소가 아닙니다.`);
       }
     }
     const url = canonicalUrl(article.url);
