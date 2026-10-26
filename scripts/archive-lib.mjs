@@ -112,8 +112,8 @@ export function validateRun(run, publishers) {
         try { naver = new URL(article.naverUrl); } catch { throw new Error(`${label}.naverUrl: 잘못된 주소입니다.`); }
         const code = PRESS_CODES[article.publisherId];
         const path = naver.pathname;
-        const isNews = path.startsWith(`/mnews/article/${code}/`) && /^\\/mnews\\/article\\/\\d{3}\\/\\d+\\/?$/.test(path);
-        const isNewspaper = path.startsWith(`/article/newspaper/${code}/`) && /^\\/article\\/newspaper\\/\\d{3}\\/\\d+\\/?$/.test(path) && naver.searchParams.get('date') === run.date.replaceAll('-', '');
+        const isNews = path.startsWith(`/mnews/article/${code}/`) && /^\/mnews\/article\/\d{3}\/\d+\/?$/.test(path);
+        const isNewspaper = path.startsWith(`/article/newspaper/${code}/`) && /^\/article\/newspaper\/\d{3}\/\d+\/?$/.test(path) && naver.searchParams.get('date') === run.date.replaceAll('-', '');
         requireCondition(naver.protocol === 'https:' && naver.hostname === 'n.news.naver.com' && !naver.username && !naver.password && !naver.port && (isNews || isNewspaper), `${label}.naverUrl: 유효한 네이버 개별 기사 주소가 아닙니다.`);
       }
     }
