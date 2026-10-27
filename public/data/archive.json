@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "timezone": "Asia/Seoul",
-  "updatedAt": "2026-10-26T10:17:54+09:00",
+  "updatedAt": "2026-10-27T09:04:50+09:00",
   "publishers": [
     {
       "id": "mk",
@@ -59,6 +59,152 @@
     }
   ],
   "runs": [
+    {
+      "date": "2026-10-27",
+      "collectionMode": "naver_newspaper",
+      "generatedAt": "2026-10-27T09:04:50+09:00",
+      "windowStart": "2026-10-26T09:00:00+09:00",
+      "windowEnd": "2026-10-27T09:00:00+09:00",
+      "status": "partial",
+      "note": "연합뉴스 2026-10-27 08:00 조간 1면 목록에서 지정 9개 언론사 존재를 교차 확인. 동아일보 공식 27일 지면 목차의 기획 6건을 확인했으나 네이버 개별 기사 링크가 확인되지 않아 보류함. 새 확정기사 0건. 네이버 신문보기 접근 제한, 언론사별 전체 지면 전수 확인 및 URL 자동 매칭 미달. 기사 0건은 지면 단독·기획 기사 부재가 아닌 검증 미완료를 뜻함.",
+      "coverage": [
+        {
+          "publisherId": "mk",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「AI 꺾이면 반도체 수출 1천억弗 타격」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "chosun",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「탄핵과 특검 무한반복하는 민주당」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "segye",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「옥자서 오겜까지 600억 시간의 신화」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "hankyung",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「뜻밖의 반도체 호황… 자원의 저주 피하는 법」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료. 공식 지면 서비스도 구독 접근 제한으로 내용 검증 어려움.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "joongang",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「CPTPP 최종 타결 내 임기 내 어렵다」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "sedaily",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「중수청까지 리니언시…표적 된 기업들」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "hani",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「AI가 지운 좋은 일자리 청년만 고용의 질 악화」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "donga",
+          "status": "partial",
+          "note": "동아일보 공식 2026-10-27 지면보기에서 A18 기획 3건·A23 기획 2건·B5 기획 1건 확인(https://www.donga.com/news/Pdf). 총 6건은 네이버 개별 기사 주소 확인 불가로 보류. 다른 지면 및 단독·기획 전수 검증 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "kmib",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「각종 약물 몰아주고 손 떨려도 버티세요」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        }
+      ],
+      "articles": [],
+      "pendingArticles": [
+        {
+          "publisherId": "donga",
+          "type": "feature",
+          "title": "빗방울에도 식지 않는 축구 열정… 달성군 달군 꿈나무들",
+          "url": "https://www.donga.com/news/article/all/20261026/134912761/2",
+          "newspaperDate": "2026-10-27",
+          "newspaperEvidence": "동아일보 공식 2026-10-27 PDF 지면보기 목차 A18 「기획」란에 수록: https://www.donga.com/news/Pdf",
+          "classificationEvidence": "동아일보 공식 2026-10-27 지면 목차 A18 섹션에 「기획」으로 명시",
+          "missing": [
+            "naverUrl"
+          ],
+          "reason": "대응하는 네이버뉴스 개별 기사 URL을 검증하지 못함. 네이버 신문보기 직접 접근 제한 및 공개 검색으로도 정확한 링크 미발견. 원문으로 대체 게시하지 않음."
+        },
+        {
+          "publisherId": "donga",
+          "type": "feature",
+          "title": "광화문광장 올해 3280만 명 방문… 서울 도심 바꾼 공간혁신",
+          "url": "https://www.donga.com/news/article/all/20261026/134912759/2",
+          "newspaperDate": "2026-10-27",
+          "newspaperEvidence": "동아일보 공식 2026-10-27 PDF 지면보기 목차 A18 「기획」란에 수록: https://www.donga.com/news/Pdf",
+          "classificationEvidence": "동아일보 공식 2026-10-27 지면 목차 A18 섹션에 「기획」으로 명시",
+          "missing": [
+            "naverUrl"
+          ],
+          "reason": "대응하는 네이버뉴스 개별 기사 URL을 검증하지 못함. 네이버 신문보기 직접 접근 제한 및 공개 검색으로도 정확한 링크 미발견. 원문으로 대체 게시하지 않음."
+        },
+        {
+          "publisherId": "donga",
+          "type": "feature",
+          "title": "“달성군수배, 축구 미래 키우는 무대로 만들 것”",
+          "url": "https://www.donga.com/news/article/all/20261026/134912756/2",
+          "newspaperDate": "2026-10-27",
+          "newspaperEvidence": "동아일보 공식 2026-10-27 PDF 지면보기 목차 A18 「기획」란에 수록: https://www.donga.com/news/Pdf",
+          "classificationEvidence": "동아일보 공식 2026-10-27 지면 목차 A18 섹션에 「기획」으로 명시",
+          "missing": [
+            "naverUrl"
+          ],
+          "reason": "대응하는 네이버뉴스 개별 기사 URL을 검증하지 못함. 네이버 신문보기 직접 접근 제한 및 공개 검색으로도 정확한 링크 미발견. 원문으로 대체 게시하지 않음."
+        },
+        {
+          "publisherId": "donga",
+          "type": "feature",
+          "title": "“가뭄 버틸 지하수 확보”… ‘땅속 댐’ 전국에 23개 짓는다",
+          "url": "https://www.donga.com/news/article/all/20261027/134912702/2",
+          "newspaperDate": "2026-10-27",
+          "newspaperEvidence": "동아일보 공식 2026-10-27 PDF 지면보기 목차 A23 「기획」란에 수록: https://www.donga.com/news/Pdf",
+          "classificationEvidence": "동아일보 공식 2026-10-27 지면 목차 A23 섹션에 「기획」으로 명시",
+          "missing": [
+            "naverUrl"
+          ],
+          "reason": "대응하는 네이버뉴스 개별 기사 URL을 검증하지 못함. 네이버 신문보기 직접 접근 제한 및 공개 검색으로도 정확한 링크 미발견. 원문으로 대체 게시하지 않음."
+        },
+        {
+          "publisherId": "donga",
+          "type": "feature",
+          "title": "유해동물된 영광 안마도 꽃사슴, 잡는 것 말곤 ‘공생 대책’ 없나",
+          "url": "https://www.donga.com/news/article/all/20261027/134912704/2",
+          "newspaperDate": "2026-10-27",
+          "newspaperEvidence": "동아일보 공식 2026-10-27 PDF 지면보기 목차 A23 「기획」란에 수록: https://www.donga.com/news/Pdf",
+          "classificationEvidence": "동아일보 공식 2026-10-27 지면 목차 A23 섹션에 「기획」으로 명시",
+          "missing": [
+            "naverUrl"
+          ],
+          "reason": "대응하는 네이버뉴스 개별 기사 URL을 검증하지 못함. 네이버 신문보기 직접 접근 제한 및 공개 검색으로도 정확한 링크 미발견. 원문으로 대체 게시하지 않음."
+        },
+        {
+          "publisherId": "donga",
+          "type": "feature",
+          "title": "삼성 갤럭시 1위… 60개 업종 중 34개는 하락",
+          "url": "https://www.donga.com/news/article/all/20261026/134911742/2",
+          "newspaperDate": "2026-10-27",
+          "newspaperEvidence": "동아일보 공식 2026-10-27 PDF 지면보기 목차 B5 「기획」란에 수록: https://www.donga.com/news/Pdf",
+          "classificationEvidence": "동아일보 공식 2026-10-27 지면 목차 B5 섹션에 「기획」으로 명시",
+          "missing": [
+            "naverUrl"
+          ],
+          "reason": "대응하는 네이버뉴스 개별 기사 URL을 검증하지 못함. 네이버 신문보기 직접 접근 제한 및 공개 검색으로도 정확한 링크 미발견. 원문으로 대체 게시하지 않음."
+        }
+      ]
+    },
     {
       "date": "2026-10-26",
       "collectionMode": "naver_newspaper",
