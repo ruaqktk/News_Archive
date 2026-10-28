@@ -50,11 +50,6 @@ export function formatDateTime(value) {
   return `${parts.year}.${parts.month}.${parts.day} ${parts.hour}:${parts.minute}`;
 }
 
-// 면 표기: "A1" → "A1면", "10" → "10면"
-export function pageLabel(page) {
-  return page ? `${page}면` : "지면";
-}
-
 // 면 번호를 정렬 가능한 값으로: A1 < A2 < A10 < B1 < 1 < 2
 export function pageOrder(page) {
   const match = String(page || "").match(/^([A-Z]*)(\d+)$/);

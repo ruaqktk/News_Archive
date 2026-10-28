@@ -1,4 +1,4 @@
-import { $, displayTitle, element, formatEditionDate, formatDateTime, loadArchive, naverLink, pageLabel, comparePages, typeBadge } from "./common.js";
+import { $, displayTitle, element, formatEditionDate, formatDateTime, loadArchive, naverLink, comparePages, typeBadge } from "./common.js";
 
 const STATUS_LABEL = { checked: "확인 완료", partial: "일부 확인", blocked: "접근 실패", not_checked: "미확인" };
 
@@ -32,22 +32,18 @@ function titleLink(article, className) {
   return link;
 }
 
-function meta(article, withPage = true) {
+function meta(article) {
   const row = element("p", "article-meta");
   row.append(typeBadge(article.type));
-  if (withPage) row.append(element("span", "meta-page", pageLabel(article.page)));
   return row;
 }
 
 function leadArticle(article) {
   const block = element("article", "lead");
   const text = element("div", "lead-text");
-  text.append(meta(article, false), titleLink(article, "lead-title"));
+  text.append(meta(article), titleLink(article, "lead-title"));
   if (article.summary) text.append(element("p", "lead-summary", article.summary));
-  const folio = element("div", `folio folio-${article.type}`);
-  folio.setAttribute("aria-hidden", "true");
-  folio.append(element("span", "folio-number", article.page || "—"), element("span", "folio-unit", "면"));
-  block.append(text, folio);
+  block.append(text);
   return block;
 }
 
@@ -55,7 +51,7 @@ function restList(articles) {
   const list = element("ul", "rest-list");
   for (const article of articles) {
     const item = element("li", "rest-item");
-    item.append(typeBadge(article.type), titleLink(article, "rest-title"), element("span", "rest-page", pageLabel(article.page)));
+    item.append(typeBadge(article.type), titleLink(article, "rest-title"));
     list.append(item);
   }
   return list;

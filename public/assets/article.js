@@ -1,4 +1,4 @@
-import { $, displayTitle, element, formatEditionDate, loadArchive, naverLink, pageLabel, safeUrl, typeBadge } from "./common.js";
+import { $, displayTitle, element, formatEditionDate, loadArchive, naverLink, safeUrl, typeBadge } from "./common.js";
 
 function fail(message) {
   $("article-error").textContent = message;
@@ -35,7 +35,7 @@ async function initialize() {
   $("story-meta").append(
     typeBadge(article.type),
     element("span", "story-press", publisher?.name ?? article.publisherId),
-    element("span", null, `${formatEditionDate(date)} ${pageLabel(article.page)}`),
+    element("span", null, formatEditionDate(date)),
   );
   $("story-title").textContent = displayTitle(article);
   $("story-lede").textContent = article.summary || "";

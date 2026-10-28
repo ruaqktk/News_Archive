@@ -102,27 +102,18 @@ button, select { font: inherit; color: inherit; }
 .badge-feature { color: var(--feature); background: var(--feature-bg); }
 .article-meta { margin: 0 0 8px; display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-3); font-weight: 600; }
 
-/* 대표 기사: 사진 자리에 지면 면 번호 */
-.lead { display: grid; grid-template-columns: minmax(0, 1fr) 132px; gap: 24px; align-items: start; }
+/* 대표 기사 */
+.lead { display: block; }
 .lead-title { display: block; font-size: 21px; font-weight: 750; line-height: 1.42; letter-spacing: -0.025em; }
 .lead-title:hover, .rest-title:hover, .full-title:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 .lead-summary {
   margin: 10px 0 0; color: var(--ink-2); font-size: 16px; line-height: 1.6;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
-.folio {
-  height: 108px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
-  font-variant-numeric: tabular-nums; line-height: 1;
-}
-.folio-number { font-size: 44px; font-weight: 850; letter-spacing: -0.04em; }
-.folio-unit { font-size: 14px; font-weight: 700; opacity: 0.75; }
-.folio-exclusive { background: var(--exclusive-bg); color: var(--exclusive); }
-.folio-feature { background: var(--feature-bg); color: var(--feature); }
 
 .rest-list { list-style: none; margin: 22px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: grid; gap: 12px; }
-.rest-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: baseline; }
+.rest-item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: baseline; }
 .rest-title { font-size: 16px; font-weight: 600; line-height: 1.5; }
-.rest-page { color: var(--ink-3); font-size: 13.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* 언론사 하나만 볼 때 */
 .full-list { display: grid; }
@@ -187,10 +178,6 @@ button, select { font: inherit; color: inherit; }
   .date-button { font-size: 21px; }
   .date-nav { gap: 6px; }
   .press-card { padding: 22px 20px 20px; }
-  .lead { grid-template-columns: minmax(0, 1fr) 76px; gap: 14px; }
-  .folio { height: 72px; border-radius: 10px; }
-  .folio-number { font-size: 26px; }
-  .folio-unit { font-size: 12px; }
   .lead-title { font-size: 18px; }
   .story { padding: 28px 22px; }
   .story h1 { font-size: 24px; }
