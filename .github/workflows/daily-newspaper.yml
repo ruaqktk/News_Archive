@@ -1,9 +1,13 @@
-name: 단독·기획 지면 수집
+name: 지면 전체 수집
+
+# 네이버 신문보기에서 9개 언론사 당일 지면 기사를 전부 수집해 artifact로 보관한다.
+# 단독·기획 선별, 요약, archive.json 반영은 Claude 예약 작업(매일 09:00 KST)이 담당한다.
+# 기사 본문이 들어 있으므로 레포에는 커밋하지 않고 artifact로만 2일 보관한다.
 
 on:
   schedule:
-    # 매일 08:40 KST (GitHub cron은 UTC 기준, 실제 실행은 몇 분~수십 분 늦을 수 있음)
-    - cron: '40 23 * * *'
+    # 매일 07:50 KST (GitHub cron은 UTC 기준, 실제 실행은 몇 분~수십 분 늦을 수 있음)
+    - cron: '50 22 * * *'
   workflow_dispatch:
     inputs:
       date:
@@ -11,16 +15,16 @@ on:
         required: false
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: daily-newspaper
   cancel-in-progress: false
 
 jobs:
-  collect:
+  scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
@@ -28,35 +32,20 @@ jobs:
         with:
           node-version: 22
 
-      - name: 네이버 신문보기 수집
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: node scripts/collect-naver.mjs "${{ inputs.date }}" > run.json
+      - name: 날짜 결정
+        id: day
+        run: |
+          d="${{ inputs.date }}"
+          if [ -z "$d" ]; then d=$(TZ=Asia/Seoul date +%F); fi
+          echo "date=$d" >> "$GITHUB_OUTPUT"
 
-      - name: 수집 결과 보관
-        if: always()
+      - name: 네이버 신문보기 전체 수집
+        run: node scripts/scrape-naver.mjs "${{ steps.day.outputs.date }}" out
+
+      - name: artifact 보관
         uses: actions/upload-artifact@v4
         with:
-          name: run-json
-          path: run.json
-          if-no-files-found: ignore
-
-      - name: 아카이브 병합 및 검증
-        run: |
-          node scripts/merge-run.mjs run.json
-          npm run check
-          npm test
-          npm run build
-
-      - name: 커밋
-        run: |
-          git config user.name "news-archive-bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/archive.json
-          if git diff --cached --quiet; then
-            echo "변경 없음"
-            exit 0
-          fi
-          git commit -m "Archive $(node -p "require('./run.json').date") newspaper exclusives and features"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          name: newspaper-${{ steps.day.outputs.date }}
+          path: out/
+          retention-days: 2
+          overwrite: true

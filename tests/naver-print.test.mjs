@@ -41,3 +41,25 @@ test('기사 페이지에서 원문 URL·발행시각·본문을 꺼낸다', () 
   assert.equal(parsed.publishedAt, '2026-10-25T17:39:00+09:00');
   assert.equal(parsed.text, '정부가 그린벨트 & 환경평가\n등급을 재산정한다.');
 });
+
+test('선택 결과로 만든 run은 아카이브 검증을 통과하고 원문 URL 없는 기사는 제외한다', async () => {
+  const { buildRun } = await import('../scripts/build-run.mjs');
+  const { validateRun, PUBLISHER_IDS } = await import('../scripts/archive-lib.mjs');
+  const publishers = PUBLISHER_IDS.map((id) => ({ id, name: id, domain: id === 'mk' ? 'mk.co.kr' : `${id}.example`, url: id === 'mk' ? 'https://www.mk.co.kr/' : `https://${id}.example/` }));
+  const listing = {
+    date: '2026-10-28', scrapedAt: '2026-10-28T08:00:00+09:00',
+    coverage: PUBLISHER_IDS.map((publisherId) => ({ publisherId, status: 'checked', note: '지면 기사 1건 수집.' })),
+    articles: [
+      { publisherId: 'mk', aid: '0005754872', page: 'A1', title: '[단독] 테스트', naverUrl: 'https://n.news.naver.com/article/newspaper/009/0005754872?date=20261028', originalUrl: 'https://www.mk.co.kr/news/economy/1', publishedAt: '2026-10-27T17:00:00+09:00', bodyLength: 100 },
+      { publisherId: 'mk', aid: '0005754873', page: 'A2', title: '[단독] 원문 없음', naverUrl: 'https://n.news.naver.com/article/newspaper/009/0005754873?date=20261028', originalUrl: null, publishedAt: null, bodyLength: 0 },
+    ],
+  };
+  const run = buildRun(listing, [
+    { aid: '0005754872', publisherId: 'mk', type: 'exclusive', evidence: '제목 [단독]', summary: '요약입니다.' },
+    { aid: '0005754873', publisherId: 'mk', type: 'exclusive', evidence: '제목 [단독]', summary: '' },
+  ], publishers, '2026-10-28T09:05:00+09:00');
+  assert.equal(run.articles.length, 1);
+  assert.equal(run.coverage[0].status, 'partial');
+  validateRun(run, publishers);
+  assert.throws(() => buildRun(listing, [{ aid: '999', publisherId: 'mk', type: 'feature', evidence: 'x' }], publishers, '2026-10-28T09:05:00+09:00'), /목록에 없는/);
+});
