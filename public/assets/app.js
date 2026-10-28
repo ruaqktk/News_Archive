@@ -1,4 +1,4 @@
-import { $, SECTIONS, displayTitle, element, sectionBadge, formatEditionDate, formatDateTime, loadArchive, naverLink, comparePages, typeBadge } from "./common.js";
+import { $, SECTIONS, displayTitle, element, loadLogos, pressLogo, sectionBadge, formatEditionDate, formatDateTime, loadArchive, naverLink, comparePages, typeBadge } from "./common.js";
 
 const STATUS_LABEL = { checked: "확인 완료", partial: "일부 확인", blocked: "접근 실패", not_checked: "미확인" };
 
@@ -90,13 +90,15 @@ function pressCard(publisher, articles, expanded) {
   card.setAttribute("aria-label", publisher.name);
   const head = element("header", "press-head");
   const name = element("h2", "press-name");
+  const logo = pressLogo(publisher.id);
+  if (logo) name.append(logo);
   if (!expanded) {
     const link = element("a", null, publisher.name);
     link.href = `?date=${state.date}&press=${publisher.id}`;
     link.addEventListener("click", (event) => { event.preventDefault(); setPress(publisher.id); });
     name.append(link);
   } else {
-    name.textContent = publisher.name;
+    name.append(document.createTextNode(publisher.name));
   }
   const exclusive = articles.filter((article) => article.type === "exclusive").length;
   const feature = articles.length - exclusive;
@@ -221,7 +223,7 @@ function closeDateList() {
 async function initialize() {
   readUrl();
   try {
-    state.archive = await loadArchive();
+    [state.archive] = await Promise.all([loadArchive(), loadLogos()]);
   } catch {
     $("load-error").hidden = false;
     $("editions").setAttribute("aria-busy", "false");

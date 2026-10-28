@@ -92,3 +92,25 @@ export function typeBadge(type) {
 export function sectionBadge(section) {
   return SECTIONS.includes(section) ? element("span", "badge badge-section", section) : null;
 }
+
+// 언론사 로고: 빌드 때 만든 assets/logos.json에 있는 언론사만 표시한다(파일은 public/assets/logos/).
+let logoManifest = null;
+export async function loadLogos() {
+  try {
+    const response = await fetch("./assets/logos.json", { cache: "no-store" });
+    logoManifest = response.ok ? await response.json() : {};
+  } catch {
+    logoManifest = {};
+  }
+}
+
+export function pressLogo(publisherId) {
+  const file = logoManifest?.[publisherId];
+  if (!file) return null;
+  const img = element("img", "press-logo");
+  img.alt = "";
+  img.decoding = "async";
+  img.src = `./assets/logos/${encodeURIComponent(file)}`;
+  img.addEventListener("error", () => img.remove());
+  return img;
+}
