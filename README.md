@@ -15,15 +15,13 @@
 
 ## 현재 연결 상태
 
-2026-10-26 설정 기준으로 ChatGPT의 **단독·기획 아침 브리핑** 예약은 매일 오전 9시(Asia/Seoul)에 실행합니다. 검색과 요약이 완료되면 한국어 브리핑을 제공하고, 날짜별 JSON을 보존하며, 검증한 기사 데이터를 GitHub 아카이브에 누적하는 구성입니다.
+매일 아침 자동으로 갱신됩니다. 자세한 흐름은 [docs/AUTOMATION.md](docs/AUTOMATION.md)를 보세요.
 
-저장소는 `https://github.com/ruaqktk/News_Archive`입니다. 연결 계정 `ruaqktk`로 이 저장소에 **실제 파일 쓰기가 성공한 것을 확인했습니다.** 기사 데이터는 `main` 브랜치의 `public/data/archive.json`에 누적합니다.
+1. 07:50 KST — 비공개 레포 `News_Archive_raw`의 GitHub Actions가 네이버 신문보기에서 9개사 당일 지면 기사를 전부 수집
+2. 09:00 KST — Claude 예약 작업이 [선별 기준](docs/CLASSIFICATION.md)에 따라 단독·기획 기사를 고르고 요약해 `public/data/archive.json`에 반영, 브리핑 알림 발송
+3. 커밋 직후 — Vercel 자동 배포
 
-**2026-10-26에 Vercel 최초 배포 성공을 확인했습니다.** 연결된 프로젝트는 `newsarchive`이며, 운영 브랜치의 변경마다 새 배포를 실행하는 구성입니다. GitHub 저장 성공과 해당 커밋의 Vercel 배포 성공은 계속 별도로 확인합니다.
-
-운영 주소(사용자 제공): [혜원이의 뉴스 아카이브](https://newsarchive-rho.vercel.app/)
-
-기사 제목과 열람 버튼은 각 언론사의 **네이버 신문보기 탭**으로 연결합니다. 이 링크는 개별 기사의 직접 주소가 아닙니다. 기사 원문 URL은 출처 검증과 중복 제거를 위해 데이터에 보존하며, 신문보기 URL로 덮어쓰지 않습니다. 확인하지 못한 신문 날짜 쿼리는 링크에 추가하지 않습니다.
+운영 주소: [혜원이의 뉴스 아카이브](https://newsarchive-rho.vercel.app/)
 
 ## Vercel 배포
 
