@@ -90,15 +90,16 @@ function pressCard(publisher, articles, expanded) {
   card.setAttribute("aria-label", publisher.name);
   const head = element("header", "press-head");
   const name = element("h2", "press-name");
-  const logo = pressLogo(publisher.id);
-  if (logo) name.append(logo);
+  // 로고가 있으면 로고(대체 텍스트로 언론사 이름), 없으면 이름 글자
+  const label = () => pressLogo(publisher.id, publisher.name) ?? document.createTextNode(publisher.name);
   if (!expanded) {
-    const link = element("a", null, publisher.name);
+    const link = element("a");
+    link.append(label());
     link.href = `?date=${state.date}&press=${publisher.id}`;
     link.addEventListener("click", (event) => { event.preventDefault(); setPress(publisher.id); });
     name.append(link);
   } else {
-    name.append(document.createTextNode(publisher.name));
+    name.append(label());
   }
   const exclusive = articles.filter((article) => article.type === "exclusive").length;
   const feature = articles.length - exclusive;

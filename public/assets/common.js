@@ -104,13 +104,14 @@ export async function loadLogos() {
   }
 }
 
-export function pressLogo(publisherId) {
+export function pressLogo(publisherId, name) {
   const file = logoManifest?.[publisherId];
   if (!file) return null;
   const img = element("img", "press-logo");
-  img.alt = "";
+  img.alt = name;
   img.decoding = "async";
   img.src = `./assets/logos/${encodeURIComponent(file)}`;
-  img.addEventListener("error", () => img.remove());
+  // 로고를 못 불러오면 이름 글자로 되돌린다.
+  img.addEventListener("error", () => img.replaceWith(document.createTextNode(name)));
   return img;
 }
