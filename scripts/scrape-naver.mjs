@@ -5,10 +5,11 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
-import { PRESS_CODES, classifyTitle, newspaperPageUrl, onDomain, parseArticlePage, parseNewspaperPage } from './naver-print.mjs';
+import { PRESS_CODES, classifyTitle, isCandidate, newspaperPageUrl, onDomain, parseArticlePage, parseNewspaperPage } from './naver-print.mjs';
 
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 const archivePath = fileURLToPath(new URL('../public/data/archive.json', import.meta.url));
+const DEADLINE = Date.now() + Number(process.env.SCRAPE_BUDGET_MINUTES || 20) * 60000;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export function kstNow() {
@@ -16,11 +17,11 @@ export function kstNow() {
   return `${parts.replace(' ', 'T')}+09:00`;
 }
 
-async function fetchHtml(url, attempts = 3) {
+async function fetchHtml(url, attempts = 2) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT, 'Accept-Language': 'ko-KR,ko;q=0.9' }, signal: AbortSignal.timeout(20000) });
+      const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT, 'Accept-Language': 'ko-KR,ko;q=0.9' }, signal: AbortSignal.timeout(12000) });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return await response.text();
     } catch (error) {
@@ -45,9 +46,14 @@ async function scrapePublisher(publisher, date) {
   const articles = [];
   const bodies = [];
   let failed = 0;
+  let fetched = 0;
+  let skippedForTime = 0;
   for (const item of listing) {
-    await sleep(200);
-    const entry = { publisherId: publisher.id, aid: item.aid, page: item.page, title: item.title, naverUrl: item.naverUrl, originalUrl: null, publishedAt: null, bodyLength: 0, titleHint: classifyTitle(item.title)?.type ?? null, fetchError: null };
+    const entry = { publisherId: publisher.id, aid: item.aid, page: item.page, title: item.title, naverUrl: item.naverUrl, candidate: isCandidate(item.title), originalUrl: null, publishedAt: null, bodyLength: 0, titleHint: classifyTitle(item.title)?.type ?? null, fetchError: null };
+    articles.push(entry);
+    if (!entry.candidate) continue;
+    if (Date.now() > DEADLINE) { entry.fetchError = 'time_limit'; skippedForTime += 1; continue; }
+    await sleep(250);
     try {
       const detail = parseArticlePage(await fetchHtml(item.naverUrl));
       const original = detail.originalUrl?.replace(/^http:\/\//, 'https://');
@@ -55,16 +61,19 @@ async function scrapePublisher(publisher, date) {
       entry.publishedAt = detail.publishedAt;
       entry.bodyLength = detail.text.length;
       if (detail.text) bodies.push({ publisherId: publisher.id, aid: item.aid, text: detail.text });
+      fetched += 1;
     } catch (error) {
       entry.fetchError = error.message;
       failed += 1;
     }
-    articles.push(entry);
+    if ((fetched + failed) % 20 === 0) console.error(`${publisher.id}: 후보 기사 ${fetched + failed}건 처리`);
   }
+  const candidates = articles.filter((article) => article.candidate).length;
+  const problems = failed + skippedForTime;
   return {
     publisherId: publisher.id, pageUrl,
-    status: failed ? 'partial' : 'checked',
-    note: `지면 기사 ${listing.length}건 수집${failed ? `, 기사 페이지 ${failed}건 실패` : ''}.`,
+    status: problems ? 'partial' : 'checked',
+    note: `지면 기사 ${listing.length}건 수집, 후보 ${candidates}건 기사 페이지 확인${failed ? `, ${failed}건 실패` : ''}${skippedForTime ? `, 시간 제한으로 ${skippedForTime}건 미확인` : ''}.`,
     articles, bodies,
   };
 }

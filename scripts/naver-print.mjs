@@ -110,3 +110,12 @@ export function onDomain(value, domain) {
     return url.protocol === 'https:' && (url.hostname === domain || url.hostname.endsWith(`.${domain}`));
   } catch { return false; }
 }
+
+const BRACKET_TAG = /[\[〈<【]\s*[^\]〉>】]{1,30}\s*[\]〉>】]/;
+const FEATURE_WORD = /단독|기획|르포|연재|탐사|심층|시리즈/;
+
+// 기사 페이지(본문)를 열어 볼 후보인지 넓게 판정한다. 최종 판단은 Claude가 한다.
+export function isCandidate(title) {
+  if (EXCLUDE.test(title)) return false;
+  return BRACKET_TAG.test(title) || SERIES_NUMBER.test(title) || FEATURE_WORD.test(title);
+}
