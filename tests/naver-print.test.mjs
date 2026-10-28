@@ -59,7 +59,7 @@ test('선택 결과로 만든 run은 아카이브 검증을 통과하고 원문 
     { aid: '0005754873', publisherId: 'mk', type: 'exclusive', evidence: '제목 [단독]', summary: '' },
   ], publishers, '2026-10-28T09:05:00+09:00');
   assert.equal(run.articles.length, 1);
-  assert.equal(run.coverage[0].status, 'partial');
+  assert.equal(run.coverage.find((entry) => entry.publisherId === 'mk').status, 'partial');
   validateRun(run, publishers);
   assert.throws(() => buildRun(listing, [{ aid: '999', publisherId: 'mk', type: 'feature', evidence: 'x' }], publishers, '2026-10-28T09:05:00+09:00'), /목록에 없는/);
 });

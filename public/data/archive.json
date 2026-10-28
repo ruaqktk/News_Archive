@@ -4,28 +4,10 @@
   "updatedAt": "2026-10-28T12:33:41+09:00",
   "publishers": [
     {
-      "id": "mk",
-      "name": "매일경제",
-      "domain": "mk.co.kr",
-      "url": "https://www.mk.co.kr/"
-    },
-    {
       "id": "chosun",
       "name": "조선일보",
       "domain": "chosun.com",
       "url": "https://www.chosun.com/"
-    },
-    {
-      "id": "segye",
-      "name": "세계일보",
-      "domain": "segye.com",
-      "url": "https://www.segye.com/"
-    },
-    {
-      "id": "hankyung",
-      "name": "한국경제",
-      "domain": "hankyung.com",
-      "url": "https://www.hankyung.com/"
     },
     {
       "id": "joongang",
@@ -34,10 +16,10 @@
       "url": "https://www.joongang.co.kr/"
     },
     {
-      "id": "sedaily",
-      "name": "서울경제",
-      "domain": "sedaily.com",
-      "url": "https://www.sedaily.com/"
+      "id": "donga",
+      "name": "동아일보",
+      "domain": "donga.com",
+      "url": "https://www.donga.com/"
     },
     {
       "id": "hani",
@@ -46,16 +28,52 @@
       "url": "https://www.hani.co.kr/"
     },
     {
-      "id": "donga",
-      "name": "동아일보",
-      "domain": "donga.com",
-      "url": "https://www.donga.com/"
+      "id": "hankookilbo",
+      "name": "한국일보",
+      "domain": "hankookilbo.com",
+      "url": "https://www.hankookilbo.com/"
+    },
+    {
+      "id": "khan",
+      "name": "경향신문",
+      "domain": "khan.co.kr",
+      "url": "https://www.khan.co.kr/"
     },
     {
       "id": "kmib",
       "name": "국민일보",
       "domain": "kmib.co.kr",
       "url": "https://www.kmib.co.kr/"
+    },
+    {
+      "id": "segye",
+      "name": "세계일보",
+      "domain": "segye.com",
+      "url": "https://www.segye.com/"
+    },
+    {
+      "id": "seoul",
+      "name": "서울신문",
+      "domain": "seoul.co.kr",
+      "url": "https://www.seoul.co.kr/"
+    },
+    {
+      "id": "sedaily",
+      "name": "서울경제",
+      "domain": "sedaily.com",
+      "url": "https://www.sedaily.com/"
+    },
+    {
+      "id": "mk",
+      "name": "매일경제",
+      "domain": "mk.co.kr",
+      "url": "https://www.mk.co.kr/"
+    },
+    {
+      "id": "hankyung",
+      "name": "한국경제",
+      "domain": "hankyung.com",
+      "url": "https://www.hankyung.com/"
     }
   ],
   "runs": [
@@ -65,15 +83,9 @@
       "windowStart": "2026-10-28T00:00:00+09:00",
       "windowEnd": "2026-10-28T12:32:01+09:00",
       "collectionMode": "naver_newspaper",
-      "status": "complete",
+      "status": "partial",
       "note": "네이버 신문보기 2026-10-28자 지면 전체(959건)를 GitHub Actions가 수집하고, Claude가 단독·기획 선별과 요약을 작성했습니다.",
       "coverage": [
-        {
-          "publisherId": "mk",
-          "status": "checked",
-          "note": "지면 기사 186건 수집, 후보 20건 기사 페이지 확인. 단독·기획 3건 선정.",
-          "articleCount": 3
-        },
         {
           "publisherId": "chosun",
           "status": "checked",
@@ -81,33 +93,9 @@
           "articleCount": 3
         },
         {
-          "publisherId": "segye",
-          "status": "checked",
-          "note": "지면 기사 102건 수집, 후보 20건 기사 페이지 확인. 단독·기획 9건 선정.",
-          "articleCount": 9
-        },
-        {
-          "publisherId": "hankyung",
-          "status": "checked",
-          "note": "지면 기사 142건 수집, 후보 8건 기사 페이지 확인. 단독·기획 2건 선정.",
-          "articleCount": 2
-        },
-        {
           "publisherId": "joongang",
           "status": "checked",
           "note": "지면 기사 68건 수집, 후보 19건 기사 페이지 확인. 단독·기획 1건 선정.",
-          "articleCount": 1
-        },
-        {
-          "publisherId": "sedaily",
-          "status": "checked",
-          "note": "지면 기사 105건 수집, 후보 12건 기사 페이지 확인. 단독·기획 1건 선정.",
-          "articleCount": 1
-        },
-        {
-          "publisherId": "hani",
-          "status": "checked",
-          "note": "지면 기사 61건 수집, 후보 7건 기사 페이지 확인. 단독·기획 1건 선정.",
           "articleCount": 1
         },
         {
@@ -117,10 +105,58 @@
           "articleCount": 5
         },
         {
+          "publisherId": "hani",
+          "status": "checked",
+          "note": "지면 기사 61건 수집, 후보 7건 기사 페이지 확인. 단독·기획 1건 선정.",
+          "articleCount": 1
+        },
+        {
+          "publisherId": "hankookilbo",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "khan",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
+          "articleCount": 0
+        },
+        {
           "publisherId": "kmib",
           "status": "checked",
           "note": "지면 기사 83건 수집, 후보 16건 기사 페이지 확인. 단독·기획 3건 선정.",
           "articleCount": 3
+        },
+        {
+          "publisherId": "segye",
+          "status": "checked",
+          "note": "지면 기사 102건 수집, 후보 20건 기사 페이지 확인. 단독·기획 9건 선정.",
+          "articleCount": 9
+        },
+        {
+          "publisherId": "seoul",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "sedaily",
+          "status": "checked",
+          "note": "지면 기사 105건 수집, 후보 12건 기사 페이지 확인. 단독·기획 1건 선정.",
+          "articleCount": 1
+        },
+        {
+          "publisherId": "mk",
+          "status": "checked",
+          "note": "지면 기사 186건 수집, 후보 20건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "articleCount": 3
+        },
+        {
+          "publisherId": "hankyung",
+          "status": "checked",
+          "note": "지면 기사 142건 수집, 후보 8건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
         }
       ],
       "articles": [
@@ -612,27 +648,9 @@
       "note": "연합뉴스 2026-10-27 08:00 조간 1면 목록에서 지정 9개 언론사 존재를 교차 확인. 동아일보 공식 27일 지면 목차의 기획 6건을 확인했으나 네이버 개별 기사 링크가 확인되지 않아 보류함. 새 확정기사 0건. 네이버 신문보기 접근 제한, 언론사별 전체 지면 전수 확인 및 URL 자동 매칭 미달. 기사 0건은 지면 단독·기획 기사 부재가 아닌 검증 미완료를 뜻함.",
       "coverage": [
         {
-          "publisherId": "mk",
-          "status": "partial",
-          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「AI 꺾이면 반도체 수출 1천억弗 타격」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
-          "articleCount": 0
-        },
-        {
           "publisherId": "chosun",
           "status": "partial",
           "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「탄핵과 특검 무한반복하는 민주당」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
-          "articleCount": 0
-        },
-        {
-          "publisherId": "segye",
-          "status": "partial",
-          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「옥자서 오겜까지 600억 시간의 신화」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
-          "articleCount": 0
-        },
-        {
-          "publisherId": "hankyung",
-          "status": "partial",
-          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「뜻밖의 반도체 호황… 자원의 저주 피하는 법」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료. 공식 지면 서비스도 구독 접근 제한으로 내용 검증 어려움.",
           "articleCount": 0
         },
         {
@@ -642,9 +660,9 @@
           "articleCount": 0
         },
         {
-          "publisherId": "sedaily",
+          "publisherId": "donga",
           "status": "partial",
-          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「중수청까지 리니언시…표적 된 기업들」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "note": "동아일보 공식 2026-10-27 지면보기에서 A18 기획 3건·A23 기획 2건·B5 기획 1건 확인(https://www.donga.com/news/Pdf). 총 6건은 네이버 개별 기사 주소 확인 불가로 보류. 다른 지면 및 단독·기획 전수 검증 미완료.",
           "articleCount": 0
         },
         {
@@ -654,15 +672,51 @@
           "articleCount": 0
         },
         {
-          "publisherId": "donga",
-          "status": "partial",
-          "note": "동아일보 공식 2026-10-27 지면보기에서 A18 기획 3건·A23 기획 2건·B5 기획 1건 확인(https://www.donga.com/news/Pdf). 총 6건은 네이버 개별 기사 주소 확인 불가로 보류. 다른 지면 및 단독·기획 전수 검증 미완료.",
+          "publisherId": "hankookilbo",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "khan",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
           "articleCount": 0
         },
         {
           "publisherId": "kmib",
           "status": "partial",
           "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「각종 약물 몰아주고 손 떨려도 버티세요」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "segye",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「옥자서 오겜까지 600억 시간의 신화」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "seoul",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "sedaily",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「중수청까지 리니언시…표적 된 기업들」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "mk",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「AI 꺾이면 반도체 수출 1천억弗 타격」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "hankyung",
+          "status": "partial",
+          "note": "연합뉴스 2026-10-27 08:00 조간 주요 신문 1면 제목 확인(「뜻밖의 반도체 호황… 자원의 저주 피하는 법」): https://www.yna.co.kr/view/AKR20261027016100011. 네이버 신문보기 직접 접근이 차단되고 해당 매체 전체 지면 및 단독·기획 분류와 네이버 개별 기사 링크의 교차 검증이 미완료. 공식 지면 서비스도 구독 접근 제한으로 내용 검증 어려움.",
           "articleCount": 0
         }
       ],
@@ -758,25 +812,7 @@
       "note": "지면 전용 재수집 시범 실행. 연합뉴스 2026-10-26 08:00 '전국 주요 신문 톱뉴스'의 매일경제 1면 제목과 매일경제 공식 단독 기사 제목을 교차 대조하여 1건만 확인. 다른 언론사 지면 전수 검증은 미완료. 해당 기사는 사용자가 제공한 네이버 신문보기 개별 기사 주소로 연결.",
       "coverage": [
         {
-          "publisherId": "mk",
-          "status": "partial",
-          "note": "연합뉴스 26일 조간 매일경제 1면 제목과 공식 [단독] 제목 일치; 나머지 지면은 미확인.",
-          "articleCount": 1
-        },
-        {
           "publisherId": "chosun",
-          "status": "not_checked",
-          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
-          "articleCount": 0
-        },
-        {
-          "publisherId": "segye",
-          "status": "not_checked",
-          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
-          "articleCount": 0
-        },
-        {
-          "publisherId": "hankyung",
           "status": "not_checked",
           "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
           "articleCount": 0
@@ -788,7 +824,7 @@
           "articleCount": 0
         },
         {
-          "publisherId": "sedaily",
+          "publisherId": "donga",
           "status": "not_checked",
           "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
           "articleCount": 0
@@ -800,13 +836,49 @@
           "articleCount": 0
         },
         {
-          "publisherId": "donga",
+          "publisherId": "hankookilbo",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "khan",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "kmib",
           "status": "not_checked",
           "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
           "articleCount": 0
         },
         {
-          "publisherId": "kmib",
+          "publisherId": "segye",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "seoul",
+          "status": "not_checked",
+          "note": "수집 대상에 추가되기 전 날짜입니다.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "sedaily",
+          "status": "not_checked",
+          "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "mk",
+          "status": "partial",
+          "note": "연합뉴스 26일 조간 매일경제 1면 제목과 공식 [단독] 제목 일치; 나머지 지면은 미확인.",
+          "articleCount": 1
+        },
+        {
+          "publisherId": "hankyung",
           "status": "not_checked",
           "note": "이번 시범 실행에서 지면 수록 여부 미확인; 기사 없음으로 해석하지 말 것.",
           "articleCount": 0

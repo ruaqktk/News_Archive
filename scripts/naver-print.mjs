@@ -2,8 +2,18 @@
 // 네트워크 요청은 collect-naver.mjs가 담당하고, 이 파일은 테스트 가능한 파싱·분류만 맡는다.
 
 export const PRESS_CODES = Object.freeze({
-  mk: '009', chosun: '023', segye: '022', hankyung: '015', joongang: '025',
-  sedaily: '011', hani: '028', donga: '020', kmib: '005',
+  chosun: '023',
+  joongang: '025',
+  donga: '020',
+  hani: '028',
+  hankookilbo: '469',
+  khan: '032',
+  kmib: '005',
+  segye: '022',
+  seoul: '081',
+  sedaily: '011',
+  mk: '009',
+  hankyung: '015',
 });
 
 const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', middot: '·', hellip: '…', lsquo: '‘', rsquo: '’', ldquo: '“', rdquo: '”' };

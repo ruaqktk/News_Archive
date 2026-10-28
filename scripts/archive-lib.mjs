@@ -2,14 +2,14 @@ import { readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
 
 export const PUBLISHER_IDS = Object.freeze([
-  'mk', 'chosun', 'segye', 'hankyung', 'joongang', 'sedaily', 'hani', 'donga', 'kmib',
+  'chosun', 'joongang', 'donga', 'hani', 'hankookilbo', 'khan', 'kmib', 'segye', 'seoul', 'sedaily', 'mk', 'hankyung',
 ]);
 
 const RUN_STATUSES = new Set(['complete', 'partial', 'failed']);
 const COVERAGE_STATUSES = new Set(['checked', 'partial', 'blocked', 'not_checked']);
 const ARTICLE_TYPES = new Set(['exclusive', 'feature']);
 const SUMMARY_BASES = new Set(['full_text', 'partial_text', 'metadata_only']);
-const PRESS_CODES = Object.freeze({ mk:'009', chosun:'023', segye:'022', hankyung:'015', joongang:'025', sedaily:'011', hani:'028', donga:'020', kmib:'005' });
+const PRESS_CODES = Object.freeze({ chosun:'023', joongang:'025', donga:'020', hani:'028', hankookilbo:'469', khan:'032', kmib:'005', segye:'022', seoul:'081', sedaily:'011', mk:'009', hankyung:'015' });
 
 function requireCondition(condition, message) {
   if (!condition) throw new Error(message);
@@ -60,7 +60,7 @@ function officialUrl(value, domain, label) {
 }
 
 export function validatePublishers(publishers) {
-  requireCondition(Array.isArray(publishers) && publishers.length === PUBLISHER_IDS.length, 'publishers: 지정한 9개 언론사가 필요합니다.');
+  requireCondition(Array.isArray(publishers) && publishers.length === PUBLISHER_IDS.length, `publishers: 지정한 ${PUBLISHER_IDS.length}개 언론사가 필요합니다.`);
   const ids = new Set();
   for (const publisher of publishers) {
     record(publisher, 'publisher');
@@ -134,7 +134,7 @@ export function validateRun(run, publishers) {
     counts.set(article.publisherId, counts.get(article.publisherId) + 1);
   }
 
-  requireCondition(Array.isArray(run.coverage) && run.coverage.length === PUBLISHER_IDS.length, 'run.coverage: 9개 언론사의 확인 상태가 필요합니다.');
+  requireCondition(Array.isArray(run.coverage) && run.coverage.length === PUBLISHER_IDS.length, `run.coverage: ${PUBLISHER_IDS.length}개 언론사의 확인 상태가 필요합니다.`);
   const covered = new Set();
   for (const entry of run.coverage) {
     record(entry, 'coverage');

@@ -47,7 +47,7 @@ test('이전 날짜에 보관된 동일 기사는 신규 브리핑에서 제외�
   const result = mergeRun(archive([old]), incoming);
   assert.equal(result.stats.skippedPreviouslyArchived, 1);
   assert.deepEqual(result.archive.runs[0].articles.map((item) => item.id), ['new']);
-  assert.equal(result.archive.runs[0].coverage[0].articleCount, 1);
+  assert.equal(result.archive.runs[0].coverage.find((entry) => entry.publisherId === 'mk').articleCount, 1);
   assert.deepEqual(result.archive.runs[1], old);
 });
 
@@ -73,7 +73,7 @@ test('수집 실패 후에도 기존 기사를 보존하고 부분 확인으로 
   const result = mergeRun(archive([existing]), incoming);
   assert.equal(result.archive.runs[0].articles.length, 1);
   assert.equal(result.archive.runs[0].status, 'partial');
-  assert.match(result.archive.runs[0].coverage[0].note, /보존/);
+  assert.match(result.archive.runs[0].coverage.find((entry) => entry.publisherId === 'mk').note, /보존/);
 });
 
 test('정규화는 기사 식별 쿼리는 유지하고 알려진 추적 파라미터만 제거한다', () => {
@@ -97,7 +97,7 @@ test('잘못된 도메인·날짜·유형·확인 상태는 거부하고 저장 
   unsupported.articles[0].type = 'ordinary';
   candidates.push(unsupported);
   const dishonestComplete = run('2026-10-26');
-  dishonestComplete.coverage[0].status = 'not_checked';
+  dishonestComplete.coverage.find((entry) => entry.publisherId === 'mk').status = 'not_checked';
   candidates.push(dishonestComplete);
   for (const publishedAt of ['2026-10-25T23:59:59+09:00', '2026-10-26T09:00:00+09:00', '2026-10-27T08:00:00+09:00']) {
     const outsideWindow = run('2026-10-26', [article('one')]);
@@ -126,9 +126,9 @@ test('잘못된 도메인·날짜·유형·확인 상태는 거부하고 저장 
 
 test('본문 확인 범위와 언론사별 기사 수가 일치해야 한다', () => {
   const candidate = run('2026-10-26', [article('one')]);
-  candidate.coverage[0].articleCount = 0;
+  candidate.coverage.find((entry) => entry.publisherId === 'mk').articleCount = 0;
   assert.throws(() => validateRun(candidate, publishers), /실제 기사 수/);
-  candidate.coverage[0].articleCount = 1;
+  candidate.coverage.find((entry) => entry.publisherId === 'mk').articleCount = 1;
   candidate.articles[0].publishedAt = '2026-10-26T08:00:00';
   assert.throws(() => validateRun(candidate, publishers), /시간대/);
 });
