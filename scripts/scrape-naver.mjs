@@ -6,7 +6,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { loadRules, triageTitle } from './triage.mjs';
-import { PRESS_CODES, newspaperPageUrl, onDomain, parseArticlePage, parseNewspaperPage } from './naver-print.mjs';
+import { PRESS_CODES, sectionHint, newspaperPageUrl, onDomain, parseArticlePage, parseNewspaperPage } from './naver-print.mjs';
 
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 const archivePath = fileURLToPath(new URL('../public/data/archive.json', import.meta.url));
@@ -51,6 +51,10 @@ async function fetchDetail(entry, domain, bodies) {
     entry.originalUrl = original && onDomain(original, domain) ? original : null;
     entry.publishedAt = detail.publishedAt;
     entry.bodyLength = detail.text.length;
+    entry.naverSections = detail.naverSections;
+    const hint = sectionHint(detail.naverSections, entry.originalUrl ?? original);
+    entry.sectionHint = hint?.section ?? null;
+    entry.sectionSource = hint?.source ?? null;
     entry.fetchError = null;
     if (detail.text) bodies.set(`${entry.publisherId}:${entry.aid}`, { publisherId: entry.publisherId, aid: entry.aid, text: detail.text });
   } catch (error) {
@@ -117,7 +121,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       const key = `${publisher.id}:${item.aid}`;
       const old = previousByKey.get(key);
       const entry = { publisherId: publisher.id, aid: item.aid, page: item.page, title: item.title, naverUrl: item.naverUrl, ...triageFields(item.title, publisher.id), originalUrl: null, publishedAt: null, bodyLength: 0, fetchError: null };
-      if (old && old.candidate && !old.fetchError) Object.assign(entry, { originalUrl: old.originalUrl, publishedAt: old.publishedAt, bodyLength: old.bodyLength, reused: true });
+      if (old && old.candidate && !old.fetchError && old.naverSections !== undefined) Object.assign(entry, { originalUrl: old.originalUrl, publishedAt: old.publishedAt, bodyLength: old.bodyLength, naverSections: old.naverSections, sectionHint: old.sectionHint, sectionSource: old.sectionSource, reused: true });
       entries.push(entry);
     }
   }

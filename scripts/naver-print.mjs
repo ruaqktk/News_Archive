@@ -111,7 +111,47 @@ export function parseArticlePage(html) {
   const publishedAt = dateAttr ? `${dateAttr[1].replace(' ', 'T')}+09:00` : null;
   const body = html.match(/<article[^>]*id=["']dic_area["'][^>]*>([\s\S]*?)<\/article>/i);
   const text = body ? stripTags(body[1].replace(/<(em|strong)[^>]*class=["']img_desc["'][\s\S]*?<\/\1>/gi, ' ')) : '';
-  return { originalUrl, publishedAt, text };
+  return { originalUrl, publishedAt, text, naverSections: extractNaverSections(html) };
+}
+
+// 네이버 기사 페이지의 분야 표시(예: "사회", "IT/과학")를 모은다. 마크업이 바뀔 수 있어 여러 신호를 본다.
+export function extractNaverSections(html) {
+  const found = new Set();
+  for (const match of html.matchAll(/class=["'][^"']*media_end_categorize_item[^"']*["'][^>]*>([^<]{1,20})</g)) found.add(decodeEntities(match[1]).trim());
+  for (const match of html.matchAll(/<meta[^>]+property=["'](?:article:section|me2:category2)["'][^>]+content=["']([^"']{1,20})["']/g)) found.add(decodeEntities(match[1]).trim());
+  return [...found].filter(Boolean);
+}
+
+// 통일 분야: 네이버 뉴스 분류 기준
+export const SECTIONS = Object.freeze(['정치', '경제', '사회', '생활·문화', '세계', 'IT·과학', '스포츠']);
+
+const NAVER_SECTION_MAP = {
+  '정치': '정치', '경제': '경제', '사회': '사회', '생활': '생활·문화', '문화': '생활·문화', '생활/문화': '생활·문화',
+  '연예': '생활·문화', '세계': '세계', 'IT': 'IT·과학', '과학': 'IT·과학', 'IT/과학': 'IT·과학', '스포츠': '스포츠',
+};
+
+// 원문 주소의 섹션 경로 → 통일 분야
+const URL_SECTION_RULES = [
+  [/chosun\.com\/politics\//, '정치'], [/chosun\.com\/national\//, '사회'], [/chosun\.com\/economy\//, '경제'],
+  [/chosun\.com\/international\//, '세계'], [/chosun\.com\/culture-life\//, '생활·문화'], [/chosun\.com\/sports\//, '스포츠'],
+  [/donga\.com\/news\/Politics\//, '정치'], [/donga\.com\/news\/Society\//, '사회'], [/donga\.com\/news\/Economy\//, '경제'],
+  [/donga\.com\/news\/Inter\//, '세계'], [/donga\.com\/news\/Culture\//, '생활·문화'], [/donga\.com\/news\/Sports\//, '스포츠'], [/donga\.com\/news\/It\//, 'IT·과학'],
+  [/hani\.co\.kr\/arti\/politics\//, '정치'], [/hani\.co\.kr\/arti\/society\//, '사회'], [/hani\.co\.kr\/arti\/economy\//, '경제'],
+  [/hani\.co\.kr\/arti\/international\//, '세계'], [/hani\.co\.kr\/arti\/culture\//, '생활·문화'], [/hani\.co\.kr\/arti\/sports\//, '스포츠'], [/hani\.co\.kr\/arti\/science\//, 'IT·과학'],
+  [/mk\.co\.kr\/news\/politics\//, '정치'], [/mk\.co\.kr\/news\/(?:economy|business|realestate|stock)\//, '경제'], [/mk\.co\.kr\/news\/society\//, '사회'],
+  [/mk\.co\.kr\/news\/world\//, '세계'], [/mk\.co\.kr\/news\/culture\//, '생활·문화'], [/mk\.co\.kr\/news\/it\//, 'IT·과학'], [/mk\.co\.kr\/news\/sports\//, '스포츠'],
+  [/kmib\.co\.kr\/.*[?&]sid1=pol/, '정치'], [/kmib\.co\.kr\/.*[?&]sid1=eco/, '경제'], [/kmib\.co\.kr\/.*[?&]sid1=soc/, '사회'],
+  [/kmib\.co\.kr\/.*[?&]sid1=int/, '세계'], [/kmib\.co\.kr\/.*[?&]sid1=cul/, '생활·문화'], [/kmib\.co\.kr\/.*[?&]sid1=spo/, '스포츠'],
+];
+
+// 분야 후보: 네이버 분류 1순위, 원문 주소 섹션 2순위. 못 찾으면 null(Claude가 기사 내용으로 정한다).
+export function sectionHint(naverSections = [], originalUrl = '') {
+  for (const name of naverSections) {
+    const mapped = NAVER_SECTION_MAP[name.replace(/\s+/g, '')] ?? NAVER_SECTION_MAP[name];
+    if (mapped) return { section: mapped, source: 'naver' };
+  }
+  for (const [pattern, section] of URL_SECTION_RULES) if (pattern.test(originalUrl || '')) return { section, source: 'url' };
+  return null;
 }
 
 export function onDomain(value, domain) {
