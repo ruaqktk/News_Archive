@@ -199,31 +199,67 @@ function setDate(date) {
   render();
 }
 
-function renderDateList() {
-  const list = $("date-list");
-  list.replaceChildren(...state.archive.runs.map((run) => {
-    const item = element("li");
-    const button = element("button", null, formatEditionDate(run.date));
+// 달력 팝업: 기사가 있는 날짜만 고를 수 있다.
+const calendar = { year: 0, month: 0 };
+const pad = (n) => String(n).padStart(2, "0");
+
+function setCalendarMonth(date) {
+  calendar.year = Number(date.slice(0, 4));
+  calendar.month = Number(date.slice(5, 7)) - 1;
+}
+
+function shiftCalendarMonth(step) {
+  const next = new Date(Date.UTC(calendar.year, calendar.month + step, 1));
+  calendar.year = next.getUTCFullYear();
+  calendar.month = next.getUTCMonth();
+  renderCalendar();
+}
+
+function renderCalendar() {
+  const counts = new Map(state.archive.runs.map((run) => [run.date, run.articles.length]));
+  const sorted = dates().slice().sort();
+  const monthKey = `${calendar.year}-${pad(calendar.month + 1)}`;
+  $("cal-title").textContent = `${calendar.year}년 ${calendar.month + 1}월`;
+  $("cal-prev").disabled = !sorted.length || sorted[0].slice(0, 7) >= monthKey;
+  $("cal-next").disabled = !sorted.length || sorted.at(-1).slice(0, 7) <= monthKey;
+
+  const first = new Date(Date.UTC(calendar.year, calendar.month, 1)).getUTCDay();
+  const days = new Date(Date.UTC(calendar.year, calendar.month + 1, 0)).getUTCDate();
+  const grid = $("cal-grid");
+  grid.replaceChildren();
+  for (let i = 0; i < first; i += 1) grid.append(element("span", "cal-blank"));
+  for (let day = 1; day <= days; day += 1) {
+    const date = `${monthKey}-${pad(day)}`;
+    const count = counts.get(date);
+    const button = element("button", "cal-day");
     button.type = "button";
-    button.setAttribute("role", "option");
-    button.setAttribute("aria-selected", String(run.date === state.date));
-    const count = element("span", "date-count", `${run.articles.length}건`);
-    button.append(count);
-    button.addEventListener("click", () => { setDate(run.date); $("date-button").focus(); });
-    item.append(button);
-    return item;
-  }));
+    button.append(element("span", "cal-num", String(day)));
+    if (count !== undefined) {
+      button.append(element("span", "cal-count", count ? `${count}건` : "0건"));
+      button.setAttribute("aria-label", `${calendar.month + 1}월 ${day}일, 기사 ${count}건`);
+      button.addEventListener("click", () => { setDate(date); $("date-button").focus(); });
+    } else {
+      button.disabled = true;
+      button.setAttribute("aria-label", `${calendar.month + 1}월 ${day}일, 기록 없음`);
+    }
+    if (date === state.date) { button.classList.add("is-selected"); button.setAttribute("aria-current", "date"); }
+    const weekday = (first + day - 1) % 7;
+    if (weekday === 0) button.classList.add("is-sunday");
+    if (weekday === 6) button.classList.add("is-saturday");
+    grid.append(button);
+  }
 }
 
 function openDateList() {
-  renderDateList();
-  $("date-list").hidden = false;
+  setCalendarMonth(state.date);
+  renderCalendar();
+  $("date-calendar").hidden = false;
   $("date-button").setAttribute("aria-expanded", "true");
-  $("date-list").querySelector('[aria-selected="true"]')?.focus();
+  ($("cal-grid").querySelector(".is-selected") ?? $("cal-grid").querySelector(".cal-day:not(:disabled)"))?.focus();
 }
 
 function closeDateList() {
-  $("date-list").hidden = true;
+  $("date-calendar").hidden = true;
   $("date-button").setAttribute("aria-expanded", "false");
 }
 
@@ -248,9 +284,11 @@ async function initialize() {
   select.addEventListener("change", () => setPress(select.value));
   $("date-prev").addEventListener("click", () => setDate(dates()[dates().indexOf(state.date) + 1]));
   $("date-next").addEventListener("click", () => setDate(dates()[dates().indexOf(state.date) - 1]));
-  $("date-button").addEventListener("click", () => ($("date-list").hidden ? openDateList() : closeDateList()));
+  $("date-button").addEventListener("click", () => ($("date-calendar").hidden ? openDateList() : closeDateList()));
+  $("cal-prev").addEventListener("click", () => shiftCalendarMonth(-1));
+  $("cal-next").addEventListener("click", () => shiftCalendarMonth(1));
   document.addEventListener("click", (event) => { if (!event.target.closest(".date-picker")) closeDateList(); });
-  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !$("date-list").hidden) { closeDateList(); $("date-button").focus(); } });
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !$("date-calendar").hidden) { closeDateList(); $("date-button").focus(); } });
   const sectionSelect = $("section-select");
   for (const section of SECTIONS) {
     const option = element("option", null, section);
