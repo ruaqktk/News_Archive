@@ -1,6 +1,6 @@
 # 혜원이의 뉴스 아카이브
 
-매일경제, 조선일보, 세계일보, 한국경제, 중앙일보, 서울경제, 한겨레신문, 동아일보, 국민일보의 **단독·기획 기사**를 날짜별·언론사별로 읽는 정적 웹사이트입니다.
+조선일보, 중앙일보, 동아일보, 한겨레신문, 한국일보, 경향신문, 국민일보, 세계일보, 서울신문, 서울경제, 매일경제, 한국경제의 **단독·기획 기사**를 날짜별·언론사별로 읽는 정적 웹사이트입니다.
 
 ## 준비된 기능
 
@@ -17,8 +17,8 @@
 
 매일 아침 자동으로 갱신됩니다. 자세한 흐름은 [docs/AUTOMATION.md](docs/AUTOMATION.md)를 보세요.
 
-1. 07:50 KST — 비공개 레포 `News_Archive_raw`의 GitHub Actions가 네이버 신문보기에서 9개사 당일 지면 기사를 전부 수집
-2. 09:00 KST — Claude 예약 작업이 [선별 기준](docs/CLASSIFICATION.md)에 따라 단독·기획 기사를 고르고 요약해 `public/data/archive.json`에 반영, 브리핑 알림 발송
+1. 07:50 KST — 비공개 레포 `News_Archive_raw`의 GitHub Actions가 네이버 신문보기에서 12개사 당일 지면 기사를 전부 수집
+2. 08:47 KST — Claude 예약 작업이 [선별 기준](docs/CLASSIFICATION.md)에 따라 단독·기획 기사를 고르고 요약해 `public/data/archive.json`에 반영, 브리핑 알림 발송
 3. 커밋 직후 — Vercel 자동 배포
 
 운영 주소: [혜원이의 뉴스 아카이브](https://newsarchive-rho.vercel.app/)

@@ -59,6 +59,19 @@ function officialUrl(value, domain, label) {
   requireCondition(url.hostname === domain || url.hostname.endsWith(`.${domain}`), `${label}: ${domain} 공식 도메인 밖의 URL입니다.`);
 }
 
+// 상세 요약: 배경(맥락), 핵심 정리 2~6개, 의미, 선택적 용어 풀이 0~4개
+function validateDetail(detail, label) {
+  record(detail, label);
+  string(detail.background, `${label}.background`);
+  requireCondition(Array.isArray(detail.points) && detail.points.length >= 2 && detail.points.length <= 6, `${label}.points: 2~6개 항목이어야 합니다.`);
+  detail.points.forEach((point, index) => string(point, `${label}.points[${index}]`));
+  string(detail.significance, `${label}.significance`);
+  if (detail.terms !== undefined) {
+    requireCondition(Array.isArray(detail.terms) && detail.terms.length <= 4, `${label}.terms: 4개 이하 배열이어야 합니다.`);
+    detail.terms.forEach((item, index) => { record(item, `${label}.terms[${index}]`); string(item.term, `${label}.terms[${index}].term`); string(item.description, `${label}.terms[${index}].description`); });
+  }
+}
+
 export function validatePublishers(publishers) {
   requireCondition(Array.isArray(publishers) && publishers.length === PUBLISHER_IDS.length, `publishers: 지정한 ${PUBLISHER_IDS.length}개 언론사가 필요합니다.`);
   const ids = new Set();
@@ -131,6 +144,7 @@ export function validateRun(run, publishers) {
     requireCondition(SUMMARY_BASES.has(article.summaryBasis), `${label}.summaryBasis: 확인 범위가 올바르지 않습니다.`);
     string(article.summary, `${label}.summary`, article.summaryBasis === 'metadata_only');
     string(article.classificationEvidence, `${label}.classificationEvidence`);
+    if (article.detail != null) validateDetail(article.detail, `${label}.detail`);
     counts.set(article.publisherId, counts.get(article.publisherId) + 1);
   }
 

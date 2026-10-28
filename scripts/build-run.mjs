@@ -1,7 +1,8 @@
 // 수집 목록(listing.json)과 Claude의 선택 결과(selections.json)를 합쳐 일일 run JSON을 만든다.
 // 사용법: node scripts/build-run.mjs <listing.json> <selections.json> > run.json
 // selections.json 형식: [{ "aid": "0004006341", "publisherId": "chosun", "type": "exclusive"|"feature",
-//                          "evidence": "분류 근거", "summary": "2~3문장 자체 요약" }]
+//                          "evidence": "분류 근거", "summary": "카드용 1~2문장 요약",
+//                          "detail": { "background", "points": [...], "significance", "terms": [{ "term", "description" }] } }]
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { PRESS_CODES } from './naver-print.mjs';
@@ -44,6 +45,7 @@ export function buildRun(listing, selections, publishers, generatedAt) {
       summary,
       summaryBasis: summary ? (source.bodyLength > 0 ? 'full_text' : 'metadata_only') : 'metadata_only',
       classificationEvidence: selection.evidence.trim(),
+      ...(selection.detail ? { detail: selection.detail } : {}),
     });
   }
   if (errors.length) throw new Error(errors.join('\n'));

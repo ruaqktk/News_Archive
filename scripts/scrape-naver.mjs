@@ -5,7 +5,8 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
-import { PRESS_CODES, classifyTitle, isCandidate, newspaperPageUrl, onDomain, parseArticlePage, parseNewspaperPage } from './naver-print.mjs';
+import { loadRules, triageTitle } from './triage.mjs';
+import { PRESS_CODES, newspaperPageUrl, onDomain, parseArticlePage, parseNewspaperPage } from './naver-print.mjs';
 
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 const archivePath = fileURLToPath(new URL('../public/data/archive.json', import.meta.url));
@@ -92,6 +93,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   }
   const { publishers } = JSON.parse(await readFile(archivePath, 'utf8'));
   const domains = new Map(publishers.map((publisher) => [publisher.id, publisher.domain]));
+  // 제목 규칙(config/classification-rules.json)으로 자동 제외되지 않는 기사만 본문을 받는다.
+  const rules = loadRules();
+  const triageFields = (title, publisherId) => {
+    const { decision, rule } = triageTitle(title, publisherId, rules);
+    return { candidate: decision !== 'exclude', triage: decision, triageRule: rule };
+  };
 
   // 같은 날짜를 다시 돌리면 이미 성공한 기사는 재사용하고 실패분만 다시 요청한다.
   const previous = await readPrevious(outDir, date);
@@ -109,7 +116,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     for (const item of listings[index].items) {
       const key = `${publisher.id}:${item.aid}`;
       const old = previousByKey.get(key);
-      const entry = { publisherId: publisher.id, aid: item.aid, page: item.page, title: item.title, naverUrl: item.naverUrl, candidate: isCandidate(item.title), originalUrl: null, publishedAt: null, bodyLength: 0, titleHint: classifyTitle(item.title)?.type ?? null, fetchError: null };
+      const entry = { publisherId: publisher.id, aid: item.aid, page: item.page, title: item.title, naverUrl: item.naverUrl, ...triageFields(item.title, publisher.id), originalUrl: null, publishedAt: null, bodyLength: 0, fetchError: null };
       if (old && old.candidate && !old.fetchError) Object.assign(entry, { originalUrl: old.originalUrl, publishedAt: old.publishedAt, bodyLength: old.bodyLength, reused: true });
       entries.push(entry);
     }
