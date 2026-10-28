@@ -104,14 +104,21 @@ export async function loadLogos() {
   }
 }
 
-export function pressLogo(publisherId, name) {
+// 엠블럼 안에서 로고의 심볼 부분만 보여줄 언론사 (로고 이미지에서 심볼이 있는 쪽)
+const SYMBOL_CROP = { hani: "right", hankookilbo: "left" };
+
+// 네이버 신문보기처럼 동그란 엠블럼. 로고 파일이 없으면 null.
+export function pressLogo(publisherId) {
   const file = logoManifest?.[publisherId];
   if (!file) return null;
-  const img = element("img", "press-logo");
-  img.alt = name;
+  const crop = SYMBOL_CROP[publisherId];
+  const badge = element("span", `press-emblem${crop ? ` is-symbol is-${crop}` : ""}`);
+  badge.setAttribute("aria-hidden", "true");
+  const img = element("img");
+  img.alt = "";
   img.decoding = "async";
   img.src = `./assets/logos/${encodeURIComponent(file)}`;
-  // 로고를 못 불러오면 이름 글자로 되돌린다.
-  img.addEventListener("error", () => img.replaceWith(document.createTextNode(name)));
-  return img;
+  img.addEventListener("error", () => badge.remove());
+  badge.append(img);
+  return badge;
 }

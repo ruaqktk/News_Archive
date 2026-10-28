@@ -90,8 +90,14 @@ function pressCard(publisher, articles, expanded) {
   card.setAttribute("aria-label", publisher.name);
   const head = element("header", "press-head");
   const name = element("h2", "press-name");
-  // 로고가 있으면 로고(대체 텍스트로 언론사 이름), 없으면 이름 글자
-  const label = () => pressLogo(publisher.id, publisher.name) ?? document.createTextNode(publisher.name);
+  // 엠블럼(로고가 있을 때) + 언론사 이름
+  const label = () => {
+    const wrap = element("span", "press-label");
+    const emblem = pressLogo(publisher.id);
+    if (emblem) wrap.append(emblem);
+    wrap.append(element("span", "press-title", publisher.name));
+    return wrap;
+  };
   if (!expanded) {
     const link = element("a");
     link.append(label());
