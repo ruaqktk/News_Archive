@@ -30,7 +30,9 @@ async function initialize() {
   }
   const publisher = archive.publishers.find((item) => item.id === article.publisherId);
   document.title = `${article.title} · 혜원이의 뉴스 아카이브`;
-  $("back-link").href = `./?date=${encodeURIComponent(date)}`;
+  const query = params.get("q");
+  $("back-link").href = query ? `./?q=${encodeURIComponent(query)}` : `./?date=${encodeURIComponent(date)}`;
+  if (query) $("back-link").textContent = "검색 결과로";
 
   $("story-meta").append(
     typeBadge(article.type),

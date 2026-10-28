@@ -118,3 +118,66 @@ export function pressLogo(publisherId) {
   badge.append(img);
   return badge;
 }
+
+// ── 검색 ──────────────────────────────────────────────
+// 공백으로 나눈 모든 단어가 들어간 기사만 찾는다(대소문자·띄어쓰기 차이 무시).
+const fold = (text) => String(text ?? "").toLocaleLowerCase("ko-KR");
+const squash = (text) => fold(text).replace(/\s+/g, "");
+
+export function searchTerms(query) {
+  return [...new Set(String(query ?? "").trim().split(/\s+/).filter(Boolean).map(fold))];
+}
+
+export function articleSearchText(article, publisherName = "") {
+  const detail = article.detail ?? {};
+  return [
+    article.title, article.summary, publisherName,
+    detail.background, ...(detail.points ?? []), detail.significance,
+    ...(detail.terms ?? []).flatMap((item) => [item.term, item.description]),
+  ].filter(Boolean).join("\n");
+}
+
+export function matchesTerms(text, terms) {
+  const folded = fold(text);
+  const squashed = squash(text);
+  return terms.every((term) => folded.includes(term) || squashed.includes(term.replace(/\s+/g, "")));
+}
+
+// 텍스트에서 검색어를 <mark>로 감싼 노드 묶음을 만든다(innerHTML 사용 안 함).
+export function highlight(text, terms) {
+  const fragment = document.createDocumentFragment();
+  const source = String(text ?? "");
+  const usable = terms.filter((term) => term.length > 0).sort((a, b) => b.length - a.length);
+  if (!usable.length) { fragment.append(source); return fragment; }
+  const escaped = usable.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = new RegExp(`(${escaped.join("|")})`, "giu");
+  let last = 0;
+  for (const match of source.matchAll(pattern)) {
+    if (match.index > last) fragment.append(source.slice(last, match.index));
+    fragment.append(element("mark", null, match[0]));
+    last = match.index + match[0].length;
+  }
+  if (last < source.length) fragment.append(source.slice(last));
+  return fragment;
+}
+
+// 제목·카드 요약에 없는 단어가 상세 요약에서 걸렸을 때 보여줄 짧은 발췌
+export function detailSnippet(article, terms, radius = 45) {
+  const detail = article.detail;
+  if (!detail) return null;
+  const shown = fold(`${article.title} ${article.summary ?? ""}`);
+  const missing = terms.filter((term) => !shown.includes(term));
+  if (!missing.length) return null;
+  const pieces = [detail.background, ...(detail.points ?? []), detail.significance,
+    ...(detail.terms ?? []).map((item) => `${item.term}: ${item.description}`)].filter(Boolean);
+  for (const piece of pieces) {
+    const index = fold(piece).indexOf(missing[0]);
+    if (index === -1) continue;
+    let start = Math.max(0, index - radius);
+    // 단어 중간에서 잘리지 않게 앞쪽 공백까지 당긴다.
+    if (start > 0) { const space = piece.indexOf(" ", start); if (space !== -1 && space < index) start = space + 1; }
+    const end = Math.min(piece.length, index + missing[0].length + radius);
+    return `${start > 0 ? "…" : ""}${piece.slice(start, end)}${end < piece.length ? "…" : ""}`;
+  }
+  return null;
+}

@@ -1,8 +1,8 @@
-import { $, SECTIONS, displayTitle, element, loadLogos, pressLogo, sectionBadge, formatEditionDate, formatDateTime, loadArchive, naverLink, comparePages, typeBadge } from "./common.js";
+import { $, SECTIONS, articleSearchText, detailSnippet, displayTitle, element, highlight, matchesTerms, searchTerms, loadLogos, pressLogo, sectionBadge, formatEditionDate, formatDateTime, loadArchive, naverLink, comparePages, typeBadge } from "./common.js";
 
 const STATUS_LABEL = { checked: "확인 완료", partial: "일부 확인", blocked: "접근 실패", not_checked: "미확인" };
 
-const state = { archive: null, date: null, press: "all", type: "all", section: "all" };
+const state = { archive: null, date: null, press: "all", type: "all", section: "all", q: "" };
 
 function readUrl() {
   const params = new URLSearchParams(location.search);
@@ -10,6 +10,7 @@ function readUrl() {
   state.press = params.get("press") || "all";
   state.type = ["exclusive", "feature"].includes(params.get("type")) ? params.get("type") : "all";
   state.section = SECTIONS.includes(params.get("section")) ? params.get("section") : "all";
+  state.q = (params.get("q") ?? "").trim();
 }
 
 function writeUrl() {
@@ -18,20 +19,92 @@ function writeUrl() {
   if (state.press !== "all") params.set("press", state.press);
   if (state.type !== "all") params.set("type", state.type);
   if (state.section !== "all") params.set("section", state.section);
+  if (state.q) { params.delete("date"); params.set("q", state.q); }
   history.replaceState(null, "", `${location.pathname}${params.size ? `?${params}` : ""}`);
 }
 
 const dates = () => state.archive.runs.map((run) => run.date);
 const currentRun = () => state.archive.runs.find((run) => run.date === state.date);
 
-function articleHref(article) {
-  return `./article.html?date=${encodeURIComponent(state.date)}&id=${encodeURIComponent(article.id)}`;
+function articleHref(article, date = state.date) {
+  const query = state.q ? `&q=${encodeURIComponent(state.q)}` : "";
+  return `./article.html?date=${encodeURIComponent(date)}&id=${encodeURIComponent(article.id)}${query}`;
 }
 
 function titleLink(article, className) {
   const link = element("a", className, displayTitle(article));
   link.href = articleHref(article);
   return link;
+}
+
+const passesFilters = (article) =>
+  (state.type === "all" || article.type === state.type) &&
+  (state.section === "all" || article.section === state.section) &&
+  (state.press === "all" || article.publisherId === state.press);
+
+// 검색 결과: 전체 날짜에서 찾아 날짜별(최신순)로 묶는다.
+function renderSearch() {
+  const terms = searchTerms(state.q);
+  const names = new Map(state.archive.publishers.map((publisher) => [publisher.id, publisher.name]));
+  const order = new Map(state.archive.publishers.map((publisher, index) => [publisher.id, index]));
+  const groups = [];
+  let total = 0;
+  let exclusive = 0;
+  for (const run of state.archive.runs) {
+    const hits = run.articles
+      .filter(passesFilters)
+      .filter((article) => matchesTerms(articleSearchText(article, names.get(article.publisherId)), terms))
+      .sort((a, b) => (order.get(a.publisherId) ?? 99) - (order.get(b.publisherId) ?? 99) || comparePages(a, b));
+    if (!hits.length) continue;
+    groups.push({ date: run.date, hits });
+    total += hits.length;
+    exclusive += hits.filter((article) => article.type === "exclusive").length;
+  }
+
+  $("edition-count").textContent = total
+    ? `‘${state.q}’ 검색 결과 ${total}건 (단독 ${exclusive}, 기획 ${total - exclusive})`
+    : `‘${state.q}’ 검색 결과가 없습니다.`;
+  const grid = $("editions");
+  grid.classList.add("is-search");
+  for (const group of groups) {
+    const section = element("section", "search-group");
+    section.append(element("h2", "search-date", formatEditionDate(group.date)));
+    const list = element("ul", "search-list");
+    for (const article of group.hits) {
+      const item = element("li", "search-item");
+      const top = element("p", "search-meta");
+      const emblem = pressLogo(article.publisherId);
+      if (emblem) top.append(emblem);
+      top.append(element("span", "search-press", names.get(article.publisherId) ?? article.publisherId), typeBadge(article.type));
+      const sectionTag = sectionBadge(article.section);
+      if (sectionTag) top.append(sectionTag);
+      const title = element("a", "search-title");
+      title.href = articleHref(article, group.date);
+      title.append(highlight(displayTitle(article), terms));
+      item.append(top, title);
+      if (article.summary) {
+        const summary = element("p", "search-summary");
+        summary.append(highlight(article.summary, terms));
+        item.append(summary);
+      }
+      const snippet = detailSnippet(article, terms);
+      if (snippet) {
+        const extra = element("p", "search-snippet");
+        extra.append(element("span", "search-snippet-label", "상세 요약"), highlight(snippet, terms));
+        item.append(extra);
+      }
+      list.append(item);
+    }
+    section.append(list);
+    grid.append(section);
+  }
+  if (!total) {
+    const empty = element("div", "notice search-empty");
+    empty.append("다른 키워드로 검색하거나, 분야·단독/기획·언론사 필터를 ‘전체’로 바꿔 보세요.");
+    grid.append(empty);
+  }
+  $("quiet-press").hidden = true;
+  $("coverage").hidden = true;
 }
 
 function meta(article) {
@@ -139,6 +212,11 @@ function render() {
   const grid = $("editions");
   grid.replaceChildren();
   grid.setAttribute("aria-busy", "false");
+  grid.classList.remove("is-search");
+  document.body.classList.toggle("is-searching", Boolean(state.q));
+  $("search-clear").hidden = !state.q;
+  if ($("search-input").value.trim() !== state.q && document.activeElement !== $("search-input")) $("search-input").value = state.q;
+  if (state.q) { renderSearch(); return; }
   if (!run) {
     $("edition-count").textContent = "아직 저장된 지면이 없습니다.";
     $("quiet-press").hidden = true;
@@ -146,10 +224,7 @@ function render() {
     return;
   }
 
-  const visible = run.articles
-    .filter((article) => state.type === "all" || article.type === state.type)
-    .filter((article) => state.section === "all" || article.section === state.section)
-    .filter((article) => state.press === "all" || article.publisherId === state.press);
+  const visible = run.articles.filter(passesFilters);
   const exclusive = visible.filter((article) => article.type === "exclusive").length;
   $("edition-count").textContent = `단독 ${exclusive}건, 기획 ${visible.length - exclusive}건`;
 
@@ -186,6 +261,11 @@ function render() {
   }));
 }
 
+function setQuery(query) {
+  state.q = query.trim();
+  render();
+}
+
 function setPress(press) {
   state.press = press;
   render();
@@ -195,6 +275,8 @@ function setPress(press) {
 function setDate(date) {
   if (!dates().includes(date)) return;
   state.date = date;
+  state.q = "";
+  $("search-input").value = "";
   closeDateList();
   render();
 }
@@ -289,6 +371,17 @@ async function initialize() {
   $("cal-next").addEventListener("click", () => shiftCalendarMonth(1));
   document.addEventListener("click", (event) => { if (!event.target.closest(".date-picker")) closeDateList(); });
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !$("date-calendar").hidden) { closeDateList(); $("date-button").focus(); } });
+  const input = $("search-input");
+  input.value = state.q;
+  let typing;
+  input.addEventListener("input", () => {
+    clearTimeout(typing);
+    typing = setTimeout(() => setQuery(input.value), 250);
+  });
+  $("search-form").addEventListener("submit", (event) => { event.preventDefault(); clearTimeout(typing); setQuery(input.value); });
+  input.addEventListener("keydown", (event) => { if (event.key === "Escape" && input.value) { event.stopPropagation(); input.value = ""; setQuery(""); } });
+  $("search-clear").addEventListener("click", (event) => { event.preventDefault(); input.value = ""; setQuery(""); input.focus(); });
+
   const sectionSelect = $("section-select");
   for (const section of SECTIONS) {
     const option = element("option", null, section);
