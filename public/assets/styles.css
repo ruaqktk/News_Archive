@@ -94,15 +94,8 @@ button, select { font: inherit; color: inherit; }
 .press-name { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.03em; display: flex; align-items: center; gap: 10px; }
 .press-name a { display: inline-flex; }
 .press-label { display: inline-flex; align-items: center; gap: 12px; }
-.press-emblem {
-  width: 44px; height: 44px; border-radius: 50%; flex: none; overflow: hidden;
-  background: #fff; box-shadow: inset 0 0 0 1px var(--line);
-  display: grid; place-items: center;
-}
-.press-emblem img { width: 34px; height: 34px; object-fit: contain; display: block; }
-.press-emblem.is-symbol img { width: 28px; height: 28px; object-fit: cover; }
-.press-emblem.is-right img { object-position: right center; }
-.press-emblem.is-left img { object-position: left center; }
+.press-emblem { width: 40px; height: 40px; border-radius: 50%; flex: none; box-shadow: 0 0 0 1px var(--line); background: #fff; }
+.press-emblem img { width: 40px; height: 40px; border-radius: 50%; display: block; }
 .press-name a:hover .press-title { text-decoration: underline; text-underline-offset: 4px; }
 .press-counts { margin: 0; display: flex; gap: 10px; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .count-exclusive { color: var(--exclusive); }
