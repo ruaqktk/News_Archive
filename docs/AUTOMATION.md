@@ -4,14 +4,18 @@
 
 | 단계 | 담당 | 시각(KST) | 내용 |
 |---|---|---|---|
-| 1. 지면 전체 수집 | 비공개 레포 `ruaqktk/News_Archive_raw`의 GitHub Actions (`scrape.yml`) | 매일 07:50 | 네이버 신문보기에서 12개사 당일 지면 기사 목록 전체와 후보 기사 본문을 `days/<날짜>/`에 커밋 |
-| 2. 선별·요약·반영 | Claude 예약 작업 | 매일 08:47 | `config/classification-rules.json` 제목 규칙과 `docs/CLASSIFICATION.md` 기준으로 단독·기획 선별, 카드 요약·상세 요약 작성, `public/data/archive.json` 병합·커밋, 브리핑 알림 |
+| 1. 지면 전체 수집 | 비공개 레포 `ruaqktk/News_Archive_raw`의 GitHub Actions (`scrape.yml`) | 평일 07:50 (공휴일 제외) | 네이버 신문보기에서 12개사 당일 지면 기사 목록 전체와 후보 기사 본문을 `days/<날짜>/`에 커밋 |
+| 2. 선별·요약·반영 | Claude 예약 작업 | 평일 08:47 (공휴일 제외) | `config/classification-rules.json` 제목 규칙과 `docs/CLASSIFICATION.md` 기준으로 단독·기획 선별, 카드 요약·상세 요약 작성, `public/data/archive.json` 병합·커밋, 브리핑 알림 |
 | 3. 배포 | Vercel | 커밋 직후 | `main` 변경 시 자동 배포 |
 
 - 수집 코드(`scripts/scrape-naver.mjs`, `scripts/naver-print.mjs`)는 이 공개 레포에 있고, 비공개 레포의 Actions가 이 레포를 체크아웃해 실행합니다.
 - 기사 본문은 비공개 레포에만 두고 14일 후 삭제합니다. 공개 레포와 사이트에는 제목, URL, 면, 자체 요약만 올립니다.
 - 사이트의 기사 링크는 네이버 신문보기 개별 기사 주소(`n.news.naver.com/article/newspaper/<언론사코드>/<기사ID>?date=YYYYMMDD`)입니다.
 - 이전 ChatGPT 예약 작업(단독·기획 아침 브리핑)은 이 파이프라인으로 대체되며, 같은 `archive.json`에 쓰지 않도록 꺼야 합니다.
+
+## 주말·공휴일
+
+수집(Actions)과 정리(Claude 예약 작업) 모두 평일에만 돌고, `config/holidays-kr.json`에 있는 공휴일에는 건너뜁니다. `node scripts/workday.mjs [날짜]`가 `run` 또는 `skip <이유>`를 알려줍니다. 매년 말 다음 해 공휴일(대체공휴일 포함)을 이 파일에 추가하세요. 수동 실행은 날짜와 상관없이 수집합니다.
 
 ## Claude 예약 작업 절차
 

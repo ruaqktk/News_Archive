@@ -71,3 +71,12 @@ test('분야 후보는 네이버 분류를 우선하고, 없으면 원문 주소
   assert.deepEqual(sectionHint([], 'https://www.donga.com/news/Society/article/all/1/2'), { section: '사회', source: 'url' });
   assert.equal(sectionHint([], 'https://www.joongang.co.kr/article/1'), null);
 });
+
+test('주말·공휴일에는 예약 작업을 건너뛴다', async () => {
+  const { skipReason } = await import('../scripts/workday.mjs');
+  assert.equal(skipReason('2026-10-28'), null);
+  assert.equal(skipReason('2026-10-31'), '토요일');
+  assert.equal(skipReason('2026-11-01'), '일요일');
+  assert.equal(skipReason('2026-12-25'), '성탄절');
+  assert.equal(skipReason('2027-02-09'), '대체공휴일(설날)');
+});

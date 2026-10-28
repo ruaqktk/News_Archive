@@ -17,8 +17,8 @@
 
 매일 아침 자동으로 갱신됩니다. 자세한 흐름은 [docs/AUTOMATION.md](docs/AUTOMATION.md)를 보세요.
 
-1. 07:50 KST — 비공개 레포 `News_Archive_raw`의 GitHub Actions가 네이버 신문보기에서 12개사 당일 지면 기사를 전부 수집
-2. 08:47 KST — Claude 예약 작업이 [선별 기준](docs/CLASSIFICATION.md)에 따라 단독·기획 기사를 고르고 요약해 `public/data/archive.json`에 반영, 브리핑 알림 발송
+1. 평일 07:50 KST — 비공개 레포 `News_Archive_raw`의 GitHub Actions가 네이버 신문보기에서 12개사 당일 지면 기사를 전부 수집
+2. 평일 08:47 KST — Claude 예약 작업이 [선별 기준](docs/CLASSIFICATION.md)에 따라 단독·기획 기사를 고르고 요약해 `public/data/archive.json`에 반영, 브리핑 알림 발송
 3. 커밋 직후 — Vercel 자동 배포
 
 운영 주소: [혜원이의 뉴스 아카이브](https://newsarchive-rho.vercel.app/)
