@@ -55,11 +55,19 @@ test('선택 결과로 만든 run은 아카이브 검증을 통과하고 원문 
     ],
   };
   const run = buildRun(listing, [
-    { aid: '0005754872', publisherId: 'mk', type: 'exclusive', evidence: '제목 [단독]', summary: '요약입니다.' },
-    { aid: '0005754873', publisherId: 'mk', type: 'exclusive', evidence: '제목 [단독]', summary: '' },
+    { aid: '0005754872', publisherId: 'mk', type: 'exclusive', section: '경제', evidence: '제목 [단독]', summary: '요약입니다.' },
+    { aid: '0005754873', publisherId: 'mk', type: 'exclusive', section: '경제', evidence: '제목 [단독]', summary: '' },
   ], publishers, '2026-10-28T09:05:00+09:00');
   assert.equal(run.articles.length, 1);
   assert.equal(run.coverage.find((entry) => entry.publisherId === 'mk').status, 'partial');
   validateRun(run, publishers);
   assert.throws(() => buildRun(listing, [{ aid: '999', publisherId: 'mk', type: 'feature', evidence: 'x' }], publishers, '2026-10-28T09:05:00+09:00'), /목록에 없는/);
+});
+
+test('분야 후보는 네이버 분류를 우선하고, 없으면 원문 주소 섹션을 쓴다', async () => {
+  const { sectionHint, extractNaverSections } = await import('../scripts/naver-print.mjs');
+  assert.deepEqual(extractNaverSections('<em class="media_end_categorize_item">IT/과학</em>'), ['IT/과학']);
+  assert.deepEqual(sectionHint(['IT/과학'], 'https://www.chosun.com/politics/x'), { section: 'IT·과학', source: 'naver' });
+  assert.deepEqual(sectionHint([], 'https://www.donga.com/news/Society/article/all/1/2'), { section: '사회', source: 'url' });
+  assert.equal(sectionHint([], 'https://www.joongang.co.kr/article/1'), null);
 });

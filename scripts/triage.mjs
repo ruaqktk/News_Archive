@@ -93,7 +93,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const rows = triageListing(listing, loadRules());
   if (flag === '--selections') {
     const picked = rows.filter((row) => row.decision === 'exclusive' || row.decision === 'feature');
-    process.stdout.write(`${JSON.stringify(picked.map((row) => ({ publisherId: row.publisherId, aid: row.aid, type: row.decision, evidence: row.rule, summary: '', detail: null })), null, 2)}\n`);
+    process.stdout.write(`${JSON.stringify(picked.map((row) => ({ publisherId: row.publisherId, aid: row.aid, type: row.decision, section: row.sectionHint ?? null, evidence: row.rule, summary: '', detail: null })), null, 2)}\n`);
   } else {
     const count = (decision) => rows.filter((row) => row.decision === decision).length;
     console.log(`# ${listing.date} 지면 ${rows.length}건 — 자동 단독 ${count('exclusive')}, 자동 기획 ${count('feature')}, 검토 ${count('review')}, 제외 ${count('exclude')}`);

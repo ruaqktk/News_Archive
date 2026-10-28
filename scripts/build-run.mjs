@@ -1,11 +1,11 @@
 // 수집 목록(listing.json)과 Claude의 선택 결과(selections.json)를 합쳐 일일 run JSON을 만든다.
 // 사용법: node scripts/build-run.mjs <listing.json> <selections.json> > run.json
 // selections.json 형식: [{ "aid": "0004006341", "publisherId": "chosun", "type": "exclusive"|"feature",
-//                          "evidence": "분류 근거", "summary": "카드용 1~2문장 요약",
+//                          "section": "정치|경제|사회|생활·문화|세계|IT·과학|스포츠", "evidence": "분류 근거", "summary": "카드용 1~2문장 요약",
 //                          "detail": { "background", "points": [...], "significance", "terms": [{ "term", "description" }] } }]
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { PRESS_CODES } from './naver-print.mjs';
+import { PRESS_CODES, SECTIONS } from './naver-print.mjs';
 import { kstNow } from './scrape-naver.mjs';
 
 const archivePath = fileURLToPath(new URL('../public/data/archive.json', import.meta.url));
@@ -24,6 +24,7 @@ export function buildRun(listing, selections, publishers, generatedAt) {
     seen.add(key);
     if (!['exclusive', 'feature'].includes(selection.type)) { errors.push(`selections[${index}]: type 오류`); continue; }
     if (!selection.evidence?.trim()) { errors.push(`selections[${index}]: evidence 없음`); continue; }
+    if (!SECTIONS.includes(selection.section)) { errors.push(`selections[${index}]: section은 ${SECTIONS.join(', ')} 중 하나여야 합니다(${key}: ${source.title})`); continue; }
     if (!source.originalUrl) {
       skipped.set(source.publisherId, [...(skipped.get(source.publisherId) ?? []), source.title]);
       continue;
@@ -33,6 +34,7 @@ export function buildRun(listing, selections, publishers, generatedAt) {
       id: `${source.publisherId}-${PRESS_CODES[source.publisherId]}-${source.aid}`,
       publisherId: source.publisherId,
       type: selection.type,
+      section: selection.section,
       title: source.title,
       url: source.originalUrl,
       naverUrl: source.naverUrl,

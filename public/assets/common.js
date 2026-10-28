@@ -4,6 +4,7 @@ export const TIMEZONE = "Asia/Seoul";
 const WEEKDAYS = ["일", "월", "화", "수", "목", "금", "토"];
 
 export const TYPE_LABEL = { exclusive: "단독", feature: "기획" };
+export const SECTIONS = ["정치", "경제", "사회", "생활·문화", "세계", "IT·과학", "스포츠"];
 
 export function $(id) { return document.getElementById(id); }
 
@@ -86,4 +87,8 @@ export function displayTitle(article) {
 
 export function typeBadge(type) {
   return element("span", `badge badge-${type}`, TYPE_LABEL[type]);
+}
+
+export function sectionBadge(section) {
+  return SECTIONS.includes(section) ? element("span", "badge badge-section", section) : null;
 }

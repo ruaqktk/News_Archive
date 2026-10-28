@@ -44,10 +44,16 @@
     <main class="page">
       <div class="edition-bar">
         <p class="edition-count" id="edition-count" aria-live="polite"></p>
+        <div class="filters">
+        <label class="section-select">
+          <span class="sr-only">분야 선택</span>
+          <select id="section-select"><option value="all">전체 분야</option></select>
+        </label>
         <div class="type-filter" role="group" aria-label="기사 종류">
           <button type="button" data-type="all" aria-pressed="true">전체</button>
           <button type="button" data-type="exclusive" aria-pressed="false">단독</button>
           <button type="button" data-type="feature" aria-pressed="false">기획</button>
+        </div>
         </div>
       </div>
 

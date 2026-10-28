@@ -1,14 +1,15 @@
-import { $, displayTitle, element, formatEditionDate, formatDateTime, loadArchive, naverLink, comparePages, typeBadge } from "./common.js";
+import { $, SECTIONS, displayTitle, element, sectionBadge, formatEditionDate, formatDateTime, loadArchive, naverLink, comparePages, typeBadge } from "./common.js";
 
 const STATUS_LABEL = { checked: "확인 완료", partial: "일부 확인", blocked: "접근 실패", not_checked: "미확인" };
 
-const state = { archive: null, date: null, press: "all", type: "all" };
+const state = { archive: null, date: null, press: "all", type: "all", section: "all" };
 
 function readUrl() {
   const params = new URLSearchParams(location.search);
   state.date = params.get("date");
   state.press = params.get("press") || "all";
   state.type = ["exclusive", "feature"].includes(params.get("type")) ? params.get("type") : "all";
+  state.section = SECTIONS.includes(params.get("section")) ? params.get("section") : "all";
 }
 
 function writeUrl() {
@@ -16,6 +17,7 @@ function writeUrl() {
   if (state.date) params.set("date", state.date);
   if (state.press !== "all") params.set("press", state.press);
   if (state.type !== "all") params.set("type", state.type);
+  if (state.section !== "all") params.set("section", state.section);
   history.replaceState(null, "", `${location.pathname}${params.size ? `?${params}` : ""}`);
 }
 
@@ -35,6 +37,8 @@ function titleLink(article, className) {
 function meta(article) {
   const row = element("p", "article-meta");
   row.append(typeBadge(article.type));
+  const section = sectionBadge(article.section);
+  if (section) row.append(section);
   return row;
 }
 
@@ -51,7 +55,11 @@ function restList(articles) {
   const list = element("ul", "rest-list");
   for (const article of articles) {
     const item = element("li", "rest-item");
-    item.append(typeBadge(article.type), titleLink(article, "rest-title"));
+    const badges = element("span", "rest-badges");
+    badges.append(typeBadge(article.type));
+    const section = sectionBadge(article.section);
+    if (section) badges.append(section);
+    item.append(badges, titleLink(article, "rest-title"));
     list.append(item);
   }
   return list;
@@ -84,7 +92,7 @@ function pressCard(publisher, articles, expanded) {
   const name = element("h2", "press-name");
   if (!expanded) {
     const link = element("a", null, publisher.name);
-    link.href = `?date=${state.date}&press=${publisher.id}${state.type !== "all" ? `&type=${state.type}` : ""}`;
+    link.href = `?date=${state.date}&press=${publisher.id}`;
     link.addEventListener("click", (event) => { event.preventDefault(); setPress(publisher.id); });
     name.append(link);
   } else {
@@ -117,6 +125,7 @@ function render() {
   $("date-next").disabled = index <= 0;
   $("press-select").value = state.press;
   for (const button of document.querySelectorAll(".type-filter button")) button.setAttribute("aria-pressed", String(button.dataset.type === state.type));
+  $("section-select").value = state.section;
 
   const grid = $("editions");
   grid.replaceChildren();
@@ -130,6 +139,7 @@ function render() {
 
   const visible = run.articles
     .filter((article) => state.type === "all" || article.type === state.type)
+    .filter((article) => state.section === "all" || article.section === state.section)
     .filter((article) => state.press === "all" || article.publisherId === state.press);
   const exclusive = visible.filter((article) => article.type === "exclusive").length;
   $("edition-count").textContent = `단독 ${exclusive}건, 기획 ${visible.length - exclusive}건`;
@@ -145,6 +155,9 @@ function render() {
 
   const coverage = new Map(run.coverage.map((entry) => [entry.publisherId, entry]));
   $("quiet-press").hidden = quiet.length === 0;
+  $("quiet-title").textContent = state.type === "all" && state.section === "all"
+    ? "이 날 단독·기획 기사가 없는 언론사"
+    : "선택한 조건에 맞는 기사가 없는 언론사";
   $("quiet-list").replaceChildren(...quiet.map((publisher) => {
     const status = coverage.get(publisher.id)?.status;
     const item = element("li", null, publisher.name);
@@ -229,6 +242,13 @@ async function initialize() {
   $("date-button").addEventListener("click", () => ($("date-list").hidden ? openDateList() : closeDateList()));
   document.addEventListener("click", (event) => { if (!event.target.closest(".date-picker")) closeDateList(); });
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !$("date-list").hidden) { closeDateList(); $("date-button").focus(); } });
+  const sectionSelect = $("section-select");
+  for (const section of SECTIONS) {
+    const option = element("option", null, section);
+    option.value = section;
+    sectionSelect.append(option);
+  }
+  sectionSelect.addEventListener("change", () => { state.section = sectionSelect.value; render(); });
   for (const button of document.querySelectorAll(".type-filter button")) {
     button.addEventListener("click", () => { state.type = button.dataset.type; render(); });
   }

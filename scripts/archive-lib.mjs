@@ -1,5 +1,6 @@
 import { readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { randomUUID } from 'node:crypto';
+import { SECTIONS } from './naver-print.mjs';
 
 export const PUBLISHER_IDS = Object.freeze([
   'chosun', 'joongang', 'donga', 'hani', 'hankookilbo', 'khan', 'kmib', 'segye', 'seoul', 'sedaily', 'mk', 'hankyung',
@@ -145,6 +146,7 @@ export function validateRun(run, publishers) {
     string(article.summary, `${label}.summary`, article.summaryBasis === 'metadata_only');
     string(article.classificationEvidence, `${label}.classificationEvidence`);
     if (article.detail != null) validateDetail(article.detail, `${label}.detail`);
+    if (article.section != null) requireCondition(SECTIONS.includes(article.section), `${label}.section: ${SECTIONS.join(', ')} 중 하나여야 합니다.`);
     counts.set(article.publisherId, counts.get(article.publisherId) + 1);
   }
 
