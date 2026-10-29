@@ -64,20 +64,40 @@ export function comparePages(a, b) {
   return sa - sb || na - nb || (a.type === b.type ? 0 : a.type === "exclusive" ? -1 : 1);
 }
 
-export async function loadArchive() {
-  const response = await fetch(`./data/archive.json?ts=${Date.now()}`, { cache: "no-store" });
+// ── 데이터 불러오기 ─────────────────────────────────────
+// 빌드 때 나눈 파일만 받는다: index(작음) → 보고 있는 날짜 → 검색할 때만 월별 검색 파일.
+async function fetchJson(path) {
+  const response = await fetch(path);
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const raw = await response.json();
-  if (!raw || !Array.isArray(raw.runs) || !Array.isArray(raw.publishers)) throw new Error("아카이브 형식이 올바르지 않습니다.");
-  const runs = raw.runs
-    .filter((run) => run && /^\d{4}-\d{2}-\d{2}$/.test(run.date))
-    .map((run) => ({
+  return response.json();
+}
+
+export async function loadIndex() {
+  const index = await fetchJson(`./data/index.json?ts=${Date.now()}`);
+  if (!index || !Array.isArray(index.dates) || !Array.isArray(index.publishers)) throw new Error("목록 형식이 올바르지 않습니다.");
+  index.dates.sort((a, b) => b.date.localeCompare(a.date));
+  return index;
+}
+
+const dayCache = new Map();
+export function loadDay(date) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date || "")) return Promise.reject(new Error("날짜 형식이 올바르지 않습니다."));
+  if (!dayCache.has(date)) {
+    dayCache.set(date, fetchJson(`./data/days/${date}.json`).then((run) => ({
       ...run,
       articles: (run.articles || []).filter((article) => article && typeof article.title === "string" && TYPE_LABEL[article.type]),
       coverage: Array.isArray(run.coverage) ? run.coverage : [],
-    }))
-    .sort((a, b) => b.date.localeCompare(a.date));
-  return { ...raw, runs };
+    })).catch((error) => { dayCache.delete(date); throw error; }));
+  }
+  return dayCache.get(date);
+}
+
+const searchCache = new Map();
+export function loadSearchMonth(month) {
+  if (!searchCache.has(month)) {
+    searchCache.set(month, fetchJson(`./data/search/${month}.json`).catch((error) => { searchCache.delete(month); throw error; }));
+  }
+  return searchCache.get(month);
 }
 
 // 화면 표시용 제목: 배지와 겹치는 앞머리 [단독] 표기를 뗀다(데이터는 그대로 둔다).
@@ -128,13 +148,17 @@ export function searchTerms(query) {
   return [...new Set(String(query ?? "").trim().split(/\s+/).filter(Boolean).map(fold))];
 }
 
+// 검색 파일의 pieces(상세 요약 문장들) 또는 기사 detail에서 문장 목록을 얻는다.
+function piecesOf(article) {
+  if (Array.isArray(article.pieces)) return article.pieces;
+  const detail = article.detail;
+  if (!detail) return [];
+  return [detail.background, ...(detail.points ?? []), detail.significance,
+    ...(detail.terms ?? []).map((item) => `${item.term}: ${item.description}`)].filter(Boolean);
+}
+
 export function articleSearchText(article, publisherName = "") {
-  const detail = article.detail ?? {};
-  return [
-    article.title, article.summary, publisherName,
-    detail.background, ...(detail.points ?? []), detail.significance,
-    ...(detail.terms ?? []).flatMap((item) => [item.term, item.description]),
-  ].filter(Boolean).join("\n");
+  return [article.title, article.summary, publisherName, ...piecesOf(article)].filter(Boolean).join("\n");
 }
 
 export function matchesTerms(text, terms) {
@@ -163,13 +187,11 @@ export function highlight(text, terms) {
 
 // 제목·카드 요약에 없는 단어가 상세 요약에서 걸렸을 때 보여줄 짧은 발췌
 export function detailSnippet(article, terms, radius = 45) {
-  const detail = article.detail;
-  if (!detail) return null;
+  const pieces = piecesOf(article);
+  if (!pieces.length) return null;
   const shown = fold(`${article.title} ${article.summary ?? ""}`);
   const missing = terms.filter((term) => !shown.includes(term));
   if (!missing.length) return null;
-  const pieces = [detail.background, ...(detail.points ?? []), detail.significance,
-    ...(detail.terms ?? []).map((item) => `${item.term}: ${item.description}`)].filter(Boolean);
   for (const piece of pieces) {
     const index = fold(piece).indexOf(missing[0]);
     if (index === -1) continue;

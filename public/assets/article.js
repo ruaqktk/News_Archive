@@ -1,4 +1,4 @@
-import { $, displayTitle, element, sectionBadge, formatEditionDate, loadArchive, naverLink, safeUrl, typeBadge } from "./common.js";
+import { $, displayTitle, element, sectionBadge, formatEditionDate, loadDay, loadIndex, naverLink, safeUrl, typeBadge } from "./common.js";
 
 function fail(message) {
   $("article-error").textContent = message;
@@ -15,20 +15,21 @@ async function initialize() {
   const params = new URLSearchParams(location.search);
   const date = params.get("date");
   const id = params.get("id");
-  let archive;
+  let index;
+  let run;
   try {
-    archive = await loadArchive();
+    // 언론사 목록(작은 파일)과 이 기사가 실린 날짜 파일만 받는다.
+    [index, run] = await Promise.all([loadIndex(), loadDay(date).catch(() => null)]);
   } catch {
     fail("아카이브 데이터를 불러오지 못했습니다. 새로고침해 주세요.");
     return;
   }
-  const run = archive.runs.find((item) => item.date === date);
   const article = run?.articles.find((item) => item.id === id);
   if (!article) {
     fail("해당 기사를 찾지 못했습니다. 지면 목록에서 다시 선택해 주세요.");
     return;
   }
-  const publisher = archive.publishers.find((item) => item.id === article.publisherId);
+  const publisher = index.publishers.find((item) => item.id === article.publisherId);
   document.title = `${article.title} · 혜원이의 뉴스 아카이브`;
   const query = params.get("q");
   $("back-link").href = query ? `./?q=${encodeURIComponent(query)}` : `./?date=${encodeURIComponent(date)}`;

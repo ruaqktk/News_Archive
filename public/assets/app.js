@@ -1,8 +1,8 @@
-import { $, SECTIONS, articleSearchText, detailSnippet, displayTitle, element, highlight, matchesTerms, searchTerms, loadLogos, pressLogo, sectionBadge, formatEditionDate, formatDateTime, loadArchive, naverLink, comparePages, typeBadge } from "./common.js";
+import { $, SECTIONS, articleSearchText, detailSnippet, displayTitle, element, highlight, matchesTerms, searchTerms, loadLogos, pressLogo, sectionBadge, formatEditionDate, formatDateTime, loadDay, loadIndex, loadSearchMonth, naverLink, comparePages, typeBadge } from "./common.js";
 
 const STATUS_LABEL = { checked: "확인 완료", partial: "일부 확인", blocked: "접근 실패", not_checked: "미확인" };
 
-const state = { archive: null, date: null, press: "all", type: "all", section: "all", q: "" };
+const state = { index: null, date: null, press: "all", type: "all", section: "all", q: "" };
 
 function readUrl() {
   const params = new URLSearchParams(location.search);
@@ -23,8 +23,9 @@ function writeUrl() {
   history.replaceState(null, "", `${location.pathname}${params.size ? `?${params}` : ""}`);
 }
 
-const dates = () => state.archive.runs.map((run) => run.date);
-const currentRun = () => state.archive.runs.find((run) => run.date === state.date);
+const dates = () => state.index.dates.map((entry) => entry.date);
+// 화면을 새로 그릴 때마다 번호를 올려, 늦게 도착한 이전 요청 결과는 버린다.
+let renderToken = 0;
 
 function articleHref(article, date = state.date) {
   const query = state.q ? `&q=${encodeURIComponent(state.q)}` : "";
@@ -42,69 +43,95 @@ const passesFilters = (article) =>
   (state.section === "all" || article.section === state.section) &&
   (state.press === "all" || article.publisherId === state.press);
 
-// 검색 결과: 전체 날짜에서 찾아 날짜별(최신순)로 묶는다.
-function renderSearch() {
+// 검색 결과: 월별 검색 파일을 최신 달부터 차례로 받아 찾고, 찾는 대로 날짜별로 보여준다.
+async function renderSearch(token) {
   const terms = searchTerms(state.q);
-  const names = new Map(state.archive.publishers.map((publisher) => [publisher.id, publisher.name]));
-  const order = new Map(state.archive.publishers.map((publisher, index) => [publisher.id, index]));
-  const groups = [];
-  let total = 0;
-  let exclusive = 0;
-  for (const run of state.archive.runs) {
-    const hits = run.articles
-      .filter(passesFilters)
-      .filter((article) => matchesTerms(articleSearchText(article, names.get(article.publisherId)), terms))
-      .sort((a, b) => (order.get(a.publisherId) ?? 99) - (order.get(b.publisherId) ?? 99) || comparePages(a, b));
-    if (!hits.length) continue;
-    groups.push({ date: run.date, hits });
-    total += hits.length;
-    exclusive += hits.filter((article) => article.type === "exclusive").length;
-  }
-
-  $("edition-count").textContent = total
-    ? `‘${state.q}’ 검색 결과 ${total}건 (단독 ${exclusive}, 기획 ${total - exclusive})`
-    : `‘${state.q}’ 검색 결과가 없습니다.`;
+  const names = new Map(state.index.publishers.map((publisher) => [publisher.id, publisher.name]));
+  const order = new Map(state.index.publishers.map((publisher, index) => [publisher.id, index]));
   const grid = $("editions");
   grid.classList.add("is-search");
-  for (const group of groups) {
-    const section = element("section", "search-group");
-    section.append(element("h2", "search-date", formatEditionDate(group.date)));
-    const list = element("ul", "search-list");
-    for (const article of group.hits) {
-      const item = element("li", "search-item");
-      const top = element("p", "search-meta");
-      const emblem = pressLogo(article.publisherId);
-      if (emblem) top.append(emblem);
-      top.append(element("span", "search-press", names.get(article.publisherId) ?? article.publisherId), typeBadge(article.type));
-      const sectionTag = sectionBadge(article.section);
-      if (sectionTag) top.append(sectionTag);
-      const title = element("a", "search-title");
-      title.href = articleHref(article, group.date);
-      title.append(highlight(displayTitle(article), terms));
-      item.append(top, title);
-      if (article.summary) {
-        const summary = element("p", "search-summary");
-        summary.append(highlight(article.summary, terms));
-        item.append(summary);
-      }
-      const snippet = detailSnippet(article, terms);
-      if (snippet) {
-        const extra = element("p", "search-snippet");
-        extra.append(element("span", "search-snippet-label", "상세 요약"), highlight(snippet, terms));
-        item.append(extra);
-      }
-      list.append(item);
-    }
-    section.append(list);
-    grid.append(section);
-  }
-  if (!total) {
-    const empty = element("div", "notice search-empty");
-    empty.append("다른 키워드로 검색하거나, 분야·단독/기획·언론사 필터를 ‘전체’로 바꿔 보세요.");
-    grid.append(empty);
-  }
   $("quiet-press").hidden = true;
   $("coverage").hidden = true;
+  let total = 0;
+  let exclusive = 0;
+  let failed = 0;
+  const months = state.index.months ?? [];
+  const status = (done) => {
+    const head = total
+      ? `‘${state.q}’ 검색 결과 ${total}건 (단독 ${exclusive}, 기획 ${total - exclusive})`
+      : done ? `‘${state.q}’ 검색 결과가 없습니다.` : `‘${state.q}’ 검색 중…`;
+    $("edition-count").textContent = `${head}${failed ? ` · ${failed}개월 불러오기 실패` : ""}`;
+  };
+  status(false);
+  grid.setAttribute("aria-busy", "true");
+
+  for (const month of months) {
+    let rows;
+    try {
+      rows = await loadSearchMonth(month);
+    } catch {
+      failed += 1;
+      continue;
+    }
+    if (token !== renderToken) return;
+    const byDate = new Map();
+    for (const article of rows) {
+      if (!passesFilters(article)) continue;
+      if (!matchesTerms(articleSearchText(article, names.get(article.publisherId)), terms)) continue;
+      if (!byDate.has(article.date)) byDate.set(article.date, []);
+      byDate.get(article.date).push(article);
+    }
+    for (const date of [...byDate.keys()].sort().reverse()) {
+      const hits = byDate.get(date).sort((a, b) => (order.get(a.publisherId) ?? 99) - (order.get(b.publisherId) ?? 99) || comparePages(a, b));
+      total += hits.length;
+      exclusive += hits.filter((article) => article.type === "exclusive").length;
+      grid.append(searchGroup(date, hits, terms, names));
+    }
+    status(false);
+  }
+  if (token !== renderToken) return;
+  grid.setAttribute("aria-busy", "false");
+  status(true);
+  if (!total) {
+    const empty = element("div", "notice search-empty");
+    empty.append(failed
+      ? "일부 기간의 검색 데이터를 불러오지 못했습니다. 새로고침한 뒤 다시 검색해 주세요."
+      : "다른 키워드로 검색하거나, 분야·단독/기획·언론사 필터를 ‘전체’로 바꿔 보세요.");
+    grid.append(empty);
+  }
+}
+
+function searchGroup(date, hits, terms, names) {
+  const section = element("section", "search-group");
+  section.append(element("h2", "search-date", formatEditionDate(date)));
+  const list = element("ul", "search-list");
+  for (const article of hits) {
+    const item = element("li", "search-item");
+    const top = element("p", "search-meta");
+    const emblem = pressLogo(article.publisherId);
+    if (emblem) top.append(emblem);
+    top.append(element("span", "search-press", names.get(article.publisherId) ?? article.publisherId), typeBadge(article.type));
+    const sectionTag = sectionBadge(article.section);
+    if (sectionTag) top.append(sectionTag);
+    const title = element("a", "search-title");
+    title.href = articleHref(article, date);
+    title.append(highlight(displayTitle(article), terms));
+    item.append(top, title);
+    if (article.summary) {
+      const summary = element("p", "search-summary");
+      summary.append(highlight(article.summary, terms));
+      item.append(summary);
+    }
+    const snippet = detailSnippet(article, terms);
+    if (snippet) {
+      const extra = element("p", "search-snippet");
+      extra.append(element("span", "search-snippet-label", "상세 요약"), highlight(snippet, terms));
+      item.append(extra);
+    }
+    list.append(item);
+  }
+  section.append(list);
+  return section;
 }
 
 function meta(article) {
@@ -197,11 +224,11 @@ function pressCard(publisher, articles, expanded) {
   return card;
 }
 
-function render() {
+async function render() {
+  const token = ++renderToken;
   writeUrl();
-  const run = currentRun();
-  const publishers = state.archive.publishers;
-  $("date-label").textContent = run ? formatEditionDate(run.date) : "기록 없음";
+  const publishers = state.index.publishers;
+  $("date-label").textContent = state.date ? formatEditionDate(state.date) : "기록 없음";
   const index = dates().indexOf(state.date);
   $("date-prev").disabled = index === -1 || index === dates().length - 1;
   $("date-next").disabled = index <= 0;
@@ -211,18 +238,33 @@ function render() {
 
   const grid = $("editions");
   grid.replaceChildren();
-  grid.setAttribute("aria-busy", "false");
   grid.classList.remove("is-search");
   document.body.classList.toggle("is-searching", Boolean(state.q));
   $("search-clear").hidden = !state.q;
   if ($("search-input").value.trim() !== state.q && document.activeElement !== $("search-input")) $("search-input").value = state.q;
-  if (state.q) { renderSearch(); return; }
-  if (!run) {
+  if (state.q) { await renderSearch(token); return; }
+  if (!state.date) {
+    grid.setAttribute("aria-busy", "false");
     $("edition-count").textContent = "아직 저장된 지면이 없습니다.";
     $("quiet-press").hidden = true;
     $("coverage").hidden = true;
     return;
   }
+
+  // 보고 있는 날짜의 지면 파일만 받는다(한 번 받은 날짜는 다시 받지 않음).
+  grid.setAttribute("aria-busy", "true");
+  let run;
+  try {
+    run = await loadDay(state.date);
+  } catch {
+    if (token !== renderToken) return;
+    grid.setAttribute("aria-busy", "false");
+    $("edition-count").textContent = "";
+    grid.append(element("div", "notice", "이 날짜의 기사를 불러오지 못했습니다. 새로고침해 주세요."));
+    return;
+  }
+  if (token !== renderToken) return;
+  grid.setAttribute("aria-busy", "false");
 
   const visible = run.articles.filter(passesFilters);
   const exclusive = visible.filter((article) => article.type === "exclusive").length;
@@ -274,6 +316,9 @@ function setPress(press) {
 
 function setDate(date) {
   if (!dates().includes(date)) return;
+  // 화살표로 넘길 때 바로 보이도록 다음으로 갈 이전 날짜를 미리 받아 둔다.
+  const older = dates()[dates().indexOf(date) + 1];
+  if (older) loadDay(older).catch(() => {});
   state.date = date;
   state.q = "";
   $("search-input").value = "";
@@ -298,7 +343,7 @@ function shiftCalendarMonth(step) {
 }
 
 function renderCalendar() {
-  const counts = new Map(state.archive.runs.map((run) => [run.date, run.articles.length]));
+  const counts = new Map(state.index.dates.map((entry) => [entry.date, entry.total]));
   const sorted = dates().slice().sort();
   const monthKey = `${calendar.year}-${pad(calendar.month + 1)}`;
   $("cal-title").textContent = `${calendar.year}년 ${calendar.month + 1}월`;
@@ -348,7 +393,7 @@ function closeDateList() {
 async function initialize() {
   readUrl();
   try {
-    [state.archive] = await Promise.all([loadArchive(), loadLogos()]);
+    [state.index] = await Promise.all([loadIndex(), loadLogos()]);
   } catch {
     $("load-error").hidden = false;
     $("editions").setAttribute("aria-busy", "false");
@@ -356,12 +401,12 @@ async function initialize() {
   }
   if (!dates().includes(state.date)) state.date = dates()[0] ?? null;
   const select = $("press-select");
-  for (const publisher of state.archive.publishers) {
+  for (const publisher of state.index.publishers) {
     const option = element("option", null, publisher.name);
     option.value = publisher.id;
     select.append(option);
   }
-  if (!state.archive.publishers.some((publisher) => publisher.id === state.press)) state.press = "all";
+  if (!state.index.publishers.some((publisher) => publisher.id === state.press)) state.press = "all";
 
   select.addEventListener("change", () => setPress(select.value));
   $("date-prev").addEventListener("click", () => setDate(dates()[dates().indexOf(state.date) + 1]));

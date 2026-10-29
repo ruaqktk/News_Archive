@@ -13,6 +13,16 @@
 - 사이트의 기사 링크는 네이버 신문보기 개별 기사 주소(`n.news.naver.com/article/newspaper/<언론사코드>/<기사ID>?date=YYYYMMDD`)입니다.
 - 이전 ChatGPT 예약 작업(단독·기획 아침 브리핑)은 이 파이프라인으로 대체되며, 같은 `archive.json`에 쓰지 않도록 꺼야 합니다.
 
+## 사이트 데이터 분할
+
+원본은 계속 `public/data/archive.json` 하나이며, 매일 작업도 이 파일에만 씁니다. 사이트가 쌓인 데이터를 한꺼번에 받지 않도록 `npm run build`(Vercel 배포 포함)가 `scripts/split-archive.mjs`로 아래 파일을 만들고, 배포본에는 원본을 넣지 않습니다.
+
+| 파일 | 내용 | 받는 때 |
+|---|---|---|
+| `data/index.json` | 언론사 목록, 날짜별 기사 수 | 첫 화면(날짜당 수십 바이트) |
+| `data/days/YYYY-MM-DD.json` | 그날 지면 전체(요약·상세 요약 포함) | 그 날짜를 보거나 기사를 열 때 |
+| `data/search/YYYY-MM.json` | 그달 기사의 제목·요약·상세 요약 문장 | 검색할 때, 최신 달부터 차례로 |
+
 ## 주말·공휴일
 
 수집(Actions)과 정리(Claude 예약 작업) 모두 평일에만 돌고, `config/holidays-kr.json`에 있는 공휴일에는 건너뜁니다. `node scripts/workday.mjs [날짜]`가 `run` 또는 `skip <이유>`를 알려줍니다. 매년 말 다음 해 공휴일(대체공휴일 포함)을 이 파일에 추가하세요. 수동 실행은 날짜와 상관없이 수집합니다.
