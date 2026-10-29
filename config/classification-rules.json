@@ -148,6 +148,22 @@
       "전문병원 100% 활용법": {
         "decision": "exclude",
         "note": "정보성 협업 연재"
+      },
+      "뉴스&분석": {
+        "decision": "exclude",
+        "note": "일반 해설 문패"
+      },
+      "매경주최 신한은행 세계 기선전": {
+        "decision": "exclude",
+        "note": "자사 주최 바둑 대회 보도"
+      },
+      "매경이코노미스트": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "편의점 이야기": {
+        "decision": "exclude",
+        "note": "칼럼"
       }
     },
     "segye": {
@@ -162,12 +178,64 @@
       "스페이스도슨트 방승환의 건축진담": {
         "decision": "exclude",
         "note": "외부 필자 연재"
+      },
+      "뉴스 투데이": {
+        "decision": "exclude",
+        "note": "일반 뉴스 면 문패"
+      },
+      "SK하이닉스, 분기 매출 100조 돌파": {
+        "decision": "exclude",
+        "note": "사건 문패(일반 보도 묶음)"
+      },
+      "차 한잔 나누며": {
+        "decision": "exclude",
+        "note": "정기 인터뷰 코너"
+      },
+      "파고다 강남 끝토익 RC김나래": {
+        "decision": "exclude",
+        "note": "어학 학습 코너"
+      },
+      "시사일본어학원의 초단기 일본어 회화": {
+        "decision": "exclude",
+        "note": "어학 학습 코너"
+      },
+      "시사중국어학원의 리얼 중국어 회화": {
+        "decision": "exclude",
+        "note": "어학 학습 코너"
+      },
+      "열린마당": {
+        "decision": "exclude",
+        "note": "독자 기고"
+      },
+      "한국에살며": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "세계타워": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
       }
     },
     "kmib": {
       "처방 마약류에 중독된 대한민국": {
         "decision": "feature",
         "note": "국민일보 기획 시리즈"
+      },
+      "이슈분석": {
+        "decision": "exclude",
+        "note": "일반 해설 문패"
+      },
+      "샛강에서": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
+      },
+      "내일을 열며": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "역경의 열매": {
+        "decision": "exclude",
+        "note": "인물 간증 회고 연재(구술 기고)"
       }
     },
     "donga": {
@@ -182,12 +250,48 @@
       "폴 카버 한국 블로그": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "만화 그리는 의사들": {
+        "decision": "exclude",
+        "note": "외부 필자 의학 만화 연재"
+      },
+      "김민의 영감 한 스푼": {
+        "decision": "exclude",
+        "note": "개인 칼럼"
       }
     },
     "joongang": {
       "안혜리의 시선": {
         "decision": "exclude",
         "note": "논설 칼럼"
+      },
+      "view": {
+        "decision": "exclude",
+        "note": "1면 일반 해설 코너"
+      },
+      "취재일기": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
+      },
+      "시조가 있는 아침": {
+        "decision": "exclude",
+        "note": "시조 감상 코너"
+      },
+      "팩플": {
+        "decision": "exclude",
+        "note": "정기 테크 코너(인터뷰)"
+      },
+      "반퇴시대 재산리모델링": {
+        "decision": "exclude",
+        "note": "재테크 상담 코너"
+      },
+      "국민의 기업": {
+        "decision": "exclude",
+        "note": "기관 홍보성 특집 섹션"
+      },
+      "교육이 미래다": {
+        "decision": "exclude",
+        "note": "대학·교육기관 홍보성 특집 섹션"
       }
     },
     "hankookilbo": {
@@ -214,6 +318,42 @@
       "한국의 창(窓)": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "팩트체크": {
+        "decision": "exclude",
+        "note": "정기 팩트체크 코너(연재 아님)"
+      },
+      "인터뷰": {
+        "decision": "exclude",
+        "note": "일반 인터뷰"
+      },
+      "뇌·몸·학습의 베리타스": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "퍼즐: 시사 레벨업": {
+        "decision": "exclude",
+        "note": "시사 퀴즈 코너"
+      },
+      "세상을 움직일 미래 코드": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "메아리": {
+        "decision": "exclude",
+        "note": "논설 칼럼"
+      },
+      "36.5˚C": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
+      },
+      "아침을 열며": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "달곰한 우리말": {
+        "decision": "exclude",
+        "note": "우리말 칼럼"
       }
     },
     "khan": {
@@ -236,6 +376,154 @@
       "공감": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "뉴스 분석": {
+        "decision": "exclude",
+        "note": "일반 해설 문패"
+      },
+      "이스라엘 총": {
+        "decision": "exclude",
+        "note": "'이스라엘 총선' 사건 문패가 잘린 형태(일반 보도)"
+      },
+      "이스라엘 총선 현장을 가다": {
+        "decision": "feature",
+        "note": "경향신문 이스라엘 총선 현지 르포 연재"
+      },
+      "AI 시대, 한국 사회를 다시 설계하자": {
+        "decision": "exclude",
+        "note": "외부 전문가 기고 연재"
+      },
+      "금주의 B컷": {
+        "decision": "exclude",
+        "note": "사진 칼럼"
+      },
+      "붓 끝의 美학": {
+        "decision": "exclude",
+        "note": "외부 필자 연재(학예연구사)"
+      },
+      "역사와 현실": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "숨": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "예술과 오늘": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "경향의 눈": {
+        "decision": "exclude",
+        "note": "논설 칼럼"
+      },
+      "겨를": {
+        "decision": "exclude",
+        "note": "칼럼"
+      },
+      "문화와 삶": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      }
+    },
+    "chosun": {
+      "Dr.이은봉의 의학 연구 다이제스트": {
+        "decision": "exclude",
+        "note": "외부 필자 의학 칼럼"
+      },
+      "신문은 선생님": {
+        "decision": "exclude",
+        "note": "학생 대상 교육 정보 코너"
+      },
+      "윤주의 이제는 국가유산": {
+        "decision": "exclude",
+        "note": "외부 필자 연재 칼럼"
+      },
+      "테크 in 넘버": {
+        "decision": "exclude",
+        "note": "숫자 정보 단신 코너"
+      }
+    },
+    "hani": {
+      "현장": {
+        "decision": "feature",
+        "note": "한겨레 현장 르포(동행 취재 확인)"
+      },
+      "농구덕후감": {
+        "decision": "exclude",
+        "note": "스포츠 칼럼"
+      },
+      "크리틱": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "옵스큐라": {
+        "decision": "exclude",
+        "note": "사진 칼럼"
+      },
+      "왜냐면": {
+        "decision": "exclude",
+        "note": "독자·외부 기고"
+      },
+      "똑똑! 한국사회": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      }
+    },
+    "seoul": {
+      "2026 서울미래컨퍼런스": {
+        "decision": "exclude",
+        "note": "자사 주최 행사 보도"
+      },
+      "생각 나눔": {
+        "decision": "exclude",
+        "note": "정기 쟁점 코너"
+      },
+      "권훈의 골프 확대경": {
+        "decision": "exclude",
+        "note": "개인 칼럼"
+      }
+    },
+    "sedaily": {
+      "SK하이닉스 분기 매출 104조": {
+        "decision": "exclude",
+        "note": "사건 문패(일반 보도 묶음)"
+      },
+      "스케일업 리포트": {
+        "decision": "exclude",
+        "note": "정기 기업 인터뷰 코너"
+      },
+      "이번주 스타트UP": {
+        "decision": "exclude",
+        "note": "스타트업 단신 코너"
+      },
+      "스타트업 스트리트": {
+        "decision": "exclude",
+        "note": "정기 스타트업 동향 코너"
+      },
+      "투자 ABC": {
+        "decision": "exclude",
+        "note": "투자 정보 코너"
+      },
+      "온더로드": {
+        "decision": "exclude",
+        "note": "시승기 코너"
+      },
+      "CEO&STORY": {
+        "decision": "exclude",
+        "note": "정기 CEO 인터뷰 코너"
+      },
+      "리뷰": {
+        "decision": "exclude",
+        "note": "공연·작품 리뷰"
+      },
+      "목요일 아침에": {
+        "decision": "exclude",
+        "note": "칼럼"
+      },
+      "식견": {
+        "decision": "exclude",
+        "note": "칼럼"
       }
     }
   }
