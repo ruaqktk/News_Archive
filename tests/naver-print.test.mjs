@@ -80,3 +80,13 @@ test('주말·공휴일에는 예약 작업을 건너뛴다', async () => {
   assert.equal(skipReason('2026-12-25'), '성탄절');
   assert.equal(skipReason('2027-02-09'), '대체공휴일(설날)');
 });
+
+test('오늘 수집이 끝났는지 판단한다', async () => {
+  const { scrapeStatus } = await import('../scripts/scrape-status.mjs');
+  const base = { date: '2026-10-30', coverage: [{ publisherId: 'mk', status: 'checked' }], articles: [{ candidate: true, fetchError: null }] };
+  assert.equal(scrapeStatus(null, '2026-10-30').state, 'missing');
+  assert.equal(scrapeStatus(base, '2026-10-30').state, 'complete');
+  assert.equal(scrapeStatus(base, '2026-10-31').state, 'incomplete');
+  assert.match(scrapeStatus({ ...base, articles: [{ candidate: true, fetchError: 'time_limit' }] }, '2026-10-30').reason, /실패 1건/);
+  assert.match(scrapeStatus({ ...base, coverage: [{ publisherId: 'seoul', status: 'partial' }] }, '2026-10-30').reason, /seoul/);
+});

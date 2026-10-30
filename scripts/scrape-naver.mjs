@@ -1,4 +1,4 @@
-// 네이버 신문보기(지면)에서 9개 언론사의 당일 지면 기사를 전부 수집한다.
+// 네이버 신문보기(지면)에서 12개 언론사의 당일 지면 기사를 전부 수집한다.
 // 사용법: node scripts/scrape-naver.mjs [YYYY-MM-DD] [출력폴더]
 // 출력: <폴더>/listing.json (목록·메타데이터), <폴더>/bodies.jsonl (aid별 본문)
 // 본문은 공개 레포에 커밋하지 않고 비공개 레포(News_Archive_raw)에만 보관한다.
@@ -10,7 +10,8 @@ import { PRESS_CODES, sectionHint, newspaperPageUrl, onDomain, parseArticlePage,
 
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 const archivePath = fileURLToPath(new URL('../public/data/archive.json', import.meta.url));
-const DEADLINE = Date.now() + Number(process.env.SCRAPE_BUDGET_MINUTES || 20) * 60000;
+const DEADLINE = Date.now() + Number(process.env.SCRAPE_BUDGET_MINUTES || 30) * 60000;
+const STARTED = Date.now();
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export function kstNow() {
@@ -18,19 +19,39 @@ export function kstNow() {
   return `${parts.replace(' ', 'T')}+09:00`;
 }
 
+// 요청 통계: 실패 원인(느린 응답·시간 초과·접근 제한)을 나중에 확인할 수 있게 listing.json에 남긴다.
+export const fetchStats = { requests: 0, ok: 0, retries: 0, timeouts: 0, slow: 0, status: {}, totalMs: 0, maxMs: 0 };
+
 async function fetchHtml(url, attempts = 3) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    const started = Date.now();
+    fetchStats.requests += 1;
+    if (attempt > 1) fetchStats.retries += 1;
     try {
       const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT, 'Accept-Language': 'ko-KR,ko;q=0.9' }, signal: AbortSignal.timeout(25000) });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return await response.text();
+      if (!response.ok) {
+        fetchStats.status[response.status] = (fetchStats.status[response.status] ?? 0) + 1;
+        const error = new Error(`HTTP ${response.status}`);
+        error.throttled = response.status === 429 || response.status >= 500;
+        throw error;
+      }
+      const html = await response.text();
+      fetchStats.ok += 1;
+      return html;
     } catch (error) {
+      if (error.name === 'TimeoutError') fetchStats.timeouts += 1;
       lastError = error;
-      await sleep(2000 * attempt);
+      // 접근 제한(429)·서버 오류·시간 초과는 더 오래 쉬었다가 다시 시도한다.
+      await sleep((error.throttled || error.name === 'TimeoutError' ? 5000 : 2000) * attempt);
+    } finally {
+      const ms = Date.now() - started;
+      fetchStats.totalMs += ms;
+      fetchStats.maxMs = Math.max(fetchStats.maxMs, ms);
+      if (ms > 5000) fetchStats.slow += 1;
     }
   }
-  throw new Error(lastError.message);
+  throw new Error(lastError.name === 'TimeoutError' ? 'timeout' : lastError.message);
 }
 
 async function fetchListing(publisher, date) {
@@ -149,7 +170,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   for (const [index, publisher] of publishers.entries()) console.error(`${publisher.name}: ${coverage[index].status} — ${coverage[index].note}`);
 
   await mkdir(outDir, { recursive: true });
-  const listing = { date, scrapedAt: kstNow(), pressCodes: PRESS_CODES, coverage, articles: entries };
+  const elapsedMinutes = Math.round((Date.now() - STARTED) / 600) / 100;
+  const stats = { ...fetchStats, avgMs: fetchStats.requests ? Math.round(fetchStats.totalMs / fetchStats.requests) : 0, elapsedMinutes, budgetMinutes: Number(process.env.SCRAPE_BUDGET_MINUTES || 30) };
+  delete stats.totalMs;
+  console.error(`요청 통계: ${JSON.stringify(stats)}`);
+  const listing = { date, scrapedAt: kstNow(), pressCodes: PRESS_CODES, fetchStats: stats, coverage, articles: entries };
   await writeFile(join(outDir, 'listing.json'), `${JSON.stringify(listing, null, 2)}\n`);
   const keep = new Set(entries.map((entry) => `${entry.publisherId}:${entry.aid}`));
   await writeFile(join(outDir, 'bodies.jsonl'), [...bodies.values()].filter((body) => keep.has(`${body.publisherId}:${body.aid}`)).map((body) => JSON.stringify(body)).join('\n') + '\n');
