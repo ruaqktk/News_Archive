@@ -164,6 +164,38 @@
       "편의점 이야기": {
         "decision": "exclude",
         "note": "칼럼"
+      },
+      "iR52 장영실상": {
+        "decision": "exclude",
+        "note": "시상 홍보 코너"
+      },
+      "매경의 창": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "미국 주식 돋보기": {
+        "decision": "exclude",
+        "note": "투자 정보 코너"
+      },
+      "보험 200% 활용법": {
+        "decision": "exclude",
+        "note": "재테크 정보 코너"
+      },
+      "빅데이터로 본 재테크": {
+        "decision": "exclude",
+        "note": "재테크 정보 코너"
+      },
+      "위클리 마켓": {
+        "decision": "exclude",
+        "note": "증시 정보 코너"
+      },
+      "포토에세이": {
+        "decision": "exclude",
+        "note": "사진 코너"
+      },
+      "해외주식 원포인트 레슨": {
+        "decision": "exclude",
+        "note": "투자 정보 코너"
       }
     },
     "segye": {
@@ -214,6 +246,34 @@
       "세계타워": {
         "decision": "exclude",
         "note": "기자 칼럼"
+      },
+      "8·13대책 후속조치": {
+        "decision": "exclude",
+        "note": "당일 뉴스 묶음 문패"
+      },
+      "기자가만난세상": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
+      },
+      "기후의 미래": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "농어촌이 미래다-그린 라이프": {
+        "decision": "exclude",
+        "note": "농어촌 정책 소식 정기면(연재 기획 근거 부족)"
+      },
+      "뉴스분석": {
+        "decision": "exclude",
+        "note": "당일 해설 기사 문패"
+      },
+      "삶과문화": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "세계와우리": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "kmib": {
@@ -236,6 +296,30 @@
       "역경의 열매": {
         "decision": "exclude",
         "note": "인물 간증 회고 연재(구술 기고)"
+      },
+      "미각 아카이브": {
+        "decision": "exclude",
+        "note": "기자 음식 에세이"
+      },
+      "새로 나온 책": {
+        "decision": "exclude",
+        "note": "신간 소개 코너"
+      },
+      "세상만사": {
+        "decision": "exclude",
+        "note": "논설 칼럼"
+      },
+      "시가 있는 휴일": {
+        "decision": "exclude",
+        "note": "시 소개 코너"
+      },
+      "오늘 뭐 먹지": {
+        "decision": "exclude",
+        "note": "음식 정보 코너"
+      },
+      "혜윰노트": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "donga": {
@@ -258,6 +342,30 @@
       "김민의 영감 한 스푼": {
         "decision": "exclude",
         "note": "개인 칼럼"
+      },
+      "HBR 인사이트": {
+        "decision": "exclude",
+        "note": "하버드비즈니스리뷰 전재 경영 칼럼"
+      },
+      "동아광장": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "라운지": {
+        "decision": "exclude",
+        "note": "동정·행사 알림 코너"
+      },
+      "오피스텔 미리보기": {
+        "decision": "exclude",
+        "note": "분양 정보 코너"
+      },
+      "인천판": {
+        "decision": "exclude",
+        "note": "지역판 게시판"
+      },
+      "중부판": {
+        "decision": "exclude",
+        "note": "지역판 소식 코너"
       }
     },
     "joongang": {
@@ -292,6 +400,14 @@
       "교육이 미래다": {
         "decision": "exclude",
         "note": "대학·교육기관 홍보성 특집 섹션"
+      },
+      "Cooking&Food": {
+        "decision": "exclude",
+        "note": "요리·음식 섹션 코너"
+      },
+      "우리말 바루기": {
+        "decision": "exclude",
+        "note": "우리말 코너"
       }
     },
     "hankookilbo": {
@@ -354,6 +470,18 @@
       "달곰한 우리말": {
         "decision": "exclude",
         "note": "우리말 칼럼"
+      },
+      "AI가 바꾸는 세상": {
+        "decision": "exclude",
+        "note": "외부 필자 주간 칼럼"
+      },
+      "삶과 문화": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "테크 인사이트": {
+        "decision": "exclude",
+        "note": "정기 기술 해설 코너(연재 기획 아님)"
       }
     },
     "khan": {
@@ -424,6 +552,42 @@
       "문화와 삶": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "그림책": {
+        "decision": "exclude",
+        "note": "서평 코너"
+      },
+      "김경의 별잇기 예술여행": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "김홍의 트루 스토리": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "녹색세상": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "사유와 성찰": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "새책": {
+        "decision": "exclude",
+        "note": "신간 소개 코너"
+      },
+      "세상 읽기": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "이상한 책을 보았다": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "책과 삶": {
+        "decision": "exclude",
+        "note": "서평 코너"
       }
     },
     "chosun": {
@@ -442,6 +606,22 @@
       "테크 in 넘버": {
         "decision": "exclude",
         "note": "숫자 정보 단신 코너"
+      },
+      "동서남북": {
+        "decision": "exclude",
+        "note": "외부 필자·논설 칼럼"
+      },
+      "카페 2030": {
+        "decision": "exclude",
+        "note": "2030 필자 칼럼"
+      },
+      "팀 알퍼의 런던 Eye": {
+        "decision": "exclude",
+        "note": "외국인 필자 연재 칼럼"
+      },
+      "플라자": {
+        "decision": "exclude",
+        "note": "단체 행사 알림 코너"
       }
     },
     "hani": {
@@ -468,6 +648,26 @@
       "똑똑! 한국사회": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      ".txt": {
+        "decision": "exclude",
+        "note": "문화 인터뷰·신간 소개 코너"
+      },
+      "나는 역사다": {
+        "decision": "exclude",
+        "note": "인물 역사 소개 코너"
+      },
+      "말글살이": {
+        "decision": "exclude",
+        "note": "우리말 칼럼"
+      },
+      "슬기로운 기자생활": {
+        "decision": "exclude",
+        "note": "기자 에세이"
+      },
+      "영상": {
+        "decision": "exclude",
+        "note": "영상 기사 안내 코너"
       }
     },
     "seoul": {
@@ -482,6 +682,30 @@
       "권훈의 골프 확대경": {
         "decision": "exclude",
         "note": "개인 칼럼"
+      },
+      "다시 뛰는 부울경": {
+        "decision": "exclude",
+        "note": "지자체·기업 홍보성 지역 특집 섹션"
+      },
+      "의정광장": {
+        "decision": "exclude",
+        "note": "지방의원 기고"
+      },
+      "지방시대": {
+        "decision": "exclude",
+        "note": "논설 칼럼"
+      },
+      "책꽂이": {
+        "decision": "exclude",
+        "note": "신간 소개 코너"
+      },
+      "천태만컷": {
+        "decision": "exclude",
+        "note": "사진 코너"
+      },
+      "훔치고 싶은 문장": {
+        "decision": "exclude",
+        "note": "책 문장 소개 코너"
       }
     },
     "sedaily": {
@@ -524,6 +748,30 @@
       "식견": {
         "decision": "exclude",
         "note": "칼럼"
+      },
+      "2026 신한 쏠메이트·서울경제 마스터즈": {
+        "decision": "exclude",
+        "note": "주최 행사·협찬 기사"
+      },
+      "李 소통 두고 논란": {
+        "decision": "exclude",
+        "note": "당일 뉴스 묶음 문패"
+      },
+      "국가생산성대회": {
+        "decision": "exclude",
+        "note": "시상 홍보 기사"
+      },
+      "글로벌 핫스톡": {
+        "decision": "exclude",
+        "note": "투자 정보 코너"
+      },
+      "여담": {
+        "decision": "exclude",
+        "note": "논설 칼럼"
+      },
+      "왈가왈부": {
+        "decision": "exclude",
+        "note": "독자 의견 코너"
       }
     }
   }
