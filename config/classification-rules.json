@@ -132,7 +132,8 @@
     "포토",
     "사진",
     "포토뉴스",
-    "그래픽"
+    "그래픽",
+    "사고"
   ],
   "personalColumnPattern": "^(?:[가-힣]{3}|[가-힣]{2,4} [가-힣]{2,4})(?:\\s?(?:특파원|기자|교수|위원|논설위원|작가|변호사|의사|대표))?의\\s?",
   "seriesRegistry": {
@@ -196,6 +197,14 @@
       "해외주식 원포인트 레슨": {
         "decision": "exclude",
         "note": "투자 정보 코너"
+      },
+      "착한리더가 세상을 바꾼다": {
+        "decision": "exclude",
+        "note": "대한적십자사 연계 캠페인 인터뷰"
+      },
+      "시가 있는 월요일": {
+        "decision": "exclude",
+        "note": "시 소개 코너"
       }
     },
     "segye": {
@@ -274,6 +283,18 @@
       "세계와우리": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "수사·기소 분리 한 달": {
+        "decision": "feature",
+        "note": "세계일보 기획 패키지(같은 날 3꼭지)"
+      },
+      "마이머니": {
+        "decision": "exclude",
+        "note": "정기 재테크 섹션"
+      },
+      "고인을 기리며": {
+        "decision": "exclude",
+        "note": "추모 기사 코너"
       }
     },
     "kmib": {
@@ -320,6 +341,30 @@
       "혜윰노트": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "국민만평-서민호 화백": {
+        "decision": "exclude",
+        "note": "만평"
+      },
+      "가리사니": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
+      },
+      "국민논단": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "글로벌 포커스": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "해외선교·성지순례 안전 기상도": {
+        "decision": "exclude",
+        "note": "외교부 안내 정보 코너"
+      },
+      "우리 교회 소식": {
+        "decision": "exclude",
+        "note": "교계 소식 단신"
       }
     },
     "donga": {
@@ -366,6 +411,18 @@
       "중부판": {
         "decision": "exclude",
         "note": "지역판 소식 코너"
+      },
+      "2030세상": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "내가 만난 명문장": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "DBR": {
+        "decision": "exclude",
+        "note": "동아비즈니스리뷰 요약 정기 지면"
       }
     },
     "joongang": {
@@ -408,6 +465,30 @@
       "우리말 바루기": {
         "decision": "exclude",
         "note": "우리말 코너"
+      },
+      "노트북을 열며": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
+      },
+      "리셋 코리아": {
+        "decision": "exclude",
+        "note": "외부 필진 정책 기고"
+      },
+      "이준의 인사이드 아트": {
+        "decision": "exclude",
+        "note": "필자 칼럼"
+      },
+      "데이비드 르빈· A.J. 아가왈의 마켓 나우": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "GMC": {
+        "decision": "exclude",
+        "note": "정기 경제 섹션(연재 아님)"
+      },
+      "로또 복권": {
+        "decision": "exclude",
+        "note": "당첨번호 안내"
       }
     },
     "hankookilbo": {
@@ -482,6 +563,30 @@
       "테크 인사이트": {
         "decision": "exclude",
         "note": "정기 기술 해설 코너(연재 기획 아님)"
+      },
+      "현장": {
+        "decision": "exclude",
+        "note": "일반 현장 기사 문패"
+      },
+      "숨은유럽찾기": {
+        "decision": "exclude",
+        "note": "월간 유럽 해설 정기 코너"
+      },
+      "중·꺾·마+: 중년 꺾이지 않는 마음": {
+        "decision": "exclude",
+        "note": "전문가 상담 코너"
+      },
+      "우리말 한 자밤": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "헌법학자의 눈으로 본 대한민국": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "인문산책": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "khan": {
@@ -588,6 +693,30 @@
       "책과 삶": {
         "decision": "exclude",
         "note": "서평 코너"
+      },
+      "버금 밥상": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "NGO 현장": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "아침을 열며": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "시선": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "세계의 시, 시의 세계": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "미디어세상": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "chosun": {
@@ -622,6 +751,10 @@
       "플라자": {
         "decision": "exclude",
         "note": "단체 행사 알림 코너"
+      },
+      "조용헌 살롱": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "hani": {
@@ -668,6 +801,18 @@
       "영상": {
         "decision": "exclude",
         "note": "영상 기사 안내 코너"
+      },
+      "서울 말고": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "뉴노멀-2030 빅데이터": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "세계의 창": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "seoul": {
@@ -706,6 +851,14 @@
       "훔치고 싶은 문장": {
         "decision": "exclude",
         "note": "책 문장 소개 코너"
+      },
+      "월요인터뷰": {
+        "decision": "exclude",
+        "note": "정기 인터뷰 코너"
+      },
+      "서울on": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
       }
     },
     "sedaily": {
@@ -772,6 +925,36 @@
       "왈가왈부": {
         "decision": "exclude",
         "note": "독자 의견 코너"
+      },
+      "北, 바이낸스 해킹 후폭풍": {
+        "decision": "feature",
+        "note": "서울경제 기획 패키지(같은 날 2꼭지)"
+      },
+      "스타즈IR": {
+        "decision": "exclude",
+        "note": "정기 기업 IR 코너"
+      },
+      "분양캘린더": {
+        "decision": "exclude",
+        "note": "분양 일정 안내"
+      },
+      "솔선수법": {
+        "decision": "exclude",
+        "note": "외부 변호사 칼럼"
+      },
+      "백상논단": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "동십자각": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
+      }
+    },
+    "hankyung": {
+      "MZ 톡톡": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     }
   }
