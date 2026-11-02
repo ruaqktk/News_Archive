@@ -49,3 +49,10 @@ test('검토 힌트: 같은 날 같은 문패 여러 꼭지·1면 표시', async
   assert.deepEqual(hintOf(rows[1]), ['같은 문패 2꼭지']);
   assert.deepEqual(hintOf(rows[2]), []);
 });
+
+test('직전 평일: 주말·공휴일 건너뜀', async () => {
+  const { previousWorkday } = await import('../scripts/workday.mjs');
+  assert.equal(previousWorkday('2026-11-03'), '2026-11-02');
+  assert.equal(previousWorkday('2026-11-02'), '2026-10-30');
+  assert.equal(previousWorkday('2026-12-28'), '2026-12-24');
+});

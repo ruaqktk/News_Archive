@@ -4,9 +4,9 @@
 
 | 단계 | 담당 | 시각(KST) | 내용 |
 |---|---|---|---|
-| 1. 지면 전체 수집 | 비공개 레포 `ruaqktk/News_Archive_raw`의 GitHub Actions (`scrape.yml`) + Claude 보조 실행 | 평일 05:40·06:40·07:40 시도, 보조 07:25 (공휴일 제외) | 네이버 신문보기에서 12개사 당일 지면 기사 목록 전체와 후보 기사 본문을 `days/<날짜>/`에 커밋 |
-| 2. 선별·요약·반영 | Claude 예약 작업 | 평일 08:47 (공휴일 제외) | `config/classification-rules.json` 제목 규칙과 `docs/CLASSIFICATION.md` 기준으로 단독·기획 선별, 카드 요약·상세 요약 작성, `public/data/archive.json` 병합·커밋, 브리핑 알림 |
-| 2-1. 오후 보충 | Claude 예약 작업 **지면 보충 수집** | 평일 13:37 (공휴일 제외) | 네이버에 늦게 올라온 지면 기사를 잡기 위해 다시 수집하고, 아카이브에 아직 없는 기사만 판정·요약해 추가. 추가분이 있을 때만 알림 |
+| 1. 지면 전체 수집 | 비공개 레포 `ruaqktk/News_Archive_raw`의 GitHub Actions (`scrape.yml`) + Claude 보조 실행 | 평일 05:30·08:30 예약 (실제로는 3시간 안팎 늦게 실행됨, 공휴일 제외) | 네이버 신문보기에서 12개사 당일 지면 기사 목록 전체와 후보 기사 본문을 `days/<날짜>/`에 커밋 |
+| 2. 선별·요약·반영 | Claude 예약 작업 | 평일 09:00 (공휴일 제외) | `config/classification-rules.json` 제목 규칙과 `docs/CLASSIFICATION.md` 기준으로 단독·기획 선별, 카드 요약·상세 요약 작성, `public/data/archive.json` 병합·커밋, 브리핑 알림 |
+| 2-1. 전날 보충 | 같은 Claude 예약 작업 | 평일 09:00 | 직전 평일 지면을 다시 수집해, 아침 브리핑 이후 네이버에 늦게 붙은 기사 중 단독·기획만 그날 아카이브에 추가 |
 | 3. 배포 | Vercel | 커밋 직후 | `main` 변경 시 자동 배포 |
 
 - 수집 코드(`scripts/scrape-naver.mjs`, `scripts/naver-print.mjs`)는 이 공개 레포에 있고, 비공개 레포의 Actions가 이 레포를 체크아웃해 실행합니다.
@@ -26,9 +26,9 @@
 
 ## 수집 실행 보장과 실패 진단
 
-- GitHub 예약 실행은 몇 시간씩 늦거나 빠질 수 있습니다(2026-10-29·30 모두 07:50 예정이 11시께 실행). 그래서 하루 세 번(05:40·06:40·07:40) 걸어 두고, 오늘 자료가 완전하면(`scripts/scrape-status.mjs`가 `complete`) 건너뜁니다.
-- 정시 보장은 Claude 예약 작업 **지면 수집 보조 실행**(평일 07:25)이 맡습니다. 자료가 없거나 불완전하고 실행 중인 수집이 없으면 수동 실행을 요청합니다. 08:47 브리핑 작업도 같은 확인을 한 번 더 합니다.
-- 재수집은 이미 받은 기사를 재사용하고 실패분만 다시 요청하므로 몇십 초면 끝납니다.
+- GitHub 예약 실행은 3시간 안팎 늦게 도는 일이 많습니다(2026-10-29·30, 11-02 모두 예정보다 약 3시간 늦음). 그래서 05:30·08:30 두 번 걸어 둡니다. 05:30 실행은 대개 09:00 브리핑 전에 끝나고, 08:30 실행은 늦게 돌면서 오전에 뒤늦게 붙은 지면 기사를 다시 확인합니다.
+- 예약 실행도 매번 목록을 다시 확인합니다. 이미 받은 기사는 재사용하고 새 기사와 실패분만 요청하므로 몇십 초~2분이면 끝납니다. 두 실행이 같은 날짜를 동시에 커밋하면 나중 수집 결과를 남깁니다.
+- 09:00 브리핑 작업은 시작할 때 자료가 없거나 불완전하면 직접 수집을 실행하고 기다립니다(정시 보장).
 - 실패 원인은 `listing.json`의 `fetchStats`(요청 수, 재시도, 시간 초과, HTTP 상태별 횟수, 5초 넘은 느린 응답 수, 평균·최대 응답 시간, 소요 분)와 기사별 `fetchError`로 확인합니다. `time_limit`은 수집 시간 한도(35분)를 다 써서 요청하지 못한 기사입니다.
 
 ## 주말·공휴일
@@ -52,14 +52,14 @@ node scripts/merge-run.mjs run.json
 npm run check && npm test && npm run build
 ```
 
-오후 보충은 같은 절차에서 1번과 3번에 `--new`를 붙입니다. 그날 아카이브에 이미 있는 기사를 빼고 새로 올라온 기사만 보여 주며, `merge-run.mjs`는 기존 기사를 그대로 두고 새 기사만 더합니다.
+**전날 보충.** 브리핑 작업은 오늘 지면을 처리한 뒤 직전 평일 P(`node scripts/workday.mjs --prev D`)를 한 번 더 봅니다. P를 수동 수집으로 다시 받고, 1번과 3번에 `--new`를 붙여 그날 아카이브에 이미 있는 기사를 뺀 새 기사만 판정합니다. `merge-run.mjs`는 기존 기사를 그대로 두고 새 기사만 더합니다.
 
 ```
-node scripts/triage.mjs $L --new
-node scripts/triage.mjs $L --selections --new > selections.json
+node scripts/triage.mjs ../news_archive_raw/days/<P>/listing.json --new
+node scripts/triage.mjs ../news_archive_raw/days/<P>/listing.json --selections --new > selections-P.json
 ```
 
-**늦게 올라오는 기사.** 네이버 신문보기는 언론사가 지면 기사를 오전 늦게나 오후에 추가로 올리는 경우가 있습니다(2026-11-02 경향신문 1·5·9·18면 기사 등 12건이 아침 수집 뒤에 올라옴). 아침 수집에 없던 기사는 분류 기준과 상관없이 빠지므로 오후 보충 작업이 다시 확인합니다.
+**늦게 올라오는 기사.** 네이버 신문보기는 언론사가 지면 기사를 오전 늦게 지면 목록에 추가로 붙이는 경우가 있습니다(2026-11-02 경향신문 1·5·9·18면 기사 등 12건이 08:57 수집 뒤에 붙음. 온라인 출고는 06:00). 이런 기사는 다음 날 아침 전날 보충으로 하루 늦게 아카이브에 들어갑니다.
 
 `selections.json`은 `[{ "aid", "publisherId", "type", "evidence", "summary", "detail" }]` 배열입니다. `detail`은 `{ background, points[], significance, terms[] }` 구조이며 작성 기준은 `docs/CLASSIFICATION.md` 5절에 있습니다. 원문 URL을 확인하지 못한 기사는 `build-run.mjs`가 자동으로 제외하고 coverage note에 적습니다.
 

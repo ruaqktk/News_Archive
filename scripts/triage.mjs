@@ -121,7 +121,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const listing = JSON.parse(readFileSync(file, 'utf8'));
   const all = triageListing(listing, loadRules());
   const hintOf = reviewHints(all);
-  // --new: 그날 아카이브에 이미 실린 기사는 빼고 본다(오후 보충 수집용).
+  // --new: 그날 아카이브에 이미 실린 기사는 빼고 본다(다음 날 전날 보충용).
   const archived = args.includes('--new') ? archivedKeys(listing.date) : new Set();
   const rows = all.filter((row) => !archived.has(`${row.publisherId}|${row.aid}`));
   if (flag === '--selections') {
