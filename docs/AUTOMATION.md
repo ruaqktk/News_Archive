@@ -6,6 +6,7 @@
 |---|---|---|---|
 | 1. 지면 전체 수집 | 비공개 레포 `ruaqktk/News_Archive_raw`의 GitHub Actions (`scrape.yml`) + Claude 보조 실행 | 평일 05:40·06:40·07:40 시도, 보조 07:25 (공휴일 제외) | 네이버 신문보기에서 12개사 당일 지면 기사 목록 전체와 후보 기사 본문을 `days/<날짜>/`에 커밋 |
 | 2. 선별·요약·반영 | Claude 예약 작업 | 평일 08:47 (공휴일 제외) | `config/classification-rules.json` 제목 규칙과 `docs/CLASSIFICATION.md` 기준으로 단독·기획 선별, 카드 요약·상세 요약 작성, `public/data/archive.json` 병합·커밋, 브리핑 알림 |
+| 2-1. 오후 보충 | Claude 예약 작업 **지면 보충 수집** | 평일 13:37 (공휴일 제외) | 네이버에 늦게 올라온 지면 기사를 잡기 위해 다시 수집하고, 아카이브에 아직 없는 기사만 판정·요약해 추가. 추가분이 있을 때만 알림 |
 | 3. 배포 | Vercel | 커밋 직후 | `main` 변경 시 자동 배포 |
 
 - 수집 코드(`scripts/scrape-naver.mjs`, `scripts/naver-print.mjs`)는 이 공개 레포에 있고, 비공개 레포의 Actions가 이 레포를 체크아웃해 실행합니다.
@@ -50,6 +51,15 @@ node scripts/build-run.mjs $L selections.json > run.json
 node scripts/merge-run.mjs run.json
 npm run check && npm test && npm run build
 ```
+
+오후 보충은 같은 절차에서 1번과 3번에 `--new`를 붙입니다. 그날 아카이브에 이미 있는 기사를 빼고 새로 올라온 기사만 보여 주며, `merge-run.mjs`는 기존 기사를 그대로 두고 새 기사만 더합니다.
+
+```
+node scripts/triage.mjs $L --new
+node scripts/triage.mjs $L --selections --new > selections.json
+```
+
+**늦게 올라오는 기사.** 네이버 신문보기는 언론사가 지면 기사를 오전 늦게나 오후에 추가로 올리는 경우가 있습니다(2026-11-02 경향신문 1·5·9·18면 기사 등 12건이 아침 수집 뒤에 올라옴). 아침 수집에 없던 기사는 분류 기준과 상관없이 빠지므로 오후 보충 작업이 다시 확인합니다.
 
 `selections.json`은 `[{ "aid", "publisherId", "type", "evidence", "summary", "detail" }]` 배열입니다. `detail`은 `{ background, points[], significance, terms[] }` 구조이며 작성 기준은 `docs/CLASSIFICATION.md` 5절에 있습니다. 원문 URL을 확인하지 못한 기사는 `build-run.mjs`가 자동으로 제외하고 coverage note에 적습니다.
 

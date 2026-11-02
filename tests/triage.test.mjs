@@ -36,3 +36,16 @@ test('연재 등록부는 문패가 정확히 같을 때만 적용한다', () =>
   assert.equal(decide('네타냐후 기로[이스라엘 총선 현장 르포]', 'khan'), 'feature');
   assert.equal(decide('트럼프, 네타냐후 지지[이스라엘 총선]', 'khan'), 'exclude');
 });
+
+test('검토 힌트: 같은 날 같은 문패 여러 꼭지·1면 표시', async () => {
+  const { reviewHints } = await import('../scripts/triage.mjs');
+  const rows = [
+    { publisherId: 'khan', page: 'A1', tags: ['춘추정병시대'] },
+    { publisherId: 'khan', page: 'A5', tags: ['춘추정병시대'] },
+    { publisherId: 'khan', page: 'A20', tags: ['혼자 코너'] },
+  ];
+  const hintOf = reviewHints(rows);
+  assert.deepEqual(hintOf(rows[0]), ['같은 문패 2꼭지', '1면']);
+  assert.deepEqual(hintOf(rows[1]), ['같은 문패 2꼭지']);
+  assert.deepEqual(hintOf(rows[2]), []);
+});

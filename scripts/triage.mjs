@@ -83,24 +83,59 @@ export function triageListing(listing, rules) {
   return listing.articles.map((article) => ({ ...article, ...triageTitle(article.title, article.publisherId, rules) }));
 }
 
+// 검토 대상에 붙이는 판단 힌트: 같은 날 같은 문패가 여러 꼭지거나 1면이면 기획 패키지일 가능성이 높다.
+export function reviewHints(rows) {
+  const tagCount = new Map();
+  for (const row of rows) for (const tag of row.tags ?? []) {
+    const key = `${row.publisherId}|${tag}`;
+    tagCount.set(key, (tagCount.get(key) ?? 0) + 1);
+  }
+  return (row) => {
+    const hints = [];
+    const repeated = (row.tags ?? []).find((tag) => tagCount.get(`${row.publisherId}|${tag}`) >= 2);
+    if (repeated) hints.push(`같은 문패 ${tagCount.get(`${row.publisherId}|${repeated}`)}꼭지`);
+    if (/^A?1$/.test(String(row.page ?? ''))) hints.push('1면');
+    return hints;
+  };
+}
+
+// 이미 아카이브에 있는 기사(publisherId+aid)를 고른다. --new 옵션에서 쓴다.
+function archivedKeys(date) {
+  try {
+    const archive = JSON.parse(readFileSync(new URL('../public/data/archive.json', import.meta.url), 'utf8'));
+    const run = archive.runs.find((item) => item.date === date);
+    return new Set((run?.articles ?? []).map((article) => `${article.publisherId}|${article.id.split('-').pop()}`));
+  } catch {
+    return new Set();
+  }
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const [file, flag] = process.argv.slice(2);
+  const args = process.argv.slice(2);
+  const file = args.find((arg) => !arg.startsWith('--'));
+  const flag = args.includes('--selections') ? '--selections' : null;
   if (!file) {
-    console.error('사용법: node scripts/triage.mjs <listing.json> [--selections]');
+    console.error('사용법: node scripts/triage.mjs <listing.json> [--selections] [--new]');
     process.exit(1);
   }
   const listing = JSON.parse(readFileSync(file, 'utf8'));
-  const rows = triageListing(listing, loadRules());
+  const all = triageListing(listing, loadRules());
+  const hintOf = reviewHints(all);
+  // --new: 그날 아카이브에 이미 실린 기사는 빼고 본다(오후 보충 수집용).
+  const archived = args.includes('--new') ? archivedKeys(listing.date) : new Set();
+  const rows = all.filter((row) => !archived.has(`${row.publisherId}|${row.aid}`));
   if (flag === '--selections') {
     const picked = rows.filter((row) => row.decision === 'exclusive' || row.decision === 'feature');
     process.stdout.write(`${JSON.stringify(picked.map((row) => ({ publisherId: row.publisherId, aid: row.aid, type: row.decision, section: row.sectionHint ?? null, evidence: row.rule, summary: '', detail: null })), null, 2)}\n`);
   } else {
     const count = (decision) => rows.filter((row) => row.decision === decision).length;
-    console.log(`# ${listing.date} 지면 ${rows.length}건 — 자동 단독 ${count('exclusive')}, 자동 기획 ${count('feature')}, 검토 ${count('review')}, 제외 ${count('exclude')}`);
+    const scope = archived.size ? ` (아카이브에 있는 ${archived.size}건 제외)` : '';
+    console.log(`# ${listing.date} 지면 ${rows.length}건${scope} — 자동 단독 ${count('exclusive')}, 자동 기획 ${count('feature')}, 검토 ${count('review')}, 제외 ${count('exclude')}`);
     for (const decision of ['exclusive', 'feature', 'review']) {
       console.log(`\n## ${{ exclusive: '자동 단독', feature: '자동 기획', review: '검토 필요 (Claude 판단 후 연재 등록부에 기록)' }[decision]}`);
       for (const row of rows.filter((item) => item.decision === decision)) {
-        console.log([row.publisherId, row.page ?? '-', row.aid, row.title, `← ${row.rule}`, row.bodyLength ? '' : '(본문 없음)'].filter(Boolean).join(' | '));
+        const hints = decision === 'review' ? hintOf(row) : [];
+        console.log([row.publisherId, row.page ?? '-', row.aid, row.title, `← ${row.rule}`, hints.length ? `힌트: ${hints.join(', ')}` : '', row.bodyLength ? '' : '(본문 없음)'].filter(Boolean).join(' | '));
       }
     }
   }
