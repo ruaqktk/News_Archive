@@ -717,6 +717,22 @@
       "미디어세상": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "춘추정병시대": {
+        "decision": "feature",
+        "note": "경향신문 청년 기획 연재(회차 번호, 데이터 전수 분석)"
+      },
+      "개정 형소법 한달": {
+        "decision": "feature",
+        "note": "제도 시행 한 달 점검 기획 패키지(1면+여러 꼭지)"
+      },
+      "여의도앨리스": {
+        "decision": "exclude",
+        "note": "정치부 기자 정기 코너"
+      },
+      "올앳부동산": {
+        "decision": "exclude",
+        "note": "부동산 정기 코너"
       }
     },
     "chosun": {
@@ -949,6 +965,10 @@
       "동십자각": {
         "decision": "exclude",
         "note": "기자 칼럼"
+      },
+      "월드포커스": {
+        "decision": "exclude",
+        "note": "외부 필자(공관장 등) 기고"
       }
     },
     "hankyung": {
