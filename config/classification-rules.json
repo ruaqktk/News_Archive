@@ -331,6 +331,30 @@
       "투자 고수": {
         "decision": "exclude",
         "note": "투자 전문가 정기 인터뷰 코너(본문 확인)"
+      },
+      "美 중간선거": {
+        "decision": "exclude",
+        "note": "사건·현안 스트레이트 묶음"
+      },
+      "美 정상회담": {
+        "decision": "exclude",
+        "note": "사건·현안 스트레이트"
+      },
+      "대통령 정보 유출 파장": {
+        "decision": "exclude",
+        "note": "사건·현안 스트레이트 묶음"
+      },
+      "서울 구청장에 묻다": {
+        "decision": "exclude",
+        "note": "단체장 정기 인터뷰 코너"
+      },
+      "밀착취재": {
+        "decision": "feature",
+        "note": "세계일보 현장 동행 르포(본문 확인)"
+      },
+      "나의 삶 나의 길": {
+        "decision": "exclude",
+        "note": "원로 인물 정기 인터뷰 코너"
       }
     },
     "kmib": {
@@ -409,6 +433,10 @@
       "돋을새김": {
         "decision": "exclude",
         "note": "논설 칼럼"
+      },
+      "금융뒷담": {
+        "decision": "exclude",
+        "note": "금융 뒷얘기 정기 코너"
       }
     },
     "donga": {
@@ -589,6 +617,10 @@
       "삶의 향기": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "루이스 루의 마켓 나우": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "hankookilbo": {
@@ -703,6 +735,22 @@
       "오늘, 세계": {
         "decision": "exclude",
         "note": "짧은 해외 단상 코너"
+      },
+      "Story": {
+        "decision": "exclude",
+        "note": "정기 내러티브 인물 코너(연재 기획 근거 부족, 본문 확인)"
+      },
+      "아세안 속으로": {
+        "decision": "exclude",
+        "note": "정기 아세안 해설 지면(세계는 왜?·숨은유럽찾기와 같은 정기 코너)"
+      },
+      "長靑年, 늘 푸른 마음": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "무기로 읽는 세상": {
+        "decision": "exclude",
+        "note": "외부 필자(군사평론가) 칼럼"
       }
     },
     "khan": {
@@ -865,6 +913,10 @@
       "이선의 인물과 식물": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "만나듣다": {
+        "decision": "exclude",
+        "note": "회차 있는 일반 인물 인터뷰 코너(특정 기획 주제 없음, 본문 확인)"
       }
     },
     "chosun": {
@@ -911,6 +963,10 @@
       "전문기자의 시선": {
         "decision": "exclude",
         "note": "기자 의견 칼럼"
+      },
+      "신문 속 작은 창문": {
+        "decision": "exclude",
+        "note": "사진 코너"
       }
     },
     "hani": {
@@ -1039,6 +1095,10 @@
       "서울광장": {
         "decision": "exclude",
         "note": "논설 칼럼"
+      },
+      "서울, 대사를 만나다": {
+        "decision": "exclude",
+        "note": "주한 대사 정기 인터뷰 코너"
       }
     },
     "sedaily": {
