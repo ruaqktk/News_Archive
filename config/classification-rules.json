@@ -355,6 +355,10 @@
       "나의 삶 나의 길": {
         "decision": "exclude",
         "note": "원로 인물 정기 인터뷰 코너"
+      },
+      "자치구 돋보기": {
+        "decision": "exclude",
+        "note": "자치구 홍보성 소개 코너"
       }
     },
     "kmib": {
@@ -547,6 +551,18 @@
       "종로구": {
         "decision": "exclude",
         "note": "서울 자치구 소식 지면"
+      },
+      "지금, 이 사람": {
+        "decision": "exclude",
+        "note": "정기 인물 소개 코너"
+      },
+      "사진기자의 사談진談": {
+        "decision": "exclude",
+        "note": "사진기자 칼럼"
+      },
+      "내 생각은": {
+        "decision": "exclude",
+        "note": "독자 투고 코너"
       }
     },
     "joongang": {
@@ -751,6 +767,10 @@
       "무기로 읽는 세상": {
         "decision": "exclude",
         "note": "외부 필자(군사평론가) 칼럼"
+      },
+      "퀴즈: 시사 레벨업": {
+        "decision": "exclude",
+        "note": "시사 퀴즈 코너"
       }
     },
     "khan": {
@@ -917,6 +937,18 @@
       "만나듣다": {
         "decision": "exclude",
         "note": "회차 있는 일반 인물 인터뷰 코너(특정 기획 주제 없음, 본문 확인)"
+      },
+      "교육 돌아보기": {
+        "decision": "exclude",
+        "note": "외부 필자 교육 칼럼"
+      },
+      "경제밥도둑": {
+        "decision": "exclude",
+        "note": "정기 경제 해설 코너"
+      },
+      "여자, 언니, 선배들": {
+        "decision": "feature",
+        "note": "경향신문 플랫 여성 커리어 연재 인터뷰(회차 표기)"
       }
     },
     "chosun": {
@@ -967,6 +999,10 @@
       "신문 속 작은 창문": {
         "decision": "exclude",
         "note": "사진 코너"
+      },
+      "경제포커스": {
+        "decision": "exclude",
+        "note": "오피니언면 기자 칼럼"
       }
     },
     "hani": {
@@ -1099,6 +1135,14 @@
       "서울, 대사를 만나다": {
         "decision": "exclude",
         "note": "주한 대사 정기 인터뷰 코너"
+      },
+      "달콤한 사이언스": {
+        "decision": "exclude",
+        "note": "정기 과학 해설 코너"
+      },
+      "경제 블로그": {
+        "decision": "exclude",
+        "note": "정기 경제 해설 코너"
       }
     },
     "sedaily": {
@@ -1197,6 +1241,38 @@
       "한진칼 경영권 분쟁": {
         "decision": "exclude",
         "note": "사건·현안 스트레이트"
+      },
+      "미 중간선거": {
+        "decision": "exclude",
+        "note": "사건 문패(일반 보도 묶음)"
+      },
+      "美 중간선거": {
+        "decision": "exclude",
+        "note": "사건 문패(일반 보도 묶음)"
+      },
+      "마켓무버": {
+        "decision": "exclude",
+        "note": "정기 시장 분석 코너"
+      },
+      "로보월드 2026": {
+        "decision": "exclude",
+        "note": "행사 문패(일반 보도)"
+      },
+      "대한민국 과학기술인상": {
+        "decision": "exclude",
+        "note": "자사 시상 수상자 소개 코너"
+      },
+      "테크언커버드": {
+        "decision": "exclude",
+        "note": "정기 기술 해설 코너"
+      },
+      "강남권 가격 조정 확산": {
+        "decision": "exclude",
+        "note": "현안 문패(일반 보도)"
+      },
+      "음악만사": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "hankyung": {
