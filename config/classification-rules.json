@@ -237,6 +237,18 @@
       "지갑을 불려드립니다": {
         "decision": "exclude",
         "note": "재테크 정보 코너"
+      },
+      "동여의도 위클리": {
+        "decision": "exclude",
+        "note": "주간 증시 정보 코너"
+      },
+      "부동산 손자병법": {
+        "decision": "exclude",
+        "note": "정기 부동산 정보 코너"
+      },
+      "1분 어드바이스": {
+        "decision": "exclude",
+        "note": "생활 정보 코너"
       }
     },
     "segye": {
@@ -387,6 +399,22 @@
       "청해부대 작전 구역 확대": {
         "decision": "exclude",
         "note": "현안 사건명 묶음"
+      },
+      "건강+": {
+        "decision": "exclude",
+        "note": "정기 건강 정보 섹션(본문 확인)"
+      },
+      "세계는 지금": {
+        "decision": "exclude",
+        "note": "정기 국제 해설 코너, 외신·자료 정리 위주로 회차·현지 취재 없음(본문 확인)"
+      },
+      "詩의 뜨락": {
+        "decision": "exclude",
+        "note": "시 소개 코너"
+      },
+      "새로 나온 책": {
+        "decision": "exclude",
+        "note": "신간 소개 코너"
       }
     },
     "kmib": {
@@ -473,6 +501,10 @@
       "200자 읽기": {
         "decision": "exclude",
         "note": "신간 소개 코너"
+      },
+      "교회 알듯말듯": {
+        "decision": "exclude",
+        "note": "신앙 정보 코너"
       }
     },
     "donga": {
@@ -673,6 +705,10 @@
       "루이스 루의 마켓 나우": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "Health&": {
+        "decision": "exclude",
+        "note": "건강 특집 섹션, 병원·건기식 홍보성 기사(본문 확인)"
       }
     },
     "hankookilbo": {
@@ -819,6 +855,14 @@
       "사이언스 톡": {
         "decision": "exclude",
         "note": "칼럼"
+      },
+      "2026 대한민국 일자리 어워드": {
+        "decision": "exclude",
+        "note": "자사 공동 주최 행사 보도"
+      },
+      "칸칸 차이나": {
+        "decision": "exclude",
+        "note": "특파원 정기 코너, 회차·기획 표기 없음(본문 확인)"
       }
     },
     "khan": {
@@ -1013,6 +1057,18 @@
       "중얼거리는 사진 한 장": {
         "decision": "exclude",
         "note": "사진 칼럼"
+      },
+      "신경과학 저널클럽": {
+        "decision": "exclude",
+        "note": "외부 필자(교수) 칼럼"
+      },
+      "고영의 문헌 속 ‘밥상’": {
+        "decision": "exclude",
+        "note": "필자 칼럼"
+      },
+      "톡톡 30초 건강학": {
+        "decision": "exclude",
+        "note": "외부 필자(의사) 건강 정보 코너"
       }
     },
     "chosun": {
@@ -1149,6 +1205,14 @@
       "권성우 디아스포라의 마음": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "뉴노멀-실리콘밸리": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "6411의 목소리": {
+        "decision": "exclude",
+        "note": "외부 필자 에세이"
       }
     },
     "seoul": {
@@ -1231,6 +1295,18 @@
       "삼성 청년희망터와 내일을 만드는 청년들": {
         "decision": "exclude",
         "note": "기업 공동 캠페인"
+      },
+      "고립무원 자폐": {
+        "decision": "feature",
+        "note": "서울신문 자폐 가족·교육 실태 기획(1면 포함 3꼭지, 본문 확인)"
+      },
+      "서남권 반도체 클러스터 점검": {
+        "decision": "exclude",
+        "note": "지역면 단발 해설, 회차·자체 조사 없음(본문 확인)"
+      },
+      "뉴스 분석": {
+        "decision": "exclude",
+        "note": "일반 해설 문패"
       }
     },
     "sedaily": {
@@ -1369,12 +1445,36 @@
       "미래대응기금 거센 공방": {
         "decision": "exclude",
         "note": "현안 사건명 문패"
+      },
+      "S마켓 인사이드": {
+        "decision": "exclude",
+        "note": "정기 시장 해설 코너"
+      },
+      "증시 전문가 긴급 진단": {
+        "decision": "exclude",
+        "note": "당일 증시 현안 전문가 의견 묶음"
+      },
+      "교육알림장": {
+        "decision": "exclude",
+        "note": "교육 상품 소식 코너"
+      },
+      "신경제용어": {
+        "decision": "exclude",
+        "note": "용어 해설 코너"
       }
     },
     "hankyung": {
       "MZ 톡톡": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "프라이스&": {
+        "decision": "exclude",
+        "note": "정기 가격 동향 코너"
+      },
+      "비즈니스 인사이트": {
+        "decision": "exclude",
+        "note": "외부 필자 경영 칼럼"
       }
     }
   }
