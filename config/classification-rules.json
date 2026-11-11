@@ -249,6 +249,10 @@
       "1분 어드바이스": {
         "decision": "exclude",
         "note": "생활 정보 코너"
+      },
+      "M&A 매물장터": {
+        "decision": "exclude",
+        "note": "매물 정보 코너"
       }
     },
     "segye": {
@@ -423,6 +427,18 @@
       "동서남북": {
         "decision": "exclude",
         "note": "지역 주재 기자 칼럼"
+      },
+      "젠슨 황 스캔들 파장": {
+        "decision": "exclude",
+        "note": "사건 문패(해외 스트레이트 묶음, 본문 확인)"
+      },
+      "경찰서 사람들": {
+        "decision": "feature",
+        "note": "세계일보 경찰 현장 인물 연재(회차 표기, 본문 확인)"
+      },
+      "경찰서 사람들 ⑤": {
+        "decision": "feature",
+        "note": "세계일보 경찰 현장 인물 연재 5회(본문 확인)"
       }
     },
     "kmib": {
@@ -517,6 +533,10 @@
       "관가뒷담": {
         "decision": "exclude",
         "note": "관가 뒷이야기 정기 코너"
+      },
+      "앵글속 세상": {
+        "decision": "exclude",
+        "note": "사진 코너"
       }
     },
     "donga": {
@@ -651,6 +671,18 @@
       "대구판": {
         "decision": "exclude",
         "note": "지역판 게시판"
+      },
+      "부산판": {
+        "decision": "exclude",
+        "note": "지역판 게시판"
+      },
+      "수잔 샤키야 한국 블로그": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "이진한 의사·기자의 따뜻한 환자 이야기": {
+        "decision": "exclude",
+        "note": "기자 개인 의학 칼럼 코너"
       }
     },
     "joongang": {
@@ -891,6 +923,10 @@
       "뉴스이용자위원회": {
         "decision": "exclude",
         "note": "자사 독자위원회 회의 정리"
+      },
+      "영상": {
+        "decision": "exclude",
+        "note": "영상 기사 코너"
       }
     },
     "khan": {
@@ -1261,6 +1297,10 @@
       "시민편집인의 눈": {
         "decision": "exclude",
         "note": "시민편집인 칼럼"
+      },
+      "미디어 전망대": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "seoul": {
@@ -1355,6 +1395,10 @@
       "뉴스 분석": {
         "decision": "exclude",
         "note": "일반 해설 문패"
+      },
+      "글로벌 인사이트": {
+        "decision": "exclude",
+        "note": "정기 국제 분석 코너"
       }
     },
     "sedaily": {
@@ -1517,6 +1561,10 @@
       "로보 인사이트": {
         "decision": "exclude",
         "note": "로봇 업계 기업 소식 코너"
+      },
+      "종부세 이어 與 감세 입법 ‘봇물’": {
+        "decision": "exclude",
+        "note": "현안 문패(단일 보도)"
       }
     },
     "hankyung": {
