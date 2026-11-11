@@ -2,7 +2,7 @@ import { $, SECTIONS, favoriteButton, readFavorites, articleSearchText, detailSn
 
 const STATUS_LABEL = { checked: "확인 완료", partial: "일부 확인", blocked: "접근 실패", not_checked: "미확인" };
 
-const state = { index: null, date: null, press: "all", type: "all", section: "all", q: "", view: null };
+const state = { index: null, date: null, month: null, press: "all", type: "all", section: "all", q: "", view: null };
 
 function readUrl() {
   const params = new URLSearchParams(location.search);
@@ -12,7 +12,12 @@ function readUrl() {
   state.section = SECTIONS.includes(params.get("section")) ? params.get("section") : "all";
   state.q = (params.get("q") ?? "").trim();
   state.view = params.get("view") === "favorites" ? "favorites" : null;
+  state.month = /^\d{4}-\d{2}$/.test(params.get("month") ?? "") ? params.get("month") : null;
 }
+
+// 언론사 하나를 고르면(검색·즐겨찾기 아님) 월 단위로 그 언론사 기사를 이어서 본다.
+const isMonthView = () => state.press !== "all" && !state.q && state.view !== "favorites";
+const months = () => state.index.months ?? [];
 
 function writeUrl() {
   const params = new URLSearchParams();
@@ -20,6 +25,7 @@ function writeUrl() {
   if (state.press !== "all") params.set("press", state.press);
   if (state.type !== "all") params.set("type", state.type);
   if (state.section !== "all") params.set("section", state.section);
+  if (isMonthView() && state.month) { params.delete("date"); params.set("month", state.month); }
   if (state.q) { params.delete("date"); params.set("q", state.q); }
   else if (state.view === "favorites") { params.delete("date"); params.set("view", "favorites"); }
   history.replaceState(null, "", `${location.pathname}${params.size ? `?${params}` : ""}`);
@@ -28,15 +34,17 @@ function writeUrl() {
 const dates = () => state.index.dates.map((entry) => entry.date);
 // 화면을 새로 그릴 때마다 번호를 올려, 늦게 도착한 이전 요청 결과는 버린다.
 let renderToken = 0;
+// 월별 보기를 그린 뒤 스크롤해 갈 날짜(달력 선택, 기사 상세에서 돌아옴).
+let scrollTarget = null;
 
 function articleHref(article, date = state.date) {
-  const query = state.q ? `&q=${encodeURIComponent(state.q)}` : "";
+  const query = state.q ? `&q=${encodeURIComponent(state.q)}` : isMonthView() ? `&press=${encodeURIComponent(state.press)}` : "";
   return `./article.html?date=${encodeURIComponent(date)}&id=${encodeURIComponent(article.id)}${query}`;
 }
 
-function titleLink(article, className) {
+function titleLink(article, className, date = state.date) {
   const link = element("a", className, displayTitle(article));
-  link.href = articleHref(article);
+  link.href = articleHref(article, date);
   return link;
 }
 
@@ -186,12 +194,12 @@ async function renderFavorites(token) {
   if (missing) grid.append(element("p", "notice search-empty", `불러오지 못한 즐겨찾기 ${missing}건이 있어요. 새로고침해 보세요.`));
 }
 
-function meta(article) {
+function meta(article, date = state.date) {
   const row = element("p", "article-meta");
   row.append(typeBadge(article.type));
   const section = sectionBadge(article.section);
   if (section) row.append(section);
-  row.append(favoriteButton(article, state.date));
+  row.append(favoriteButton(article, date));
   return row;
 }
 
@@ -219,11 +227,11 @@ function restList(articles) {
 }
 
 // 언론사 하나만 볼 때는 모든 기사를 요약과 함께 펼친다.
-function fullList(articles) {
+function fullList(articles, date = state.date) {
   const list = element("div", "full-list");
   for (const article of articles) {
     const block = element("article", "full-item");
-    block.append(meta(article), titleLink(article, "full-title"));
+    block.append(meta(article, date), titleLink(article, "full-title", date));
     if (article.summary) block.append(element("p", "full-summary", article.summary));
     const naver = naverLink(article);
     if (naver) {
@@ -277,14 +285,92 @@ function pressCard(publisher, articles, expanded) {
   return card;
 }
 
+// 언론사 월별 보기: 그 달의 날짜 파일을 모두 받아 최신 날짜부터 한 화면에 이어 붙인다.
+async function renderMonth(token) {
+  const grid = $("editions");
+  const publisher = state.index.publishers.find((item) => item.id === state.press);
+  grid.classList.add("is-single");
+  $("quiet-press").hidden = true;
+  $("coverage").hidden = true;
+  const monthDates = dates().filter((date) => date.startsWith(state.month)); // 최신순
+  const [y, m] = state.month.split("-").map(Number);
+  const monthLabel = `${y}년 ${m}월`;
+  grid.setAttribute("aria-busy", "true");
+  $("edition-count").textContent = `${publisher.name} ${monthLabel} 불러오는 중…`;
+  const runs = await Promise.all(monthDates.map((date) => loadDay(date).then((run) => ({ date, run })).catch(() => ({ date, run: null }))));
+  if (token !== renderToken) return;
+  grid.setAttribute("aria-busy", "false");
+
+  const days = [];
+  let failed = 0;
+  for (const { date, run } of runs) {
+    if (!run) { failed += 1; continue; }
+    const articles = run.articles.filter((article) => passesFilters(article)).sort(comparePages);
+    if (articles.length) days.push({ date, articles });
+  }
+  const all = days.flatMap((day) => day.articles);
+  const exclusive = all.filter((article) => article.type === "exclusive").length;
+  $("edition-count").textContent = `${monthLabel} · 단독 ${exclusive}건, 기획 ${all.length - exclusive}건${failed ? ` · ${failed}일 불러오기 실패` : ""}`;
+
+  const card = element("section", "press-card is-expanded is-month");
+  card.setAttribute("aria-label", `${publisher.name} ${monthLabel}`);
+  const head = element("header", "press-head");
+  const name = element("h2", "press-name");
+  const label = element("span", "press-label");
+  const emblem = pressLogo(publisher.id);
+  if (emblem) label.append(emblem);
+  label.append(element("span", "press-title", publisher.name));
+  name.append(label);
+  const counts = element("p", "press-counts");
+  if (exclusive) counts.append(element("span", "count-exclusive", `단독 ${exclusive}`));
+  if (all.length - exclusive) counts.append(element("span", "count-feature", `기획 ${all.length - exclusive}`));
+  head.append(name, counts);
+  card.append(head);
+
+  if (!days.length) {
+    card.append(element("p", "story-empty", state.type === "all" && state.section === "all"
+      ? `${monthLabel}에는 이 언론사의 단독·기획 기사가 없어요.`
+      : "선택한 조건에 맞는 기사가 없어요. 필터를 ‘전체’로 바꿔 보세요."));
+  }
+  for (const { date, articles } of days) {
+    const group = element("section", "month-day");
+    group.id = `d-${date}`;
+    const heading = element("h3", "month-date");
+    heading.append(element("span", null, formatEditionDate(date)), element("span", "month-date-count", `${articles.length}건`));
+    group.append(heading, fullList(articles, date));
+    card.append(group);
+  }
+  grid.append(card);
+
+  // 기사 상세에서 돌아왔거나 달력에서 날짜를 골랐으면 그 날짜로 스크롤한다.
+  if (scrollTarget) {
+    const target = document.getElementById(`d-${scrollTarget}`);
+    scrollTarget = null;
+    target?.scrollIntoView({ block: "start" });
+  }
+}
+
 async function render() {
   const token = ++renderToken;
-  writeUrl();
   const publishers = state.index.publishers;
-  $("date-label").textContent = state.date ? formatEditionDate(state.date) : "기록 없음";
-  const index = dates().indexOf(state.date);
-  $("date-prev").disabled = index === -1 || index === dates().length - 1;
-  $("date-next").disabled = index <= 0;
+  if (isMonthView()) {
+    if (!state.month || !months().includes(state.month)) state.month = (state.date ?? dates()[0] ?? "").slice(0, 7) || null;
+    const [y, m] = (state.month ?? "").split("-").map(Number);
+    $("date-label").textContent = state.month ? `${y}년 ${m}월` : "기록 없음";
+    const monthIndex = months().indexOf(state.month);
+    $("date-prev").disabled = monthIndex === -1 || monthIndex === months().length - 1;
+    $("date-next").disabled = monthIndex <= 0;
+    $("date-prev").setAttribute("aria-label", "이전 달");
+    $("date-next").setAttribute("aria-label", "다음 달");
+  } else {
+    $("date-label").textContent = state.date ? formatEditionDate(state.date) : "기록 없음";
+    const index = dates().indexOf(state.date);
+    $("date-prev").disabled = index === -1 || index === dates().length - 1;
+    $("date-next").disabled = index <= 0;
+    $("date-prev").setAttribute("aria-label", "이전 날짜");
+    $("date-next").setAttribute("aria-label", "다음 날짜");
+  }
+  writeUrl();
   $("press-select").value = state.press;
   for (const button of document.querySelectorAll(".type-filter button")) button.setAttribute("aria-pressed", String(button.dataset.type === state.type));
   $("section-select").value = state.section;
@@ -295,12 +381,13 @@ async function render() {
 
   const grid = $("editions");
   grid.replaceChildren();
-  grid.classList.remove("is-search");
+  grid.classList.remove("is-search", "is-single");
   document.body.classList.toggle("is-searching", Boolean(state.q));
   $("search-clear").hidden = !state.q;
   if ($("search-input").value.trim() !== state.q && document.activeElement !== $("search-input")) $("search-input").value = state.q;
   if (state.q) { await renderSearch(token); return; }
   if (state.view === "favorites") { await renderFavorites(token); return; }
+  if (isMonthView() && state.month) { await renderMonth(token); return; }
   if (!state.date) {
     grid.setAttribute("aria-busy", "false");
     $("edition-count").textContent = "아직 저장된 지면이 없습니다.";
@@ -367,6 +454,11 @@ function setQuery(query) {
 }
 
 function setPress(press) {
+  if (press !== "all" && state.press === "all") state.month = (state.date ?? dates()[0] ?? "").slice(0, 7);
+  if (press === "all" && state.press !== "all" && state.month && !state.date?.startsWith(state.month)) {
+    // 월별 보기에서 전체로 돌아가면 보던 달의 가장 최근 지면을 연다.
+    state.date = dates().find((date) => date.startsWith(state.month)) ?? state.date;
+  }
   state.press = press;
   render();
   window.scrollTo({ top: 0 });
@@ -378,11 +470,28 @@ function setDate(date) {
   const older = dates()[dates().indexOf(date) + 1];
   if (older) loadDay(older).catch(() => {});
   state.date = date;
+  state.month = date.slice(0, 7);
+  scrollTarget = state.press !== "all" ? date : null;
   state.view = null;
   state.q = "";
   $("search-input").value = "";
   closeDateList();
   render();
+}
+
+function setMonth(month) {
+  if (!months().includes(month)) return;
+  state.month = month;
+  state.date = dates().find((date) => date.startsWith(month)) ?? state.date;
+  closeDateList();
+  render();
+  window.scrollTo({ top: 0 });
+}
+
+function step(direction) {
+  // direction: +1 = 과거, -1 = 최근
+  if (isMonthView()) setMonth(months()[months().indexOf(state.month) + direction]);
+  else setDate(dates()[dates().indexOf(state.date) + direction]);
 }
 
 // 달력 팝업: 기사가 있는 날짜만 고를 수 있다.
@@ -437,7 +546,7 @@ function renderCalendar() {
 }
 
 function openDateList() {
-  setCalendarMonth(state.date);
+  setCalendarMonth(isMonthView() && state.month ? `${state.month}-01` : state.date);
   renderCalendar();
   $("date-calendar").hidden = false;
   $("date-button").setAttribute("aria-expanded", "true");
@@ -458,6 +567,7 @@ async function initialize() {
     $("editions").setAttribute("aria-busy", "false");
     return;
   }
+  if (dates().includes(state.date) && state.press !== "all" && !state.month) scrollTarget = state.date;
   if (!dates().includes(state.date)) state.date = dates()[0] ?? null;
   const select = $("press-select");
   for (const publisher of state.index.publishers) {
@@ -484,8 +594,8 @@ async function initialize() {
     render();
     window.scrollTo({ top: 0 });
   });
-  $("date-prev").addEventListener("click", () => setDate(dates()[dates().indexOf(state.date) + 1]));
-  $("date-next").addEventListener("click", () => setDate(dates()[dates().indexOf(state.date) - 1]));
+  $("date-prev").addEventListener("click", () => step(1));
+  $("date-next").addEventListener("click", () => step(-1));
   $("date-button").addEventListener("click", () => ($("date-calendar").hidden ? openDateList() : closeDateList()));
   $("cal-prev").addEventListener("click", () => shiftCalendarMonth(-1));
   $("cal-next").addEventListener("click", () => shiftCalendarMonth(1));

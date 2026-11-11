@@ -32,7 +32,9 @@ async function initialize() {
   const publisher = index.publishers.find((item) => item.id === article.publisherId);
   document.title = `${article.title} · 혜원이의 뉴스 아카이브`;
   const query = params.get("q");
-  $("back-link").href = query ? `./?q=${encodeURIComponent(query)}` : `./?date=${encodeURIComponent(date)}`;
+  const press = params.get("press");
+  $("back-link").href = query ? `./?q=${encodeURIComponent(query)}`
+    : `./?date=${encodeURIComponent(date)}${press ? `&press=${encodeURIComponent(press)}` : ""}`;
   if (query) $("back-link").textContent = "검색 결과로";
 
   $("story-meta").append(

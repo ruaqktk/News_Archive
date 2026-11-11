@@ -202,6 +202,14 @@ mark { background: #fff1a8; color: inherit; border-radius: 3px; padding: 0 1px; 
 .full-item:first-child { border-top: 0; padding-top: 4px; }
 .full-title { display: block; font-size: 20px; font-weight: 750; line-height: 1.45; letter-spacing: -0.02em; }
 .full-summary { margin: 8px 0 10px; color: var(--ink-2); font-size: 16px; line-height: 1.65; }
+.month-day { padding-top: 6px; scroll-margin-top: 12px; }
+.month-day + .month-day { margin-top: 18px; }
+.month-date {
+  margin: 0 0 4px; padding: 10px 0 10px; display: flex; align-items: baseline; gap: 8px;
+  font-size: 16px; font-weight: 800; font-variant-numeric: tabular-nums; border-bottom: 2px solid var(--ink);
+}
+.month-date-count { font-size: 13.5px; font-weight: 600; color: var(--ink-3); }
+.month-day .full-item:first-child { border-top: 0; padding-top: 16px; }
 .naver-link { font-size: 14px; font-weight: 700; color: #03a94d; }
 .naver-link:hover { text-decoration: underline; }
 
