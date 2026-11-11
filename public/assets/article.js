@@ -1,4 +1,4 @@
-import { $, displayTitle, element, sectionBadge, formatEditionDate, loadDay, loadIndex, naverLink, safeUrl, typeBadge } from "./common.js";
+import { $, displayTitle, favoriteButton, element, sectionBadge, formatEditionDate, loadDay, loadIndex, naverLink, safeUrl, typeBadge } from "./common.js";
 
 function fail(message) {
   $("article-error").textContent = message;
@@ -66,6 +66,7 @@ async function initialize() {
   if (naver) { $("naver-button").href = naver; $("naver-button").hidden = false; }
   const origin = safeUrl(article.url);
   if (origin) { $("origin-button").href = origin; $("origin-button").hidden = false; }
+  document.querySelector(".story-actions").append(favoriteButton(article, date, { withLabel: true }));
   $("article").hidden = false;
 }
 

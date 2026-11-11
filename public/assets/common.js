@@ -203,3 +203,87 @@ export function detailSnippet(article, terms, radius = 45) {
   }
   return null;
 }
+
+// ── 즐겨찾기 ───────────────────────────────────────────
+// 이 브라우저에만 저장한다(localStorage). 기사 id와 지면 날짜, 저장 시각만 남기고
+// 제목·요약은 볼 때 날짜 파일에서 다시 읽는다. 저장소를 못 쓰는 환경에서는 이번 방문 동안만 기억한다.
+const FAVORITES_KEY = "newsArchive.favorites.v1";
+let favoritesMemory = null;
+
+export function readFavorites() {
+  if (favoritesMemory) return favoritesMemory;
+  try {
+    const parsed = JSON.parse(localStorage.getItem(FAVORITES_KEY) ?? "[]");
+    favoritesMemory = Array.isArray(parsed)
+      ? parsed.filter((item) => item && typeof item.id === "string" && /^\d{4}-\d{2}-\d{2}$/.test(item.date))
+      : [];
+  } catch {
+    favoritesMemory = [];
+  }
+  return favoritesMemory;
+}
+
+function saveFavorites(list) {
+  favoritesMemory = list;
+  try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(list)); } catch { /* 저장 불가: 메모리에만 유지 */ }
+  document.dispatchEvent(new CustomEvent("favorites-change"));
+}
+
+export function isFavorite(id) {
+  return readFavorites().some((item) => item.id === id);
+}
+
+export function toggleFavorite(id, date) {
+  const list = readFavorites();
+  const next = isFavorite(id) ? list.filter((item) => item.id !== id) : [...list, { id, date, savedAt: new Date().toISOString() }];
+  saveFavorites(next);
+  return isFavorite(id);
+}
+
+const STAR_PATH = "M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z";
+function starSvg() {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("width", "20");
+  svg.setAttribute("height", "20");
+  svg.setAttribute("aria-hidden", "true");
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", STAR_PATH);
+  path.setAttribute("stroke-linejoin", "round");
+  svg.append(path);
+  return svg;
+}
+
+// 기사 옆 별 버튼. withLabel이면 "즐겨찾기" 글자도 붙인다(상세 화면용).
+export function favoriteButton(article, date, { withLabel = false, className = "" } = {}) {
+  const button = element("button", `fav-button${withLabel ? " has-label" : ""}${className ? ` ${className}` : ""}`);
+  button.type = "button";
+  button.append(starSvg());
+  const text = withLabel ? element("span", "fav-text") : null;
+  if (text) button.append(text);
+  const sync = () => {
+    const on = isFavorite(article.id);
+    button.setAttribute("aria-pressed", String(on));
+    const title = displayTitle(article);
+    button.setAttribute("aria-label", on ? `즐겨찾기 해제: ${title}` : `즐겨찾기 추가: ${title}`);
+    button.title = on ? "즐겨찾기 해제" : "즐겨찾기 추가";
+    if (text) text.textContent = on ? "즐겨찾기 해제" : "즐겨찾기";
+  };
+  sync();
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleFavorite(article.id, date);
+  });
+  // 화면을 다시 그려 버튼이 사라지면 다음 변경 때 리스너를 떼어 낸다.
+  const onChange = () => { if (!button.isConnected) document.removeEventListener("favorites-change", onChange); else sync(); };
+  document.addEventListener("favorites-change", onChange);
+  return button;
+}
+
+// 다른 탭에서 즐겨찾기를 바꾸면 이 탭에도 반영한다.
+window.addEventListener("storage", (event) => {
+  if (event.key !== FAVORITES_KEY) return;
+  favoritesMemory = null;
+  document.dispatchEvent(new CustomEvent("favorites-change"));
+});

@@ -1,8 +1,8 @@
-import { $, SECTIONS, articleSearchText, detailSnippet, displayTitle, element, highlight, matchesTerms, searchTerms, loadLogos, pressLogo, sectionBadge, formatEditionDate, formatDateTime, loadDay, loadIndex, loadSearchMonth, naverLink, comparePages, typeBadge } from "./common.js";
+import { $, SECTIONS, favoriteButton, readFavorites, articleSearchText, detailSnippet, displayTitle, element, highlight, matchesTerms, searchTerms, loadLogos, pressLogo, sectionBadge, formatEditionDate, formatDateTime, loadDay, loadIndex, loadSearchMonth, naverLink, comparePages, typeBadge } from "./common.js";
 
 const STATUS_LABEL = { checked: "확인 완료", partial: "일부 확인", blocked: "접근 실패", not_checked: "미확인" };
 
-const state = { index: null, date: null, press: "all", type: "all", section: "all", q: "" };
+const state = { index: null, date: null, press: "all", type: "all", section: "all", q: "", view: null };
 
 function readUrl() {
   const params = new URLSearchParams(location.search);
@@ -11,6 +11,7 @@ function readUrl() {
   state.type = ["exclusive", "feature"].includes(params.get("type")) ? params.get("type") : "all";
   state.section = SECTIONS.includes(params.get("section")) ? params.get("section") : "all";
   state.q = (params.get("q") ?? "").trim();
+  state.view = params.get("view") === "favorites" ? "favorites" : null;
 }
 
 function writeUrl() {
@@ -20,6 +21,7 @@ function writeUrl() {
   if (state.type !== "all") params.set("type", state.type);
   if (state.section !== "all") params.set("section", state.section);
   if (state.q) { params.delete("date"); params.set("q", state.q); }
+  else if (state.view === "favorites") { params.delete("date"); params.set("view", "favorites"); }
   history.replaceState(null, "", `${location.pathname}${params.size ? `?${params}` : ""}`);
 }
 
@@ -104,15 +106,23 @@ async function renderSearch(token) {
 function searchGroup(date, hits, terms, names) {
   const section = element("section", "search-group");
   section.append(element("h2", "search-date", formatEditionDate(date)));
+  section.append(articleList(hits.map((article) => ({ article, date })), terms, names));
+  return section;
+}
+
+// 검색 결과·즐겨찾기 공용 기사 목록. showDate면 기사마다 지면 날짜를 붙인다.
+function articleList(entries, terms, names, { showDate = false } = {}) {
   const list = element("ul", "search-list");
-  for (const article of hits) {
+  for (const { article, date } of entries) {
     const item = element("li", "search-item");
     const top = element("p", "search-meta");
+    if (showDate) top.append(element("span", "search-date-tag", formatEditionDate(date)));
     const emblem = pressLogo(article.publisherId);
     if (emblem) top.append(emblem);
     top.append(element("span", "search-press", names.get(article.publisherId) ?? article.publisherId), typeBadge(article.type));
     const sectionTag = sectionBadge(article.section);
     if (sectionTag) top.append(sectionTag);
+    top.append(favoriteButton(article, date));
     const title = element("a", "search-title");
     title.href = articleHref(article, date);
     title.append(highlight(displayTitle(article), terms));
@@ -130,8 +140,50 @@ function searchGroup(date, hits, terms, names) {
     }
     list.append(item);
   }
-  section.append(list);
-  return section;
+  return list;
+}
+
+// 즐겨찾기 모아 보기: 저장한 기사의 날짜 파일만 받아 지면 날짜 최신순으로 보여준다.
+async function renderFavorites(token) {
+  const grid = $("editions");
+  grid.classList.add("is-search");
+  $("quiet-press").hidden = true;
+  $("coverage").hidden = true;
+  const saved = readFavorites();
+  const names = new Map(state.index.publishers.map((publisher) => [publisher.id, publisher.name]));
+  if (!saved.length) {
+    grid.setAttribute("aria-busy", "false");
+    $("edition-count").textContent = "즐겨찾기한 기사 0건";
+    grid.append(element("div", "notice search-empty", "아직 즐겨찾기한 기사가 없어요. 기사 옆 별(☆)을 누르면 여기에 모입니다."));
+    return;
+  }
+  grid.setAttribute("aria-busy", "true");
+  const known = new Set(dates());
+  const days = [...new Set(saved.map((item) => item.date))].filter((date) => known.has(date));
+  const runs = new Map(await Promise.all(days.map((date) => loadDay(date).then((run) => [date, run]).catch(() => [date, null]))));
+  if (token !== renderToken) return;
+  grid.setAttribute("aria-busy", "false");
+  const savedAt = new Map(saved.map((item) => [item.id, item.savedAt ?? ""]));
+  const entries = [];
+  let missing = 0;
+  for (const item of saved) {
+    const article = runs.get(item.date)?.articles.find((candidate) => candidate.id === item.id);
+    if (!article) { missing += 1; continue; }
+    if (passesFilters(article)) entries.push({ article, date: item.date });
+  }
+  entries.sort((a, b) => b.date.localeCompare(a.date) || (savedAt.get(b.article.id) ?? "").localeCompare(savedAt.get(a.article.id) ?? ""));
+  const exclusive = entries.filter(({ article }) => article.type === "exclusive").length;
+  const filtered = entries.length < saved.length - missing ? ` · 필터 적용 중 (전체 ${saved.length - missing}건)` : "";
+  $("edition-count").textContent = `즐겨찾기 ${entries.length}건 (단독 ${exclusive}, 기획 ${entries.length - exclusive})${filtered}`;
+  if (entries.length) {
+    const box = element("section", "search-group");
+    box.setAttribute("aria-label", "즐겨찾기한 기사");
+    box.append(articleList(entries, [], names, { showDate: true }));
+    grid.append(box);
+  } else {
+    grid.append(element("div", "notice search-empty", "선택한 조건에 맞는 즐겨찾기 기사가 없어요. 필터를 ‘전체’로 바꿔 보세요."));
+  }
+  if (missing) grid.append(element("p", "notice search-empty", `불러오지 못한 즐겨찾기 ${missing}건이 있어요. 새로고침해 보세요.`));
 }
 
 function meta(article) {
@@ -139,6 +191,7 @@ function meta(article) {
   row.append(typeBadge(article.type));
   const section = sectionBadge(article.section);
   if (section) row.append(section);
+  row.append(favoriteButton(article, state.date));
   return row;
 }
 
@@ -159,7 +212,7 @@ function restList(articles) {
     badges.append(typeBadge(article.type));
     const section = sectionBadge(article.section);
     if (section) badges.append(section);
-    item.append(badges, titleLink(article, "rest-title"));
+    item.append(badges, titleLink(article, "rest-title"), favoriteButton(article, state.date));
     list.append(item);
   }
   return list;
@@ -235,6 +288,10 @@ async function render() {
   $("press-select").value = state.press;
   for (const button of document.querySelectorAll(".type-filter button")) button.setAttribute("aria-pressed", String(button.dataset.type === state.type));
   $("section-select").value = state.section;
+  $("press-select").classList.toggle("is-active", state.press !== "all");
+  $("section-select").classList.toggle("is-active", state.section !== "all");
+  $("fav-toggle").setAttribute("aria-pressed", String(state.view === "favorites" && !state.q));
+  document.body.classList.toggle("is-favorites", state.view === "favorites" && !state.q);
 
   const grid = $("editions");
   grid.replaceChildren();
@@ -243,6 +300,7 @@ async function render() {
   $("search-clear").hidden = !state.q;
   if ($("search-input").value.trim() !== state.q && document.activeElement !== $("search-input")) $("search-input").value = state.q;
   if (state.q) { await renderSearch(token); return; }
+  if (state.view === "favorites") { await renderFavorites(token); return; }
   if (!state.date) {
     grid.setAttribute("aria-busy", "false");
     $("edition-count").textContent = "아직 저장된 지면이 없습니다.";
@@ -320,6 +378,7 @@ function setDate(date) {
   const older = dates()[dates().indexOf(date) + 1];
   if (older) loadDay(older).catch(() => {});
   state.date = date;
+  state.view = null;
   state.q = "";
   $("search-input").value = "";
   closeDateList();
@@ -409,6 +468,22 @@ async function initialize() {
   if (!state.index.publishers.some((publisher) => publisher.id === state.press)) state.press = "all";
 
   select.addEventListener("change", () => setPress(select.value));
+
+  // 즐겨찾기 모아 보기 켜기/끄기와 개수 표시
+  const updateFavCount = () => {
+    const count = readFavorites().length;
+    $("fav-count").textContent = String(count);
+    $("fav-count").hidden = count === 0;
+  };
+  updateFavCount();
+  document.addEventListener("favorites-change", updateFavCount);
+  $("fav-toggle").addEventListener("click", () => {
+    const opening = !(state.view === "favorites" && !state.q);
+    state.view = opening ? "favorites" : null;
+    if (opening) { state.q = ""; $("search-input").value = ""; }
+    render();
+    window.scrollTo({ top: 0 });
+  });
   $("date-prev").addEventListener("click", () => setDate(dates()[dates().indexOf(state.date) + 1]));
   $("date-next").addEventListener("click", () => setDate(dates()[dates().indexOf(state.date) - 1]));
   $("date-button").addEventListener("click", () => ($("date-calendar").hidden ? openDateList() : closeDateList()));

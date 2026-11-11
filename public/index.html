@@ -47,10 +47,11 @@
           </button>
         </nav>
 
-        <label class="press-select">
-          <span class="sr-only">언론사 선택</span>
-          <select id="press-select"><option value="all">전체 언론사</option></select>
-        </label>
+        <button type="button" class="fav-toggle" id="fav-toggle" aria-pressed="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z" stroke-linejoin="round"/></svg>
+          <span>즐겨찾기</span>
+          <span class="fav-count" id="fav-count" hidden></span>
+        </button>
       </div>
     </header>
 
@@ -69,15 +70,19 @@
       <div class="edition-bar">
         <p class="edition-count" id="edition-count" aria-live="polite"></p>
         <div class="filters">
-        <label class="section-select">
-          <span class="sr-only">분야 선택</span>
-          <select id="section-select"><option value="all">전체 분야</option></select>
-        </label>
-        <div class="type-filter" role="group" aria-label="기사 종류">
-          <button type="button" data-type="all" aria-pressed="true">전체</button>
-          <button type="button" data-type="exclusive" aria-pressed="false">단독</button>
-          <button type="button" data-type="feature" aria-pressed="false">기획</button>
-        </div>
+          <label class="filter-select">
+            <span class="sr-only">언론사 선택</span>
+            <select id="press-select"><option value="all">전체 언론사</option></select>
+          </label>
+          <label class="filter-select">
+            <span class="sr-only">분야 선택</span>
+            <select id="section-select"><option value="all">전체 분야</option></select>
+          </label>
+          <div class="type-filter" role="group" aria-label="기사 종류">
+            <button type="button" data-type="all" aria-pressed="true">전체</button>
+            <button type="button" data-type="exclusive" aria-pressed="false">단독</button>
+            <button type="button" data-type="feature" aria-pressed="false">기획</button>
+          </div>
         </div>
       </div>
 
