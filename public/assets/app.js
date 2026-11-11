@@ -601,6 +601,17 @@ async function initialize() {
   $("cal-next").addEventListener("click", () => shiftCalendarMonth(1));
   document.addEventListener("click", (event) => { if (!event.target.closest(".date-picker")) closeDateList(); });
   document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !$("date-calendar").hidden) { closeDateList(); $("date-button").focus(); } });
+  // 키보드 ←/→: 일 단위 화면은 하루, 언론사 월 화면은 한 달씩 넘긴다(← 과거, → 최근).
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
+    if (event.target.closest?.("input, textarea, select, [contenteditable]")) return;
+    if (state.q || state.view === "favorites" || !$("date-calendar").hidden) return;
+    const button = $(event.key === "ArrowLeft" ? "date-prev" : "date-next");
+    if (button.disabled) return;
+    event.preventDefault();
+    step(event.key === "ArrowLeft" ? 1 : -1);
+  });
   const input = $("search-input");
   input.value = state.q;
   let typing;
