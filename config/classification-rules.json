@@ -133,7 +133,8 @@
     "사진",
     "포토뉴스",
     "그래픽",
-    "사고"
+    "사고",
+    "속보"
   ],
   "personalColumnPattern": "^(?:[가-힣]{3}|[가-힣]{2,4} [가-힣]{2,4})(?:\\s?(?:특파원|기자|교수|위원|논설위원|작가|변호사|의사|대표))?의\\s?",
   "seriesRegistry": {
@@ -253,6 +254,10 @@
       "M&A 매물장터": {
         "decision": "exclude",
         "note": "매물 정보 코너"
+      },
+      "MD의 추천": {
+        "decision": "exclude",
+        "note": "상품 소개 코너"
       }
     },
     "segye": {
@@ -537,6 +542,10 @@
       "앵글속 세상": {
         "decision": "exclude",
         "note": "사진 코너"
+      },
+      "갓플렉스 시즌7": {
+        "decision": "exclude",
+        "note": "유명인 신앙 인터뷰 정기 코너"
       }
     },
     "donga": {
@@ -683,6 +692,14 @@
       "이진한 의사·기자의 따뜻한 환자 이야기": {
         "decision": "exclude",
         "note": "기자 개인 의학 칼럼 코너"
+      },
+      "인하대병원 메디 스토리": {
+        "decision": "exclude",
+        "note": "병원 의료 소개 코너"
+      },
+      "글로벌 이슈": {
+        "decision": "exclude",
+        "note": "기자 칼럼"
       }
     },
     "joongang": {
@@ -761,6 +778,14 @@
       "Health&": {
         "decision": "exclude",
         "note": "건강 특집 섹션, 병원·건기식 홍보성 기사(본문 확인)"
+      },
+      "글로벌 포커스": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "더버터": {
+        "decision": "exclude",
+        "note": "공익·CSR 전문 섹션(공동 캠페인·행사 안내·단체 공동기획 위주)"
       }
     },
     "hankookilbo": {
@@ -927,6 +952,14 @@
       "영상": {
         "decision": "exclude",
         "note": "영상 기사 코너"
+      },
+      "타봤더니": {
+        "decision": "exclude",
+        "note": "신차 시승기 코너"
+      },
+      "CarTalk": {
+        "decision": "exclude",
+        "note": "자동차 신차 소개 코너"
       }
     },
     "khan": {
@@ -1399,6 +1432,14 @@
       "글로벌 인사이트": {
         "decision": "exclude",
         "note": "정기 국제 분석 코너"
+      },
+      "삶이 바뀌어야 인구가 바뀐다": {
+        "decision": "exclude",
+        "note": "2026-11-12 본문 미확보로 판단 보류(제외). 다음 출현 시 본문 확인 후 재판정 필요"
+      },
+      "영화 리뷰": {
+        "decision": "exclude",
+        "note": "영화 리뷰 코너"
       }
     },
     "sedaily": {
@@ -1565,6 +1606,10 @@
       "종부세 이어 與 감세 입법 ‘봇물’": {
         "decision": "exclude",
         "note": "현안 문패(단일 보도)"
+      },
+      "어도비 맥스 2026": {
+        "decision": "exclude",
+        "note": "행사 현장 스트레이트"
       }
     },
     "hankyung": {
