@@ -258,6 +258,10 @@
       "MD의 추천": {
         "decision": "exclude",
         "note": "상품 소개 코너"
+      },
+      "한국주식 원포인트 레슨": {
+        "decision": "exclude",
+        "note": "투자 정보 코너"
       }
     },
     "segye": {
@@ -444,6 +448,10 @@
       "경찰서 사람들 ⑤": {
         "decision": "feature",
         "note": "세계일보 경찰 현장 인물 연재 5회(본문 확인)"
+      },
+      "젠슨 황 CEO 사퇴": {
+        "decision": "exclude",
+        "note": "사건명 문패 스트레이트 묶음(4꼭지, 본문 확인)"
       }
     },
     "kmib": {
@@ -700,6 +708,14 @@
       "글로벌 이슈": {
         "decision": "exclude",
         "note": "기자 칼럼"
+      },
+      "DBR 인사이트": {
+        "decision": "exclude",
+        "note": "DBR 연구 소개 정기 코너"
+      },
+      "아파트 미리보기": {
+        "decision": "exclude",
+        "note": "분양 단지 홍보성 정보 코너"
       }
     },
     "joongang": {
@@ -1178,6 +1194,10 @@
       "시스루피플": {
         "decision": "exclude",
         "note": "인물 소개 정기 코너"
+      },
+      "경향신문 독자위원회": {
+        "decision": "exclude",
+        "note": "독자위원회 회의 정리"
       }
     },
     "chosun": {
@@ -1334,6 +1354,10 @@
       "미디어 전망대": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "권김현영의 사건 이후": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "seoul": {
@@ -1440,6 +1464,14 @@
       "영화 리뷰": {
         "decision": "exclude",
         "note": "영화 리뷰 코너"
+      },
+      "서울 로드": {
+        "decision": "exclude",
+        "note": "정기 탐방 코너(기획 회차·편성 미확인, 본문 확인)"
+      },
+      "스포츠 라운지": {
+        "decision": "exclude",
+        "note": "정기 스포츠 인물 코너"
       }
     },
     "sedaily": {
@@ -1610,6 +1642,18 @@
       "어도비 맥스 2026": {
         "decision": "exclude",
         "note": "행사 현장 스트레이트"
+      },
+      "젠슨 황 스캔들": {
+        "decision": "exclude",
+        "note": "사건명 문패 스트레이트"
+      },
+      "기로에 선 재초환": {
+        "decision": "exclude",
+        "note": "현안 스트레이트(장관 발언 계기, 1꼭지)"
+      },
+      "한강벨트로 번진 집값 하락": {
+        "decision": "exclude",
+        "note": "시황 스트레이트"
       }
     },
     "hankyung": {
