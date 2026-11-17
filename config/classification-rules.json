@@ -270,6 +270,10 @@
       "부동산 손품노트": {
         "decision": "exclude",
         "note": "유료 재테크 콘텐츠 연계 부동산 정보 코너"
+      },
+      "SELL & BUY": {
+        "decision": "exclude",
+        "note": "중고 설비 매매 정보 코너"
       }
     },
     "segye": {
@@ -480,6 +484,10 @@
       "포토에세이": {
         "decision": "exclude",
         "note": "사진 코너"
+      },
+      "‘AI 커닝’ 후폭풍": {
+        "decision": "exclude",
+        "note": "AI 부정행위 사건명 문패(일반 보도 묶음, 본문 확인)"
       }
     },
     "kmib": {
@@ -752,6 +760,58 @@
       "아파트 미리보기": {
         "decision": "exclude",
         "note": "분양 단지 홍보성 정보 코너"
+      },
+      "포토에세이": {
+        "decision": "exclude",
+        "note": "사진 코너"
+      },
+      "IT팀의 테크워치": {
+        "decision": "exclude",
+        "note": "IT팀 해설 칼럼 코너"
+      },
+      "강동구·관악구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "동대문구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "노원구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "중구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "도봉구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "강서구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "성북구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "광진구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "성동구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "강남구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
+      },
+      "서초구": {
+        "decision": "exclude",
+        "note": "서울 자치구 지역 소식면(구청 행사·정책 안내)"
       }
     },
     "joongang": {
@@ -838,6 +898,14 @@
       "더버터": {
         "decision": "exclude",
         "note": "공익·CSR 전문 섹션(공동 캠페인·행사 안내·단체 공동기획 위주)"
+      },
+      "2026 베스트 변호사": {
+        "decision": "exclude",
+        "note": "자사·한국사내변호사회 공동 주최 시상 평가 소개(본문 확인)"
+      },
+      "영상": {
+        "decision": "exclude",
+        "note": "영상 동반 표시 문패(연재 아님)"
       }
     },
     "hankookilbo": {
@@ -1536,6 +1604,10 @@
       "지역 복지 바꾸는 제주 통합돌봄": {
         "decision": "exclude",
         "note": "지자체 성과 소개 홍보성 지역 연재(다시 뛰는 부울경과 같은 성격, 본문 확인)"
+      },
+      "하나 된 전남광주, 함께 여는 인구 대전환": {
+        "decision": "exclude",
+        "note": "자사 주최 인구포럼 행사 보도 묶음(본문 확인)"
       }
     },
     "sedaily": {
@@ -1742,6 +1814,10 @@
       "인터뷰": {
         "decision": "exclude",
         "note": "일반 인터뷰 문패"
+      },
+      "경고등 켜진 낸드시장": {
+        "decision": "exclude",
+        "note": "1면 시황 기사 후속 현안 문패"
       }
     },
     "hankyung": {
