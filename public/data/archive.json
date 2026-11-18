@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "timezone": "Asia/Seoul",
-  "updatedAt": "2026-11-17T09:16:41+09:00",
+  "updatedAt": "2026-11-18T09:19:59+09:00",
   "publishers": [
     {
       "id": "chosun",
@@ -78,30 +78,1211 @@
   ],
   "runs": [
     {
-      "date": "2026-11-17",
-      "generatedAt": "2026-11-17T09:16:22+09:00",
-      "windowStart": "2026-11-17T00:00:00+09:00",
-      "windowEnd": "2026-11-17T09:12:52+09:00",
+      "date": "2026-11-18",
+      "generatedAt": "2026-11-18T09:18:16+09:00",
+      "windowStart": "2026-11-18T00:00:00+09:00",
+      "windowEnd": "2026-11-18T09:14:56+09:00",
       "collectionMode": "naver_newspaper",
       "status": "complete",
-      "note": "네이버 신문보기 2026-11-17자 지면 전체(1166건)를 GitHub Actions가 수집하고, Claude가 단독·기획 선별과 요약을 작성했습니다.",
+      "note": "네이버 신문보기 2026-11-18자 지면 전체(1107건)를 GitHub Actions가 수집하고, Claude가 단독·기획 선별과 요약을 작성했습니다.",
       "coverage": [
         {
           "publisherId": "chosun",
           "status": "checked",
-          "note": "지면 기사 83건 수집, 후보 3건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "note": "지면 기사 78건 수집, 후보 3건 기사 페이지 확인. 단독·기획 3건 선정.",
           "articleCount": 3
         },
         {
           "publisherId": "joongang",
           "status": "checked",
-          "note": "지면 기사 72건 수집, 후보 6건 기사 페이지 확인. 단독·기획 1건 선정.",
+          "note": "지면 기사 80건 수집, 후보 11건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "articleCount": 3
+        },
+        {
+          "publisherId": "donga",
+          "status": "checked",
+          "note": "지면 기사 97건 수집, 후보 4건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
+        },
+        {
+          "publisherId": "hani",
+          "status": "checked",
+          "note": "지면 기사 68건 수집, 후보 2건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
+        },
+        {
+          "publisherId": "hankookilbo",
+          "status": "checked",
+          "note": "지면 기사 80건 수집, 후보 3건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "articleCount": 3
+        },
+        {
+          "publisherId": "khan",
+          "status": "checked",
+          "note": "지면 기사 72건 수집, 후보 0건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "kmib",
+          "status": "checked",
+          "note": "지면 기사 92건 수집, 후보 5건 기사 페이지 확인. 단독·기획 4건 선정.",
+          "articleCount": 4
+        },
+        {
+          "publisherId": "segye",
+          "status": "checked",
+          "note": "지면 기사 102건 수집, 후보 11건 기사 페이지 확인. 단독·기획 4건 선정.",
+          "articleCount": 4
+        },
+        {
+          "publisherId": "seoul",
+          "status": "checked",
+          "note": "지면 기사 87건 수집, 후보 9건 기사 페이지 확인. 단독·기획 5건 선정.",
+          "articleCount": 5
+        },
+        {
+          "publisherId": "sedaily",
+          "status": "checked",
+          "note": "지면 기사 110건 수집, 후보 3건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
+        },
+        {
+          "publisherId": "mk",
+          "status": "checked",
+          "note": "지면 기사 121건 수집, 후보 4건 기사 페이지 확인. 단독·기획 4건 선정.",
+          "articleCount": 4
+        },
+        {
+          "publisherId": "hankyung",
+          "status": "checked",
+          "note": "지면 기사 120건 수집, 후보 2건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
+        }
+      ],
+      "articles": [
+        {
+          "id": "chosun-023-0004010238",
+          "publisherId": "chosun",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 퇴근 후 을지로 지하보도서 ‘야간 러닝’ 해볼까",
+          "url": "https://www.chosun.com/national/national_general/2026/11/18/LL34CBMQHZGONMRZULYUPAFLC4/",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/023/0004010238?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A10",
+          "publishedAt": "2026-11-18T05:01:15+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A10면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "서울시가 다음 달 7일부터 을지로 지하보도 약 1㎞ 구간에서 퇴근 후 야간 러닝 프로그램을 시범 운영하지만, 보행자 충돌 등 안전 우려가 제기된다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "을지로 지하보도는 시청역에서 동대문역사문화공원역까지 약 2.8㎞ 이어지는 국내 최장 지하보도로 1983년 만들어졌다. 하루 평균 약 56만명이 오가며 점포 450여 곳이 들어서 있다.",
+            "points": [
+              "시범 프로그램은 오후 6시 이후 매주 또는 격주 한 차례, 20명 안팎 규모로 검토되고 있다.",
+              "참가자는 을지로4가역 인근 미디어아트 라운지에서 교육을 받고 훈련원공원 부근까지 왕복 약 1㎞를 달리는 코스가 유력하다.",
+              "서울시는 이 구간이 지하보도 중 통행량이 가장 적은 곳이라고 설명했으며, 결과에 따라 구간 확대를 검토한다.",
+              "참가자의 지하상가 이용을 유도해 상권을 살리겠다는 구상도 담겼다."
+            ],
+            "significance": "도심 지하보도에서 정기 러닝 프로그램을 여는 사례는 해외에서도 드물다는 것이 시의 설명이다. 반면 시민들은 통로가 좁고 미끄러워 보행자와 부딪힐 수 있다고 우려하며, 시는 코치 동행과 속도 조절로 대응하겠다는 입장이다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "chosun-023-0004010236",
+          "publisherId": "chosun",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 과세 피하려… 유사·無니코틴 내세운 담배업계",
+          "url": "https://www.chosun.com/national/welfare-medical/2026/11/18/TV7P4C6OHJDEJML5OSOQB6J6UM/",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/023/0004010236?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A12",
+          "publishedAt": "2026-11-18T05:01:07+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A12면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "합성 니코틴 과세 이후 5개월간 걷힌 제세부담금이 약 26억원으로 정부 전망의 1.3% 수준에 그쳤고, 업계와 소비자가 규제 밖 유사·무니코틴 제품으로 옮겨간 것으로 나타났다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "정부는 올해 4월 말부터 합성 니코틴을 담배로 분류해 세금과 부담금을 부과하기 시작했다. 당시에도 화학 구조가 비슷한 유사 니코틴과 무니코틴 제품을 함께 규제하지 않으면 효과가 떨어진다는 지적이 있었다.",
+            "points": [
+              "이인영 민주당 의원실 자료상 4월24일~9월 합성 니코틴 액상에 부과된 건강증진부담금은 7억6500만원이었다.",
+              "이를 역산한 주요 제세부담금은 약 26억2200만원으로, 정부가 예상한 연 9300억원을 월로 환산한 액수의 1.3%에 불과했다.",
+              "관세청 집계로 합성 니코틴 수입은 1~4월 약 1467t에서 5~8월 45t으로 줄었고, 같은 기간 유사·무니코틴 수입은 151t에 달했다.",
+              "유사 니코틴 수입량은 지난해 10월 364㎏에서 올해 4월 10.2t으로 약 28배 불었다."
+            ],
+            "significance": "전문가들은 유사·무니코틴 액상에도 의존성 물질이나 200여 종의 첨가물이 들어 있을 수 있지만 흡입 시 위해성은 확인되지 않았다고 지적한다. 합성 니코틴만 겨냥한 규제가 세수와 금연 정책 모두에서 실효성을 잃었다는 비판이 나온다.",
+            "terms": [
+              {
+                "term": "유사 니코틴",
+                "description": "6-메틸니코틴처럼 니코틴과 화학 구조가 비슷하지만 법상 담배로 분류되지 않는 물질."
+              },
+              {
+                "term": "풍선 효과",
+                "description": "한쪽을 규제하면 수요가 규제받지 않는 다른 쪽으로 옮겨가는 현상."
+              }
+            ]
+          }
+        },
+        {
+          "id": "chosun-023-0004010237",
+          "publisherId": "chosun",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 호남 반도체 공장 ‘南전北닉’으로 결정",
+          "url": "https://www.chosun.com/economy/industry-company/2026/11/18/GYDUKXVEDNBWVA62M3ZXP67PZQ/",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/023/0004010237?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "B1",
+          "publishedAt": "2026-11-18T05:01:12+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 B1면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "광주 군공항 부지 호남 반도체 클러스터에서 남측 약 120만평은 삼성전자, 북측 약 100만평은 SK하이닉스가 맡기로 결정돼 넉 달간 이어진 부지 배분 교착이 풀렸다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "정부는 지난 7월 초 광주 군공항 부지를 호남 반도체 생산단지 후보지로 발표했다. 이후 삼성전자와 SK하이닉스가 입지가 좋은 구역을 두고 이견을 보이며 배분이 지연돼 왔다.",
+            "points": [
+              "약 250만평 가운데 양사가 각각 팹 2기씩을 짓고, 남은 땅은 도로와 공용시설에 쓰인다.",
+              "양사 모두 KTX 광주송정역 접근성과 지반 안정성이 나은 북측을 원해 협의가 길어졌다.",
+              "정부가 산단 조성과 팹 준공을 빨리 할 수 있는 쪽에 우선권을 주기로 하면서, 조기 착공 의지를 보인 SK가 북측을 차지했다.",
+              "삼성은 더 넓은 부지를 확보하고, 불리한 접근성은 도로·교량 지원으로 보완하기로 했다."
+            ],
+            "significance": "정부와 업계는 연내 입주 협약 체결을 목표로 후속 절차를 서두를 방침이다. 다만 정부가 내건 2030년 첫 양산을 위해서는 군공항 이전이 먼저 해결돼야 해, 사업 성패가 국방부 손에 달렸다는 말이 나온다.",
+            "terms": [
+              {
+                "term": "팹",
+                "description": "반도체를 실제로 생산하는 제조 공장."
+              }
+            ]
+          }
+        },
+        {
+          "id": "joongang-025-0003566009",
+          "publisherId": "joongang",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 못 갚은 빚 3.9조 탕감…잘 갚은 사람만 손해본 ‘포용금융’",
+          "url": "https://www.joongang.co.kr/article/25479643",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/025/0003566009?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A10",
+          "publishedAt": "2026-11-18T05:00:00+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A10면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "새도약기금 등으로 장기 연체자 빚 약 3조9000억원이 소각되는 동안, 성실 상환자용 저금리 대출 새도약론은 11개월간 152억원으로 공급 한도의 2.8%만 집행됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "새도약기금은 7년 이상 연체된 5000만원 이하 무담보채권을 사들여 상환 능력에 따라 탕감하거나 감면하는 정부 정책이다. 채무조정 후 꾸준히 갚아온 사람은 연체자가 아니어서 대상에서 빠져 형평성 논란이 일었고, 보완책으로 새도약론이 도입됐다.",
+            "points": [
+              "박홍배 민주당 의원실 분석 결과, 기금은 지난해 10월 출범 후 9월 말까지 약 11조9297억원의 채권을 매입했고 3조8551억원을 소각해 38만1000명이 혜택을 봤다.",
+              "5년 이상 연체자 대상 특별채무조정으로도 2만8833명의 빚 3727억원이 감면됐다.",
+              "새도약론은 연 3~4% 금리로 최대 1500만원을 빌려주지만 실적은 5427건에 그쳤고 건당 평균은 약 281만원이었다.",
+              "금융위는 약 29만명 중 8만4000명이 신청할 것으로 예상했었다."
+            ],
+            "significance": "빚을 못 갚은 사람은 대규모 탕감을, 성실히 갚아온 사람은 대출 지원만 받는 데다 그마저 저조해 포용금융의 형평성과 실효성에 의문이 제기된다. 금융위는 차주 재무 개선을 위해 기본 심사가 불가피하다는 입장이다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "joongang-025-0003566015",
+          "publisherId": "joongang",
+          "type": "exclusive",
+          "section": "정치",
+          "title": "[단독] 김정은 “돈 없다” 한마디에…북핵 돈줄 된 실리콘밸리",
+          "url": "https://www.joongang.co.kr/article/25479647",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/025/0003566015?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A20",
+          "publishedAt": "2026-11-18T05:00:02+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A20면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "김건 국민의힘 의원이 회고록에서 북한이 가짜 신분으로 실리콘밸리 기업 소프트웨어 외주를 따내 미사일 개발 자금을 마련했고, 한·미가 공동 TF로 이를 차단한 과정을 공개했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "북한은 국제 제재로 외화 획득이 막히자 해킹과 해외 IT 인력 파견 등으로 자금을 조달해 온 것으로 알려져 있다. 김 의원은 2022년 6월부터 외교부 한반도평화교섭본부장을 지낸 북핵 외교 전문가다.",
+            "points": [
+              "회고록에 따르면 김정은 위원장이 미사일 연구 부서에 스스로 자금을 벌라고 지시했다는 첩보가 추적의 출발점이었다.",
+              "북한 연구원들은 중국에서 200달러에 산 외국인 명의 신분으로 링크드인 등을 통해 외주를 수주했고, 동북3성에서만 약 50개 팀이 연 1억달러 넘게 번 것으로 전해졌다.",
+              "한·미 TF는 화상 면접 때 창밖을 비추게 해 위치를 확인하도록 기업에 권고하고 송금업체 의심 계좌를 동결했다.",
+              "책에는 시진핑 주석 기반인 푸젠성 기업망을 통한 대북 정제유 불법 공급 정황도 담겼다."
+            ],
+            "significance": "미국 기업들이 모르는 사이 북핵 자금원으로 이용된 실태가 구체적으로 드러났다. 당시 영국 정부가 시 주석과의 연관성은 빼고 공개하도록 했다는 대목은 중국의 제재 이행 문제를 다시 부각시킨다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "joongang-025-0003566013",
+          "publisherId": "joongang",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 올해만 벌써 20건 피소…‘특허 괴물’ 표적 된 K반도체",
+          "url": "https://www.joongang.co.kr/article/25479649",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/025/0003566013?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "E1",
+          "publishedAt": "2026-11-18T05:00:00+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 E1면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "올해 3분기까지 미국에서 한국 기업이 얽힌 반도체 특허 소송이 20건으로 2012년 집계 이후 최대를 기록했고, 이 중 특허관리전문회사(NPE)가 낸 소송이 8건에 달했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "AI 반도체 수요 급증으로 삼성전자와 SK하이닉스가 사상 최대 실적을 내고 있다. NPE는 제품을 만들지 않고 특허를 사들여 사용료나 합의금을 받아내는 회사로 흔히 특허 괴물로 불린다.",
+            "points": [
+              "지식재산처 집계로 올해 소송은 제소 10건, 피소 10건으로 2년 전 10건의 두 배가 됐다.",
+              "NPE 소송은 2024년 3건에서 올해 8건으로 늘었고, SK하이닉스는 HBM 적층 구조 등과 관련해 마고바르카IP와 모놀리식3D에 잇따라 피소됐다.",
+              "삼성전자는 2021년부터 다툰 넷리스트에 올해 8월 HBM 특허 사용료 1조3000억원을 주기로 합의했다.",
+              "지난해 9월 새 USPTO 청장 취임 후 특허무효심판 청구가 반려되는 사례가 늘었다."
+            ],
+            "significance": "소송은 승패와 무관하게 비용 부담을 낳고, 미국 증거개시 절차에서 공정 기술 등 영업비밀이 노출될 우려도 있다. 전문가들은 특허 선제 확보와 함께 정부 차원의 후방 지원이 필요하다고 주문한다.",
+            "terms": [
+              {
+                "term": "NPE",
+                "description": "생산 활동 없이 특허권 행사로 수익을 내는 특허관리전문회사."
+              },
+              {
+                "term": "디스커버리",
+                "description": "미국 소송에서 재판 전 상대방의 내부 문서 등 증거를 확인하는 제도."
+              }
+            ]
+          }
+        },
+        {
+          "id": "donga-020-0003763214",
+          "publisherId": "donga",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독]해킹당하고도 15일간 깜깜… 금융 피해 키울 우려",
+          "url": "https://www.donga.com/news/Economy/article/all/20261117/135041903/2",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/020/0003763214?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "B1",
+          "publishedAt": "2026-11-18T00:31:41+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 B1면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "올해 9월부터 이달 5일까지 해킹을 당한 금융사 22곳이 사고를 알아차리는 데 평균 3.9일이 걸렸고, 빗썸은 발생 15일 뒤에야 피해를 인지한 것으로 나타났다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "최근 은행, 증권사, 가상자산거래소 등 금융권 전반에서 해킹 사고가 이어지고 있다. 금융사는 전자금융 침해사고가 나면 금융감독원에 신고해야 하지만 상호금융 등 일부 업권은 대상이 아니다.",
+            "points": [
+              "박성훈 국민의힘 의원이 받은 금감원 신고서 자료 분석 결과다.",
+              "빗썸은 지난달 12일 발생한 침해를 27일에야 확인했고, 예가람저축은행은 14일, 현대캐피탈과 웰컴저축은행은 5일이 지나서 파악했다.",
+              "프라뱅은 지난달 두 차례 해킹돼 두 번째에 약 1억원어치 코인을 잃었고, OK저축은행도 10월 11일과 15일 연이어 뚫렸다.",
+              "한양증권은 같은 그룹웨어를 쓰는 빗썸의 사고 보도를 보고 조사에 나섰다가 자사 피해를 발견했다."
+            ],
+            "significance": "운영체제의 정상 관리 도구를 악용하는 정교한 수법이 탐지를 어렵게 하지만, 인지가 늦을수록 개인정보와 자금 피해가 커진다는 지적이 나온다. 전문가들은 중소 금융사를 위한 저렴한 AI 보안 플랫폼 보급을 제안했고, 금감원은 전자금융업체 등에 연말까지 자체 점검을 지시했다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "donga-020-0003763208",
+          "publisherId": "donga",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독]보험료 비싼 ‘유병자 보험’ 가입 20대 4년새 6배로",
+          "url": "https://www.donga.com/news/Economy/article/all/20261117/135041938/2",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/020/0003763208?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "B2",
+          "publishedAt": "2026-11-18T00:31:24+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 B2면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "수술 이력이나 지병이 있어도 가입할 수 있지만 보험료가 비싼 유병자보험에 가입한 20대가 2021년 2만6348건에서 지난해 15만8862건으로 약 6배 늘었다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "유병자보험은 간편 보험이라고도 불리며, 가입 심사 문턱을 낮춘 대신 보험료가 일반 보험보다 높다. 주로 큰 병을 앓은 중장년층이 찾는 상품이다.",
+            "points": [
+              "송언석 국민의힘 의원이 받은 금감원 자료상 보험사 32곳의 유병자보험 신계약은 지난해 693만여 건으로 2021년의 2.6배였다.",
+              "만 19세 이하 가입은 같은 기간 3934건에서 2만5398건으로 6.5배 늘어 다른 연령대 증가 폭을 크게 웃돌았다.",
+              "기존 담보를 조합한 상품은 출시가 비교적 자유로워 상품이 늘었고, 일반 보험과의 가격 차는 1.5배에서 1.1배로 좁혀졌다.",
+              "KB라이프생명은 건강한 고객에게 일반 보험 가입 가능성을 알리지 않고 30건을 계약해 올해 7월 제재를 받았다."
+            ],
+            "significance": "수수료가 많은 상품을 지식이 부족한 프리랜서 설계사가 지인 위주로 팔면서 불완전 판매가 늘 수 있다는 우려가 나온다. 간편이라는 명칭이 비싼 보험료를 가린다는 지적도 있어, 전문가들은 일반 보험 가입 가능 여부부터 확인하라고 조언한다.",
+            "terms": [
+              {
+                "term": "불완전 판매",
+                "description": "상품의 내용이나 위험을 충분히 설명하지 않고 금융상품을 파는 행위."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hani-028-0002832645",
+          "publisherId": "hani",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 공정위, 쿠팡·김범석 고발 의견…“총수 지정자료 허위 제출”",
+          "url": "https://www.hani.co.kr/arti/economy/economy_general/1287779.html",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/028/0002832645?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "18",
+          "publishedAt": "2026-11-17T17:54:09+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 18면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "공정위 사무처가 대기업집단 지정자료를 허위 제출한 혐의로 쿠팡 법인과 김범석 의장을 고발해야 한다는 심사보고서를 보내고 위원회 심의에 착수했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "기업집단을 지배하는 자연인은 원칙적으로 동일인(총수)으로 지정되지만, 김 의장이 미국 국적이라 논란이 됐다. 공정위는 2024년 시행령을 고쳐 친족의 국내 경영 불참 등 요건을 충족하면 법인을 동일인으로 지정할 수 있게 했다.",
+            "points": [
+              "쿠팡은 김 의장 동생 김유석씨가 국내 경영에 관여하지 않는다고 소명했고, 이에 2024년과 지난해 쿠팡 법인이 동일인으로 지정됐다.",
+              "공정위는 지난 1월 현장점검에서 김유석씨가 주요 사업에 실질 영향력을 행사한 사실을 확인하고, 4월 동일인을 김 의장으로 바꿨다.",
+              "지정자료를 허위로 내면 공정거래법상 2년 이하 징역이나 1억5천만원 이하 벌금 대상이다."
+            ],
+            "significance": "쿠팡은 동생이 법상 임원이 아니고 한국 계열사 지분도 없다는 입장이어서 심의에서 다툼이 예상된다. 고발 여부는 쿠팡 측 의견 제출과 위원회 심의를 거쳐 최종 결정된다.",
+            "terms": [
+              {
+                "term": "동일인",
+                "description": "공정거래법상 기업집단을 실질적으로 지배하는 총수로, 규제 적용의 기준이 된다."
+              },
+              {
+                "term": "심사보고서",
+                "description": "공정위 사무처가 위원회에 제출하는 조사 결과와 조치 의견으로, 형사재판의 공소장에 해당한다."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hani-028-0002832681",
+          "publisherId": "hani",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 삼성 HR·HE 휴머노이드, 내년 CES서 공개…고성능·기본형 ‘투트랙’",
+          "url": "https://www.hani.co.kr/arti/economy/marketing/1287815.html",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/028/0002832681?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "18",
+          "publishedAt": "2026-11-17T19:02:18+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 18면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "삼성전자가 내년 1월 CES 2027에서 고성능형 HE와 기본형 HR 두 종류의 휴머노이드 로봇을 함께 공개할 예정인 것으로 알려졌다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "휴머노이드는 사람의 형태를 본뜬 로봇으로, 글로벌 전자·자동차 기업들이 차세대 성장 사업으로 개발 경쟁을 벌이고 있다. CES는 매년 1월 미국 라스베이거스에서 열리는 세계 최대 IT·전자 전시회다.",
+            "points": [
+              "상위 모델 HE는 관절 자유도를 높여 격한 동작까지 소화하도록 설계됐고, HR은 한 단계 아래의 보급형 모델이다.",
+              "두 모델 모두 손가락이 양손 합쳐 10개이며, 케이블로 힘줄을 흉내 내는 구동 방식을 쓰고 색상은 아이보리다.",
+              "삼성은 7월 DX부문장 직속으로 RX사업추진실을 만들어 개발을 맡겼고, 이재용 회장이 지난달 27일 이 조직을 찾았다.",
+              "현대차그룹은 2028년부터 아틀라스를 조지아 공장에 투입할 계획이고, LG전자와 테슬라도 상용화에 나서고 있다."
+            ],
+            "significance": "첫 공개부터 사양별 라인업을 내놓는 것은 기술력 과시와 시장 확대를 동시에 노리는 전략으로 풀이된다. 국내외 기업들이 양산과 상용화 단계로 넘어가는 가운데 삼성의 실제 제품 경쟁력이 CES에서 처음 드러날 전망이다.",
+            "terms": [
+              {
+                "term": "자유도",
+                "description": "로봇 관절이 독립적으로 움직일 수 있는 방향의 수로, 높을수록 복잡한 동작이 가능하다."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hankookilbo-469-0000966071",
+          "publisherId": "hankookilbo",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 초소형 카메라 차단… 서울대, 수시 면접 응시자에 '의류' 지급 검토",
+          "url": "https://www.hankookilbo.com/news/article/A2026111710290005108?did=NA",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/469/0000966071?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "10",
+          "publishedAt": "2026-11-17T15:31:20+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 10면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "서울대가 AI 부정행위를 막기 위해 2027학년도 수시 면접·구술고사 응시자에게 학교가 마련한 옷을 입히는 방안을 검토 중인 것으로 확인됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "올해 세무사 시험 수석 합격자가 초소형 카메라와 생성형 AI를 이용해 부정행위를 했다고 자백하면서 각종 시험의 보안 문제가 불거졌다. 서울대 수시 면접은 제시문을 읽은 뒤 교수 앞에서 직접 답변하는 방식이다.",
+            "points": [
+              "옷 지급 외에 팔토시나 앞치마를 착용시키는 아이디어도 함께 거론됐다.",
+              "소매나 옷깃 단추에 숨긴 초소형 카메라로 문제를 촬영하는 것을 막으려는 취지다.",
+              "서울대는 단속 매뉴얼을 만들어 시험 당일 교직원에게 나눠줄 계획이다.",
+              "고사장 전파 차단은 전파법상 국가안보 사안 등에만 허용되고 한 달 전 정부 승인이 필요해 제외하는 방향이다."
+            ],
+            "significance": "객관식이 아니더라도 AI로 제시문 분석이나 답변 준비에 도움을 받으면 공정성이 훼손될 수 있다는 우려가 배경이다. 시험이 임박한 상황에서 실제로 어떤 차단책이 채택될지, 다른 대학으로 확산될지가 관심사다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "hankookilbo-469-0000966022",
+          "publisherId": "hankookilbo",
+          "type": "feature",
+          "section": "세계",
+          "title": "아프리카에도 태권도 강국이…파라오 후예들이 한국 무술에 빠진 까닭 [살람! 중동·아프리카]",
+          "url": "https://www.hankookilbo.com/news/article/A2026111407180002616?did=NA",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/469/0000966022?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "24",
+          "publishedAt": "2026-11-17T13:00:17+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 24면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "이집트에서 태권도가 보급 약 50년 만에 수련 인구 10만 명 이상의 대중 스포츠이자 국제대회 메달을 안기는 효자 종목으로 자리 잡았다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [살람! 중동·아프리카] 한국일보 카이로 특파원 현지 취재 연재(4주 간격, 2꼭지, 본문 확인)",
+          "detail": {
+            "background": "태권도는 한국에서 시작된 무술로 2000년 시드니 올림픽부터 정식 종목이 됐다. 이집트는 중동과 아프리카에 걸친 인구 1억 명 이상의 국가다.",
+            "points": [
+              "이집트 국가대표팀은 다음 달 2일 열리는 WT 프레지던츠컵 아프리카 대회를 앞두고 매일 집중 훈련 중이다.",
+              "2004년 아테네에서 첫 올림픽 메달이 나왔고, 2020년 도쿄에서는 동메달 2개를 따냈다.",
+              "이달 12일 하계청소년올림픽에서 16세 유세프 하산이 남자 48kg급 금메달을 차지했다.",
+              "2023년 한국문화원 수련생 모집에는 17명 정원에 약 2000명이 지원했다."
+            ],
+            "significance": "비싼 장비가 필요 없고 히잡을 쓴 채 출전할 수 있어 무슬림 여성의 참여 부담이 적다는 점이 확산 요인으로 꼽힌다. 이집트 교육부가 입시 가산점을 주는 등 제도적 지원도 이어지고, 한국어 학습으로 관심이 넓어지는 사례도 나오고 있다.",
+            "terms": [
+              {
+                "term": "품새",
+                "description": "공격과 방어 동작을 정해진 순서와 형식에 따라 연결해 수련하는 태권도 종목."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hankookilbo-469-0000966021",
+          "publisherId": "hankookilbo",
+          "type": "feature",
+          "section": "세계",
+          "title": "이집트에 품새 바람 일으킨 한국인 사범… \"1억 인구에 태권도 심는다\" [살람! 중동·아프리카]",
+          "url": "https://www.hankookilbo.com/news/article/A2026111407450000554?did=NA",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/469/0000966021?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "24",
+          "publishedAt": "2026-11-17T13:00:14+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 24면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "국기원 파견 사범 안형원 이집트 품새 대표팀 감독은 국제대회 성과 이후 이집트 품새 수련 인구가 3만~4만 명으로 약 10배 늘었다고 밝혔다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [살람! 중동·아프리카] 한국일보 카이로 특파원 현지 취재 연재(4주 간격, 2꼭지, 본문 확인)",
+          "detail": {
+            "background": "국기원은 해외에 태권도 사범을 파견해 표준 태권도를 보급하고 있다. 이집트에는 1974년 한국인 유학생들이 처음 태권도를 전했고, 1978년 현지 협회가 출범했다.",
+            "points": [
+              "안 감독은 2021년 10월 33세로 이집트에 부임했으며, 50여 개국 파견 사범 가운데 최연소다.",
+              "약 16년간 활동한 정기영 사범이 은퇴하면서 후임으로 지원했다.",
+              "5년간 국가대표 품새 선수 약 200명을 가르쳤고, 2022년 아프리카 품새선수권에서 메달 10개로 종합 1위를 이끌었다.",
+              "국기원은 아프리카 7개국에 사범을 두고 있다."
+            ],
+            "significance": "겨루기에 비해 약했던 이집트 품새가 성과를 내면서 저변이 크게 넓어졌다. 안 감독은 학교 체육 수업 도입과 경찰대학 필수과목 재지정 등 공교육 연계를 목표로 내세웠으며, 품새의 올림픽 종목 채택 여부도 변수다.",
+            "terms": [
+              {
+                "term": "국기원",
+                "description": "태권도 단증 발급과 사범 교육, 해외 보급을 맡는 기관."
+              }
+            ]
+          }
+        },
+        {
+          "id": "kmib-005-0001885744",
+          "publisherId": "kmib",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 대기업 입사시험 파고든 해외 AI 커닝업체",
+          "url": "https://www.kmib.co.kr/article/20261117501903",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/005/0001885744?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "1",
+          "publishedAt": "2026-11-17T19:08:10+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 1면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "미국·싱가포르 등 해외 AI 커닝 업체 최소 8곳이 한국어 홈페이지를 열고 국내 대기업 비대면 인·적성검사 감독 방식을 분석하며 취업준비생을 공략하고 있다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "코로나19 이후 국내 대기업 채용에서 온라인 인·적성검사와 AI 영상면접이 널리 쓰이게 됐다. 생성형 AI가 대중화되면서 원격 시험의 부정행위 우려도 커졌다.",
+            "points": [
+              "프로그램을 설치하면 AI가 면접 질문을 듣거나 화면 문제를 캡처해 답을 띄우며, 이 창은 면접관에게 보이지 않는다고 업체들은 홍보한다.",
+              "한 업체는 60분 이용료가 9.9달러(약 1만3000원)이고 신규 가입자에게 30분을 무료로 준다.",
+              "이 업체는 9~10월 삼성·SK·현대차 등 7개 그룹의 감독 방식을 분석한 글 6편을 게시했다.",
+              "영국 ACCA는 올해 3월부터 원격 시험을 원칙적으로 없앴고, 구글은 대면 면접을 한 번 이상 두기로 했다."
+            ],
+            "significance": "현행 채용절차법에는 AI 부정행위를 규제할 조항이 없고, 고용노동부는 민간 채용 자율성을 이유로 개입에 신중한 입장이다. 기업들이 감독 방식을 강화하거나 대면 전형을 늘릴지가 관건이다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "kmib-005-0001885743",
+          "publisherId": "kmib",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 몸에 숨긴 초소형 액정 모니터로 AI가 전달해 준 정답 확인했다",
+          "url": "https://www.kmib.co.kr/article/20261117501882",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/005/0001885743?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "3",
+          "publishedAt": "2026-11-17T19:02:07+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 3면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "올해 세무사 시험 부정행위 수석 합격자가 몸에 숨긴 초소형 액정 모니터로 생성형 AI의 답을 확인했고, 앞서 회계사 시험에선 기기 결함으로 응시를 포기한 것으로 파악됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "34세 한모씨는 올해 세무사 시험에 수석으로 합격했으나 최근 AI를 이용한 부정행위를 스스로 털어놨다. 이 사건 이후 각종 시험과 대학 입시에서 보안 강화 논의가 일고 있다.",
+            "points": [
+              "스마트폰·초소형 카메라·액정 모니터를 몸에 숨겼고, 반입이 허용된 계산기를 개조해 문제와 답을 주고받았다.",
+              "제미나이와 클로드를 활용했으며, 수법을 적은 7쪽짜리 경위서를 관계기관에 냈다.",
+              "3월 회계사 1차에서 1·2교시는 만점이었지만 3교시는 치르지 않았고, 경찰은 배터리 방전 때문으로 본다.",
+              "17일 서울경찰청 공공범죄수사대에 출석했으며 피의자로 전환됐다."
+            ],
+            "significance": "경찰은 회계사 시험에서 드러난 결함을 고친 뒤 세무사 시험에 나선 것으로 의심하고 있다. 본인은 단독범행이라고 주장하나 장비 관련 질문에는 답하지 않아, 공범 여부와 위계공무집행방해·업무방해 혐의 적용이 쟁점이다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "kmib-005-0001885741",
+          "publisherId": "kmib",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] “진술도 안 듣고 미리 결론 내” “어차피 못 찾는 돈, 잊으라 해”",
+          "url": "https://www.kmib.co.kr/article/20261117501876",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/005/0001885741?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "15",
+          "publishedAt": "2026-11-17T19:00:11+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 15면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "경찰청 수사 인권보호 설문에서 올해 상반기 응답자 약 1만5000명 중 9.5%가 부정 평가했고, 강압적 언행과 장시간 대기 등을 지적하는 답변이 나왔다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "경찰청은 지난해 7월부터 수사결과통지서에 QR코드를 첨부해 피의자와 고소인이 자발적으로 수사 과정의 인권 보호 실태를 평가하도록 하고 있다. 결과는 국회 행안위 이해식 의원실을 통해 공개됐다.",
+            "points": [
+              "올해 상반기 1만5398명이 응답해 90.5%가 긍정적으로 평가했고, 피의자가 53.5%를 차지했다.",
+              "지난해 하반기에는 1만5989명이 참여했고 부정 평가는 10%였다.",
+              "진술 전에 결론을 내리거나 피해금을 포기하라고 했다는 등 수사관 태도에 대한 불만이 적혔다.",
+              "설명 없이 약 5시간을 기다렸다는 응답도 여러 건 있었다."
+            ],
+            "significance": "경찰이 해당 관서에 사실을 확인했지만 감찰이나 징계로 이어진 경우는 아직 없다. 경찰은 재발방지 교육과 연내 실시간 분석 시스템 구축을 예고했으며, 실제 시정 체계가 작동할지가 관건이다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "kmib-005-0001885814",
+          "publisherId": "kmib",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 수사권 없으면서… 경찰, 계엄가담 의혹 군인 사건 두달 방치",
+          "url": "https://www.kmib.co.kr/article/20261117502118",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/005/0001885814?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "15",
+          "publishedAt": "2026-11-18T02:41:10+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 15면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "경찰 국가수사본부가 2차 종합특검에서 넘겨받은 현역 군인 계엄 가담 의혹 사건 15건을 두 달 넘게 수사팀에 배당하지도, 군에 이송하지도 않은 것으로 나타났다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "군사법원법에 따라 현역 군인 사건은 군사법원이 재판권을 갖고 군사경찰이 수사한다. 2차 종합특검은 수사기간이 끝나며 결론을 내지 못한 46건을 국수본에 이첩했다.",
+            "points": [
+              "국수본은 8월 31일 사건을 넘겨받았으나 지금까지 담당 팀을 정하지 않았다.",
+              "이 가운데 현역 군인이 입건된 사건은 15건으로, 계엄버스 탑승자와 각 군 법무실장 등이 포함됐다.",
+              "당시 특전사 법무실장이던 A중령은 6월 고발됐고 7월 31일 한 차례 조사를 받았다.",
+              "A중령은 9월부터 사건 이송을 요구하는 민원을 다섯 차례 냈으나 검토 중이라는 회신만 받았다."
+            ],
+            "significance": "군판사 출신 변호사는 군사경찰 이송이 타당하다고 지적했다. 경찰이 향후 출범할 내란 특별수사본부로 넘기려고 처리를 미룬다는 시각도 있으며, 그 경우 군사경찰 파견 방안이 검토되고 있다.",
+            "terms": [
+              {
+                "term": "부작위",
+                "description": "마땅히 해야 할 행위를 하지 않는 것으로, 형법상 범죄 성립 요건이 될 수 있다."
+              }
+            ]
+          }
+        },
+        {
+          "id": "segye-022-0004175967",
+          "publisherId": "segye",
+          "type": "feature",
+          "section": "세계",
+          "title": "美 의회 ‘블루웨이브’… 한·미 팩트시트 셈법 더 복잡해졌다 [심층기획-신국제질서, 한반도의 선택]",
+          "url": "https://www.segye.com/newsView/20261117514727?OutUrl=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/022/0004175967?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A7",
+          "publishedAt": "2026-11-17T20:02:14+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A7면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "미국 중간선거에서 민주당이 상·하원을 모두 차지하면서, 1년째 진척이 더딘 한·미 팩트시트 중 전작권 전환과 핵잠 협력 이행이 더 어려워질 수 있다는 분석이 나왔다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 기획 문패 [심층기획-신국제질서, 한반도의 선택]",
+          "detail": {
+            "background": "한·미 정상은 지난해 경주 회담에서 동맹 현대화, 한국 핵잠 도입, 우라늄 농축·재처리 등에 합의했고, 그해 11월 14일 팩트시트로 발표했다. 이 합의는 트럼프 행정부 주도로 이뤄졌다.",
+            "points": [
+              "민주당은 3일 중간선거에서 상·하원을 함께 장악했고, 새 의회는 내년 1월 출범한다.",
+              "확장억제·국방비 증액·무기 구매는 미국 이익과 맞아 영향이 적을 것으로 전망됐다.",
+              "전작권 로드맵 합의에 필요한 SCM은 내년 초로 밀렸고 개최도 불투명하다.",
+              "핵잠 협력은 6월 첫 범정부 회의 뒤 후속 일정도 잡지 못했으며, INSS는 민주당의 비확산 기조가 지연 요인이라고 짚었다."
+            ],
+            "significance": "전문가들은 민주당의 우려를 단순 반대가 아닌 협력 조건 요구로 보고, 합의가 미국 이익에도 맞는다는 점을 설득해야 한다고 조언한다. 핵잠 연료와 민간 농축 협상을 분리하고 핵물질 전용 방지책을 구체화하는 것이 과제로 꼽혔다.",
+            "terms": [
+              {
+                "term": "전략적 유연성",
+                "description": "주한미군을 한반도 밖 지역 분쟁에도 투입할 수 있도록 운용하는 개념."
+              }
+            ]
+          }
+        },
+        {
+          "id": "segye-022-0004175946",
+          "publisherId": "segye",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 경찰이 로스쿨 다니려 꼼수 휴직해도… 자체 징계는 ‘0’",
+          "url": "https://www.segye.com/newsView/20261117515646?OutUrl=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/022/0004175946?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A8",
+          "publishedAt": "2026-11-17T18:16:15+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A8면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "감사원이 로스쿨 재학 중 복무규정을 어긴 경찰관 8명을 적발했지만 중징계는 없었고, 이후 150명을 대상으로 한 경찰 자체점검에서도 추가 징계 대상자는 한 명도 나오지 않았다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "현행 국가공무원법상 연수 휴직은 지정 기관에 2년 이내로만 허용돼 3년 과정 로스쿨을 위한 휴직은 불가능하다. 감사원은 지난해 감사에서 로스쿨에 다니는 경찰관 194명을 확인했고 이들은 모두 경찰대 출신이었다.",
+            "points": [
+              "적발된 8명 중 감봉 1개월 2명, 견책 2명, 불문경고 3명이었고 1명은 감찰 뒤 스스로 사직했다.",
+              "직위해제 중 신고 없이 제주에서 서울로 가 19일간 수업을 듣거나, 육아휴직 등을 이용해 114일간 수강한 사례가 있었다.",
+              "자체점검 대상 150명 중 99명(66%)이 지구대·파출소 등 교대 부서에 근무하고 있었다.",
+              "2021년부터 지난해까지 로스쿨에 간 경찰대 출신 423명 중 149명이 6년 의무복무 전에 퇴직해 약 48억원의 상환액이 부과됐다."
+            ],
+            "significance": "경찰은 비번과 연가를 활용하면 규정 위반 없이 병행할 수 있다는 입장이지만, 전문가들은 본업에 충실하기 어렵다고 반박한다. 2015년에도 같은 문제가 지적된 만큼 자체점검의 적정성과 복무관리 보완 여부가 관건이다.",
+            "terms": [
+              {
+                "term": "불문경고",
+                "description": "비위는 인정되나 정식 징계로 처리하지 않고 경고로 마무리하는 조치."
+              }
+            ]
+          }
+        },
+        {
+          "id": "segye-022-0004175947",
+          "publisherId": "segye",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 관계성범죄 보호 질보다 양?… 경찰 1인당 61명 ‘과부하’",
+          "url": "https://www.segye.com/newsView/20261117515655?OutUrl=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/022/0004175947?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A8",
+          "publishedAt": "2026-11-17T18:16:18+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A8면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "경찰이 정기 모니터링하는 관계성 범죄 A·B등급 피해자가 10월 말 6만1256명으로 지난해 말보다 41.8% 늘었지만, 전담 경찰관은 14.8% 증가에 그쳐 1인당 관리 인원이 61명으로 늘었다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "경찰은 가정폭력·교제폭력·스토킹 피해자를 위험도별로 나눠 고위험 A등급은 월 1회, 중위험 B등급은 2개월에 1회 모니터링한다. 스토킹 피해자는 전화, 아동 피해자는 대면 확인이 원칙이다.",
+            "points": [
+              "학대예방경찰관과 스토킹 전담경찰관은 873명에서 1002명으로 129명 늘었다.",
+              "1인당 관리대상자는 단순 계산으로 49.5명에서 61.1명이 됐다.",
+              "올해 1~10월 관계성 범죄 112 신고는 41만5678건이며, 지난해 연간 신고는 2022년보다 34.8% 많은 43만9382건이었다.",
+              "서울 은평구에서 살해된 70대 여성은 A등급 대상으로 27차례 안전 확인을 받았지만 피해를 막지 못했다."
+            ],
+            "significance": "전담 인력은 모든 신고 사건의 사후 모니터링도 맡아 실제 부담은 더 크다. 전화 확인만으로는 위험 변화를 알기 어렵다는 지적과 함께 인력 확충, 지자체·민간기관과의 역할 분담 요구가 나온다.",
+            "terms": [
+              {
+                "term": "학대예방경찰관(APO)",
+                "description": "가정폭력·아동학대 등 피해자의 사후관리와 재발 방지를 맡는 전담 경찰관."
+              }
+            ]
+          }
+        },
+        {
+          "id": "segye-022-0004175960",
+          "publisherId": "segye",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 전남관광앱 위탁 운영사 공모 특혜 의혹",
+          "url": "https://www.segye.com/newsView/20261117514556?OutUrl=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/022/0004175960?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A10",
+          "publishedAt": "2026-11-17T19:02:14+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A10면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "38억원이 투입된 전남관광앱 JN투어의 2026년 위탁 운영사 공모에서 도내 사무소 조건이 빠진 뒤 서울 업체가 선정됐고, 회원 약 8만명의 개인정보가 동의 절차 논란 속에 새 운영사로 옮겨졌다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "옛 전남도는 관광 할인, 지역 업소 연계, 콜센터 운영 등을 위해 매년 9억~10억원을 들여 이 앱을 민간 위탁으로 운영해 왔다. 앱은 현재 JG투어로 이름이 바뀌었고 전남광주통합특별시가 업무를 넘겨받았다.",
+            "points": [
+              "2023~2025년 공모에는 선정 업체가 도내에 사무실을 둬야 한다는 필수 조건이 있었다.",
+              "2025년 12월 진행된 2026년도 공모 제안요청서에서 이 조건이 사라졌고 서울 서초구 본사 업체가 운영권을 따냈다.",
+              "회원 정보는 폐기 절차나 사전 심의 없이 위탁사 프로그램으로 곧장 이관된 것으로 알려졌다.",
+              "시는 정보 소유권이 도에 있고 회원들에게 문자로 알렸다고 설명했지만 동의서 확보와 발송 내역은 추가 확인이 필요하다고 했다."
+            ],
+            "significance": "지역 업체와 밀접한 플랫폼인 만큼 조건 변경 경위를 밝혀야 한다는 요구가 업계에서 나온다. 회원 동의 없이 민간 업체로 정보가 넘어갔다면 절차적 위법 소지가 있다는 지적이어서 확인 결과가 주목된다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "seoul-081-0003700469",
+          "publisherId": "seoul",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] “세무사 1등이 우리 고객”… 대놓고 돈벌이 삼는 中커닝업체",
+          "url": "https://www.seoul.co.kr/news/society/accident/2026/11/18/20261118002003?wlog_tag3=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/081/0003700469?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "2",
+          "publishedAt": "2026-11-18T05:03:17+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 2면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "수능을 이틀 앞두고 홍콩 위치로 표시되는 중국 업체가 텔레그램에서 AI 부정행위 장비를 60만~100만원에 팔며 세무사 시험 수석 합격자를 자신들이 도왔다고 홍보하는 것으로 확인됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "최근 세무사 시험 수석 합격자가 AI와 스마트기기를 이용한 부정행위로 적발돼 파장이 일었다. 교육부는 수능 부정행위 대책으로 시험장 공공 와이파이 차단 방안을 내놨다.",
+            "points": [
+              "구매자로 가장해 문의하자 업체는 안경·단추형 카메라·초소형 이어폰 세트 5000위안, 단추·이어폰 세트 3000위안에 다음 날 배송을 안내했다.",
+              "업체는 와이파이 없이 별도 신호로 작동하고 금속탐지기에도 걸리지 않는다는 시연 영상을 게시했다.",
+              "지난해 8월 개설된 채널 구독자는 2만3000명이며, 한국어 공지와 빗썸을 통한 가상자산 결제도 안내했다.",
+              "경찰청 시험 부정행위 TF는 자백·예고·판매 등 게시글 9건을 사이버수사대가 확인 중이라고 밝혔다."
+            ],
+            "significance": "업체가 실제 수석 합격자를 도왔는지는 확인되지 않았지만 논란을 영업에 이용하고 있다. 데이터 통신망을 쓰는 장비는 와이파이 차단만으로 막기 어려워 수능 당일 대응이 과제로 떠올랐다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "seoul-081-0003700478",
+          "publisherId": "seoul",
+          "type": "feature",
+          "section": "사회",
+          "title": "엉뚱한 패스에도 “잘했어”, 맞춤형 학습… 어울림이 자란다 [고립무원 자폐]",
+          "url": "https://www.seoul.co.kr/news/plan/Isolated-autism/2026/11/18/20261118008004?wlog_tag3=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/081/0003700478?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "8",
+          "publishedAt": "2026-11-18T05:03:45+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 8면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "미국 한미특수교육센터와 캐나다 자폐 특수학교 AIM에서 장애·비장애 학생이 함께하는 합주·농구 프로그램과 학년 구분 없는 수준별 학습, 일반학교 입학 준비 과정이 운영되는 현장이 소개됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [고립무원 자폐] 서울신문 자폐 가족·교육 실태 기획(1면 포함 3꼭지, 본문 확인)",
+          "detail": {
+            "background": "자폐성 장애를 스펙트럼이라 부르는 것은 사람마다 특성과 어려움의 정도가 크게 다르기 때문이다. 서울신문은 고립무원 자폐 기획의 하나로 미국·캐나다·일본의 지원 현장을 취재했다.",
+            "points": [
+              "캘리포니아 사이프러스의 KASEC은 매주 수요일 장애·비장애 중학생~대학생이 함께 오케스트라를 연습하고 연말에 공연한다.",
+              "8월 21일 체육관에서는 자폐 학생 20명과 비장애 학생 25명이 짝을 지어 농구를 했다.",
+              "온타리오주 리치먼드힐의 AIM은 4개 반 40명 규모로, 과목별 수준에 따라 반을 짜고 수업 사이 언어·작업·행동치료를 제공한다.",
+              "AIM은 일반학교 진학 전 소규모 수업 적응 과정을 운영하며 6개월마다 부모와 지원 계획을 점검한다."
+            ],
+            "significance": "현지 관계자들은 통합 교육이 퍼지려면 장애 학생과 어울리는 시간을 함께 사는 법을 배우는 기회로 보는 인식이 필요하다고 본다. 같은 교실에 있어도 사회적으로 고립될 수 있어 대화법 교육과 자기결정권 보장이 핵심으로 제시됐다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "seoul-081-0003700477",
+          "publisherId": "seoul",
+          "type": "feature",
+          "section": "사회",
+          "title": "자폐 의심기부터 취학 적응까지… 발달장애가족 돕는 日 돌봄 동행 [고립무원 자폐]",
+          "url": "https://www.seoul.co.kr/news/plan/Isolated-autism/2026/11/18/20261118008003?wlog_tag3=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/081/0003700477?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "8",
+          "publishedAt": "2026-11-18T05:03:42+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 8면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "일본 나가노현 마쓰모토시 인클루시브센터가 자폐 진단 전부터 놀이교실과 상담을 제공하고 어린이집·학교까지 지원을 이어가며, 전자연락장으로 기관 간 기록을 공유하는 사례가 소개됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [고립무원 자폐] 서울신문 자폐 가족·교육 실태 기획(1면 포함 3꼭지, 본문 확인)",
+          "detail": {
+            "background": "일본에서는 모든 유아가 생후 18개월과 3세 무렵 건강검진을 받는다. 발달장애 아동 가족은 의료·교육·복지 지원을 각각 찾아다녀야 하는 부담을 안는 경우가 많다.",
+            "points": [
+              "센터에는 임상심리사, 작업치료사, 전문의, 언어치료사, 보육교사 등이 함께 근무하며 한 가정을 공동 지원한다.",
+              "검진에서 보건사가 추가 확인이 필요하다고 보면 심리사에게 연결되고, 전문가들은 매주 회의로 지원 방안을 정한다.",
+              "입학 뒤에는 교원 출신 인클루시브 교육추진원이 학교를 찾아 담임과 지원 방법을 협의한다.",
+              "마쓰모토 후타바 네트워크에 상담 기록을 담아 보호자 동의를 거쳐 학교와 기관이 함께 열람한다."
+            ],
+            "significance": "기관이 바뀔 때마다 부모가 아이의 특성을 처음부터 설명해야 하는 부담을 덜려는 체계다. 전문가는 진단을 기다리는 동안에도 지원이 이어져야 하며 그 연결을 부모 혼자 떠맡지 않게 하는 것이 지역사회의 역할이라고 지적했다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "seoul-081-0003700479",
+          "publisherId": "seoul",
+          "type": "feature",
+          "section": "사회",
+          "title": "“배려에서 자립으로… 자폐인과 공존사회 만들자”[고립무원 자폐]",
+          "url": "https://www.seoul.co.kr/news/plan/Isolated-autism/2026/11/18/20261118009001?wlog_tag3=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/081/0003700479?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "9",
+          "publishedAt": "2026-11-18T05:03:48+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 9면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "캐나다·미국·한국·일본 자폐 전문가 4명이 진단 직후 공공 조기 개입, 아이 관심사에서 출발하는 통합 교육, 직무 세분화를 통한 성인 고용, 지자체가 맡는 기관 간 연결을 대안으로 제시했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [고립무원 자폐] 서울신문 자폐 가족·교육 실태 기획(1면 포함 3꼭지, 본문 확인)",
+          "detail": {
+            "background": "국내에서는 자폐인의 학교·복지시설 찾기부터 부모 사후 돌봄 대비까지 대부분 가족이 감당해 왔다. 서울신문은 7월부터 국내외 전문가를 만나 공적 지원 체계 방안을 취재했다.",
+            "points": [
+              "온타리오주는 올해 9억6500만 캐나다달러를 들여 생후 12~48개월 진단 아동 부모에게 소득과 무관하게 6주 놀이소통 교육을 바로 제공한다.",
+              "국내 일반학교 특수교육대상자 지원 인력은 9명당 1명꼴이며, 돌발 행동 시 조기 하교를 권하는 일도 있다.",
+              "유희정 교수는 바리스타·제과제빵에 쏠린 직업훈련 대신 직무를 세분화해 실제 고용으로 이어야 한다고 했다.",
+              "일본은 지자체 담당자가 연령대별 서비스 표에 아이를 넘겨받는 주체를 기록해 공백을 메운다."
+            ],
+            "significance": "전문가들은 같은 교실에 앉히는 것만으로는 포용이 아니며 필요한 지원이 뒤따라야 한다고 강조했다. 진단·치료·학교 사이 단절을 부모가 아닌 공공이 메울 수 있을지가 관건이다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "seoul-081-0003700481",
+          "publisherId": "seoul",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 광주중수청 ‘제주공항 출장소’ 설치 추진",
+          "url": "https://www.seoul.co.kr/news/society/law/2026/11/18/20261118010007?wlog_tag3=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/081/0003700481?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "10",
+          "publishedAt": "2026-11-18T05:03:54+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 10면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "광주지방중대범죄수사청이 옛 제주지검 공항분실 임대차 계약을 이어받아 제주공항에 출장소를 두고 사회적 약자 범죄 보완수사에 활용하는 방안을 추진하고 있다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "중대범죄수사청은 지난달 2일 전국 6개 지방청 체제로 출범해, 18개 지검과 42개 지청을 뒀던 검찰보다 지역 거점이 적다. 광주중수청은 광주·전남과 전북에 제주까지 관할한다.",
+            "points": [
+              "해당 분실은 제주지검이 마약 밀수 대응을 위해 쓰던 곳으로, 수사권이 없어지며 계약이 연장되지 않았다.",
+              "광주중수청은 피해자·참고인이 광주까지 오지 않고 조사받을 공간을 먼저 마련할 계획이다.",
+              "서울중수청도 인천·경기 북부와 강원 전역을 맡아 영동 지역 참고인이 서울까지 와야 한다.",
+              "본청은 다른 지방청 거점 확충도 검토하며 지청 수준까지 넓히는 것을 목표로 하고 있다."
+            ],
+            "significance": "거점이 줄면서 원거리 조사 부담이 현실 문제로 떠올랐다. 확충에는 행정안전부와 인력, 기획예산처와 예산 협의가 필요해 실제 확충 규모가 관건이다.",
+            "terms": [
+              {
+                "term": "보완수사",
+                "description": "1차 수사가 끝난 사건에 대해 증거나 진술을 추가로 보강하는 수사."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sedaily-011-0004683175",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 칩값 급등에 백기…삼성, 갤럭시A 최대 19% 올린다",
+          "url": "https://www.sedaily.com/article/20115515?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004683175?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "11",
+          "publishedAt": "2026-11-17T16:54:16+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 11면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "삼성전자가 메모리 가격 급등에 따라 내년 1월부터 갤럭시 A시리즈 8개 모델 가격을 20~60달러, 최대 18.6% 올리고 저장용량 추가 요금도 25% 인상하는 방안을 마련했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "AI 데이터센터 투자가 늘며 고성능 메모리 생산이 확대되자 스마트폰용 범용 메모리 공급이 줄었다. 갤럭시 A시리즈는 삼성전자의 중저가 스마트폰 라인업이다.",
+            "points": [
+              "A17 5G는 269달러에서 319달러로, A37은 439달러에서 499달러로, A57은 549달러에서 599달러로 오른다.",
+              "저장용량 128GB나 D램 4GB를 늘릴 때 붙는 금액은 80달러에서 100달러로 높아진다.",
+              "올해 9월까지 DX부문 모바일 메모리 매입액은 7조6993억원이며 평균 매입가는 지난해보다 263% 올랐다.",
+              "저가폰 부품 원가 중 메모리 비중은 지난해 3분기 20%에서 올해 54%로 뛰었다."
+            ],
+            "significance": "3분기 세계 스마트폰 출하량은 19% 줄고 평균 소매가는 20% 올라 가격 상승이 수요 위축으로 이어지고 있다. 메모리값이 내년 1분기까지 오를 전망이어서 국가별 인상 시점과 폭이 변수다.",
+            "terms": [
+              {
+                "term": "HBM",
+                "description": "AI 서버용으로 D램을 여러 층 쌓아 처리 속도를 높인 고대역폭메모리."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sedaily-011-0004683233",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "IT·과학",
+          "title": "[단독] LG CNS, 인니 AI데이터센터서 최고 설계등급 획득",
+          "url": "https://www.sedaily.com/article/20115592?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004683233?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "14",
+          "publishedAt": "2026-11-17T17:57:07+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 14면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "LG CNS가 인도네시아 자카르타에 지은 30MW급 AI 데이터센터 SMX01이 미국 업타임 인스티튜트로부터 최고 설계등급인 티어 IV 인증을 받았다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "업타임 인스티튜트는 데이터센터 전력·냉각 설비의 안정성을 티어 I~IV 네 단계로 평가하는 미국 기관이다. AI 수요 증가로 국내 IT서비스 기업들의 해외 데이터센터 구축 경쟁이 이어지고 있다.",
+            "points": [
+              "SMX01은 수전용량 30MW 규모로, LG CNS가 현지 기업과 함께 설계·구축·운영에 참여했다.",
+              "LG CNS는 지난해 약 1000억원 규모로 사업을 따낸 뒤 이달 초 완공했고, 준공 전에 임차 물량을 모두 채웠다.",
+              "전력 경로 이중화와 공랭·액체냉각 병행이 가능한 구조로 개별 설비 고장이 운영에 번지지 않게 설계했다.",
+              "해당 기관 인증을 받은 국내 데이터센터 10여 곳 중 최고 등급 사례는 아직 없다."
+            ],
+            "significance": "LG CNS는 이번 인증을 앞세워 인도네시아 추가 구축과 아시아태평양·북미·유럽 진출을 추진한다. 신규 사업에는 설비를 미리 제작해 조립하는 모듈형 방식을 적용하고, 엔비디아 베라 루빈 대응 기술도 활용할 계획이어서 실제 수주로 이어질지가 관건이다.",
+            "terms": [
+              {
+                "term": "티어 IV",
+                "description": "개별 설비에 갑작스러운 장애가 나도 다른 설비가 기능을 대신해 운영이 유지되도록 설계된 최고 등급."
+              }
+            ]
+          }
+        },
+        {
+          "id": "mk-009-0005765154",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] D램 다급한 애플, 삼성과 장기계약",
+          "url": "https://www.mk.co.kr/article/12211500",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/009/0005765154?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A1",
+          "publishedAt": "2026-11-17T17:48:06+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A1면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "삼성전자와 애플이 내년 상반기부터 4년간 D램을 공급하는 장기공급계약 체결을 마무리하는 단계로, 공급물량 하한선을 두고 가격은 시황에 따라 정하는 조건이 담긴 것으로 알려졌다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "애플은 그동안 단기 계약을 맺고 갱신 때마다 단가 인하를 요구하는 방식으로 부품을 조달해 왔다. 최근 AI 데이터센터 수요로 메모리 생산이 서버용에 쏠리면서 모바일 D램 공급이 빠듯해졌다.",
+            "points": [
+              "애플은 빅테크 가운데 유일하게 삼성전자와 장기공급계약을 맺지 않았던 기업이다.",
+              "계약은 내년 상반기 시작해 4년간 이어지며, 물량 최저선을 정하고 가격은 추후 시장 상황을 반영해 확정한다.",
+              "애플은 최근 SK하이닉스와도 공급사에 유리한 조건으로 장기계약을 맺은 것으로 전해졌다.",
+              "아마존·구글 등은 AI 데이터센터용 D램 확보를 위해 높은 가격을 내고 장기계약을 서두르고 있다."
+            ],
+            "significance": "소비자 기기 대상 계약이라 AI 투자가 둔화해도 메모리 업체 수익 방어에 도움이 될 것으로 보인다. 다만 메모리값 상승이 전자제품 가격을 끌어올리면 소비자 구매가 늦춰져 중장기 메모리 수요를 약화시킬 수 있다는 지적도 있다.",
+            "terms": [
+              {
+                "term": "장기공급계약(LTA)",
+                "description": "공급사와 고객사가 수년간의 공급 물량과 가격 조건을 미리 정해 두는 계약."
+              },
+              {
+                "term": "칩플레이션",
+                "description": "메모리 가격 상승이 전자제품 가격 인상으로 이어지는 현상."
+              }
+            ]
+          }
+        },
+        {
+          "id": "mk-009-0005765091",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 아이폰 원가 40% 메모리 …'슈퍼甲' 애플, 결국 삼전닉스에 SOS",
+          "url": "https://www.mk.co.kr/article/12211415",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/009/0005765091?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A3",
+          "publishedAt": "2026-11-17T17:31:06+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A3면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "애플이 삼성전자·SK하이닉스와 맺는 D램 장기계약에 위약금이나 약정 물량 의무구매 같은 공급사 유리 조항이 들어간 것으로 추정되며, 메모리 시장의 힘의 균형이 바뀌었다는 분석이 나온다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "애플은 연간 3억대 넘는 기기 판매량을 바탕으로 부품 공급사에 강한 협상력을 행사해 왔다. 2023년 메모리 불황 때 고객사들이 가격을 크게 낮추면서 업계 설비투자가 위축됐고, 2025년 AI 수요 폭증 이후 공급 부족이 이어지고 있다.",
+            "points": [
+              "삼성전자는 10개 대형 고객사와 장기계약을 맺고 10곳과 추가 협상 중이며, SK하이닉스는 14곳과 계약해 2028년까지 생산량 절반 이상의 주문을 확보했다.",
+              "트렌드포스는 D램 수요 중 서버용 비중이 2025년 38%에서 2026년 43%로 늘고, 모바일용은 36%에서 32%로 줄 것으로 내다봤다.",
+              "올해 3분기 세계 스마트폰 출하량은 1년 전보다 19% 줄었지만 매출은 3% 늘어 1140억달러를 기록했다.",
+              "2023년 삼성전자 DS부문과 SK하이닉스의 영업손실은 각각 약 15조원, 7조원이었다."
+            ],
+            "significance": "애플처럼 마진이 큰 업체에는 가격보다 적시 물량 확보가 중요해졌다는 점이 이번 계약에 반영됐다. 업계는 불황기 빅테크의 무리한 가격 인하가 현재 공급난의 원인이라고 지적하며, 애플이 공급사 장부 열람권을 요구해 온 관행도 논란이 됐다.",
+            "terms": [
+              {
+                "term": "최우대 고객 조항",
+                "description": "공급사가 다른 고객에게 더 낮은 가격을 주지 못하도록 하는 계약 조건."
+              }
+            ]
+          }
+        },
+        {
+          "id": "mk-009-0005765144",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 국민성장펀드 '핵심광물 1호'는 포스코인터",
+          "url": "https://www.mk.co.kr/article/12211486",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/009/0005765144?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A13",
+          "publishedAt": "2026-11-17T17:46:16+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A13면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "국민성장펀드 핵심광물 분야 첫 투자처로 포스코인터내셔널의 동남아 등 해외 희토류 공급망 사업이 유력하며, 1조원 안팎을 저리 대출로 지원하는 방안이 협의되고 있다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "국민성장펀드는 정부가 첨단산업 지원을 위해 조성한 정책 펀드다. 희토류는 채굴부터 분리·정제까지 중국이 공급망을 장악하고 있어 대체 공급처 확보가 과제로 꼽혀 왔다.",
+            "points": [
+              "금융당국과 포스코인터내셔널은 동남아 등 2~3개 프로젝트를 묶어 지원하는 방안을 실무 협의 중이다.",
+              "해외 광산 투자와 희토류 기업 사업부 인수 등이 대상으로 거론되며, 회사가 요청한 대출 규모는 약 1조원이다.",
+              "확정되면 핵심광물 분야와 해외 사업을 통틀어 펀드의 첫 투자가 된다.",
+              "투자심의위원회와 기금운용심의회를 거쳐 최종 금액과 조건이 정해진다."
+            ],
+            "significance": "대출 규모와 금리를 두고 양측 견해차가 있어 연내 승인 여부는 불확실하다. 해외 자원 사업은 초기 비용이 크고 회수가 오래 걸리며 자원국 정책 변화 위험도 있어, 정책금융 지원을 핵심광물 전반으로 넓혀야 한다는 전문가 의견이 제기된다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "mk-009-0005765145",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 대한상의 새 회장 구자열 LS의장 유력",
+          "url": "https://www.mk.co.kr/article/12211487",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/009/0005765145?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A13",
+          "publishedAt": "2026-11-17T17:46:19+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A13면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "구자열 LS 이사회 의장이 내년 3월 임기가 끝나는 최태원 회장의 뒤를 이어 대한상공회의소 제26대 회장으로 추대될 것이 유력한 것으로 파악됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "대한상의 회장은 관례상 서울상의 회장이 겸임한다. 최태원 회장은 2021년 취임해 2024년 연임했으며 규정상 더 연임할 수 없다.",
+            "points": [
+              "구 의장은 내년 초 서울상의 회장으로 먼저 추대된 뒤 대한상의 회장에 오를 전망이다.",
+              "그는 2013년부터 9년간 LS그룹 회장을 맡아 25개국에 100여 개 현지 법인을 둔 기업으로 키웠다.",
+              "2021년 기업인 출신으로는 15년 만에 한국무역협회장에 올라 3년간 재임했다.",
+              "올해 초부터 한일경제협회장을 맡아 다카이치 사나에 일본 총리를 만나고 한일경제인회의를 주재했다."
+            ],
+            "significance": "경영 경험과 경제단체 운영 이력, 일본과의 네트워크를 갖춰 한일 경제협력에 적합한 인물이라는 평가가 나온다. 최 회장은 다른 경제단체장을 맡지 않고 SK그룹 경영에 전념할 것으로 알려졌다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "hankyung-015-0005354892",
+          "publisherId": "hankyung",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 한숨 돌린 LIG D&A, '2년 입찰제한' 효력정지",
+          "url": "https://www.hankyung.com/article/2026111727211",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/015/0005354892?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A12",
+          "publishedAt": "2026-11-17T17:31:18+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A12면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "서울행정법원이 LIG D&A가 방위사업청의 24개월 입찰참가 제한 처분에 대해 낸 집행정지 신청을 받아들여, 회사는 본안 판결 때까지 신규 방산 입찰에 참여할 수 있게 됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "LIG D&A는 천궁-II 등 유도무기와 방공체계를 만드는 주요 방산업체로, 정부 발주 비중이 높다. 방사청은 올해부터 검찰 기소 단계에서 제재 심의를 하고 입찰 감점을 강화했다.",
+            "points": [
+              "방사청은 지난달 20일 뇌물공여와 원가 부정을 이유로 2년간 입찰 제한 처분을 내렸다.",
+              "회사는 처분 취소 본안 소송과 함께 집행정지를 신청했고, 법원은 17일 집행정지를 인용했다.",
+              "효력은 본안 판결 선고 후 30일까지 유지되며, 기각됐다면 오는 21일부터 제재가 시작될 예정이었다.",
+              "회사는 임원 혐의를 다투는 중에 법인 전체에 최고 수준 제재를 한 것은 지나치다고 주장했다."
+            ],
+            "significance": "이번 결정이 혐의의 무죄나 처분의 위법성을 확정한 것은 아니며 적법성은 본안에서 판단된다. 유무죄 확정 전 입찰 자격을 묶는 것이 적절한지 논란이 이어지는 가운데, 방사청의 향후 제재 방식에 영향을 줄지 주목된다.",
+            "terms": [
+              {
+                "term": "집행정지",
+                "description": "행정처분의 효력을 본안 판결 전까지 임시로 멈추게 하는 법원 결정."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hankyung-015-0005354865",
+          "publisherId": "hankyung",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 홍콩증시 상장 무산 후폭풍…CGV가 1200억 대신 갚는다",
+          "url": "https://www.hankyung.com/article/2026111726651",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/015/0005354865?date=20261118",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A15",
+          "publishedAt": "2026-11-17T17:22:17+09:00",
+          "newspaperDate": "2026-11-18",
+          "newspaperEvidence": "네이버 신문보기 2026-11-18 A15면 목록",
+          "collectedAt": "2026-11-18T09:14:56+09:00",
+          "summary": "CJ CGV 자회사 CGI홀딩스의 홍콩 상장이 무산된 여파로 재무적 투자자들의 인수금융 1200억원이 19일 만기에 디폴트 수순을 밟으면서, CJ CGV가 약정에 따라 이를 대신 갚아야 할 상황이다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "CGI홀딩스는 CJ CGV의 중국·베트남·인도네시아 등 아시아 법인을 거느린 중간지주사다. 코로나19로 극장 산업이 침체하면서 상장 계획이 틀어졌다.",
+            "points": [
+              "MBK파트너스·미래에셋증권 컨소시엄은 2019년 CGI홀딩스 지분 28.57%를 2억8600만달러에 사들였고 절반 이상을 차입으로 마련했다.",
+              "투자는 2023년 6월까지 홍콩 IPO를 마친다는 조건이었으나 상장은 이뤄지지 않았다.",
+              "CJ CGV는 2023~2024년 세 차례 컨소시엄 지분 약 11%를 약 1659억원에 매입했다.",
+              "2024년 11월에는 인수금융 잔액 약 1200억원을 만기 시 대여 방식으로 메우는 자금보충약정을 맺었다."
+            ],
+            "significance": "부담액은 CJ CGV의 올해 3분기 누적 연결 영업이익 938억원보다 많아, 회복세를 보이던 실적에 새 악재가 됐다. 투자자들은 경영권 매각으로 상환하려 했으나 CGI홀딩스 실적 부진으로 매각이 지연되고 있다.",
+            "terms": [
+              {
+                "term": "자금보충약정",
+                "description": "차입자가 빚을 갚지 못할 때 제3자가 부족한 자금을 채워주기로 약속하는 계약."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "generatedAt": "2026-11-18T09:19:59+09:00",
+      "windowStart": "2026-11-17T00:00:00+09:00",
+      "windowEnd": "2026-11-18T09:18:45+09:00",
+      "collectionMode": "naver_newspaper",
+      "status": "complete",
+      "note": "네이버 신문보기 2026-11-17자 지면 전체(1179건)를 GitHub Actions가 수집하고, Claude가 단독·기획 선별과 요약을 작성했습니다.",
+      "coverage": [
+        {
+          "publisherId": "chosun",
+          "status": "checked",
+          "note": "지면 기사 83건 수집, 후보 3건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 3
+        },
+        {
+          "publisherId": "joongang",
+          "status": "checked",
+          "note": "지면 기사 72건 수집, 후보 2건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 1
         },
         {
           "publisherId": "donga",
           "status": "checked",
-          "note": "지면 기사 133건 수집, 후보 15건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "note": "지면 기사 133건 수집, 후보 2건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 2
         },
         {
@@ -113,14 +1294,14 @@
         {
           "publisherId": "hankookilbo",
           "status": "checked",
-          "note": "지면 기사 81건 수집, 후보 4건 기사 페이지 확인. 단독·기획 4건 선정.",
+          "note": "지면 기사 81건 수집, 후보 4건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 4
         },
         {
           "publisherId": "khan",
           "status": "checked",
-          "note": "지면 기사 75건 수집, 후보 0건 기사 페이지 확인. 단독·기획 0건 선정.",
-          "articleCount": 0
+          "note": "지면 기사 88건 수집, 후보 2건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
         },
         {
           "publisherId": "kmib",
@@ -131,31 +1312,31 @@
         {
           "publisherId": "segye",
           "status": "checked",
-          "note": "지면 기사 107건 수집, 후보 8건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "note": "지면 기사 107건 수집, 후보 3건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 3
         },
         {
           "publisherId": "seoul",
           "status": "checked",
-          "note": "지면 기사 102건 수집, 후보 5건 기사 페이지 확인. 단독·기획 1건 선정.",
+          "note": "지면 기사 102건 수집, 후보 1건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 1
         },
         {
           "publisherId": "sedaily",
           "status": "checked",
-          "note": "지면 기사 105건 수집, 후보 7건 기사 페이지 확인. 단독·기획 5건 선정.",
+          "note": "지면 기사 105건 수집, 후보 6건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 5
         },
         {
           "publisherId": "mk",
           "status": "checked",
           "note": "지면 기사 120건 수집, 후보 2건 기사 페이지 확인. 단독·기획 1건 선정.",
-          "articleCount": 1
+          "articleCount": 2
         },
         {
           "publisherId": "hankyung",
           "status": "checked",
-          "note": "지면 기사 127건 수집, 후보 5건 기사 페이지 확인. 단독·기획 5건 선정.",
+          "note": "지면 기사 127건 수집, 후보 5건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 5
         }
       ],
@@ -1009,6 +2190,113 @@
               {
                 "term": "pre-ARS",
                 "description": "회생 신청 전 법원 민사조정을 활용해 주요 채권자와 비공개로 협상하는 제도."
+              }
+            ]
+          }
+        },
+        {
+          "id": "khan-032-0003483093",
+          "publisherId": "khan",
+          "type": "feature",
+          "section": "사회",
+          "title": "[르포] 교도소 이름서 ‘청송’ 빼달라더니 이젠 ‘한 곳 더’···교정시설 4곳 놓고 지자체 7곳 경쟁",
+          "url": "https://www.khan.co.kr/article/202611170600031",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/032/0003483093?date=20261117",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A12",
+          "publishedAt": "2026-11-17T06:00:03+09:00",
+          "newspaperDate": "2026-11-17",
+          "newspaperEvidence": "네이버 신문보기 2026-11-17 A12면 목록",
+          "collectedAt": "2026-11-18T09:18:45+09:00",
+          "summary": "법무부가 처음 공모 방식으로 새 교정시설 부지를 찾자 청송·영양·의성·영덕·제천·보은·정선 등 7개 지자체가 유치를 신청했고, 법무부는 12월 중 4곳을 고른다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 기획 문패 [르포]",
+          "detail": {
+            "background": "교도소는 오랫동안 대표적인 기피시설로 꼽혀 입지를 정할 때마다 주민 반발이 컸다. 인구 감소와 고령화가 심한 군 지역을 중심으로 지역소멸 우려가 커지면서 공공시설 유치를 생활 인구 확보 수단으로 보는 시각이 늘고 있다.",
+            "points": [
+              "법무부는 주민 갈등을 줄이려고 지자체가 주민 의견을 모아 후보지를 내는 공모 방식을 처음 도입했다.",
+              "새 시설은 곳당 정원 1000명, 직원 250명 규모이며 신청한 7곳 중 제천을 뺀 6곳은 인구 5만명 미만이다.",
+              "이미 교도소 4곳이 모인 청송 진보면은 근무 인원 약 1200명의 소비로 상권이 커져 면 인구가 군청 소재지보다 많아졌다.",
+              "2010년 교도소 이름에서 지역명을 빼달라고 했던 청송군이 이번엔 다섯 번째 교도소 유치에 나섰다.",
+              "보은군은 주민 2만6000여명의 서명부를 냈고, 영덕군 여론조사에선 찬성이 80%를 넘었다."
+            ],
+            "significance": "한때 기피하던 시설이 소멸 위기 지역에선 경제 활성화 대안으로 받아들여지고 있다는 변화를 보여준다. 12월 부지 선정 결과와 탈락 지역의 반응이 관심사다.",
+            "terms": [
+              {
+                "term": "교정시설",
+                "description": "교도소·구치소처럼 형이 확정됐거나 재판 중인 사람을 수용하는 법무부 시설."
+              }
+            ]
+          }
+        },
+        {
+          "id": "khan-032-0003483347",
+          "publisherId": "khan",
+          "type": "feature",
+          "section": "사회",
+          "title": "반복·정리가 강점으로···발달장애인 맞춤형 편의점 가보니[현장에서]",
+          "url": "https://www.khan.co.kr/article/202611180600071",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/032/0003483347?date=20261117",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A12",
+          "publishedAt": "2026-11-18T06:00:07+09:00",
+          "newspaperDate": "2026-11-17",
+          "newspaperEvidence": "네이버 신문보기 2026-11-17 A12면 목록",
+          "collectedAt": "2026-11-18T09:18:45+09:00",
+          "summary": "경기 수원의 한 편의점이 발달장애인 맞춤형 편의점 직무교육원으로 지정돼 발달장애인 5명이 일하고 있으며, 지금까지 20명이 직무 교육을 받았다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [현장에서] 경향신문 현장 방문 르포(본문 확인)",
+          "detail": {
+            "background": "발달장애인 일자리는 그동안 카페 중심으로 마련돼 왔지만, 손님 응대 과정의 변수가 많아 독립적으로 일하기 어렵다는 지적이 있었다. 장애인을 고용한 사업장은 인건비 일부를 지원받을 수 있다.",
+            "points": [
+              "이 편의점은 올해 경기도사회적경제원 지원사업에 뽑혔고 꿈틀협동조합이 수행기관을 맡고 있다.",
+              "직원들은 바코드를 태블릿에 찍으면 진열할 매대 번호를 확인하는 방식으로 상품을 분류한다.",
+              "자폐 스펙트럼 장애가 있는 2년차 직원은 재고 정리와 청소 등 직무를 혼자 해낼 만큼 숙달됐다.",
+              "운영 측은 결제를 빼면 재고 정리와 청소처럼 반복적인 일이 많아 편의점이 숙달 중심 교육에 맞는다고 본다."
+            ],
+            "significance": "장애인 일자리를 시혜가 아닌 강점을 살리는 직무 개발의 문제로 접근한 사례다. 인건비 지원과 맞물려 편의점 업계 전반의 고용 확대로 이어질지가 관건이다.",
+            "terms": [
+              {
+                "term": "자폐 스펙트럼 장애",
+                "description": "사회적 소통의 어려움과 반복적 행동·관심 등을 특징으로 하는 발달장애의 한 유형."
+              }
+            ]
+          }
+        },
+        {
+          "id": "mk-009-0005764586",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 저PBR 꼬리표 기업 90% 주가누르기 아닌 실적 탓",
+          "url": "https://www.mk.co.kr/article/12210231",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/009/0005764586?date=20261117",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A1",
+          "publishedAt": "2026-11-16T17:52:11+09:00",
+          "newspaperDate": "2026-11-17",
+          "newspaperEvidence": "네이버 신문보기 2026-11-17 A1면 목록",
+          "collectedAt": "2026-11-18T09:18:45+09:00",
+          "summary": "매일경제가 한국거래소 공표 저PBR 기업 151곳의 최근 3년 재무제표를 분석한 결과 136곳(90.1%)의 평균 ROE가 상장사 평균 8%에 못 미쳤다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "정부는 기업가치 제고 정책의 하나로 PBR 하위 25% 상장사 대주주의 상속·증여 주식 평가액을 최소 30% 할증하는 세법 개정안을 국회에 냈다. 대주주가 세 부담을 줄이려 주가를 일부러 누른다는 문제의식에서 나온 방안이다.",
+            "points": [
+              "분석 대상은 2023~2025년 재무제표이며 비교 기준은 삼일PwC가 산출한 상장사 평균 ROE 8%다.",
+              "3년 평균 ROE가 마이너스인 곳은 47곳(31.1%), 3% 미만인 곳은 83곳(55%)이었다.",
+              "PBR과 ROE가 함께 낮다면 수익성 부진이 저평가의 주된 원인일 수 있다는 해석이 나온다.",
+              "일부 대주주의 의도적 주가 억제 정황은 있지만 다수는 구조적 저수익성 문제라는 분석이다."
+            ],
+            "significance": "세제로 압박하기 전에 저평가 원인이 실적 부진인지 고의적 주가 억제인지 구분해야 한다는 주장이 나온다. 할증 법안 논의 과정에서 기준 설계가 쟁점이 될 전망이다.",
+            "terms": [
+              {
+                "term": "PBR",
+                "description": "주가를 주당순자산으로 나눈 값. 1보다 낮으면 장부상 자산가치보다 주가가 싸다는 뜻."
+              },
+              {
+                "term": "ROE",
+                "description": "자기자본이익률. 자기자본으로 얼마만큼 이익을 냈는지 보여주는 지표."
               }
             ]
           }
