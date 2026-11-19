@@ -274,6 +274,14 @@
       "SELL & BUY": {
         "decision": "exclude",
         "note": "중고 설비 매매 정보 코너"
+      },
+      "WM명가를 찾아서": {
+        "decision": "exclude",
+        "note": "금융사 WM 소개 코너(홍보성, 본문 확인)"
+      },
+      "매달 연금 500만원 받는법": {
+        "decision": "exclude",
+        "note": "연금 재테크 정보 코너(본문 확인)"
       }
     },
     "segye": {
@@ -496,6 +504,14 @@
       "현장메모": {
         "decision": "exclude",
         "note": "기자 의견 칼럼"
+      },
+      "수능 ‘AI커닝’ 비상": {
+        "decision": "exclude",
+        "note": "AI 부정행위 사건명 문패(일반 보도 묶음, 본문 확인)"
+      },
+      "中 선전 에이펙": {
+        "decision": "exclude",
+        "note": "APEC 정상회의 사건명 문패(스트레이트 묶음)"
       }
     },
     "kmib": {
@@ -938,6 +954,10 @@
       "대한민국 딥테크 혁신창업 리더십": {
         "decision": "exclude",
         "note": "섹션 특집 홍보성 기사(대학·기관 소개, 본문 확인)"
+      },
+      "클리프": {
+        "decision": "exclude",
+        "note": "기후·에너지 섹션 브랜드 문패(외부 필자 글 혼재, 기획 연재 근거 부족, 본문 확인)"
       }
     },
     "hankookilbo": {
@@ -1124,6 +1144,14 @@
       "살람! 중동·아프리카": {
         "decision": "feature",
         "note": "한국일보 카이로 특파원 현지 취재 연재(4주 간격, 2꼭지, 본문 확인)"
+      },
+      "클릭! 자치뉴스": {
+        "decision": "exclude",
+        "note": "지자체 소식 단신 코너"
+      },
+      "숫자로 본 대한민국": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼(본문 확인)"
       }
     },
     "khan": {
@@ -1366,6 +1394,18 @@
       "현장에서": {
         "decision": "feature",
         "note": "경향신문 현장 방문 르포(본문 확인)"
+      },
+      "서울25": {
+        "decision": "exclude",
+        "note": "서울 자치구 소식 코너"
+      },
+      "하리하라의 사이언스 인사이드": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "내일의 태도": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "chosun": {
@@ -1428,6 +1468,14 @@
       "박수빈·이대호의 계단뿌시記": {
         "decision": "exclude",
         "note": "외부 필자 에세이 연재(본문 확인)"
+      },
+      "부산에 가면": {
+        "decision": "exclude",
+        "note": "외부 필자 에세이 연재(본문 확인)"
+      },
+      "존 프랭클의 문무겸전": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼(본문 확인)"
       }
     },
     "hani": {
@@ -1652,6 +1700,14 @@
       "제19회 교통문화발전대회": {
         "decision": "exclude",
         "note": "시상 홍보 기사"
+      },
+      "과학계는 지금": {
+        "decision": "exclude",
+        "note": "해외 연구 소개 정보 코너(본문 확인)"
+      },
+      "‘미래의 주인공’ 어린이들과 함께": {
+        "decision": "exclude",
+        "note": "자치구 홍보성 기사 묶음(본문 확인)"
       }
     },
     "sedaily": {
@@ -1866,6 +1922,14 @@
       "野 윤리위에 외부인사 개입 논란": {
         "decision": "exclude",
         "note": "당일 뉴스 묶음 문패"
+      },
+      "추경호 1심서 ‘무죄’": {
+        "decision": "exclude",
+        "note": "당일 뉴스 묶음 문패"
+      },
+      "CEO＆STORY": {
+        "decision": "exclude",
+        "note": "정기 CEO 인터뷰 코너(본문 확인)"
       }
     },
     "hankyung": {
