@@ -282,6 +282,10 @@
       "매달 연금 500만원 받는법": {
         "decision": "exclude",
         "note": "연금 재테크 정보 코너(본문 확인)"
+      },
+      "금융라운지": {
+        "decision": "exclude",
+        "note": "금융 단신 정보 코너"
       }
     },
     "segye": {
@@ -512,6 +516,14 @@
       "中 선전 에이펙": {
         "decision": "exclude",
         "note": "APEC 정상회의 사건명 문패(스트레이트 묶음)"
+      },
+      "2027 수능": {
+        "decision": "exclude",
+        "note": "수능 당일 사건명 문패(스트레이트 묶음, 본문 확인)"
+      },
+      "미·중·러 정상회담": {
+        "decision": "exclude",
+        "note": "정상회담 사건명 문패(스트레이트 묶음)"
       }
     },
     "kmib": {
@@ -958,6 +970,14 @@
       "클리프": {
         "decision": "exclude",
         "note": "기후·에너지 섹션 브랜드 문패(외부 필자 글 혼재, 기획 연재 근거 부족, 본문 확인)"
+      },
+      "더 하이엔드": {
+        "decision": "exclude",
+        "note": "럭셔리 브랜드 홍보성 특집 섹션"
+      },
+      "High Collection": {
+        "decision": "exclude",
+        "note": "여행·브랜드 홍보성 특집"
       }
     },
     "hankookilbo": {
@@ -1406,6 +1426,34 @@
       "내일의 태도": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
+      },
+      "COP31, 정치와 삶 사이①": {
+        "decision": "feature",
+        "note": "경향신문 COP31 현지 취재 기획 연재(본문 확인)"
+      },
+      "COP31, 정치와 삶 사이②": {
+        "decision": "feature",
+        "note": "경향신문 COP31 현지 취재 기획 연재(본문 확인)"
+      },
+      "COP31, 정치와 삶 사이③": {
+        "decision": "feature",
+        "note": "경향신문 COP31 현지 취재 기획 연재(본문 확인)"
+      },
+      "COP31, 정치와 삶 사이④": {
+        "decision": "feature",
+        "note": "경향신문 COP31 현지 취재 기획 연재(본문 확인)"
+      },
+      "COP31, 정치와 삶 사이⑤": {
+        "decision": "feature",
+        "note": "경향신문 COP31 현지 취재 기획 연재(본문 확인)"
+      },
+      "COP31, 정치와 삶 사이⑥": {
+        "decision": "feature",
+        "note": "경향신문 COP31 현지 취재 기획 연재(본문 확인)"
+      },
+      "책에서 만난 얼굴": {
+        "decision": "exclude",
+        "note": "서평 코너(외부 필자)"
       }
     },
     "chosun": {
@@ -1476,6 +1524,14 @@
       "존 프랭클의 문무겸전": {
         "decision": "exclude",
         "note": "외부 필자 칼럼(본문 확인)"
+      },
+      "우리 아이 이럴땐 어떻게?": {
+        "decision": "exclude",
+        "note": "육아 상담 Q&A 정보 코너(본문 확인)"
+      },
+      "산모퉁이 돌고 나니": {
+        "decision": "exclude",
+        "note": "외부 필자 에세이 연재(본문 확인)"
       }
     },
     "hani": {
@@ -1708,6 +1764,14 @@
       "‘미래의 주인공’ 어린이들과 함께": {
         "decision": "exclude",
         "note": "자치구 홍보성 기사 묶음(본문 확인)"
+      },
+      "바다로 열고 산업과 사람을 잇는, 부산·울산·경남 인구 대전환": {
+        "decision": "exclude",
+        "note": "자사 주최 인구포럼 행사 보도 묶음(본문 확인)"
+      },
+      "올레길에서 만난 벅차오름": {
+        "decision": "exclude",
+        "note": "걷기 행사 참가 소개 기사(본문 확인)"
       }
     },
     "sedaily": {
@@ -1930,6 +1994,18 @@
       "CEO＆STORY": {
         "decision": "exclude",
         "note": "정기 CEO 인터뷰 코너(본문 확인)"
+      },
+      "미중러 첫 3자 정상회담": {
+        "decision": "exclude",
+        "note": "정상회담 사건명 문패(스트레이트 묶음)"
+      },
+      "APEC 정상회의": {
+        "decision": "exclude",
+        "note": "APEC 정상회의 사건명 문패(스트레이트 묶음)"
+      },
+      "2027 대학수학능력시험": {
+        "decision": "exclude",
+        "note": "수능 사건명 문패(스트레이트 묶음)"
       }
     },
     "hankyung": {

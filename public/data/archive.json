@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "timezone": "Asia/Seoul",
-  "updatedAt": "2026-11-19T09:12:51+09:00",
+  "updatedAt": "2026-11-20T09:22:37+09:00",
   "publishers": [
     {
       "id": "chosun",
@@ -78,31 +78,31 @@
   ],
   "runs": [
     {
-      "date": "2026-11-19",
-      "generatedAt": "2026-11-19T09:11:36+09:00",
-      "windowStart": "2026-11-19T00:00:00+09:00",
-      "windowEnd": "2026-11-19T09:08:50+09:00",
+      "date": "2026-11-20",
+      "generatedAt": "2026-11-20T09:22:09+09:00",
+      "windowStart": "2026-11-20T00:00:00+09:00",
+      "windowEnd": "2026-11-20T09:17:53+09:00",
       "collectionMode": "naver_newspaper",
       "status": "complete",
-      "note": "네이버 신문보기 2026-11-19자 지면 전체(1202건)를 GitHub Actions가 수집하고, Claude가 단독·기획 선별과 요약을 작성했습니다.",
+      "note": "네이버 신문보기 2026-11-20자 지면 전체(1157건)를 GitHub Actions가 수집하고, Claude가 단독·기획 선별과 요약을 작성했습니다.",
       "coverage": [
         {
           "publisherId": "chosun",
           "status": "checked",
-          "note": "지면 기사 82건 수집, 후보 4건 기사 페이지 확인. 단독·기획 2건 선정.",
-          "articleCount": 2
+          "note": "지면 기사 84건 수집, 후보 3건 기사 페이지 확인. 단독·기획 1건 선정.",
+          "articleCount": 1
         },
         {
           "publisherId": "joongang",
           "status": "checked",
-          "note": "지면 기사 79건 수집, 후보 10건 기사 페이지 확인. 단독·기획 2건 선정.",
-          "articleCount": 2
+          "note": "지면 기사 76건 수집, 후보 8건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 0
         },
         {
           "publisherId": "donga",
           "status": "checked",
-          "note": "지면 기사 124건 수집, 후보 1건 기사 페이지 확인. 단독·기획 1건 선정.",
-          "articleCount": 1
+          "note": "지면 기사 97건 수집, 후보 3건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "articleCount": 3
         },
         {
           "publisherId": "hani",
@@ -113,49 +113,1057 @@
         {
           "publisherId": "hankookilbo",
           "status": "checked",
-          "note": "지면 기사 85건 수집, 후보 6건 기사 페이지 확인. 단독·기획 2건 선정.",
-          "articleCount": 2
+          "note": "지면 기사 68건 수집, 후보 0건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 0
         },
         {
           "publisherId": "khan",
           "status": "checked",
-          "note": "지면 기사 78건 수집, 후보 4건 기사 페이지 확인. 단독·기획 0건 선정.",
-          "articleCount": 0
+          "note": "지면 기사 95건 수집, 후보 4건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "articleCount": 3
         },
         {
           "publisherId": "kmib",
           "status": "checked",
-          "note": "지면 기사 94건 수집, 후보 1건 기사 페이지 확인. 단독·기획 1건 선정.",
-          "articleCount": 1
+          "note": "지면 기사 106건 수집, 후보 2건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
         },
         {
           "publisherId": "segye",
           "status": "checked",
-          "note": "지면 기사 102건 수집, 후보 8건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "note": "지면 기사 102건 수집, 후보 13건 기사 페이지 확인. 단독·기획 2건 선정.",
           "articleCount": 2
         },
         {
           "publisherId": "seoul",
           "status": "checked",
-          "note": "지면 기사 95건 수집, 후보 4건 기사 페이지 확인. 단독·기획 1건 선정.",
+          "note": "지면 기사 91건 수집, 후보 5건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 0
+        },
+        {
+          "publisherId": "sedaily",
+          "status": "checked",
+          "note": "지면 기사 109건 수집, 후보 13건 기사 페이지 확인. 단독·기획 8건 선정.",
+          "articleCount": 8
+        },
+        {
+          "publisherId": "mk",
+          "status": "checked",
+          "note": "지면 기사 130건 수집, 후보 4건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "articleCount": 3
+        },
+        {
+          "publisherId": "hankyung",
+          "status": "checked",
+          "note": "지면 기사 137건 수집, 후보 2건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
+        }
+      ],
+      "articles": [
+        {
+          "id": "chosun-023-0004010733",
+          "publisherId": "chosun",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 석달 된 군법무관이 내란 재판 맡아… 판사에 받은 질책만 20차례",
+          "url": "https://www.chosun.com/national/court_law/2026/11/20/IKUDLJCF3RDGRCW6J56POSHBD4/",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/023/0004010733?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A10",
+          "publishedAt": "2026-11-20T05:01:07+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A10면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "2차 종합특검이 군 관계자 내란 재판의 공소 유지에 임관 3개월 된 단기 군법무관까지 투입했고, 재판 시작 뒤 재판부 지적만 20차례를 넘은 것으로 파악됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "2차 종합특검은 12·3 비상계엄과 관련해 윤석열 전 대통령 등 58명을 내란 혐의로 기소했다. 특검은 수사 기간이 끝난 뒤에도 기소한 사건의 재판에서 공소 유지를 맡는다.",
+            "points": [
+              "김명수 전 합참의장 등 군 관계자 재판은 특검보와 군법무관 6명이 맡는데, 이 중 5명이 단기 법무관이고 2명은 올해 8월 임관했다.",
+              "8월 수사 종료 뒤 파견 검사는 3명만 남았고, 특검법상 정원은 한 번도 채운 적이 없다.",
+              "9월 재판 본격화 이후 준비 미흡과 부실 수사로 재판부 지적을 20차례 넘게 받았다.",
+              "조성현 대령 재판에서는 피고인 동의 없는 수사 보고서를 의견서에 넣었다가 다시 내라는 요구를 받았다.",
+              "법 개정으로 공소 유지 전담 변호사를 최대 10명 둘 수 있게 돼 9명을 뽑았지만 이들도 지적을 받고 있다."
+            ],
+            "significance": "인력 준비 없이 특검법만 통과시켜 부실 수사와 부실 재판으로 이어졌다는 비판이 나온다. 수십 명이 기소된 내란 재판에서 공소 유지 역량이 유지될지 지켜볼 부분이다.",
+            "terms": [
+              {
+                "term": "공소 유지",
+                "description": "기소한 쪽이 재판에서 혐의를 입증하고 유죄를 주장하는 활동."
+              },
+              {
+                "term": "단기 군법무관",
+                "description": "변호사시험 합격 뒤 병역 의무로 일정 기간 복무하는 법무장교."
+              }
+            ]
+          }
+        },
+        {
+          "id": "donga-020-0003763869",
+          "publisherId": "donga",
+          "type": "exclusive",
+          "section": "정치",
+          "title": "[단독]국세청장 후보자, 아내 명의로 재개발 주택 매입후 비거주",
+          "url": "https://www.donga.com/news/Politics/article/all/20261120/135057411/2",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/020/0003763869?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A8",
+          "publishedAt": "2026-11-20T04:34:15+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A8면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "안덕수 국세청장 후보자 배우자가 2010년 사들인 이문동 재개발 주택이 신축 아파트가 됐지만 가족은 살지 않고 전세를 줬으며, 5억 원대로 신고한 이 집의 시세는 13억 원을 넘는다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "고위 공직 후보자는 국회 인사청문회에 앞서 재산 내역이 담긴 인사청문요청안을 제출한다. 이재명 정부는 부동산 정책에서 실거주를 우대하는 기조를 펴고 있다.",
+            "points": [
+              "배우자가 2010년 5월 뉴타운인 이문1구역 주택을 매입했고, 이 구역은 재개발돼 지난해 1월 래미안라그란데로 완공됐다.",
+              "가족은 매입 뒤 거주하지 않았고, 완공 후 세대 분리형 74㎡를 두 임차인에게 4억5000만 원과 1억8000만 원에 전세를 줬다.",
+              "신고 가액은 5억3470만 원이지만 같은 면적이 지난해 9월 13억7500만 원에 팔렸고 호가는 17억5000만 원부터다.",
+              "청문준비단은 해외 연수와 세종 근무로 거주가 어려웠고, 미등기 상태라 조합원 분양가로 신고했다고 해명했다."
+            ],
+            "significance": "국민의힘은 정부의 실거주 우대 정책과 맞지 않는다고 비판하고 있다. 세정 책임자의 주택 보유 방식과 재산 신고 기준이 26일 청문회의 쟁점이 될 전망이다.",
+            "terms": [
+              {
+                "term": "재정비촉진구역(뉴타운)",
+                "description": "노후 주거지를 넓게 묶어 재개발하도록 지정한 구역."
+              }
+            ]
+          }
+        },
+        {
+          "id": "donga-020-0003763879",
+          "publisherId": "donga",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독]“여중생에 KTX표 주며 외할머니댁 순금 훔치게 해”",
+          "url": "https://www.donga.com/news/Society/article/all/20261120/135057320/2",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/020/0003763879?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A12",
+          "publishedAt": "2026-11-20T04:34:42+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A12면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "성북구 여중생 살해 피의자의 전 사실혼 배우자 김모 씨가 생전 피해자에게 자택과 외할머니댁 금품을 훔쳐 오게 한 혐의로 18일 구속됐고, 살인 피의자 진모 씨는 범행을 인정했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "이달 10일 서울 성북구 정릉동의 공유 숙소에서 15세 여중생이 살해됐고 진 씨가 이튿날 체포됐다. 유족은 1월 진 씨 아들을 성범죄 혐의로 고소했고 경찰은 3월 그를 불구속 송치했다.",
+            "points": [
+              "유족 고소장에 따르면 김 씨는 2~3월 세 차례 여중생에게 훔칠 장소와 물건을 정해 줬다.",
+              "여중생은 자택에서 가방과 가전, 현금, 노트북을, 김 씨가 끊어 준 KTX로 간 경주 외할머니댁에서 금붙이를 가져왔고 김 씨가 모두 챙겼다.",
+              "경찰의 7월 영장 신청은 검찰이 청구하지 않았으나, 재신청 끝에 서울북부지법이 증거 인멸 우려로 발부했다.",
+              "진 씨는 18일 조사에서 가족 사건의 처벌불원서를 요구하다 화가 나 우발적으로 범행했다는 취지로 진술했다."
+            ],
+            "significance": "유족은 합의 시도가 전혀 없었다며 김 씨가 진 씨에게 동기를 꾸며 줬다고 반발한다. 경찰은 보복살인 혐의 적용과 김 씨의 살인 교사 여부를 살필 방침이다.",
+            "terms": [
+              {
+                "term": "처벌불원서",
+                "description": "피해자가 가해자의 처벌을 원하지 않는다는 뜻을 밝히는 문서."
+              }
+            ]
+          }
+        },
+        {
+          "id": "donga-020-0003763822",
+          "publisherId": "donga",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독]SK하닉, 日키옥시아 전환사채 주식전환 검토… 이행 땐 지분 14% 이상",
+          "url": "https://www.donga.com/news/Economy/article/all/20261119/135055012/1",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/020/0003763822?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "B1",
+          "publishedAt": "2026-11-20T00:32:21+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 B1면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "SK하이닉스가 2018년 약 1조3000억 원에 인수한 키옥시아 관련 전환사채를 주식으로 바꾸는 방안을 검토 중이며, 전환하면 사실상 키옥시아 지분 14% 이상을 갖게 된다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "SK하이닉스는 2018년 베인캐피털 주도 컨소시엄에 참여해 당시 도시바메모리였던 키옥시아에 투자했다. 키옥시아는 낸드플래시를 만드는 일본 메모리 업체다.",
+            "points": [
+              "당시 투자한 3950억 엔 가운데 1290억 엔은 SPC2가 발행한 CB 인수에 쓰였고, 나머지는 SPC1에 출자됐다.",
+              "올해 상반기 SPC1을 통해 보유한 지분은 매각해 약 20조 원의 차익을 낸 것으로 추산된다.",
+              "SPC2는 9월 말 기준 지분 14.53%로 도시바(12.43%)를 앞선 키옥시아 최대주주다.",
+              "키옥시아 주가가 6월 고점보다 약 78% 내려 SPC2 지분 가치도 약 71조5000억 원에서 15조8000억 원 수준으로 줄었다.",
+              "SK하이닉스는 전환하더라도 당장 팔 계획은 없는 것으로 파악됐다."
+            ],
+            "significance": "투자금 회수보다 협력에 무게를 둔 행보로 해석되며, 최태원 회장도 키옥시아의 파트너가 될 뜻을 밝힌 바 있다. 낸드 시장 경쟁자인 두 회사의 차세대 메모리 공동 개발 등 협력이 넓어질지 주목된다.",
+            "terms": [
+              {
+                "term": "전환사채(CB)",
+                "description": "정해진 조건에 따라 발행사 주식으로 바꿀 수 있는 회사채."
+              },
+              {
+                "term": "특수목적회사(SPC)",
+                "description": "특정 투자나 사업만을 위해 세운 회사."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hani-028-0002833114",
+          "publisherId": "hani",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 성소수자 ‘혐오의 손짓’ 바뀔까…수어사전에 첫 주의 문구",
+          "url": "https://www.hani.co.kr/arti/society/society_general/1288239.html",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/028/0002833114?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "8",
+          "publishedAt": "2026-11-19T22:12:10+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 8면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "국립국어원이 한국수어사전에서 성소수자 등을 차별적으로 묘사하는 수어에 사용 주의 문구를 처음 달았고, 내년 개편되는 한국수어누리사전에는 대안 수어도 함께 싣기로 했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "한국수어에서 게이와 레즈비언은 노골적인 성적 의미로 표현돼 괴롭힘 도구로 악용되기도 했다. 농인 성소수자 단체는 2022년부터 자체 개발한 대안 수어를 사전에 올려 달라고 요구해 왔다.",
+            "points": [
+              "국립국어원 사전편찬위원회는 지난달 국적·성정체성·인종·장애 관련 차별 소지 표현에 부가 정보로 주의 문구를 넣기로 했다.",
+              "대안 수어가 있고 서로 다른 방송 매체에서 5건 이상 쓰였다면 부가 정보에 함께 실을 수 있다.",
+              "임시 비공개됐던 게이·레즈비언 수어는 기존 표현을 표제어로 둔 채 주의 문구와 함께 13일 다시 공개됐다.",
+              "내년 두 사전이 한국수어누리사전으로 통합되며 표제어가 3천여 개 늘고 대안 수어도 표기된다."
+            ],
+            "significance": "한국수어사전에 혐오·차별 소지를 명시한 첫 사례다. 농인 성소수자 단체는 환영하면서도 대안 수어가 표제어로 오르지 못한 점은 아쉽다는 입장이다.",
+            "terms": [
+              {
+                "term": "표제어",
+                "description": "사전에서 항목의 제목으로 올려 풀이하는 말."
+              },
+              {
+                "term": "농인",
+                "description": "청각장애가 있어 수어를 주된 언어로 쓰는 사람."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hani-028-0002833050",
+          "publisherId": "hani",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] LG, 팀 단위로 지주사 슬림화…권봉석 부회장 ‘원톱’ 체제 유지",
+          "url": "https://www.hani.co.kr/arti/economy/marketing/1288173.html",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/028/0002833050?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "16",
+          "publishedAt": "2026-11-19T17:18:13+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 16면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "LG가 2027년 정기 임원인사에서 지주사 ㈜LG의 부문 조직을 없애고 팀 체제로 바꿔 권봉석 부회장 단독 체제를 이어가며, 하범종 사장은 신설 정도경영TFT장으로 옮겼다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "㈜LG는 LG그룹 계열사를 거느린 지주회사다. LG는 지난해 인사에서 LG전자와 LG화학 등 핵심 계열사 최고경영자를 교체했다.",
+            "points": [
+              "경영지원부문장이던 하범종 사장은 LG경영개발원장과 정도경영TFT장을 맡아 그룹 감사와 경영진단, 내부통제를 담당한다.",
+              "경영전략부문장 이상우 부사장이 LG전자로 옮기면서 ㈜LG는 전자·화학·통신서비스 등 팀 단위로 운영된다.",
+              "주요 계열사 CEO는 대부분 유임됐고, LG헬로비전과 팜한농은 CEO를 새로 선임했다.",
+              "LG전자는 사장 2명을 포함해 44명을 승진시켰고, 상무 승진자의 30%를 연구개발 인재로 채웠다.",
+              "LG전자는 AI 데이터센터 냉각 사업을 위해 어플라이드사업부와 미국 버지니아 칠러 생산법인을 신설한다."
+            ],
+            "significance": "지주사를 가볍게 하고 계열사 중심 책임경영을 강화하는 방향이다. 감사·준법 기능을 별도 조직으로 떼어낸 효과와 로봇·냉각 등 신사업 조직 개편의 성과가 지켜볼 대목이다.",
+            "terms": [
+              {
+                "term": "칠러",
+                "description": "냉각수를 만들어 건물이나 설비의 열을 식히는 대형 냉각 장치."
+              }
+            ]
+          }
+        },
+        {
+          "id": "khan-032-0003483906",
+          "publisherId": "khan",
+          "type": "feature",
+          "section": "경제",
+          "title": "[르포]“삼전닉스만 좋은 거 아닙니까…제조업은 다 죽고 있습니다”",
+          "url": "https://www.khan.co.kr/article/202611192147015",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/032/0003483906?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A9",
+          "publishedAt": "2026-11-19T21:47:01+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A9면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "수출 1조달러 돌파를 앞두고 안산 반월공단 현장은 반도체만 호황이라며 고전을 호소했고, 전통 제조업 7개 품목의 올해 1~10월 수출은 2년 전보다 약 5% 줄었다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 기획 문패 [르포]",
+          "detail": {
+            "background": "반월국가산업단지는 1979년 첫 공장이 들어선 뒤 기계·전자·섬유·석유화학 산업의 거점으로 성장했다. 한국은 1995년 처음으로 연간 수출 1000억달러를 달성했다.",
+            "points": [
+              "한 섬유업체는 수출 물량이 20% 늘었지만 증기 가격이 두 배로 올라 영업이익이 20% 줄었다.",
+              "2년 전 섬유업체가 있던 공단 부지에는 40㎿급 데이터센터가 지어지고 있다.",
+              "2년 전 대비 수출 지수는 기계 91, 자동차부품 90, 가전 82 등 7개 품목이 모두 100을 밑돌았다.",
+              "중국의 자체 생산 확대와 저가 밀어내기로 중국행 일반기계 수출은 5년 전보다 34% 줄었다.",
+              "반도체가 속한 업종의 수요 10억원당 취업유발은 2.9명으로 전 산업 평균 7.8명에 못 미친다."
+            ],
+            "significance": "반도체만으로 전통 제조업의 고용과 지역 경제 공백을 메우기 어렵다는 지적이다. 전문가들은 시간이 없다는 데 동의하지만 비용 지원 확대, 산업구조 개혁, 선별 지원으로 해법이 갈린다.",
+            "terms": [
+              {
+                "term": "생산유발계수",
+                "description": "한 산업의 수요가 한 단위 늘 때 전체 산업에서 유발되는 생산의 크기."
+              },
+              {
+                "term": "차이나 레드웨이브",
+                "description": "미국에서 밀려난 중국 제품이 신흥국과 유럽으로 퍼지는 현상을 산업연구원이 이른 말."
+              }
+            ]
+          }
+        },
+        {
+          "id": "khan-032-0003483939",
+          "publisherId": "khan",
+          "type": "feature",
+          "section": "세계",
+          "title": "피해를 수치로 헤아릴 수도, 말로 다 담을 수도 없다[COP31, 정치와 삶 사이②]",
+          "url": "https://www.khan.co.kr/article/202611200600001",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/032/0003483939?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A12",
+          "publishedAt": "2026-11-20T06:00:00+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A12면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "지난 8월 빙하 붕괴 홍수로 1400여 명이 숨진 네팔의 원주민·활동가들이 COP31에서 성지와 공동체 상실 같은 비경제적 피해와 복구 과정의 차별을 증언했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [COP31, 정치와 삶 사이②] 경향신문 COP31 현지 취재 기획 연재(본문 확인)",
+          "detail": {
+            "background": "COP31은 튀르키예 안탈리아에서 열리는 제31차 유엔기후변화협약 당사국총회다. 네팔이 세계 누적 이산화탄소 배출에서 차지하는 비중은 0.01%에 불과하다.",
+            "points": [
+              "8월 네팔·중국 국경 지대에서 빙하와 암반이 무너지며 홍수가 계곡 마을을 덮쳐 1464명이 숨지고 5285명이 실종됐다.",
+              "네팔 정부는 경제 피해를 27억달러, 재건 비용을 약 47억8000만달러로 추산했고 재건비만 GDP의 10%를 넘는다.",
+              "원주민 단체들은 정부 조사가 건물·도로에 쏠려 타망족 성지와 관습적 공동체 토지 피해가 빠졌다고 지적했다.",
+              "원주민 언어 재난 정보와 장애인 대피시설이 부족해 취약층 피해가 커졌지만 실태 자료조차 없다는 증언이 나왔다.",
+              "유엔 기금이 첫 배정으로 2000만달러를 책정했으나 피해에 비해 적고 신청 절차도 장벽으로 꼽혔다."
+            ],
+            "significance": "배출 책임이 거의 없는 나라가 피해 최전선에 선 기후 불평등이 드러난다. 돈으로 셈할 수 없는 문화·공동체 손실을 국제 기금과 협상이 어떻게 다룰지, 원주민 지식이 정책에 반영될지가 쟁점이다.",
+            "terms": [
+              {
+                "term": "손실과 피해 대응 기금",
+                "description": "기후변화로 이미 피해를 입은 개발도상국을 지원하기 위한 유엔 차원의 기금."
+              },
+              {
+                "term": "비경제적 손실",
+                "description": "문화유산, 성지, 공동체 유대처럼 금액으로 환산하기 어려운 피해."
+              }
+            ]
+          }
+        },
+        {
+          "id": "khan-032-0003483940",
+          "publisherId": "khan",
+          "type": "feature",
+          "section": "사회",
+          "title": "“베트남서도 하트나무 보러 온다”…청주 확대 추진에 네모·버섯 모양 ‘가로수 성형’ 수난시대[현장에서]",
+          "url": "https://www.khan.co.kr/article/202611200600021",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/032/0003483940?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A14",
+          "publishedAt": "2026-11-20T06:00:02+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A14면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "청주시가 은행나무를 하트 모양으로 다듬은 가로수길이 명소가 되자 확대를 검토 중이지만, 전문가들은 과도한 가지치기가 생육과 그늘 기능을 해친다고 우려한다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [현장에서] 경향신문 현장 방문 르포(본문 확인)",
+          "detail": {
+            "background": "가로수는 경관뿐 아니라 그늘을 만들고 도심 기온을 낮추는 역할을 한다. 최근 여러 지자체가 볼거리를 위해 가로수를 특정 모양으로 다듬는 사례가 늘고 있다.",
+            "points": [
+              "청주시는 6월부터 임시청사 주변 약 350m 구간의 수령 30년가량 은행나무 41그루를 하트 모양으로 손질했다.",
+              "SNS로 알려지며 외국인 관광객까지 찾고 구도심 상권이 살아났으며, 8월 산림청 가로수 관리 우수사례 평가에서 우수상을 받았다.",
+              "시는 흥덕구 봉명동 등으로 확대를 검토 중이고, 부산 남구는 네모, 충북 단양군은 버섯 모양 가로수길을 만들었다.",
+              "김무한 공주대 교수는 굵은 가지 절단이 2차 감염을 부르고 잎이 줄면 성장 저해와 고사 위험이 있다고 지적했다.",
+              "청주시는 은행나무가 전정에 강하다며 생육을 지켜본 뒤 하트 모양을 고집하지 않고 점진적으로 검토하겠다고 밝혔다."
+            ],
+            "significance": "관광·상권 효과와 나무 건강, 열섬 완화라는 가로수 본래 기능이 충돌하는 사례다. 다른 지자체로 번지는 이색 가지치기에 관리 기준이 필요한지가 지켜볼 점이다.",
+            "terms": [
+              {
+                "term": "전정",
+                "description": "나무의 생육이나 모양을 조절하려고 가지를 잘라내는 작업."
+              },
+              {
+                "term": "열섬 현상",
+                "description": "도심 기온이 주변 지역보다 높게 나타나는 현상."
+              }
+            ]
+          }
+        },
+        {
+          "id": "kmib-005-0001886287",
+          "publisherId": "kmib",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 작년 수능 ‘AI 커닝’ 잡는다… 정부, 시험지 전체 보관 지시",
+          "url": "https://www.kmib.co.kr/article/20261119502179",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/005/0001886287?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "2",
+          "publishedAt": "2026-11-19T19:02:09+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 2면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "교육부가 AI 부정행위 의혹 조사에 대비해 지난해 치른 2026학년도 수능 시험지를 폐기하지 말고 보관하라고 지시해, 조사가 작년 시험까지 넓어질 전망이다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "수능 시험지는 통상 시험장 학교가 1년간 보관하다가 다음 해 수능이 끝나면 학교장 재량으로 폐기한다. 올해 수능을 두고 AI를 이용한 부정행위 의혹이 확산된 상태다.",
+            "points": [
+              "교육부는 18일 전국 시·도교육청에 별도 조치 전까지 지난해 수능 시험지를 보관하라는 공문을 보냈다.",
+              "한성숙 국무총리도 19일 교육부에 시험지 보관을 유지하라고 긴급 지시했다.",
+              "한 총리는 17일 담화에서 교육부 홈페이지에 신고센터를 열고 의심 정황이 나오면 성적 사후 분석까지 하겠다고 밝혔다.",
+              "리트 만점자 이진우씨가 지난해 수능에서 AI로 부정행위를 했다는 과외 교사의 폭로 이후 작년 시험지 보존 요구가 나왔다.",
+              "20일 총리를 반장으로 출범하는 범정부 대응 TF가 관련 조치를 총괄할 것으로 보인다."
+            ],
+            "significance": "보관된 시험지로 작년 시험 관련 제보도 검증할 수 있게 돼 사후 적발 가능성이 커졌다. 올해와 작년 시험지 전수조사로 이어질지가 관건이다.",
+            "terms": [
+              {
+                "term": "리트(LEET)",
+                "description": "법학전문대학원 입학 전형에 쓰이는 법학적성시험."
+              }
+            ]
+          }
+        },
+        {
+          "id": "kmib-005-0001886302",
+          "publisherId": "kmib",
+          "type": "exclusive",
+          "section": "정치",
+          "title": "[단독] 조희대 대법원 ‘대법관 격려금’ 삭감되자 월급 20%증액요구",
+          "url": "https://www.kmib.co.kr/article/20261119502228",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/005/0001886302?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "11",
+          "publishedAt": "2026-11-19T19:17:06+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 11면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "대법관 격려금 예산이 깎이자 법원행정처가 민주당에 대법관 월급 20% 인상이나 연 최대 2000만원의 직무성과금 지급을 건의한 것으로 드러났다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "대법관은 최종심 재판을 맡는 최고법원 구성원이다. 대법관 위주로 지급되던 격려금은 사실상 임금인데도 소득세를 내지 않는다는 점에서 국정감사에서 부적절성을 지적받았다.",
+            "points": [
+              "법원행정처는 대법관 연봉이 약 1억7300만원으로 수당 포함 최대 1억9000만원인 일반 법관보다 적다며 보수 역전을 주장했다.",
+              "첫 방안은 법관보수법 개정으로 월급을 올리는 것으로, 20% 인상 시 연봉은 1억9600여만원이 된다.",
+              "둘째 방안은 규칙 개정으로 일반 법관의 직무성과금을 대법관에게도 연 2000만원까지 주는 것이다.",
+              "비연고지 근무 법관 교통비 16억원, 수도권 근무 법관 월세 지원 4억2000만원 신규 편성도 요청했다.",
+              "노경필 처장은 10월 국감에서 급여를 올리라는 의원 지적에 인상을 요청하는 취지로 답한 바 있다."
+            ],
+            "significance": "격려금 논란 직후 보수 인상을 요구한 것이어서 적절성 논쟁이 예상된다. 공무원 보수 조정률 연동 조항 삭제까지 요청한 만큼 국회 입법 여부가 주목된다.",
+            "terms": [
+              {
+                "term": "법원행정처",
+                "description": "대법원 소속으로 법원의 인사·예산·행정 사무를 맡는 기관."
+              }
+            ]
+          }
+        },
+        {
+          "id": "segye-022-0004176708",
+          "publisherId": "segye",
+          "type": "feature",
+          "section": "사회",
+          "title": "공항·컨벤션·바이오 다 갖춘 인천… “G20 정상회의 여기서” [지방기획]",
+          "url": "https://www.segye.com/newsView/20261118521432?OutUrl=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/022/0004176708?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A10",
+          "publishedAt": "2026-11-20T06:06:07+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A10면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "인천시가 2028년 G20 정상회의 유치에 나서 9월 추진단을 꾸렸으며, 인천공항·국제회의 시설·국제행사 경험과 회의 일정 전국 분산 구상을 내세우고 있다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 기획 문패 [지방기획]",
+          "detail": {
+            "background": "G20은 1999년 재무장관·중앙은행 총재 협의체로 출범해 2008년 금융위기를 계기로 정상회의로 격상됐다. 한국은 2028년 의장국으로 2010년 서울 회의 이후 18년 만에 정상회의를 연다.",
+            "points": [
+              "인천시는 9월 유치 기본계획과 추진단을 마련하고 범시민 홍보에 나섰으며 정부 선정 기준에 맞춰 강점을 입증할 계획이다.",
+              "국제회의 시설 15곳(회의장 144곳, 수용 약 4만7800명)과 숙박시설 193곳 1만2541실을 갖추고 있다.",
+              "2014년 아시안게임, 2023년 ADB 연차총회, 2025년 APEC 고위관리·장관회의 등을 치른 경험이 있다.",
+              "정상회의는 인천에서 열고 장관·셰르파회의 등은 다른 시·도와 나누는 상생 방안을 제시했다.",
+              "박찬대 시장은 민선 9기 연평균 GRDP 성장률 5%를 목표로 내걸고 2028년을 변곡점으로 꼽았다."
+            ],
+            "significance": "인천을 경유지에서 체류형 도시로 바꾸려는 시도다. 실제 개최지와 연계 개최 여부는 정부 지침과 경호·의전 검토에 달려 있다.",
+            "terms": [
+              {
+                "term": "셰르파회의",
+                "description": "정상회의 의제를 사전에 조율하는 각국 정상 대리인들의 회의."
+              }
+            ]
+          }
+        },
+        {
+          "id": "segye-022-0004176585",
+          "publisherId": "segye",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 동양·ABL생명 사명 ‘우리 라이프 케어’ 검토",
+          "url": "https://www.segye.com/newsView/20261119515710?OutUrl=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/022/0004176585?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A15",
+          "publishedAt": "2026-11-19T19:45:07+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A15면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "우리금융지주가 완전 자회사로 편입한 동양생명과 ABL생명의 통합 사명으로 우리 라이프 케어를 검토 중이며, 우리은행 명의로 상표권도 출원했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "우리금융은 2024년 8월 두 생명보험사 인수 계약을 맺고 2025년 7월 인수를 마무리해 계열사로 편입했다. 통합이 끝나면 업계 5위권 생보사를 보유하게 된다.",
+            "points": [
+              "우리금융은 내년 하반기 총자산 55조원 규모의 통합 생보사 출범을 목표로 하고 있다.",
+              "새 사명 후보로 그룹 브랜드를 넣은 우리 라이프 케어가 거론된다.",
+              "은행·증권 등 계열사와 브랜드를 통일해 시너지를 키우고 두 회사의 화학적 통합을 앞당기려는 취지로 풀이된다.",
+              "우리은행 측은 상표 출원이 선점 차원이며 구체적으로 정해진 것은 없다고 밝혔다."
+            ],
+            "significance": "사명 논의는 통합 작업이 본격화했음을 보여준다. 최종 사명 확정과 통합 일정이 계획대로 진행될지가 지켜볼 점이다.",
+            "terms": [
+              {
+                "term": "화학적 통합",
+                "description": "조직·문화·시스템까지 하나로 융합하는 실질적인 통합."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sedaily-011-0004684154",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 中, HBM 핵심 장비 싱가포르 우회 반입",
+          "url": "https://www.sedaily.com/article/20116697?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004684154?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "1",
+          "publishedAt": "2026-11-19T19:30:10+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 1면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "중국 반도체 거점들이 미국 수출통제를 피해 싱가포르를 거쳐 열처리 장비를 대량 수입한 것으로 나타났다. SK하이닉스 HBM 패키징 공정을 따라잡으려는 목적으로 분석된다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "미국은 첨단 반도체 생산에 쓰이는 핵심 장비의 중국 수출을 통제하고 있다. 고대역폭메모리(HBM)는 D램을 여러 층 쌓아 만든 AI용 메모리로, SK하이닉스가 시장을 이끌고 있다.",
+            "points": [
+              "상하이·안후이·베이징이 싱가포르에서 들여온 반도체 열처리 장비는 2022년 8808만 달러에서 올해 1~7월 3억 4468만 달러로 약 4배가 됐다.",
+              "올해 7개월 수입액이 이미 지난해 연간 실적 1억 9139만 달러를 넘어섰고, 전체 수입 중 싱가포르 비중은 10.7%에서 42.9%로 올랐다.",
+              "CXMT 본사가 있는 안후이성의 싱가포르산 비중은 2022년 3.9%에서 올해 58.5%로 치솟았다.",
+              "업계 전문가들은 이 장비가 SK하이닉스의 MR-MUF 공정을 모방하는 데 쓰인다고 보고 있다."
+            ],
+            "significance": "제3국을 통한 우회 반입이 사실이라면 미국 수출통제의 실효성에 의문이 제기된다. 엔비디아 칩이 제3국을 거쳐 중국에 들어간 사례처럼 장비도 같은 경로를 탔을 수 있다는 지적이 나오며, 한국의 HBM 우위가 위협받을 수 있다.",
+            "terms": [
+              {
+                "term": "MR-MUF",
+                "description": "D램을 쌓을 때 칩 사이에 보호재를 흘려 넣어 굳히는 패키징 공정으로, SK하이닉스 HBM의 핵심 기술이다."
+              },
+              {
+                "term": "CXMT",
+                "description": "창신메모리. 안후이성 허페이에 본사를 둔 중국 D램 업체다."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sedaily-011-0004684073",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독]빗썸 “점유율 1위”에...업비트, 하루새 재역전",
+          "url": "https://www.sedaily.com/article/20116584?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004684073?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "11",
+          "publishedAt": "2026-11-19T17:21:11+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 11면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "빗썸이 거래대금 점유율 1위를 되찾았다고 공지했지만 하루 만에 업비트가 62%대로 재역전했다. 거래 보상 이벤트로 끌어올린 일시적 수치라는 비판이 나온다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "국내 가상화폐 거래소 시장은 업비트가 1위, 빗썸이 2위인 구도다. 거래소 수익은 대부분 거래 수수료에서 나와 거래대금이 실적을 좌우한다.",
+            "points": [
+              "빗썸은 17일 오후 기준 24시간 거래대금 점유율 50.4%로 업비트를 앞섰다고 18일 공지했다.",
+              "19일 오후에는 업비트 62.2%, 빗썸 25.1%로 다시 뒤집혔다.",
+              "빗썸은 상금 3200만 원 규모 랭킹전을 반복했고, 17일 대상 코인 PHA는 시가총액의 24배인 약 9067억 원이 하루에 거래됐다.",
+              "3분기 두나무는 매출이 60.7% 줄며 첫 분기 적자를 냈고, 빗썸도 매출이 69.7% 줄고 81억 원 손실을 봤다."
+            ],
+            "significance": "시장 침체 속에 단기 거래대금을 끌어올리는 이벤트와 수수료 무료 경쟁이 겹치며 출혈경쟁 우려가 커지고 있다. 공지 없는 보상과 개별 수수료 면제 의혹도 제기돼 점유율 홍보의 신뢰성이 쟁점이다.",
+            "terms": [
+              {
+                "term": "랭킹전",
+                "description": "특정 코인의 거래 실적 순위에 따라 상금을 주는 거래소 이벤트."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sedaily-011-0004684023",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독]“은행에 공적역할만 요구하면 대출 위축”",
+          "url": "https://www.sedaily.com/article/20116512?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004684023?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "11",
+          "publishedAt": "2026-11-19T15:56:17+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 11면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "한국금융연구원이 은행에 공적 역할을 지나치게 요구하면 부실 비용이 늘어 오히려 대출이 줄 수 있다며 규제보다 유인책이 필요하다고 제언했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "정부와 금융당국은 은행에 생산적 금융과 서민·취약계층 지원 확대를 요구해 왔다. 은행은 서민대출 상품 운영과 각종 기금 출연으로 이에 참여하고 있다.",
+            "points": [
+              "보고서는 공적 역할로 위험이 커지면 수익성이 떨어져 은행이 대출 전체를 줄일 수 있다고 분석했다.",
+              "연구원은 차주 위험에 맞춰 가산금리를 자율 결정하게 하고 출연금·분담금은 적정 수준을 유지해야 한다고 봤다.",
+              "은행권은 지난해 새희망홀씨로 4조 167억 원을 공급하고 새도약기금에 3600억 원을 출연했다.",
+              "지난해 4대 금융지주 평균 ROE는 9.56%로 JP모건 17%에 크게 못 미쳤다."
+            ],
+            "significance": "당국이 7월부터 법정 출연금의 가산금리 반영을 제한하는 등 금리 관리를 강화하는 가운데 나온 경고다. 보고서는 은행세가 차주와 예금자에게 전가되고 대외 신인도를 떨어뜨릴 수 있다고 지적해 정책 방향을 둘러싼 논의가 주목된다.",
+            "terms": [
+              {
+                "term": "가산금리",
+                "description": "기준금리에 차주의 신용위험과 비용 등을 반영해 더하는 금리."
+              },
+              {
+                "term": "ROE",
+                "description": "자기자본이익률. 자기자본 대비 순이익 비율로 수익성을 보여준다."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sedaily-011-0004684030",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독]NH금융, 특별명퇴 실시...최대 40개월 임금 준다",
+          "url": "https://www.sedaily.com/article/20116523?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004684030?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "11",
+          "publishedAt": "2026-11-19T16:15:10+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 11면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "농협중앙회와 금융 계열사 등 7곳이 1986년 이전 출생 직원을 대상으로 특별 명예퇴직을 받으며, 퇴직금을 예년의 최대 2배인 40개월치 임금으로 높였다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "은행권은 매년 연말연초 희망퇴직으로 인력을 조정해 왔다. 연공서열 임금체계와 비대면 거래 확대로 인력 구조 개편 압력이 커진 상황이다.",
+            "points": [
+              "농협중앙회, 농협금융지주, NH농협은행 등 7개사가 20~25일 신청을 받고 확정자는 다음 달 31일 퇴사한다.",
+              "만 48~53세는 40개월치 임금에 1000만 원, 54·55세는 각각 38·36개월치에 1000만 원을 더 받는다.",
+              "임금피크제 대상인 만 56세는 28개월치에 5000만 원, 만 40~48세는 20개월치를 받는다.",
+              "이 수준은 최대 39개월치를 준 2022년 이후 4년 만이다."
+            ],
+            "significance": "보상 확대로 신청자가 늘어날 것으로 예상되며, 다른 시중은행도 희망퇴직을 검토하고 있어 연말 금융권 감원이 본격화될 수 있다. 은행권의 50대 이상 비중이 20대의 2배를 넘는 인력 구조가 배경으로 꼽힌다.",
+            "terms": [
+              {
+                "term": "임금피크제",
+                "description": "일정 나이 이후 임금을 단계적으로 줄이는 대신 고용을 보장하는 제도."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sedaily-011-0004683856",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독]저축은행 또 털렸다...직원정보 유출에 피싱 경보",
+          "url": "https://www.sedaily.com/article/20116269?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004683856?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "11",
+          "publishedAt": "2026-11-19T09:51:10+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 11면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "외부 업체가 운영하는 저축은행 직원 교육 사이트가 해킹돼 직원 이름·소속·직위가 유출됐고, 중앙회가 직원 사칭 피싱 주의를 당부했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "보이스피싱과 스미싱은 금융기관 직원을 사칭해 개인정보나 송금을 유도하는 사기다. 저축은행 업권에서는 최근 해킹에 따른 정보 유출이 잇따랐다.",
+            "points": [
+              "저축은행중앙회는 18일 홈페이지에 직원 정보 유출에 따른 2차 피해 주의 안내를 올렸다.",
+              "KG에듀원이 운영하는 교육관리 사이트가 공격받아 직원의 소속 은행, 직위, 성명이 새어 나갔다.",
+              "유출 인원, 피해 은행 수, 해킹 시점은 공개되지 않았다.",
+              "중앙회는 저축은행이 전화나 문자로 비밀번호나 인증번호를 요구하지 않는다며 의심 시 공식 대표번호로 확인하라고 안내했다."
+            ],
+            "significance": "자체 전산망이 아닌 외부 위탁 사이트에서 사고가 났다는 점에서 협력업체 보안 관리가 쟁점이 된다. 지난달 예가람·웰컴·OK저축은행에서도 유출이 이어져 업권 전반의 보안 대응이 주목된다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "sedaily-011-0004683995",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "세계",
+          "title": "[단독]알파벳 이사회 의장 “젠슨 대체자 찾기, 불가능한 일 아냐”",
+          "url": "https://www.sedaily.com/article/20116476?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004683995?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "12",
+          "publishedAt": "2026-11-19T15:09:13+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 12면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "존 헤네시 알파벳 이사회 의장이 인터뷰에서 젠슨 황의 후임 찾기는 어렵지만 불가능하지 않다며 엔비디아 이사회에 뛰어난 CEO를 찾으라고 조언했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "존 헤네시는 컴퓨터 과학자이자 스탠퍼드대 총장을 지냈고 2018년부터 알파벳 이사회 의장을 맡고 있다. 엔비디아는 AI 반도체 시장을 주도하는 미국 기업이다.",
+            "points": [
+              "기사에 따르면 젠슨 황은 중국 첩자로 의심받는 여성과의 불륜으로 엔비디아 CEO에서 물러났다.",
+              "헤네시 의장은 17일 스탠퍼드대에서 서울경제와 만나 후임으로 특정 인물을 염두에 두지 않았다고 밝혔다.",
+              "그는 외부 영입 가능성과 함께 내부 승진자가 나오기를 바란다고 말했다.",
+              "엔비디아는 의장 없던 이사회를 이번 사태를 계기로 의장 체제로 바꿨다.",
+              "같은 날 포럼에서 그는 차세대 칩 공급망을 우방국에 두자며 한미 AI 동맹을 강조했다."
+            ],
+            "significance": "1인 체제였던 엔비디아의 지배구조와 리더십 승계가 시장의 관심사로 떠올랐다. 후임 선임 방향과 이사회 체제 전환이 회사 경영에 미칠 영향을 지켜볼 필요가 있다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "sedaily-011-0004684045",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] “할인보다 적립…요기요, 배달앱 경쟁 판도 바꿀 것”",
+          "url": "https://www.sedaily.com/article/20116553?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004684045?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "19",
+          "publishedAt": "2026-11-19T16:46:18+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 19면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "김혜정 요기요 신임 공동대표가 일회성 할인 대신 포인트 적립을 강화하고 내년 외부 플랫폼 제휴 멤버십을 내놓겠다고 밝혔다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "국내 배달앱 시장은 배달의민족과 쿠팡이츠가 양강 구도를 이루고 요기요가 뒤따르고 있다. 업체들은 할인 쿠폰과 멤버십으로 이용자를 끌어왔다.",
+            "points": [
+              "김 대표는 마케팅 경력 30여 년으로 지난해 5월 CMO로 합류해 이달 10일 업계 첫 여성 CEO가 됐다.",
+              "주문액의 최대 18%를 쌓아 주는 요기더적립 등 적립 서비스를 내년에 고도화한다.",
+              "여러 매장 음식을 한 번에 결제하는 통합 결제와 묶음 배달을 순차 도입한다.",
+              "네이버·토스에 이어 다른 기업과 제휴를 논의 중이며 내년 새 멤버십을 낼 계획이다.",
+              "올해 매출 하위 40% 점주에게 1년간 낸 중개수수료의 20%를 돌려줬다."
+            ],
+            "significance": "양강 구도 속 3위 업체가 쿠폰 경쟁 대신 적립과 제휴로 충성고객을 확보하려는 전략이다. 새 멤버십 제휴 상대와 점유율 변화가 관전 포인트다.",
+            "terms": []
+          }
+        },
+        {
+          "id": "sedaily-011-0004684071",
+          "publisherId": "sedaily",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] CJ ENM, SLL중앙 측 티빙 지분 매입 추진 [시그널]",
+          "url": "https://www.sedaily.com/article/20116356?ref=naver",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/011/0004684071?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "20",
+          "publishedAt": "2026-11-19T17:17:13+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 20면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "CJ ENM이 SLL중앙이 가진 티빙 지분을 사들이기 위해 협상에 들어갔다. 시장은 해당 지분 가치를 약 2000억 원으로 본다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "티빙은 CJ ENM이 최대주주인 국내 OTT 플랫폼이다. SLL중앙은 중앙그룹 계열 콘텐츠 제작사로, 모회사 콘텐트리중앙이 회생절차에 들어가면서 티빙 지분을 팔겠다고 밝힌 바 있다.",
+            "points": [
+              "IB업계에 따르면 CJ ENM은 최근 SLL중앙과 티빙 지분 매입 협상을 시작했다.",
+              "현재 지분율은 CJ ENM 48.85%, SLL중앙 12.74%이며 전환사채를 포함하면 SLL중앙 측 몫은 20%를 웃돌 것으로 추산된다.",
+              "거래가 성사되면 CJ ENM 지분율은 60%를 넘고, 전환사채까지 확보해 전환하면 60% 중후반에 이른다.",
+              "2021년 SLL중앙에 약 3000억 원을 넣은 재무적투자자 프랙시스가 지난달 공동대표를 보내 매각과 자산 유동화를 맡고 있다.",
+              "CJ ENM이 풋옵션을 유동부채로 돌린 JC파트너스 보유 티빙 지분까지 사들일 가능성도 거론된다."
+            ],
+            "significance": "CJ ENM은 티빙 지배력을 굳히고, SLL중앙은 유동성 확보와 경영권 매각 여건 개선을 노릴 수 있다. 중앙일보 인수 컨소시엄 참여에 이어 CJ그룹의 미디어 투자가 공격적으로 바뀌고 있다는 점도 주목된다.",
+            "terms": [
+              {
+                "term": "전환사채(CB)",
+                "description": "일정 조건에 따라 주식으로 바꿀 수 있는 회사채"
+              },
+              {
+                "term": "풋옵션",
+                "description": "투자자가 미리 정한 가격에 지분을 되사도록 요구할 수 있는 권리"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mk-009-0005766376",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 가계대출 보름만에 1조 쑥 … 연말 대출 막힐라",
+          "url": "https://www.mk.co.kr/article/12213828",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/009/0005766376?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A12",
+          "publishedAt": "2026-11-19T17:41:47+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A12면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "5대 은행 가계대출이 이달 보름여 만에 1조1067억원 늘어 연간 한도 소진율이 86%에 달했고, 2개 은행은 이미 한도를 넘겼다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "금융당국은 가계부채 관리를 위해 은행별로 한 해 동안 늘릴 수 있는 가계대출 총량을 정해 둔다. 한도가 소진되면 연말에 신규 대출이 사실상 중단되는 일이 생길 수 있다.",
+            "points": [
+              "10월 말 5대 은행 가계대출은 작년 말보다 5조577억원 늘어 연간 한도 7조1319억원의 71%를 채웠다.",
+              "11월 1~17일 1조1067억원이 추가로 늘면서 소진율은 86%가 됐고 남은 여력은 1조원 안팎이다.",
+              "A은행은 한도를 약 6500억원, B은행은 약 5000억원 초과했다.",
+              "증시 저가 매수용 빚투와 공모주 청약 수요로 신용대출이 이달에만 1조1187억원 늘어 10월 증가액을 40% 이상 넘어섰다.",
+              "은행권은 비대면 신용대출 일일 접수 제한 등 추가 관리 조치를 검토 중이다."
+            ],
+            "significance": "연말을 앞두고 신용대출 급증이 전체 대출 여력을 갉아먹어 실수요자가 대출을 받지 못할 우려가 커졌다. 자료를 낸 한민수 의원은 당국이 8·13 조치의 실수요자 보호 장치가 제대로 작동하는지 점검해야 한다고 촉구했다.",
+            "terms": [
+              {
+                "term": "빚투",
+                "description": "빚을 내 주식 등에 투자하는 것"
+              },
+              {
+                "term": "총량규제",
+                "description": "당국이 금융회사별 대출 증가 규모의 상한을 정해 관리하는 방식"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mk-009-0005766409",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 美 '대관전략' 극과극 … 한화 329만弗 ·HD현대 無",
+          "url": "https://www.mk.co.kr/article/12213871",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/009/0005766409?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A14",
+          "publishedAt": "2026-11-19T17:47:10+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A14면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "미국 로비 공개자료상 한화는 올해 1~3분기 약 330만달러를 로비에 썼고 삼성중공업도 로펌을 통해 활동했지만, HD현대 조선 계열은 신고가 없었다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "마스가(MASGA)는 한미 간 조선업 협력 프로젝트로, 국내 조선·방산 기업의 미국 진출 계기가 되고 있다. 미국에서는 로비공개법에 따라 로비 지출과 수입을 분기별로 신고해야 한다.",
+            "points": [
+              "한화에어로스페이스는 올해 1~3분기 290만4000달러의 로비 지출을 신고했고 대상에는 군함·상선 건조와 국방수권법 등이 포함됐다.",
+              "한화디펜스USA를 의뢰인으로 한 외부 로비회사 3곳의 수입은 39만달러로, 한화 전체 규모는 약 330만달러다.",
+              "3분기에 새로 등록한 로비회사 체크메이트는 조선소 투자 문제로 백악관과 국방부를 접촉했다.",
+              "삼성중공업을 대리한 아놀드&포터는 올해 분기당 12만달러씩 36만달러를 신고했다.",
+              "HD현대 조선 계열사 명의의 신고는 확인되지 않았으며, 회사 측은 미국 법인 설립 초기라 시기상조라고 설명했다."
+            ],
+            "significance": "같은 미국 조선 시장을 노리면서도 기업별 대관 전략의 강도가 크게 다르다는 점이 드러났다. 한화는 군함 건조까지 전방위로, 삼성은 조선업 재건 입법에 집중하고, HD현대는 관망하는 구도다.",
+            "terms": [
+              {
+                "term": "로비공개법(LDA)",
+                "description": "미국에서 로비 활동의 주체, 대상, 금액을 공개하도록 한 법"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mk-009-0005766410",
+          "publisherId": "mk",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 현대차 '집콕 근무' 사라진다",
+          "url": "https://www.mk.co.kr/article/12213872",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/009/0005766410?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A14",
+          "publishedAt": "2026-11-19T17:47:13+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A14면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "현대차가 채용 홈페이지 근무환경 안내에서 재택근무 항목을 지웠다. 재택근무 축소 기조가 신규 채용에도 반영된 것으로 해석된다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "현대차는 기존 직원의 재택근무를 줄이는 방침을 추진해 왔고, 직원과 노조는 이에 반발해 철회를 요구해 왔다.",
+            "points": [
+              "19일 확인 결과 현대차는 채용 홈페이지의 기업문화 근무환경 페이지에서 재택근무 소개를 없앴다.",
+              "재택근무를 설명하던 6번 항목은 한동안 빈칸으로 남아 있다가 최근 정식으로 삭제됐다.",
+              "선택적 근로시간제, 거점오피스, 휴게 공간, 통근 지원 안내는 그대로 남아 있다.",
+              "직원·노조의 반발에도 회사는 재택근무 축소 입장을 바꾸지 않고 있다."
+            ],
+            "significance": "기존 직원은 단계적으로 줄이고 신규 지원자에게는 아예 안내하지 않는 두 갈래 방식으로 근무 체계를 바꾸려는 것으로 풀이된다. 노조와의 갈등이 어떻게 전개될지가 관건이다.",
+            "terms": [
+              {
+                "term": "선택적 근로시간제",
+                "description": "일정 기간 총 근로시간 안에서 직원이 출퇴근 시각과 하루 근무시간을 정하는 제도"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hankyung-015-0005356013",
+          "publisherId": "hankyung",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] \"수능이야 첩보전이야\"…신발 속 휴대폰 울리자 '아수라장'",
+          "url": "https://www.hankyung.com/article/2026111981971",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/015/0005356013?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A5",
+          "publishedAt": "2026-11-19T17:49:09+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A5면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "2027학년도 수능에서 소형카메라·스마트안경 등을 이용한 부정행위가 처음 적발됐고, 전자기기 관련 부정행위자는 98명으로 집계됐다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "AI와 스마트기기를 이용한 부정행위 우려가 커지면서 교육부는 올해 수능부터 스마트안경 등 첨단기기 반입을 금지하고 신고 포상금 등 고강도 대책을 내놨다.",
+            "points": [
+              "교육부 집계로 4교시까지 전자기기 관련 부정행위자는 98명이며 이 중 49명은 세 차례 보낸 위급재난문자로 적발됐다.",
+              "시험 중 기기를 실제로 쓰다 걸린 5명에는 용인의 소형카메라·이어폰 사용자, 천안의 스마트안경 착용자 등이 포함됐다.",
+              "용인 사건은 경기남부경찰청 사이버범죄수사대가 맡아 위계에 의한 공무집행방해 적용을 검토한다.",
+              "1교시 결시자는 5만4338명으로 결시율 9.85%였고, 총리는 작년 수능 시험지 보관을 지시했다."
+            ],
+            "significance": "대책에도 첨단기기 부정행위가 잇따르면서 지난해 수능에도 부정이 있었을 수 있다는 의혹이 커졌다. 포상금 1억원 탓에 누명을 걱정하는 수험생도 많았고, 응시제한을 최대 10년으로 늘리는 입법이 추진 중이다.",
+            "terms": [
+              {
+                "term": "위급재난문자",
+                "description": "재난 시 휴대폰에 강제로 울리는 경보 문자로, 숨긴 휴대폰을 찾아내는 데 쓰였다"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hankyung-015-0005356061",
+          "publisherId": "hankyung",
+          "type": "exclusive",
+          "section": "경제",
+          "title": "[단독] 조선·철강·전선업계 \"해상풍력 진출\"…'제조 클러스터' 구축이 관건",
+          "url": "https://www.hankyung.com/article/2026111982321",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/015/0005356061?date=20261120",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A13",
+          "publishedAt": "2026-11-19T18:13:12+09:00",
+          "newspaperDate": "2026-11-20",
+          "newspaperEvidence": "네이버 신문보기 2026-11-20 A13면 목록",
+          "collectedAt": "2026-11-20T09:17:53+09:00",
+          "summary": "조선·철강·전선 업체들이 해상풍력 사업에 속속 뛰어드는 가운데, 흩어진 생산거점을 모으는 제조 클러스터와 정책 지원이 필요하다는 지적이 나온다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "해상풍력은 바다에 풍력발전기를 세우는 방식으로, 터빈·하부구조물·해저케이블 등 대형 기자재와 설치·운영이 맞물린 인프라 산업이다. 덴마크는 생산시설을 한곳에 모은 풍력단지로 경쟁력을 키웠다.",
+            "points": [
+              "정부는 2025년 0.4GW인 해상풍력 설비를 2040년 45GW로 늘릴 계획이다.",
+              "HD현대중공업은 태안 500㎿급 단지 해상변전소를 수주했고, 한화오션은 설치선을, 삼성중공업은 부유식 하부구조물을 개발했다.",
+              "LS전선·대한전선은 해저케이블, 두산에너빌리티·유니슨은 대형 터빈을 추진하고 골드윈드·오스테드 경영진도 잇달아 방한했다.",
+              "HJ중공업 등 4개사는 군산조선소를 제조 클러스터로 만드는 협약을 맺었다."
+            ],
+            "significance": "생산거점이 분산돼 운송·야적 비용이 드는 점이 약점으로 꼽힌다. IEA는 전력망 연결과 행정 지연을 장애물로 지목했고, 인허가·금융 지원의 실효성 개선이 과제다.",
+            "terms": [
+              {
+                "term": "부유식 해상풍력",
+                "description": "해저에 고정하지 않고 물에 띄운 구조물 위에 발전기를 설치하는 방식"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "generatedAt": "2026-11-20T09:22:37+09:00",
+      "windowStart": "2026-11-19T00:00:00+09:00",
+      "windowEnd": "2026-11-20T09:20:16+09:00",
+      "collectionMode": "naver_newspaper",
+      "status": "complete",
+      "note": "네이버 신문보기 2026-11-19자 지면 전체(1208건)를 GitHub Actions가 수집하고, Claude가 단독·기획 선별과 요약을 작성했습니다.",
+      "coverage": [
+        {
+          "publisherId": "chosun",
+          "status": "checked",
+          "note": "지면 기사 82건 수집, 후보 3건 기사 페이지 확인. 단독·기획 1건 선정.",
+          "articleCount": 3
+        },
+        {
+          "publisherId": "joongang",
+          "status": "checked",
+          "note": "지면 기사 79건 수집, 후보 2건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 2
+        },
+        {
+          "publisherId": "donga",
+          "status": "checked",
+          "note": "지면 기사 125건 수집, 후보 1건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 1
+        },
+        {
+          "publisherId": "hani",
+          "status": "checked",
+          "note": "지면 기사 62건 수집, 후보 2건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 2
+        },
+        {
+          "publisherId": "hankookilbo",
+          "status": "checked",
+          "note": "지면 기사 85건 수집, 후보 2건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 2
+        },
+        {
+          "publisherId": "khan",
+          "status": "checked",
+          "note": "지면 기사 83건 수집, 후보 2건 기사 페이지 확인. 단독·기획 2건 선정.",
+          "articleCount": 2
+        },
+        {
+          "publisherId": "kmib",
+          "status": "checked",
+          "note": "지면 기사 94건 수집, 후보 1건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 1
+        },
+        {
+          "publisherId": "segye",
+          "status": "checked",
+          "note": "지면 기사 102건 수집, 후보 2건 기사 페이지 확인. 단독·기획 0건 선정.",
+          "articleCount": 2
+        },
+        {
+          "publisherId": "seoul",
+          "status": "checked",
+          "note": "지면 기사 95건 수집, 후보 1건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 1
         },
         {
           "publisherId": "sedaily",
           "status": "checked",
-          "note": "지면 기사 106건 수집, 후보 6건 기사 페이지 확인. 단독·기획 3건 선정.",
+          "note": "지면 기사 106건 수집, 후보 3건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 3
         },
         {
           "publisherId": "mk",
           "status": "checked",
-          "note": "지면 기사 151건 수집, 후보 6건 기사 페이지 확인. 단독·기획 4건 선정.",
+          "note": "지면 기사 151건 수집, 후보 4건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 4
         },
         {
           "publisherId": "hankyung",
           "status": "checked",
-          "note": "지면 기사 144건 수집, 후보 1건 기사 페이지 확인. 단독·기획 1건 선정.",
+          "note": "지면 기사 144건 수집, 후보 1건 기사 페이지 확인. 단독·기획 0건 선정.",
           "articleCount": 1
         }
       ],
@@ -876,6 +1884,104 @@
                 "description": "실제 화면 위에 디지털 정보를 겹쳐 보여주는 기술."
               }
             ]
+          }
+        },
+        {
+          "id": "chosun-023-0004010471",
+          "publisherId": "chosun",
+          "type": "exclusive",
+          "section": "정치",
+          "title": "[단독] “다리 설계비 70억”… 대놓고 ‘쪽지 예산’이라 적어 넣어",
+          "url": "https://www.chosun.com/politics/politics_general/2026/11/19/Q6NYW4CUF5GSFCNI24LC2ZBN34/",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/023/0004010471?date=20261119",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A6",
+          "publishedAt": "2026-11-19T00:50:16+09:00",
+          "newspaperDate": "2026-11-19",
+          "newspaperEvidence": "네이버 신문보기 2026-11-19 A6면 목록",
+          "collectedAt": "2026-11-20T09:20:16+09:00",
+          "summary": "국회 11개 상임위가 내년 정부 예산안을 28조5000억원 늘려 의결했고, 한 의원은 질의서에 쪽지 예산이라고 직접 적어 지역 교량 설계비를 요청한 것으로 나타났다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "정부가 국회에 낸 내년 예산안은 820조9000억원으로 역대 최대다. 예산안은 상임위 예비심사 뒤 예산결산특별위원회와 본회의를 거쳐 확정되며, 상임위 단계 증액은 해마다 10조~15조원 안팎이었다.",
+            "points": [
+              "본지 분석 결과 18일까지 상임위 11곳의 증액 합계가 28조5000억원에 달했다.",
+              "국토교통위는 정부안보다 3조7258억원을 늘렸고, 국도 관련 쪽지 예산과 기존 사업 증액이 70건 약 2500억원이었다.",
+              "경남이 지역구인 국민의힘 의원은 도로·대교 설계비 70억원을 쪽지 예산으로 지원해 달라고 서면 질의서에 적었고, 상임위에서 10억원이 반영됐다.",
+              "증액 규모는 보건복지위 8조7657억원, 행정안전위 5조262억원, 교육위 3조7154억원 순이었고 과방위는 AI 명목 지역 사업을 다수 새로 넣었다."
+            ],
+            "significance": "상임위 증액이 예년의 두 배를 넘으면서 예결위 심사에서 얼마나 걸러질지가 관건이다. 국민의힘이 미래대응기금 삭감을 요구하면서도 소속 의원들이 지역구 증액을 요구해 원내대표가 철회를 지시하는 등 여야 모두 비판을 피하기 어렵다.",
+            "terms": [
+              {
+                "term": "쪽지 예산",
+                "description": "정부 예산안에 없던 지역 민원성 사업을 국회 심사 막바지에 의원 요청으로 끼워 넣는 예산."
+              }
+            ]
+          }
+        },
+        {
+          "id": "khan-032-0003483630",
+          "publisherId": "khan",
+          "type": "feature",
+          "section": "세계",
+          "title": "국내 재난에 무책임했던 정부가 국제 협상에서 책임을 다할까[COP31, 정치와 삶 사이①]",
+          "url": "https://www.khan.co.kr/article/202611190600011",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/032/0003483630?date=20261119",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A6",
+          "publishedAt": "2026-11-19T06:00:01+09:00",
+          "newspaperDate": "2026-11-19",
+          "newspaperEvidence": "네이버 신문보기 2026-11-19 A6면 목록",
+          "collectedAt": "2026-11-20T09:20:16+09:00",
+          "summary": "경향신문이 COP31 현장에서 만난 인도네시아 활동가들은 최악의 산불에 정부 대응이 미흡했다며 국제 기후재원이 주민에게 닿을지 의문을 제기했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "연재 등록부: [COP31, 정치와 삶 사이①] 경향신문 COP31 현지 취재 기획 연재(본문 확인)",
+          "detail": {
+            "background": "제31차 유엔기후변화협약 당사국총회(COP31)가 튀르키예 안탈리아에서 열리고 있다. 이 연재는 기후재난 피해국 주민과 활동가의 목소리를 협상장 밖 시각에서 전하는 기획의 첫 회다.",
+            "points": [
+              "올해 인도네시아 산불로 288만㏊ 이상이 탔고, 이달 2일 기준 피해 지역 급성호흡기감염 사례가 40만건을 넘었다.",
+              "대통령은 상황이 통제되고 있다며 국가재난 선포와 해외 원조를 거부했고, 이를 비판한 시위에는 군경이 동원됐다.",
+              "활동가들은 팜유 플랜테이션 개간을 위한 방화와 이탄지 배수를 산불의 주요 원인으로 지목했다.",
+              "2024년 한국 바이오디젤 원료의 72%가 팜유와 팜 부산물이어서 수입국의 녹색 전환이 산림 훼손을 부추긴다는 지적이 나왔다."
+            ],
+            "significance": "재난 대응이 부실했던 정부가 국제사회에서 확보한 재원을 피해 주민을 위해 쓸지가 쟁점이다. 바이오디젤 혼합률을 높이려는 한국도 원료의 지속가능성을 따져야 한다는 문제 제기와 맞닿아 있다.",
+            "terms": [
+              {
+                "term": "이탄지",
+                "description": "죽은 식물이 물에 잠긴 채 쌓여 만들어진 습지로 탄소를 많이 저장하지만, 마르면 불이 붙기 쉽고 오래 탄다."
+              }
+            ]
+          }
+        },
+        {
+          "id": "khan-032-0003483629",
+          "publisherId": "khan",
+          "type": "exclusive",
+          "section": "사회",
+          "title": "[단독] 사진찍으려 차도까지 ‘불쑥’ 민폐 관광객들···효자로 단풍길, 결국 ‘붉은 통제선’ 둘렀다",
+          "url": "https://www.khan.co.kr/article/202611190600001",
+          "naverUrl": "https://n.news.naver.com/article/newspaper/032/0003483629?date=20261119",
+          "naverUrlSource": "naver_newspaper_page",
+          "page": "A11",
+          "publishedAt": "2026-11-19T06:00:00+09:00",
+          "newspaperDate": "2026-11-19",
+          "newspaperEvidence": "네이버 신문보기 2026-11-19 A11면 목록",
+          "collectedAt": "2026-11-20T09:20:16+09:00",
+          "summary": "서울 종로구가 단풍 명소 효자로에서 관광객이 차도로 뛰어들어 사진을 찍는 일이 잇따르자 가로수 전체에 붉은 통제선을 설치했다.",
+          "summaryBasis": "full_text",
+          "classificationEvidence": "제목의 [단독] 표기",
+          "detail": {
+            "background": "효자로는 경복궁역에서 청와대 방향으로 이어지는 은행나무길로, 단풍철마다 외국인 관광객이 많이 몰린다. 최근에는 가로수에 설치된 뜨개 작품을 배경으로 사진을 찍으려는 방문객도 늘었다.",
+            "points": [
+              "종로구는 안전 민원이 이어지자 13일 효자로 가로수 전체에 통제선을 둘렀다.",
+              "설치 뒤에도 일부 관광객은 보행 신호를 기다렸다가 횡단보도에서 서둘러 촬영하는 모습이었다.",
+              "관할 파출소에 따르면 설치 전 하루 5~6건이던 운전자 신고가 설치 뒤 한 건도 들어오지 않았다.",
+              "관광객과 주민 사이에서는 경관을 해친다는 불만과 사고 예방을 위해 필요하다는 의견이 엇갈렸다.",
+              "구청은 단풍이 지면 곧 통제선을 철거할 계획이다."
+            ],
+            "significance": "관광객 증가로 생기는 안전 문제와 경관·주민 불편을 함께 다뤄야 하는 과밀 관광 문제의 한 사례다. 통제선 같은 임시 조치 대신 다른 관리 방식을 찾아야 한다는 요구도 나왔다.",
+            "terms": []
           }
         }
       ]
