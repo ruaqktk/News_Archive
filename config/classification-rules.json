@@ -286,6 +286,10 @@
       "금융라운지": {
         "decision": "exclude",
         "note": "금융 단신 정보 코너"
+      },
+      "매부리 PICK": {
+        "decision": "exclude",
+        "note": "자사 유튜브 소개 코너"
       }
     },
     "segye": {
@@ -638,6 +642,10 @@
       "현장기자": {
         "decision": "exclude",
         "note": "기자 의견 칼럼"
+      },
+      "신앙 DM": {
+        "decision": "exclude",
+        "note": "신앙 상담 코너"
       }
     },
     "donga": {
@@ -978,6 +986,14 @@
       "High Collection": {
         "decision": "exclude",
         "note": "여행·브랜드 홍보성 특집"
+      },
+      "2026 대학평가": {
+        "decision": "feature",
+        "note": "중앙일보 자체 학문분야 대학평가 기획(1면 포함 4꼭지, 본문 확인)"
+      },
+      "해양수도 부산": {
+        "decision": "exclude",
+        "note": "지자체·기업 홍보성 특집 섹션(본문 확인)"
       }
     },
     "hankookilbo": {
@@ -1172,6 +1188,10 @@
       "숫자로 본 대한민국": {
         "decision": "exclude",
         "note": "외부 필자 칼럼(본문 확인)"
+      },
+      "찐밸리 이야기": {
+        "decision": "exclude",
+        "note": "특파원 정기 코너, 회차·기획 표기 없음(본문 확인)"
       }
     },
     "khan": {
@@ -1454,6 +1474,26 @@
       "책에서 만난 얼굴": {
         "decision": "exclude",
         "note": "서평 코너(외부 필자)"
+      },
+      "COP31 현장에서": {
+        "decision": "exclude",
+        "note": "행사명 문패의 현장 스트레이트(본문 확인)"
+      },
+      "친절한 식품 이야기": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "요리에 과학 한 스푼": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "한끗 차이": {
+        "decision": "exclude",
+        "note": "외부 필자(패션칼럼니스트) 연재 칼럼(본문 확인)"
+      },
+      "플랫한 티타임": {
+        "decision": "exclude",
+        "note": "정기 인물 인터뷰 코너(본문 확인)"
       }
     },
     "chosun": {
@@ -1532,6 +1572,14 @@
       "산모퉁이 돌고 나니": {
         "decision": "exclude",
         "note": "외부 필자 에세이 연재(본문 확인)"
+      },
+      "新중동천일야화": {
+        "decision": "exclude",
+        "note": "외부 필자 중동 칼럼(본문 확인)"
+      },
+      "부동산 100자 정보": {
+        "decision": "exclude",
+        "note": "부동산 단신 코너"
       }
     },
     "hani": {
@@ -1628,6 +1676,14 @@
         "note": "외부 필자 칼럼"
       },
       "권김현영의 사건 이후": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
+      },
+      "정치 막전막후": {
+        "decision": "exclude",
+        "note": "선임기자 정치 칼럼(본문 확인)"
+      },
+      "헬로, 크립토": {
         "decision": "exclude",
         "note": "외부 필자 칼럼"
       }
@@ -1772,6 +1828,14 @@
       "올레길에서 만난 벅차오름": {
         "decision": "exclude",
         "note": "걷기 행사 참가 소개 기사(본문 확인)"
+      },
+      "고 프리 런": {
+        "decision": "exclude",
+        "note": "자사 주최 행사 보도"
+      },
+      "청년, 지역의 내일을 만들다": {
+        "decision": "exclude",
+        "note": "기업 후원 사업 성과 소개(협찬성, 본문 확인)"
       }
     },
     "sedaily": {
@@ -2006,6 +2070,22 @@
       "2027 대학수학능력시험": {
         "decision": "exclude",
         "note": "수능 사건명 문패(스트레이트 묶음)"
+      },
+      "인베스팅 인사이트": {
+        "decision": "exclude",
+        "note": "정기 투자 분석 코너, 회차·기획 표기 없음(본문 확인)"
+      },
+      "교육 알림장": {
+        "decision": "exclude",
+        "note": "교육업계 신제품 단신 코너"
+      },
+      "신상훈 왓츠 인 더 백": {
+        "decision": "exclude",
+        "note": "필자 이름 골프 장비 칼럼"
+      },
+      "월드 포커스": {
+        "decision": "exclude",
+        "note": "외부 필자(대사) 기고"
       }
     },
     "hankyung": {
