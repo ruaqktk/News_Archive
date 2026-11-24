@@ -528,6 +528,14 @@
       "미·중·러 정상회담": {
         "decision": "exclude",
         "note": "정상회담 사건명 문패(스트레이트 묶음)"
+      },
+      "불안한 K증시": {
+        "decision": "exclude",
+        "note": "당일 증시 현안 스트레이트 묶음"
+      },
+      "李대통령, 중폭 개각": {
+        "decision": "exclude",
+        "note": "개각 사건명 스트레이트 묶음"
       }
     },
     "kmib": {
@@ -646,6 +654,10 @@
       "신앙 DM": {
         "decision": "exclude",
         "note": "신앙 상담 코너"
+      },
+      "식탁에서 보는 세계": {
+        "decision": "exclude",
+        "note": "외부 필자 칼럼"
       }
     },
     "donga": {
@@ -868,6 +880,10 @@
       "스타트업 人터뷰": {
         "decision": "exclude",
         "note": "정기 인터뷰 코너"
+      },
+      "현장속으로": {
+        "decision": "feature",
+        "note": "동아일보 지역 현장 르포 코너(현장 방문 취재, 본문 확인)"
       }
     },
     "joongang": {
@@ -1192,6 +1208,10 @@
       "찐밸리 이야기": {
         "decision": "exclude",
         "note": "특파원 정기 코너, 회차·기획 표기 없음(본문 확인)"
+      },
+      "프로필": {
+        "decision": "exclude",
+        "note": "인사 후보자 약력 소개"
       }
     },
     "khan": {
@@ -1494,6 +1514,14 @@
       "플랫한 티타임": {
         "decision": "exclude",
         "note": "정기 인물 인터뷰 코너(본문 확인)"
+      },
+      "현장": {
+        "decision": "feature",
+        "note": "경향신문 현장 르포(현장 방문 취재, 본문 확인)"
+      },
+      "유튜브 속 경향": {
+        "decision": "exclude",
+        "note": "유튜브 영상 소개 코너"
       }
     },
     "chosun": {
@@ -1580,6 +1608,10 @@
       "부동산 100자 정보": {
         "decision": "exclude",
         "note": "부동산 단신 코너"
+      },
+      "에스프레소": {
+        "decision": "exclude",
+        "note": "기자 의견 칼럼"
       }
     },
     "hani": {
@@ -1836,6 +1868,14 @@
       "청년, 지역의 내일을 만들다": {
         "decision": "exclude",
         "note": "기업 후원 사업 성과 소개(협찬성, 본문 확인)"
+      },
+      "대입 이렇게 바꿔라": {
+        "decision": "feature",
+        "note": "서울신문 대입 개편 전문가 제언 기획(5명 인터뷰, 본문 확인)"
+      },
+      "강소기업 돋보기": {
+        "decision": "exclude",
+        "note": "기업 소개 코너"
       }
     },
     "sedaily": {
@@ -2086,6 +2126,14 @@
       "월드 포커스": {
         "decision": "exclude",
         "note": "외부 필자(대사) 기고"
+      },
+      "5개 부처 개각": {
+        "decision": "exclude",
+        "note": "개각 사건명 스트레이트 묶음"
+      },
+      "글로벌 왓": {
+        "decision": "exclude",
+        "note": "정기 국제 뉴스 코너"
       }
     },
     "hankyung": {
